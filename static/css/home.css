@@ -394,3 +394,6 @@ a[class^="share-network-"] {
 	width:200px;
 	float:left;
 }
+.modal {
+  overflow-y:auto;
+}

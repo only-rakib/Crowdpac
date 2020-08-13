@@ -1,0 +1,44 @@
+{%load static%}
+
+<div class="row">
+    <div class="col-sm-8">
+        <h3>
+            {{support.endorsement_title}}
+        </h3>
+    </div>
+    <div class="col-sm-4">
+        <button type="button" class="btn" style="width: 80%">
+				Endores
+				</button>
+    </div>
+</div>
+{% for i in endorsed_people %}
+<div class="row rmargin-top">
+    <div class="col-1">
+        {% with i.end_pro_pic as pro_pic %}
+        <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;background-color: #F5F5F5;width: 40px;height: 40px;" alt="R"> {% endwith %}
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                &nbsp&nbsp<a href="{{i.end_profile}}" style="color:#FF4814 ">{{i.end_name}}</a> &nbsp&nbsp
+                <span>{{i.end_status}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                &nbsp&nbsp
+                <p style="color:#787878">
+                    {{i.end_comment}} {% if i.end_comment and i.end_comment.strip %}
+                    <span class="read-more" style="display: inline;">&nbsp;...<a href="#" class="more-link">Read more</a></span> {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col offset-2">
+        <hr class="line-bottom">
+    </div>
+</div>
+{% endfor %} {% include 'pagination.html' %}

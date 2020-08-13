@@ -480,50 +480,113 @@
                         </div>
                         <div class="row">
                             <div class="col text-center">
-                                <u class="mini-recipient rhover">Donate as a couple</u>
+                                <div class="row">
+                                    <div class="col">
+                                        <u class="mini-recipient rhover" id="u_couple_individual_donate" onclick="individual_toogle()">Donate as a couple</u>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="mini-recipient" id="txt_coupe_donate" style="display: none">
+                                            Donating as a couple makes it easier for two people who live in the same household to contribute using the same payment information.
+                                        </span>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div class="row rmargin-top">
-                            <div class="col-sm-4">
-                                <button type="button" class="btn" style="width: 100%;height: 100%">
-                                $20
-                                <br>
-                                &nbsp
-                                </button>
+                        <div id="individual_donate_content">
+                            
+                            
+                            <div class="row rmargin-top">
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%"data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>
+                                    $20
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>
+                                    $27
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>
+                                    $50
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-sm-4">
-                                <button type="button" class="btn" style="width: 100%;height: 100%">
-                                $27
-                                <br>
-                                &nbsp
-                                </button>
-                            </div>
-                            <div class="col-sm-4">
-                                <button type="button" class="btn" style="width: 100%;height: 100%">
-                                $50
-                                <br>
-                                &nbsp
-                                </button>
+                            <div class="row" style="margin-top: 2%">
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>
+                                    $100
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal">
+                                    $1000<br>
+                                    <span style="font-size: 8px">Maximum</span>
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>
+                                    $20
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="row" style="margin-top: 2%">
-                            <div class="col-sm-4">
-                                <button type="button" class="btn" style="width: 100%;height: 100%">
-                                $100
-                                <br>
-                                &nbsp
-                                </button>
+                        <div id="couple_donate_content" style="display: none">
+                            
+                            
+                            <div class="row rmargin-top">
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal">
+                                    $40
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal">
+                                    $54
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>
+                                    $100
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-sm-4">
-                                <button type="button" class="btn" style="width: 100%;height: 100%">
-                                $1000<br>
-                                <span style="font-size: 8px">Maximum</span>
-                                </button>
-                            </div>
-                            <div class="col-sm-4">
-                                <button type="button" class="btn" style="width: 100%;height: 100%">
-                                $20
-                                </button>
+                            <div class="row" style="margin-top: 2%">
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal">
+                                    $200
+                                    <br>
+                                    &nbsp
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal">
+                                    $20000<br>
+                                    <span style="font-size: 8px">Maximum</span>
+                                    </button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn" style="width: 100%;height: 100%" data-dismiss="modal">
+                                    $20
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -535,4 +598,29 @@
         </div>
     </div>
 </div>
+<script>
+var cnt = 0;
+function individual_toogle(){
+a = document.getElementById("u_couple_individual_donate");
+b = document.getElementById("txt_coupe_donate");
+c = document.getElementById("individual_donate_content");
+d = document.getElementById("couple_donate_content");
+if(cnt==0)
+{
+cnt=1;
+a.innerHTML="Donate as an individual";
+b.style.display ='flex';
+c.style.display ='none';
+d.style.display ='block';
+}
+else
+{
+cnt=0;
+a.innerHTML="Donate as a couple";
+b.style.display ='none';
+c.style.display ='block';
+d.style.display ='none';
+}
+}
+</script>
 <!--Modal other donate end-->
