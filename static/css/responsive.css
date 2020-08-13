@@ -16,5 +16,9 @@
 	{
 		display: none;
 	}
+	.crowpac-modal-icon
+	{
+		width:150px;
+	}
 
 }

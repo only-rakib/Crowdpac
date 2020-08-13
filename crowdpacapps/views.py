@@ -1,7 +1,19 @@
 from django.shortcuts import render
+from itertools import chain
+from .models import Donar_list, Endorsement_list
 
 
 def petitionView(request):
+    donar_orders = Donar_list.objects.all()
+
+    endorse_orders = Endorsement_list.objects.all()
+    orders = list(
+        sorted(
+            chain(donar_orders, endorse_orders),
+            key=lambda objects: objects.created
+        ))
+    #paginator = Paginator(orders, 5)
+
     first_topic = {
 
         'reporter_pro_pic': 'lhbebvoswhrprssro4ar.jpg',
@@ -37,6 +49,7 @@ def petitionView(request):
 
 
 def view_campaignView(request):
+
     post = {
         'post_title': 'Rent Strike 2020',
         'video_link': 'https://www.youtube.com/embed/ozRlOJyuJfU',
@@ -99,15 +112,51 @@ def view_campaignView(request):
     lstdon = []
     lstdon.append(donar_1)
     lstdon.append(donar_2)
-
+    tagDic1 = {
+        'name': 'Union Rights',
+        'url': '#',
+    }
+    tagDic2 = {
+        'name': 'Civil Rights',
+        'url': '#',
+    }
+    taglst = []
+    taglst.append(tagDic1)
+    taglst.append(tagDic2)
     context = {
         'post': post,
         'support': support,
         'endorsed_people': lstend,
         'donars': lstdon,
+        'tags': taglst,
     }
+
     return render(request, 'view_campaign.html', context)
 
 
 def view_petitionsView(request):
     return render(request, 'view_petitions.html')
+
+
+def donateView(request, amount):
+    if amount == "20":
+
+        total = {'amount': '20.00', 'tip': '2.00',
+                 'handle': '0.83', 'total': ' 22.83'}
+
+    elif amount == "27":
+
+        total = {'amount': '27.00', 'tip': '2.70',
+                 'handle': '1.05', 'total': ' 30.75'}
+
+    elif amount == "50":
+
+        total = {'amount': '50.00', 'tip': '5.00',
+                 'handle': '1.79', 'total': ' 56.79'}
+
+    elif amount == "100":
+
+        total = {'amount': '100.00', 'tip': '10.00',
+                 'handle': '3.39', 'total': ' 113.39'}
+
+    return render(request, 'donate_page.html', {'data': total})

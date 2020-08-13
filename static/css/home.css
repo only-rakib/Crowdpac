@@ -183,6 +183,10 @@ a.social-feed-post-link {
 	padding: 0.4em 1em 0.38em;
 	text-align: center;
 }
+.btn:hover
+{
+	background: #E6E6E6;
+}
 .btn.red
 {
 	background: #FF4814;
@@ -375,4 +379,18 @@ a[class^="share-network-"] {
 {
     background-color: #DDDDDD !Important;
     border: solid 1px #5A4181;
+}
+.modal-dialog.rmodal
+{
+	max-width: 80%;
+}
+.mini-recipient.rhover:hover
+{
+	color:#f87c59;
+	cursor: pointer;
+}
+.crowpac-modal-icon
+{
+	width:200px;
+	float:left;
 }

@@ -1,369 +1,338 @@
 {% extends 'header_footer.html' %} {% load static %} {% block title %}
-<title>{{post.post_title}} | Crowdpac</title>
+	<title>{{post.post_title}} | Crowdpac</title>
 {% endblock title %} {% block container %}
-
-
-
-
 <!--Body grid system start 1st <section>-->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1 class="text-center">{{post.post_title}}</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-2">
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="{{post.video_link}}" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            {% with 'images/'|add:post.reporter_pro_pic as pro_pic %}
-                            <img src="{% static pro_pic %}" style="border-radius: 50%; float: left"> {% endwith %}
-                            <h2 class="mini-recipient__title" style="margin-top: 2%">{{post.reporter_name}} </h2>
-                            <h2 class="mini-recipient">{{post.reporter_org_type}}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <hr class="line-bottom">
-                        </div>
-                    </div>
-                    <div class="row " id="hide-property">
-                        <div class="col-sm-12">
-                            <h2>
-                                {{support.donate_title}}
-                            </h2>
-                        </div>
-                    </div>
-
-
-                    <div class="row" id="hide-property">
-                        <div class="col-sm-12">
-                            <button type="button" class="btn red" style="
-									width: 100%;padding: 6%;">Donate $20</button>
-                        </div>
-                    </div>
-                    <div class="row" id="hide-property">
-                        <div class="col-sm-12">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">$27</a>
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">$50</a>
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">$100</a>
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Other</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <a class="btn black" href="#" style="
-									width: 100%;padding: 6%;">  View Petition </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-sm-8 ">
-                    <ul class="nav nav-tabs r nav-justified" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active text-center" id="story-tab" data-toggle="tab" href="#story" role="tab" aria-controls="story" aria-selected="true" onclick="myFunction()">Story</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-center" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Updates</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-center" id="Endorsements-tab" data-toggle="tab" href="#Endorsements" role="tab" aria-controls="Endorsements" aria-selected="false">    Endorsements
-										<span class="tab-badge">
-											{{support.endorsement_count}}
-										</span>
-									</a>
-
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-sm-4 ">
-                    <div class="row rmargin-top">
-                        <div class="col">
-                            <button type="button" class="btn white" data-toggle="modal" data-target="#modal-share">
-									<i class="fas fa-share"></i>Share
-									</button>&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <button type="button" class="btn white">
-									<i class="fas fa-eye"></i>Follow
-									</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row rmargin-top">
-                <div class="col-sm-8">
-                    <div class="row">
-                        <div class="col">
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="story" role="tabpanel" aria-labelledby="story-tab">
-                                    <div class="row">
-                                        <div class="col">
-                                            {{support.story_details}}
-                                        </div>
-                                    </div>
-                                    <div class="row rmargin-top">
-                                        <div class="col">
-                                            <div class="row">
-                                                <div class="col-sm-8">
-                                                    <h3>
-                                                        {{support.endorsement_title}}
-                                                    </h3>
-                                                </div>
-
-                                                <div class="col-sm-4">
-                                                    <button type="button" class="btn" style="width: 80%">
-															Endores
-															</button>
-                                                </div>
-
-                                            </div>
-                                            {% for i in endorsed_people %}
-                                            <div class="row rmargin-top">
-                                                <div class="col-1">
-                                                    {% with i.end_pro_pic as pro_pic %}
-                                                    <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;background-color: #F5F5F5;width: 40px;height: 40px;" alt="R"> {% endwith %}
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            &nbsp&nbsp<a href="{{i.end_profile}}" style="color:#FF4814 ">{{i.end_name}}</a> &nbsp&nbsp
-                                                            <span>{{i.end_status}}</span>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            &nbsp&nbsp
-                                                            <p style="color:#787878">
-                                                                {{i.end_comment}} {% if i.end_comment and i.end_comment.strip %}
-                                                                <span class="read-more" style="display: inline;">&nbsp;...<a href="#" class="more-link">Read more</a></span> {% endif %}
-
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col offset-2">
-                                                    <hr class="line-bottom">
-                                                </div>
-                                            </div>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
-                                    <h2 class="text-center">
-                                        {{support.update_title}}
-                                    </h2>
-                                </div>
-                                <div class="tab-pane fade" id="Endorsements" role="tabpanel" aria-labelledby="Endorsements-tab">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <h3>
-                                                {{support.endorsement_title}}
-                                            </h3>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <button type="button" class="btn" style="width: 80%">
-													Endorse
-													</button>
-                                        </div>
-                                    </div>
-                                    {% for i in endorsed_people %}
-                                    <div class="row rmargin-top">
-                                        <div class="col-1">
-                                            {% with i.end_pro_pic as pro_pic %}
-                                            <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;background-color: #F5F5F5;width: 40px;height: 40px;" alt="R"> {% endwith %}
-                                        </div>
-                                        <div class="col">
-                                            <div class="row">
-                                                <div class="col">
-                                                    &nbsp&nbsp<a href="{{i.end_profile}}" style="color:#FF4814 ">{{i.end_name}}</a> &nbsp&nbsp
-                                                    <span>{{i.end_status}}</span>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    &nbsp&nbsp
-                                                    <p style="color:#787878">
-                                                        {{i.end_comment}} {% if i.end_comment and i.end_comment.strip %}
-                                                        <span class="read-more" style="display: inline;">&nbsp;...<a href="#" class="more-link">Read more</a></span> {% endif %}
-
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col offset-2">
-                                            <hr class="line-bottom">
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col">
-                            <a href="" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">20$</h5>
-
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row rcard">
-                        <div class="col">
-                            <a href="" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">27$</h5>
-
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row rcard">
-                        <div class="col">
-                            <a href="" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">50$</h5>
-
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row rcard">
-                        <div class="col">
-                            <a href="" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">100$</h5>
-
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    {% for donar in donars %}
-
-                    <div class="row rmargin-top">
-                        <div class="col-8">
-                            <div class="row">
-                                <div class="col">
-                                    <span class="mini-recipient__title">
-												{{donar.donar_name}}
-											</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <span class="mini-recipient">
-												{{donar.time_ago}}
-											</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 text-right">
-                            <span style="color: #52B852">{{donar.donate_amount}}</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <hr class="line-bottom">
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-                    <div class="row margin-top">
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Union Rights</a>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Civil Rights</a>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Civil Rights</a>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Civil Rights</a>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Civil Rights</a>
-                        </div>
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced tag-read-only" href="">Civil Rights</a>
-                        </div>
-                    </div>
-                    <div class="row margin-top">
-                        <div class="col">
-                            <a href='{{post.reporter_url}}' class="mini-recipient__title" style="color: #FF6A40">
-										{{post.reporter_name}}
-									</a>
-                            <span class="mini-recipient">
-										{{post.reporter_position}}
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="text-center">{{post.post_title}}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 offset-sm-2">
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="{{post.video_link}}" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="row">
+						<div class="col-sm-12">
+							{% with 'images/'|add:post.reporter_pro_pic as pro_pic %}
+						<img src="{% static pro_pic %}" style="border-radius: 50%; float: left"> {% endwith %}
+						<h2 class="mini-recipient__title" style="margin-top: 2%">{{post.reporter_name}} </h2>
+						<h2 class="mini-recipient">{{post.reporter_org_type}}</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<hr class="line-bottom">
+					</div>
+				</div>
+				<div class="row " id="hide-property">
+					<div class="col-sm-12">
+						<h2>
+						{{support.donate_title}}
+						</h2>
+					</div>
+				</div>
+				<div class="row" id="hide-property">
+					<div class="col-sm-12">
+						<button type="button" class="btn red" style="
+						width: 100%;padding: 6%;" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>Donate $20</button>
+					</div>
+				</div>
+				<div class="row" id="hide-property">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-light btn-spaced tag-read-only" style="color: #BEBEBE" data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>$27</button>
+						<button type="button"  class="btn btn-light btn-spaced tag-read-only" style="color: #BEBEBE" data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79' >$50</button>
+						<button type="button" class="btn btn-light btn-spaced tag-read-only" style="color: #BEBEBE" data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>$100</button>
+						<button class="btn btn-light btn-spaced tag-read-only" data-toggle="modal" data-target="#modal-other-donate" style="color: #BEBEBE">Other</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<a class="btn black" href="{% url 'view_petitions' %}" style="
+						width: 100%;padding: 6%;">  View Petition </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 ">
+				<ul class="nav nav-tabs r nav-justified" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active text-center" id="story-tab" data-toggle="tab" href="#story" role="tab" aria-controls="story" aria-selected="true" onclick="myFunction()">Story</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-center" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Updates</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-center" id="Endorsements-tab" data-toggle="tab" href="#Endorsements" role="tab" aria-controls="Endorsements" aria-selected="false">    Endorsements
+							<span class="tab-badge">
+								{{support.endorsement_count}}
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-4 ">
+				<div class="row rmargin-top">
+					<div class="col">
+						<button type="button" class="btn white" data-toggle="modal" data-target="#modal-share">
+						<i class="fas fa-share"></i>Share
+						</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+						<button type="button" class="btn white">
+						<i class="fas fa-eye"></i>Follow
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row rmargin-top">
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col">
+						<div class="tab-content" id="myTabContent">
+							<div class="tab-pane fade show active" id="story" role="tabpanel" aria-labelledby="story-tab">
+								<div class="row">
+									<div class="col">
+										{{support.story_details}}
+									</div>
+								</div>
+								<div class="row rmargin-top">
+									<div class="col">
+										<div class="row">
+											<div class="col-sm-8">
+												<h3>
+												{{support.endorsement_title}}
+												</h3>
+											</div>
+											<div class="col-sm-4">
+												<button type="button" class="btn" style="width: 80%">
+												Endores
+												</button>
+											</div>
+										</div>
+										{% for i in endorsed_people %}
+											<div class="row rmargin-top">
+												<div class="col-1">
+													{% with i.end_pro_pic as pro_pic %}
+												<img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;background-color: #F5F5F5;width: 40px;height: 40px;" alt="R"> {% endwith %}
+											</div>
+											<div class="col">
+												<div class="row">
+													<div class="col">
+														&nbsp&nbsp<a href="{{i.end_profile}}" style="color:#FF4814 ">{{i.end_name}}</a> &nbsp&nbsp
+														<span>{{i.end_status}}</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														&nbsp&nbsp
+														<p style="color:#787878">
+															{{i.end_comment}} {% if i.end_comment and i.end_comment.strip %}
+																<span class="read-more" style="display: inline;">&nbsp;...<a href="#" class="more-link">Read more</a></span> {% endif %}
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col offset-2">
+													<hr class="line-bottom">
+												</div>
+											</div>
+										{% endfor %}
+										{% include 'pagination.html' %}
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+								<h2 class="text-center">
+								{{support.update_title}}
+								</h2>
+							</div>
+							<div class="tab-pane fade" id="Endorsements" role="tabpanel" aria-labelledby="Endorsements-tab">
+								<div class="row">
+									<div class="col-sm-8">
+										<h3>
+										{{support.endorsement_title}}
+										</h3>
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn" style="width: 80%">
+										Endorse
+										</button>
+									</div>
+								</div>
+								{% for i in endorsed_people %}
+									<div class="row rmargin-top">
+										<div class="col-1">
+											{% with i.end_pro_pic as pro_pic %}
+										<img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;background-color: #F5F5F5;width: 40px;height: 40px;" alt="R"> {% endwith %}
+									</div>
+									<div class="col">
+										<div class="row">
+											<div class="col">
+												&nbsp&nbsp<a href="{{i.end_profile}}" style="color:#FF4814 ">{{i.end_name}}</a> &nbsp&nbsp
+												<span>{{i.end_status}}</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												&nbsp&nbsp
+												<p style="color:#787878">
+													{{i.end_comment}} {% if i.end_comment and i.end_comment.strip %}
+														<span class="read-more" style="display: inline;">&nbsp;...<a href="#" class="more-link">Read more</a></span> {% endif %}
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col offset-2">
+											<hr class="line-bottom">
+										</div>
+									</div>
+								{% endfor %} {% include 'pagination.html' %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Donate card side contents start-->
+			<div class="col-sm-4">
+				<div class="row">
+					<div class="col">
+						<a href="{%url 'donate_page' 20%}" style="text-decoration: none;color: black">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<br>
+									<h5 class="card-title text-center">20$</h5>
+									<p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
+								</div>
+								<div class="text-center rdonate">
+									Donate
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row rcard">
+					<div class="col">
+						<a href="{%url 'donate_page' 27%}" style="text-decoration: none;color: black">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<br>
+									<h5 class="card-title text-center">27$</h5>
+									<p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
+								</div>
+								<div class="text-center rdonate">
+									Donate
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row rcard">
+					<div class="col">
+						<a href="{%url 'donate_page' 50%}" style="text-decoration: none;color: black">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<br>
+									<h5 class="card-title text-center">50$</h5>
+									<p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
+								</div>
+								<div class="text-center rdonate">
+									Donate
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row rcard">
+					<div class="col">
+						<a href="{%url 'donate_page' 100%}" style="text-decoration: none;color: black">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<br>
+									<h5 class="card-title text-center">100$</h5>
+									<p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
+								</div>
+								<div class="text-center rdonate">
+									Donate
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				{% for donar in donars %}
+					<div class="row rmargin-top">
+						<div class="col-8">
+							<div class="row">
+								<div class="col">
+									<span class="mini-recipient__title">
+										{{donar.donar_name}}
 									</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<span class="mini-recipient">
+										{{donar.time_ago}}
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-4 text-right">
+							<span style="color: #52B852">{{donar.donate_amount}}</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<hr class="line-bottom">
+						</div>
+					</div>
+				{% endfor %}
+				<div class="row margin-top">
+					{%for i in tags%}
+					<div class="col-6">
+						<a class="btn btn-light btn-spaced tag-read-only" href="{{i.url}}">{{i.name}}</a>
+					</div>
+					
+					{%endfor%}
+				</div>
+				<div class="row margin-top">
+					<div class="col">
+						<a href='{{post.reporter_url}}' class="mini-recipient__title" style="color: #FF6A40">
+							{{post.reporter_name}}
+						</a>
+						<span class="mini-recipient">
+							{{post.reporter_position}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-{% include 'popups.html' %} {% endblock container %}
+</div>
+{% include 'popups.html' %}
+<script>
+$('#modal-donate').on('show.bs.modal', function (event) {
+var button = $(event.relatedTarget)
+var amount = button.data('amount')
+var tips = button.data('tips')
+var handling = button.data('handling')
+var total = button.data('total')
+var modal = $(this)
+modal.find('#amount').text(amount)
+modal.find('#tipFee').text(tips)
+modal.find('#handlingFee').text(handling)
+modal.find('#buttonTxt').text(total)
+})
+</script>
+{% endblock container %}
 <!--Body grid system end 1st <section>-->
