@@ -3,6 +3,18 @@ from itertools import chain
 from .models import Donar_list, Endorsement_list
 
 
+def home_view(request):
+    return render(request, 'index.html')
+
+
+def exploreView(request):
+    return render(request, 'explore.html')
+
+
+def crowdpac_tv_view(request):
+    return render(request, 'crowdpac_tv.html')
+
+
 def petitionView(request):
     donar_orders = Donar_list.objects.all()
 

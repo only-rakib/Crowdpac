@@ -26,26 +26,26 @@
 					</div>
 					<div class="row">
 						<span class="step-number">1</span>
-						&nbsp
+						
 						<span class="header-label">Create Petition</span>
 					</div>
-					&nbsp
-					<div class="row">
+					
+					<div class="row step-gap">
 						<span class="step-number">2</span>
-						&nbsp
+						
 						<span class="header-label">Petition Goes Live
 						</span>
 					</div>
-					&nbsp
-					<div class="row">
+					
+					<div class="row step-gap">
 						<span class="step-number">3</span>
-						&nbsp
+						
 						<span class="header-label">Collect Signatures</span>
 					</div>
-					&nbsp
-					<div class="row">
+					
+					<div class="row step-gap">
 						<span class="step-number">4</span>
-						&nbsp
+
 						<span class="header-label">Email Your Petition</span>
 					</div>
 				</div>
@@ -66,8 +66,8 @@
 								{% with 'images/'|add:i.reporter_pro_pic as pro_pic  %}
 								<img src="{% static pro_pic %} " style="border-radius: 50%; float: left">
 								{% endwith %}	
-								<h2 class="mini-recipient__title" style="margin-top: 2%">&nbsp {{i.reporter_name}} </h2>
-								<h2 class="mini-recipient" >&nbsp {{i.date}}</h2>
+								<h2 class="mini-recipient__title" style="margin-top: 1rem;padding-left:4rem;margin-left:1rem">{{i.reporter_name}} </h2>
+								<h2 class="mini-recipient nbsp_v" >{{i.date}}</h2>
 							</div>
 							
 						</div>
@@ -97,7 +97,7 @@
 						<div class="row">
 							<div class="col">
 							{% with i.view_url as link  %}
-								<a class="social-feed-post-link" href="{% url link %}">
+								<a class="social-feed-post-link rcls" href="{% url link %}">
 									View Petition
 								</a>
 							{% endwith %}
@@ -107,15 +107,13 @@
 							<div class="col-sm-6">
 								<br>
 								<img src="{% static 'images/button.svg' %} " class="post-action-button primary" style="float: left;margin-top: -2%;">
-								<span style="">&nbsp{{i.signeture_count}}</span>
+								<span style="nbsp_v">{{i.signeture_count}}</span>
 							</div>
 							
 							
 						</div>
 					</div>
-					<div class="row">
-						&nbsp
-						
+					<div class="row row-padding-bottom">
 					</div>
 					{% endfor %}
 				</div>
@@ -126,9 +124,9 @@
 					<br>
 					<br>
 					<div class="col-sm-11">
-						<div class="row title3 text-center">
+						<div class="row title3 text-center row-padding-bottom">
 							Ready for change?<br>
-							&nbsp
+							
 						</div>
 						
 						<div class="row">
@@ -136,7 +134,7 @@
 							<br>
 						</div>
 						<div class="row">
-							<a href="#" class="button" style="width: 100%;">
+							<a href="#" class="button rcls" style="width: 100%;">
 								<span class="button__content">
 									<span>
 										Start A Petition

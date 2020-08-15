@@ -20,5 +20,8 @@
 	{
 		width:150px;
 	}
-
+	.responsive-margin
+	{
+		margin-top: 2.5rem;
+	}
 }
