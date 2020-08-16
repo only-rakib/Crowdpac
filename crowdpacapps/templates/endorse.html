@@ -7,7 +7,7 @@
         </h3>
     </div>
     <div class="col-sm-4">
-        <button type="button" class="btn" style="width: 80%">
+        <button type="button" class="btnr">
 				Endores
 				</button>
     </div>
@@ -15,12 +15,17 @@
 {% for i in endorsed_people %}
 <div class="row rmargin-top">
     <div class="col-1">
-        {% with i.end_pro_pic as pro_pic %}
-        <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;background-color: #F5F5F5;width: 40px;height: 40px;" alt="R"> {% endwith %}
+        {%if i.end_pro_pic != "none"%}
+            {% with i.end_pro_pic as pro_pic %}
+                <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic"> 
+            {% endwith %}
+        {% else %}
+                <p data-letters="{{i.end_pro_data_letter}}">
+        {% endif %}
     </div>
     <div class="col">
         <div class="row">
-            <div class="col">
+            <div class="col" style="padding-top:0.5rem">
                 &nbsp&nbsp<a href="{{i.end_profile}}" style="color:#FF4814 ">{{i.end_name}}</a> &nbsp&nbsp
                 <span>{{i.end_status}}</span>
             </div>

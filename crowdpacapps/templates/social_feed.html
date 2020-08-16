@@ -1,0 +1,183 @@
+{% extends 'header_footer.html' %} {% load static %} {% block title %}
+<title> Feed | Crowdpac </title>
+{% endblock title %} {% block container %}
+
+<!--Body grid system start-->
+<div class="container-fluid">
+    <div class="row rmargin-top">
+        <!--Left Sidebar Start-->
+
+        <div class='col-sm-2 offset-sm-1' id="left">
+            <div class="row sticky-top">
+                <div class="col-12">
+                
+                    <div class="row" id ="news_tab">
+                        <div class="col">
+                            <div class="row">
+                                <img src="{% static 'svg/news.svg' %}">
+                                <span class="right-sidebar-menu-title">News</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row" id ="crowpac_tv_tab">
+                        <div class="col">
+                            <div class="row">
+                                <img src="{% static 'svg/crowdpacTV.svg' %}">
+                                <span class="right-sidebar-menu-title">Crowpac TV</span>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="row" id ="petitions_tab">
+                        <div class="col">
+                            <div class="row">
+                                <img src="{% static 'svg/petition.svg' %}">
+                                <span class="right-sidebar-menu-title">Petitions</span>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="row" id ="members_tab">
+                        <div class="col">
+                            <div class="row">
+                                <img src="{% static 'svg/member.svg' %}">
+                                <span class="right-sidebar-menu-title">Members</span>
+                            </div>
+                        </div>
+                    </div>    
+                
+                </div>
+            </div>
+        </div>
+        <!--left Sidebar End-->
+
+        <!--Center Content Start-->
+
+        <div class='col-sm-6 '>
+            <div id="petition-content">
+                {% include 'petitions.html' %}
+            </div>
+        </div>
+        <!--Center Content End-->
+        <!--Right Sidebar start-->
+
+        <div class='col-sm-2 ' id="right" >
+            <div class="sticky-top">
+
+                <!--News Right content start-->
+                <div id="news_tab_right">
+                    <div class="row text-center ">
+                        <div class="col-sm-6 offset-sm-2">
+                            <img src="{% static 'svg/newsRight.svg' %} ">
+                        </div>
+
+                    </div>
+                    <div class="row title3 text-center">    
+                            Always Current
+                    </div>
+                    <div class="row">
+                        <hr class="line-bottom">
+
+                    </div>
+                    <div class="row">
+                        Trending national & local political news.
+                    </div>
+
+                    
+                </div>
+                <!--News Right content end-->
+                <!--crowdpac-tv Right content start-->
+                <div id="crowdpac_tv_tab_right">
+                    <div class="row text-center ">
+                        <div class="col-sm-6 offset-sm-2">
+                            <img src="{% static 'svg/crowdpacTVRight.svg' %} ">
+                        </div>
+
+                    </div>
+                    <div class="row title3 text-center">
+                        How It Works<br>
+                    </div>
+                    <div class="row">
+                        <hr class="line-bottom">
+
+                    </div>
+                    <div class="row">
+                        <span class="step-number">1</span>
+
+                        <span class="header-label">Register for Rally</span>
+                    </div>
+
+                    <div class="row step-gap">
+                        <span class="step-number">2</span>
+
+                        <span class="header-label">Rally Goes Live
+                            </span>
+                    </div>
+
+                    <div class="row step-gap">
+                        <span class="step-number">3</span>
+
+                        <span class="header-label">Collect Donations</span>
+                    </div>
+
+                    <div class="row step-gap">
+                        <span class="step-number">4</span>
+
+                        <span class="header-label">Hold Virtual Q/A </span>
+                    </div>
+                    <div class="row">
+                        <hr class="line-bottom">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="rcls btnr" style="width:100%">Start A Rally</a>
+                        </div>
+                    </div>
+                </div>
+                <!--crowdpac tv Right content end-->
+                <!--Petitions Right content start-->
+                <div id="petition_tab_right">
+                    <div class="row text-center ">
+                        <div class="col-sm-6 offset-sm-2">
+                            <img src="{% static 'svg/document.svg' %} ">
+                        </div>
+
+                    </div>
+                    <div class="row title3 text-center">
+                        How It Works<br>
+                    </div>
+                    <div class="row">
+                        <hr class="line-bottom">
+
+                    </div>
+                    <div class="row">
+                        <span class="step-number">1</span>
+
+                        <span class="header-label">Create Petition</span>
+                    </div>
+
+                    <div class="row step-gap">
+                        <span class="step-number">2</span>
+
+                        <span class="header-label">Petition Goes Live
+                            </span>
+                    </div>
+
+                    <div class="row step-gap">
+                        <span class="step-number">3</span>
+
+                        <span class="header-label">Collect Signatures</span>
+                    </div>
+
+                    <div class="row step-gap">
+                        <span class="step-number">4</span>
+
+                        <span class="header-label">Email Your Petition</span>
+                    </div>
+                </div>
+                <!--Petitions Right content end-->
+            </div>
+        </div>
+        <!--Right Sidebar end-->
+    </div>
+</div>
+<!--Body grid system end-->
+{% endblock container %}

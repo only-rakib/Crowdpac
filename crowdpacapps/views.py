@@ -15,7 +15,7 @@ def crowdpac_tv_view(request):
     return render(request, 'crowdpac_tv.html')
 
 
-def petitionView(request):
+def social_feed_View(request):
     donar_orders = Donar_list.objects.all()
 
     endorse_orders = Endorsement_list.objects.all()
@@ -57,7 +57,7 @@ def petitionView(request):
     lst = []
     lst.append(first_topic)
     lst.append(second_topic)
-    return render(request, 'Petitions.html', {'data': lst})
+    return render(request, 'social_feed.html', {'data': lst})
 
 
 def view_campaignView(request):
@@ -99,13 +99,15 @@ def view_campaignView(request):
         'end_name': 'rakib',
         'end_status': 'endorsed',
         'end_comment': '',
+        'end_pro_data_letter': '',
     }
     endorsed_people2 = {
-        'end_pro_pic': 'images/lhbebvoswhrprssro4ar.jpg',
+        'end_pro_pic': 'none',
         'end_name': 'rakib',
         'end_status': 'endorsed',
         'end_comment': '''e all need to stand together and fight for what is right. And this campaign knows what's right ''',
         'end_profile': '#',
+        'end_pro_data_letter': 'r'
     }
     lstend = []
     lstend.append(endorsed_people1)
@@ -132,9 +134,14 @@ def view_campaignView(request):
         'name': 'Civil Rights',
         'url': '#',
     }
+    tagDic3 = {
+        'name': 'Civil Rights',
+        'url': '#',
+    }
     taglst = []
     taglst.append(tagDic1)
     taglst.append(tagDic2)
+    taglst.append(tagDic3)
     context = {
         'post': post,
         'support': support,

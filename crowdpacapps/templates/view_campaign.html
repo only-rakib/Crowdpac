@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-12">
                             {% with 'images/'|add:post.reporter_pro_pic as pro_pic %}
                             <img src="{% static pro_pic %}" style="border-radius: 50%; float: left"> {% endwith %}
                             <h2 class="mini-recipient__title" style="margin-top: 1rem">{{post.reporter_name}} </h2>
@@ -39,21 +39,21 @@
                     </div>
                     <div class="row" id="hide-property">
                         <div class="col-sm-12">
-                            <button type="button" class="btn red" style="
+                            <button type="button" class="btnr red" style="
 						width: 100%;padding: 6%;" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>Donate $20</button>
                         </div>
                     </div>
                     <div class="row" id="hide-property">
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-light btn-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>$27</button>
-                            <button type="button" class="btn btn-light btn-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>$50</button>
-                            <button type="button" class="btn btn-light btn-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>$100</button>
-                            <button class="btn btn-light btn-spaced " data-toggle="modal" data-target="#modal-other-donate" >Other</button>
+                            <button type="button" class="btnr btnr-light btnr-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>$27</button>
+                            <button type="button" class="btnr btnr-light btnr-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>$50</button>
+                            <button type="button" class="btnr btnr-light btnr-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>$100</button>
+                            <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate" >Other</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <a class="btn black rcls" href="{% url 'view_petitions' %}" style="
+                            <a class="btnr black rcls" href="{% url 'view_petitions' %}" style="
 						width: 100%;padding: 6%;">  View Petition </a>
                         </div>
                     </div>
@@ -83,13 +83,13 @@
                 <div class="col-sm-4 ">
                     <div class="row rmargin-top">
                         <div class="col">
-                            <button type="button" class="btn white" data-toggle="modal" data-target="#modal-share" style="margin-left:1rem">
+                            <button type="button" class="btnr white" data-toggle="modal" data-target="#modal-share" style="margin-left:1rem">
                                 <i style="color:black" class="fas fa-share"></i>Share
                             </button>
                             
                         </div>
                         <div class="col">
-                            <button type="button text-right" class="btn white">
+                            <button type="button text-right" class="btnr white">
                                 <i style="color: black" class="fas fa-eye"></i>Follow
                             </button>
                         </div>
@@ -222,15 +222,15 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="row margin-top">
+                    <div class="row rmargin-top">
                         {%for i in tags%}
-                        <div class="col-6">
-                            <a class="btn btn-light btn-spaced rcls" href="{{i.url}}">{{i.name}}</a>
+                        <div class="col-4">
+                            <a class="rcls badge tags" href="{{i.url}}">{{i.name}}</a>
                         </div>
 
                         {%endfor%}
                     </div>
-                    <div class="row margin-top">
+                    <div class="row rmargin-top">
                         <div class="col">
                             <a href='{{post.reporter_url}}' class="mini-recipient__title rcls" style="color: #FF6A40">
 							{{post.reporter_name}}

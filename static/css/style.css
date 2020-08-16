@@ -13,11 +13,11 @@ a:hover{
 ul,ol{
 	list-style-type: none;
 }
-img{
+/*img{
 	max-width: 100%;
 	vertical-align: middle;
 	height: auto;
-}
+}*/
 .page-divider, .page-break {
 	margin-left: auto;
 	margin-right: auto;
