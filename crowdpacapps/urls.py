@@ -10,5 +10,6 @@ urlpatterns = [
     path('contribute/<amount>', views.donateView, name='donate_page'),
     path('explore/', views.exploreView, name='explore'),
     path('crowdpac_tv/', views.crowdpac_tv_view, name='crowdpac_tv'),
+    path('start_campaign/', views.start_campaign_view, name='start_campaign'),
 
 ]

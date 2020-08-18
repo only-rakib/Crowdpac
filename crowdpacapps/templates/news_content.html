@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-sm-10 offset-sm-1">
+        <h2 class="title2 text-center">Trending News</h2>
+    </div>
+</div>
+{% for i in news %}
+<div class="main">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="x1" style="float:left"></div>
+            <a class="rcls" href="{{i.news_link}}"><h2 style="margin-top: 1rem;padding-left:4rem;margin-left:1rem;font-size:20px;color:#ff4814">{{i.newspaper_name}} </h2></a>
+            <h2 class="mini-recipient nbsp_v">{{i.date_time}}</h2>
+        </div>
+
+    </div>
+    <div class="row" style="padding-top:.5rem;padding-bottom:.5rem">
+        <div class="col">
+            <h2 class="social-feed-post-title">
+                {{i.news_title}}
+            </h2>
+        </div>
+    </div>
+   
+    <div class="row">
+        <div class="col">
+            {% with i.news_pic as cover_pic %}
+            <a class="rcls" href="{{i.news_link}}">
+                <img src="{% static cover_pic %} " class="img-fluid"> {% endwith%}
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <a class="social-feed-post-link rcls" href="{{i.news_link}}">
+				View Story
+			</a> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">   
+            <img src="{% static 'svg/share.svg' %} " class="post-action-button primary" style="float: left;cursor:pointer" data-toggle="modal" data-target="#modal-share" data-title="Share News">     
+        </div>
+    </div>
+</div>
+{% endfor %}

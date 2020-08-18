@@ -1,36 +1,30 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-5">
-    <meta name="viewport" content="initial-scale=1">
-
-    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %} ">
-    <script src=" {% static 'bootstrap/jquery-3.5.1.min.js' %} "></script>
-    <script src="{% static 'bootstrap/bootstrap.min.js' %} "></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %} ">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %} ">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %} ">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
-   
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-5">
+        <meta name="viewport" content="initial-scale=1">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %} ">
+        <script src=" {% static 'bootstrap/jquery-3.5.1.min.js' %} "></script>
+        <script src="{% static 'bootstrap/bootstrap.min.js' %} "></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %} ">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %} ">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %} ">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
+        
     {% block title %} {% endblock title %}
-
 </head>
-
 <body>
     <!---header part start here -->
-
     <header class="header">
-
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="{% url 'home' %}">
-					<img class="site-header__logo" src="{% static 'images/crowdpac-logo.png' %}" alt="Logo">
-				</a>
+                <img class="site-header__logo" src="{% static 'images/crowdpac-logo.png' %}" alt="Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
+            <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item site-header">
@@ -42,64 +36,62 @@
                     
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a class="btn btn-orange-bg btn-outline-success my-2 my-sm-0" href="#">Start a Campaign
-						</a>
+                    <a class="btn btn-orange-bg btn-outline-success my-2 my-sm-0" href="{%url 'start_campaign' %}">Start a Campaign
+                    </a>
                 </form>
                 <div class="site-header">
                     <span><a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a></span>
                 </div>
                 <div class="site-header">
-
                     <a class="nav-item nav-link" href="#"><strong>Sign In</strong></a>
                 </div>
             </div>
         </nav>
     </header>
     <!--nav part end here-->
-	{% block container %} {% endblock container %} {% block style %} {% endblock style %}
-    <!--footer part start here-->
-    <footer class="footer-section">
-        <div class="row footer-area1">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h3 class="brand">CROWDPAC</h3>
-                <h6 class="site-footer__nav-heading">About Us</h6>
-                <div class="footer-text"><label>Crowdpac is committed to helping emerging leaders run for elected office by raising the funds they need to launch viable campaigns that are competitive from the moment they enter the political arena.</label></div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <p>Information</p>
-                <li>Pricing</li>
-                <li>Blog</li>
-                <li>Media Inquiries</li>
-                <li>Privacy Policy</li>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <p>Our Team</p>
-                <li>Job openings</li>
-                <li>Support</li>
-                <li>About Us</li>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <p>Campaigns</p>
-                <li>How It Works</li>
-                <li>Start A Campaign</li>
-            </div>
+{% block container %} {% endblock container %} {% block style %} {% endblock style %}
+<!--footer part start here-->
+<footer class="footer-section">
+    <div class="row footer-area1">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h3 class="brand">CROWDPAC</h3>
+            <h6 class="site-footer__nav-heading">About Us</h6>
+            <div class="footer-text"><label>Crowdpac is committed to helping emerging leaders run for elected office by raising the funds they need to launch viable campaigns that are competitive from the moment they enter the political arena.</label></div>
         </div>
-        <hr style="width:96%; border:1px solid #fff; margin: 15px 16px!important;">
-        <div class="row footer-area2">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-medium-m"></i>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <p>© 2020 Crowdpac</p>
-            </div>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <p>Information</p>
+            <li>Pricing</li>
+            <li>Blog</li>
+            <li>Media Inquiries</li>
+            <li>Privacy Policy</li>
         </div>
-    </footer>
-    <!--footer part end here-->
-    <!--Body grid system start-->
-    
-</body>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <p>Our Team</p>
+            <li>Job openings</li>
+            <li>Support</li>
+            <li>About Us</li>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <p>Campaigns</p>
+            <li>How It Works</li>
+            <li>Start A Campaign</li>
+        </div>
+    </div>
+    <hr style="width:96%; border:1px solid #fff; margin: 15px 16px!important;">
+    <div class="row footer-area2">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-medium-m"></i>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <p>© 2020 Crowdpac</p>
+        </div>
+    </div>
+</footer>
+<!--footer part end here-->
+<!--Body grid system start-->
 
+</body>
 </html>

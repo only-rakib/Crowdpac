@@ -1,13 +1,6 @@
 @media (max-width:575px)
 {
-	#left
-	{
-		display: none;
-	}
-	#right
-	{
-		display: none;
-	}
+	
 	.title2 {
 		font-size: 26px;
 		line-height: 1.2;
@@ -23,5 +16,16 @@
 	.responsive-margin
 	{
 		margin-top: 2.5rem;
+	}
+}
+@media (max-width:767px)
+{
+	#right
+	{
+		display: none;
+	}
+	.right-sidebar-menu-title
+	{
+		display:none;
 	}
 }

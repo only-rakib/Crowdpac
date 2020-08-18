@@ -1,45 +1,65 @@
-{% extends 'header_footer.html' %} {% load static %} {% block title %} {% endblock title %} {% block container %}
-<div class="container-fluid">
-    <div class="row" style="margin-top:2.5rem;padding-bottom:2.5rem">
-        <div class="col-10 offset-1">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="row">
-                        <div class="col">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qVr62WuDoL8" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h2>Crowdpac T.V. </h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <span>
-								Our central T.V. station where all virtual campaign rallies are played.
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 responsive-margin">
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="text-center">Ready to go live ? </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <button type="button" class="btn red" style="background:white;color:#FF5626">
-								Create A Virtual Rally
-							</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{% load static %}
+
+<div class="row">
+    <div class="col-sm-10 offset-sm-1">
+        <h2 class="title2 text-center">Crowdpac TV</h2>
+        <br>
+    </div>
+</div>  
+<div class="row">
+    <div class="col" >
+        <h2 class="social-feed-post-title">Virtual Rally Stream</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col" >
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qVr62WuDoL8?list=PL4ZqmxF97SAFCamouyKXQfywQsi7MQ-pj" allowfullscreen></iframe>
+        </div>
+        
+    </div>
+</div>
+{% for i in tv %}
+<div class="main">
+    <div class="row">
+        <div class="col-sm-8">
+            {% with i.tv_reporter_pro_pic as pro_pic %}
+            <img src="{% static pro_pic %} " style="border-radius: 50%; float: left"> {% endwith %}
+            <a class="rcls" href="#"><h2 style="margin-top: 1rem;padding-left:4rem;margin-left:1rem;color:#ff4814;font-size:16px;font-weight: 600;">{{i.tv_reporter_name}} </h2></a>
+            <h2 class="mini-recipient nbsp_v">{{i.tv_reporter_category}}</h2>
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h2 class="social-feed-post-title">
+                {{i.tv_title}}
+            </h2>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <video controls="controls" preload="metadata" class="candidate-video-player"><source src="{{i.tv_video_src}}" type="video/mp4"></video>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            {% with i.tv_campaign_link as link %}
+            <a class="social-feed-post-link rcls" href="{% url link %}">
+				View Campaign
+			</a> {% endwith %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>
+                {{i.tv_details}}
+            </p>
         </div>
     </div>
 </div>
-{% endblock container %}
+
+{% endfor %}

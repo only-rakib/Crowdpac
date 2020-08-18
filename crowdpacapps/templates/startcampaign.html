@@ -1,0 +1,165 @@
+{% extends 'header_footer.html' %}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{%block container%}
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-3" id="campaign_left" style="padding-left: 2rem;padding-top: 1rem;box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.2);">
+		<div class="row" style="background: #F6F6F6;padding-top: 1rem">
+			<div class="col">
+				<div class="row">
+					<div class="col">
+						<a href="#" class="badge badge-secondary rcls" style="color:white">
+							Unpublished
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<h5 style="font-weight: 400">Untitled Campaign</h5>
+					</div>
+				</div>
+				<div class="row" style="margin-top: .2rem;padding-bottom: 1rem">
+					<div class="col">
+						<button type="button" class="btnr red" style="height: 100%">
+						Preview
+						</button>
+					</div>
+					<div class="col">
+						<button type="button" class="btnr">
+						Save & Exit
+						</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="row" >
+			<div class="col">
+				<div class="row" style="margin-top: 1rem">
+					<div class="col mini-recipient">
+						<span>The Basics</span>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Campaign_Recipients" onClick="tab_pages(this.id)" >Campaign Recipients </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<hr class="line-bottom">
+		</div>
+		<div class="row" >
+			<div class="col">
+				<div class="row" style="margin-top: 1rem">
+					<div class="col mini-recipient">
+						<span>The Campaign</span>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Campaign_Story" onClick="tab_pages(this.id)" >Campaign Story </a>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Fundraising" onClick="tab_pages(this.id)" >Fundraising </a>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Privacy_Settings" onClick="tab_pages(this.id)" >Privacy Settings </a>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Custom_Sharing" onClick="tab_pages(this.id)" >Custom Sharing </a>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Campaign_Marketing" onClick="tab_pages(this.id)" >Campaign Marketing
+						</a>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Optional_Settings" onClick="tab_pages(this.id)"  style="text-decoration-color: #ff4814">Optional Settings  </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<hr class="line-bottom">
+		</div>
+		<div class="row" >
+			<div class="col">
+				<div class="row" style="margin-top: 1rem">
+					<div class="col mini-recipient">
+						<span>Review</span>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Publish_Your_Campaign" onClick="tab_pages(this.id)" >Publish Your Campaign  </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<hr class="line-bottom">
+		</div>
+		<div class="row" >
+			<div class="col">
+				<div class="row" style="margin-top: 1rem">
+					<div class="col mini-recipient">
+						<span>Need Help?</span>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 1rem">
+					<div class="col">
+						<a href="#" class="rclst" id="Contact_Support " onClick="tab_pages(this.id)" >Contact Support  </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<hr class="line-bottom">
+		</div>
+	</div>
+	<div class="col-md-9"  style="margin-top: 3rem">
+		<div class="row">
+			<div class="col-10 offset-1">
+				<div class="__class" id="Campaign_Recipients_content">
+					{%include 'campaign_recipients.html'%}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ </div>
+<script type="text/javascript">
+	function tab_pages(clicked_id) {
+	var divs = document.getElementsByClassName("rclst");
+	var cntntDivs=document.getElementsByClassName("__class");
+	var itemId=document.getElementById(clicked_id);
+	var cntntId=document.getElementById(clicked_id+"_content");
+	for(var i =0;i<divs.length;i++)
+	{
+		divs[i].style.cssText = "font-weight: normal";
+
+	}
+	for(var i =0;i<cntntDivs.length;i++)
+	{
+		cntntDivs[i].style.cssText = "display:none";
+		
+	}
+	itemId.style.cssText = 'font-weight:bold';
+	cntntId.style.cssText = 'display = block';
+		
+	}
+</script>
+	{%endblock container%}

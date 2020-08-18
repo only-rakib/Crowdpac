@@ -16,17 +16,46 @@ def crowdpac_tv_view(request):
 
 
 def social_feed_View(request):
-    donar_orders = Donar_list.objects.all()
+    #donar_orders = Donar_list.objects.all()
 
-    endorse_orders = Endorsement_list.objects.all()
-    orders = list(
-        sorted(
-            chain(donar_orders, endorse_orders),
-            key=lambda objects: objects.created
-        ))
+    #endorse_orders = Endorsement_list.objects.all()
+    # orders = list(
+    #    sorted(
+    #        chain(donar_orders, endorse_orders),
+    #        key=lambda objects: objects.created
+    #    ))
     #paginator = Paginator(orders, 5)
+    news1 = {
+        'newspaper_name': 'Plastics News',
+        'date_time': 'Aug 17th 06:00 pm',
+        'news_link': 'https://www.plasticsnews.com/blog/kickstart-plastics-and-politics-head-state-level',
+        'news_title': 'Kickstart: Plastics and politics head to the state level',
+        'news_pic': 'images/udall-05_i.jpg'
+    }
+    news2 = {
+        'newspaper_name': 'GoLocalProv',
+        'date_time': 'Aug 17th 06:00 pm',
+        'news_link': 'https://www.golocalprov.com/cache/images/remote/https_s3.amazonaws.com/media.golocalprov.com/Fung_and_Council_Candidates_No_Masks_August_2020.png',
+        'news_title': 'News | Politics of Coronavirus: Fung and GOP Candidates Fail to Wear Masks for Political Photo',
+        'news_pic': 'images/Fung_and_Council_Candidates_No_Masks_August_2020.png'
+    }
+    lstNews = []
+    lstNews.append(news1)
+    lstNews.append(news2)
 
-    first_topic = {
+    tv1 = {
+        'tv_reporter_pro_pic': 'images/lhbebvoswhrprssro4ar.jpg',
+        'tv_reporter_name': 'Aimee Rivera Cole',
+        'tv_reporter_profile_link': '#',
+        'tv_reporter_category': 'Candidate Video',
+        'tv_title': 'Aimee Rivera Cole for State Representative | Committed To Indiana',
+        'tv_video_src': "https://res.cloudinary.com/crowdpac/video/upload/v1593640761/videos/campaigns/395501/1.mp4#t=0.1",
+        'tv_campaign_link': 'view_campaign',
+        'tv_details': '''Indiana needs change and can't keep using the same old playbook. I'm running against the House Speaker who is commanding over a Republican supermajority in the Indiana State House. We can …''',
+    }
+    lstTv = []
+    lstTv.append(tv1)
+    first_topic_petition = {
 
         'reporter_pro_pic': 'lhbebvoswhrprssro4ar.jpg',
         'reporter_name': 'Rent Strike 2020 ',
@@ -40,7 +69,7 @@ def social_feed_View(request):
         'view_url': 'view_petitions',
         'signeture_count': '1.8m'
     }
-    second_topic = {
+    second_topic_petition = {
 
         'reporter_pro_pic': 'lhbebvoswhrprssro4ar.jpg',
         'reporter_name': 'Rent Strike 2020 ',
@@ -54,10 +83,10 @@ def social_feed_View(request):
         'view_url': 'view_petitions',
         'signeture_count': '1.8m'
     }
-    lst = []
-    lst.append(first_topic)
-    lst.append(second_topic)
-    return render(request, 'social_feed.html', {'data': lst})
+    lstPetition = []
+    lstPetition.append(first_topic_petition)
+    lstPetition.append(second_topic_petition)
+    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition})
 
 
 def view_campaignView(request):
@@ -179,3 +208,7 @@ def donateView(request, amount):
                  'handle': '3.39', 'total': ' 113.39'}
 
     return render(request, 'donate_page.html', {'data': total})
+
+
+def start_campaign_view(request):
+    return render(request, 'startcampaign.html')
