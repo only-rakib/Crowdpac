@@ -1,31 +1,43 @@
-@media (max-width:575px)
-{
-	
+@media (max-width:575px) {
 	.title2 {
 		font-size: 26px;
 		line-height: 1.2;
 	}
-	#hide-property
-	{
+
+	#hide-property {
 		display: none;
 	}
-	.crowpac-modal-icon
-	{
-		width:150px;
+
+	.crowpac-modal-icon {
+		width: 150px;
 	}
-	.responsive-margin
-	{
+
+	.responsive-margin {
 		margin-top: 2.5rem;
 	}
+
 }
-@media (max-width:767px)
-{
-	#right
-	{
+
+@media (max-width:767px) {
+	#right {
 		display: none;
 	}
-	.right-sidebar-menu-title
-	{
-		display:none;
+
+	.right-sidebar-menu-title {
+		display: none;
 	}
+
+}
+
+@media (max-width:350px) {
+	.custom-tracking {
+		font-size: 12px;
+		width: 12rem;
+		padding-top: 0.6rem;
+	}
+
+	.custom-tracking-text {
+		padding-left: 12rem;
+	}
+
 }

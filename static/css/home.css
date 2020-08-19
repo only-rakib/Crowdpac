@@ -7,6 +7,8 @@
 ;
 
 body {
+
+    /*font-family: 'Gilda Display', serif;*/
     font-family: proxima-nova, sans-serif;
     font-style: normal;
     font-weight: 100
@@ -46,7 +48,7 @@ a.rclst {
 }
 
 /*a.rcls:hover {
-    color: #ff4814;
+color: #ff4814;
 }*/
 h1 {
     font-family: 'Gilda Display', serif;
@@ -71,6 +73,14 @@ h3 {
     color: #121212;
     font-size: 2.4vmax;
     line-height: 1.2;
+}
+
+h4 {
+    font-family: 'Gilda Display', serif;
+}
+
+h5 {
+    font-family: 'Gilda Display', serif;
 }
 
 /*=================================Petitions=====================================*/
@@ -117,6 +127,14 @@ h3 {
 
 .step-gap {
     margin-top: 1rem;
+}
+
+.step-number.marketing {
+    font-size: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    align-items: center;
+    justify-content: center;
 }
 
 .nbsp_v {
@@ -281,11 +299,18 @@ a.social-feed-post-link {
     width: 100%;
 }
 
+.btnr.btnr-tags-optional {
+    border: 1px solid #808080;
+    color: #808080;
+    font-weight: normal;
+    font-size: 14px;
+}
+
 /*
 .btn.btn-light:link,
 .btn.btn-light:visited,
 .btn.btn-light:focus {
-    color: #aaa;  
+color: #aaa;  
 }
 */
 
@@ -293,8 +318,8 @@ a.social-feed-post-link {
 .btn.btn-light.tag-read-only:link,
 .btn.btn-light.tag-read-only:visited,
 .btn.btn-light.tag-read-only:focus {
-    color: #aaa;
-    background-color: #fff;
+color: #aaa;
+background-color: #fff;
 }*/
 
 .btnr.btnr-light:hover {
@@ -363,7 +388,7 @@ a[class^="share-network-"] {
 
 /*.nav-tabs .nav-link .remove-dot-box
 {
-    border:none;
+border:none;
 }*/
 .nav-tabs.r .nav-item.show .nav-link,
 .nav-tabs.r .nav-link.active {
@@ -409,12 +434,12 @@ a[class^="share-network-"] {
 
 /*
 .card > .list-group {
-    border: none;
-    color: black;
+border: none;
+color: black;
 }
 .card > .list-group.list-group-item:hover
 {
-    background: #FF4814;
+background: #FF4814;
 }*/
 .text-center.rdonate {
     color: white;
@@ -680,4 +705,34 @@ video.candidate-video-player {
     border-radius: 5px;
     display: block;
     max-width: 100%;
+}
+
+.image-input__content {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/*Optional Settings*/
+.custom-tracking {
+    background: #F6F6F6;
+    position: absolute;
+    width: 15rem;
+    padding-top: 0.43rem;
+    padding-bottom: 0.44rem;
+    padding-left: .5rem;
+    border: 1px solid #ced4da;
+}
+.custom-tracking-text
+{
+    width: 100%;padding-left: 15rem;
+}
+.btnr.red.campaigns
+{
+    padding: 8px 8rem;
 }

@@ -122,7 +122,7 @@
 					</div>
 					<div class="row" style="margin-top: 1rem">
 						<div class="col">
-							<a href="#" class="rclst" id="Contact_Support " onClick="tab_pages(this.id)" >Contact Support  </a>
+							<a href="#" class="rclst" id="Contact_Support" onClick="tab_pages(this.id)" >Contact Support  </a>
 						</div>
 					</div>
 				</div>
@@ -134,13 +134,52 @@
 		<div class="col-md-9"  style="margin-top: 3rem">
 			<div class="row">
 				<div class="col-10 offset-1">
-					<div class="__class" id="Campaign_Story_content" style="display: none">
+					<div class="__class" id="Campaign_Recipients_content" >
+						
 						{%include 'campaign_recipients.html'%}
+						
 					</div>
 				</div>
-				<div class="col-10 offset-1">
-					<div class="__class" id="Campaign_Recipients_content" >
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Campaign_Story_content" style="display: none" >
 						{%include 'campaign_story.html'%}
+						
+					</div>
+				</div>
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Fundraising_content" style="display: none" >
+						{%include 'fundraising.html'%}
+						
+					</div>
+				</div>
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Privacy_Settings_content" style="display: none" >
+						
+						{%include 'privacy_settings.html'%}
+					</div>
+				</div>
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Custom_Sharing_content" style="display: none" >
+						
+						{%include 'custom_sharing.html'%}
+					</div>
+				</div>
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Campaign_Marketing_content" style="display: none" >
+						
+						{%include 'campaign_marketing.html'%}
+					</div>
+				</div>
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Optional_Settings_content" style="display: none" >
+						
+						{%include 'optional_settings.html'%}
+					</div>
+				</div>
+				<div class="col-10 offset-1" >
+					<div class="__class" id="Contact_Support_content" style="display: none" >
+						
+						{%include 'contact_support.html'%}
 					</div>
 				</div>
 			</div>
@@ -148,24 +187,20 @@
 	</div>
 </div>
 <script type="text/javascript">
-	function tab_pages(clicked_id) {
+function tab_pages(clicked_id) {
 	var divs = document.getElementsByClassName("rclst");
 	var cntntDivs=document.getElementsByClassName("__class");
 	var itemId=document.getElementById(clicked_id);
 	var cntntId=document.getElementById(clicked_id+"_content");
-	for(var i =0;i<divs.length;i++)
-									{
-										divs[i].style.cssText = "font-weight: normal";
-									}
-									for(var i =0;i<cntntDivs.length;i++)
-									{
-										cntntDivs[i].style.cssText = "display:none";
-										
-									}
-									itemId.style.cssText = 'font-weight:bold';
-									cntntId.style.cssText = 'display = block';
-										
-									}
+	for(var i =0;i<divs.length;i++) {
+														divs[i].style.cssText ="font-weight: normal";
+													}
+													for(var i =0;i<cntntDivs.length;i++) {
+														cntntDivs[i].style.cssText ="display:none";
+													}
+													itemId.style.cssText ='font-weight:bold';
+													cntntId.style.cssText ='display:block';
+												}
 	</script>
 	
 	{%endblock container%}
