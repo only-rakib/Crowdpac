@@ -1,0 +1,221 @@
+{%load static%}
+<div class="row">
+	<div class="col text-center">
+		<span class="mini-recipient">
+			The Campaign
+		</span>
+	</div>
+</div>
+<div class="row" style="margin-top: .8rem">
+	<div class="col text-center">
+		<span class="title2">
+			Tell your campaign story
+		</span>
+	</div>
+</div>
+<div class="row" style="margin-top: .8rem">
+	<div class="col text-center">
+		<h5 style="font-weight: normal">
+		You can always edit this information later.
+		</h5>
+	</div>
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col">
+		<div class="row">
+			<div class="col">
+				<label style="float: left;">Campaign Title</label>
+				<label class="mini-recipient" style="float: right;">
+				Required</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<input type="text" name="campaign_title" id="campaign_title_id" maxlength="75" style="width: 100%" placeholder="E.g. Former Marine to Reform VA">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<span class="mini-recipient" id="campaign_title_remainchar">75/75 characters remaining.</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col-sm-6">
+		<div class="row">
+			<div class="col">
+				<span class="mini-recipient__title" >Campaign title tips</span>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 1rem">
+			<div class="col">
+				<p class="mini-recipient text-justify">
+					Your campaign title is the first thing donors see. It should be focused, clear, and grab attention. Don't use generic phrases or repeat your name and race.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6" style="background: #F6F6F6;padding-top: 2rem">
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-1">
+						<i class="fas fa-check" style="float: left;color:green"></i>
+					</div>
+					<div class="col-10">
+						<p class="mini-recipient">
+							"Marine Veteran to Reform the Veterans Administration"<br>
+							"We need a biology teacher to take on Big Oil"
+							
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-1">
+						<i class="fas fa-times" style="float: left;color: red"></i>
+					</div>
+					<div class="col-10">
+						<p class="mini-recipient">
+							"Freedom for All"<br>
+							"James Jones for DPS School Board"
+							
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col">
+		<div class="row">
+			<div class="col">
+				<label style="float: left;">Your Story</label>
+				<label class="mini-recipient" style="float: right;">
+				Required</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<textarea name="editor"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col-sm-6" style="height: 100%">
+		<div class="row">
+			<div class="col">
+				<span class="mini-recipient__title" >Tips for telling your story</span>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 1rem">
+			<div class="col">
+				<p class="mini-recipient text-justify">
+					In 3-6 paragraphs, tell your campaign’s story. Answer questions like “Why are you running?” and “Why should someone contribute to your campaign?” Keep it personal and specific.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6" style="background: #F6F6F6;padding-top: 2rem">
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-1">
+						<i class="fas fa-check" style="float: left;color:green"></i>
+					</div>
+					<div class="col-10">
+						<p class="mini-recipient">
+							Include a short biography
+							Be clear about how you will use contributions
+							Mention your top issues
+							
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="row">
+					<div class="col-1">
+						<i class="fas fa-times" style="float: left;color: red"></i>
+					</div>
+					<div class="col-10">
+						<p class="mini-recipient">
+							Post your entire resume
+							Write about every political issue
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col">
+		<div class="row">
+			<div class="col">
+				<label style="float: left;">
+				Campaign Image</label>
+				<label class="mini-recipient" style="float: right;">
+				Required</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mini-recipient">
+				Select an image from your computer, drag to position it, and use the slider to adjust the zoom. We recommend using a JPEG or PNG that's at least 1240 pixels wide by 740 pixels tall.
+			</div>
+		</div>
+		<div class="row" style="margin-top: .8rem">
+			<div class="col" style="background: #F6F6F6;border-radius: 5px;">
+				<div style="border:1px solid #F6F6F6;padding: 1rem 3rem;">
+					
+					<div style="width: 100%;height: 30vw;border:1px solid #cccccc;text-align: center;align-content: center;border-radius: 5px;">
+						<button type="button" class="btnr" id="upfile1" style="margin-top: 27%;">
+						Select an Image
+						</button>
+						<input type="file" accept="image/jpeg,image/png" id="file1"  name="file1" style="display:none" />
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$("#upfile1").click(function () {
+	$("#file1").trigger('click');
+	});
+function readURL(input) {
+if (input.files && input.files[0]) {
+var reader = new FileReader();
+reader.onload = function (e) {
+$('#campaignImage').attr('src', e.target.result);
+}
+reader.readAsDataURL(input.files[0]);
+}
+}
+$("#file1").change(function(){
+readURL(this);
+});
+</script>
+<script type="text/javascript">
+	CKEDITOR.replace('editor');
+</script>
+<script type="text/javascript">
+	
+	$( "#campaign_title_id" ).keyup(function() {
+		var trig = this.value.length;
+		var a =75-trig;
+		a=a.toString();
+			trig++;
+		$("#campaign_title_remainchar").text(a+"/75 characters remaining.");
+	});
+</script>

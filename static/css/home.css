@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
+
 :root {
     --highlight: #ff4814
 }
 
 ;
+
 body {
     font-family: proxima-nova, sans-serif;
     font-style: normal;
     font-weight: 100
 }
 
-#left{
+#left {
     user-select: none;
 }
 
 #right {
-    
     margin-left: 1rem;
     user-select: none;
 }
@@ -34,18 +35,19 @@ a.rcls {
     text-decoration: none;
     transition: opacity 0.2s
 }
+
 a.rclst {
     color: #ff4814;
     transition: opacity 0.2s
 }
-.rclst_active
-{
+
+.rclst_active {
     font-weight: bold;
 }
+
 /*a.rcls:hover {
     color: #ff4814;
 }*/
-
 h1 {
     font-family: 'Gilda Display', serif;
     font-weight: 900;
@@ -72,8 +74,6 @@ h3 {
 }
 
 /*=================================Petitions=====================================*/
-
-
 .title2 {
     font-family: 'Gilda Display', serif;
     font-size: 42px;
@@ -87,11 +87,12 @@ h3 {
     font-weight: 300;
     line-height: 1.1
 }
-.right-sidebar-menu-title
-{
+
+.right-sidebar-menu-title {
     padding-top: .1rem;
     padding-left: .5rem;
 }
+
 .header-label {
     font-size: 16px;
     font-family: "proxima-nova", sans-serif;
@@ -167,7 +168,7 @@ a.social-feed-post-link {
 }
 
 .main {
-    margin-top:2rem ;
+    margin-top: 2rem;
     border: 1px solid #efefef;
     padding: 1rem 1rem;
 }
@@ -210,7 +211,6 @@ a.social-feed-post-link {
 }
 
 /*=============================View Petition===========================================*/
-
 .btnr {
     border: solid 1px #ff4814;
     text-shadow: none;
@@ -273,13 +273,13 @@ a.social-feed-post-link {
 .btnr.btnr-spaced {
     margin: 5px 5px 5px 0;
 }
+
 .btnr.green {
     background: #53CC8B;
     color: white;
-    border:none;
+    border: none;
     width: 100%;
 }
-
 
 /*
 .btn.btn-light:link,
@@ -321,8 +321,7 @@ a[class^="share-network-"] {
 
 .icon-wrapper {
     width: 100%;
-    height: 100%;
-    /*flex-direction: row;*/
+    height: 100%;    /*flex-direction: row;*/
     align-content: center;
     align-items: center;
     background-image: none !important;
@@ -364,9 +363,8 @@ a[class^="share-network-"] {
 
 /*.nav-tabs .nav-link .remove-dot-box
 {
-	border:none;
+    border:none;
 }*/
-
 .nav-tabs.r .nav-item.show .nav-link,
 .nav-tabs.r .nav-link.active {
     color: #FF4814;
@@ -404,21 +402,20 @@ a[class^="share-network-"] {
 .card:hover {
     border: 1px solid #FF4814;
 }
-.card_active
-{
+
+.card_active {
     border: 1px solid #FF4814;
 }
 
 /*
 .card > .list-group {
-	border: none;
-	color: black;
+    border: none;
+    color: black;
 }
 .card > .list-group.list-group-item:hover
 {
-	background: #FF4814;
+    background: #FF4814;
 }*/
-
 .text-center.rdonate {
     color: white;
     padding: 2%;
@@ -441,7 +438,6 @@ a[class^="share-network-"] {
 }
 
 /*pagination color change*/
-
 .pagination>li>a {
     background-color: white;
     color: black;
@@ -543,114 +539,145 @@ a[class^="share-network-"] {
     margin-right: 1em;
     color: #ff4814;
 }
+
 /*====================NewsTab=============================*/
 .x1 {
-  width: 70px;
-  height: 70px;
-  position: relative;
-  border-radius: 50%;
-  /*border: 10px solid #22f;*/
-  /*margin: 30px;*/
-  background: #FFE3DA;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border-radius: 50%;  /*border: 10px solid #22f;*/
+
+    /*margin: 30px;*/
+    background: #FFE3DA;
 }
 
 .x1:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  /*border-radius: 50%;*/
-  
-  background: url("/static/svg/news_pro_pic.svg") center center no-repeat;
-  /*background-size: 100px 100px;*/
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;  /*border-radius: 50%;*/
+    background: url("/static/svg/news_pro_pic.svg") center center no-repeat;  /*background-size: 100px 100px;*/
 }
+
 /*==================Social Feed=================*/
-#news_tab
-{
+#news_tab {
     cursor: pointer;
     padding: 1rem;
     font-size: 1.2rem;
-    margin-top:.5rem !important;
+    margin-top: .5rem !important;
 }
 
-#news_tab:hover
-{
+#news_tab:hover {
     background-color: #FFE3DA !important;
-    color:#ff4814 !important;
-    
+    color: #ff4814 !important;
 }
-#crowdpac_tv_tab
-{
-    cursor: pointer;
-    padding: 1rem;
-    font-size: 1.2rem;
-    margin-top:.5rem !important;
-}
-#crowdpac_tv_tab:hover
-{
-    background-color: #FFE3DA !important;
-    color:#ff4814 !important;
-}
-#petitions_tab
-{
-    cursor: pointer;
-    padding: 1rem;
-    font-size: 1.2rem;
-    margin-top:.5rem !important;
-}
-#petitions_tab:hover
-{
-    background-color: #FFE3DA !important;
-    color:#ff4814 !important;
-}
-#members_tab
-{
-    cursor: pointer;
-    padding: 1rem;
-    font-size: 1.2rem;
-    margin-top:.5rem !important;
-}
-#members_tab:hover
-{
-    background-color: #FFE3DA !important;
-    color:#ff4814 !important;
 
+#crowdpac_tv_tab {
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: .5rem !important;
 }
-#news_tab_right
-{
+
+#crowdpac_tv_tab:hover {
+    background-color: #FFE3DA !important;
+    color: #ff4814 !important;
+}
+
+#petitions_tab {
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: .5rem !important;
+}
+
+#petitions_tab:hover {
+    background-color: #FFE3DA !important;
+    color: #ff4814 !important;
+}
+
+#members_tab {
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: .5rem !important;
+}
+
+#members_tab:hover {
+    background-color: #FFE3DA !important;
+    color: #ff4814 !important;
+}
+
+#news_tab_right {
     display: contents;
 }
-#crowdpac_tv_tab_right
-{
+
+#crowdpac_tv_tab_right {
     display: none;
 }
-#petitions_tab_right
-{
+
+#petitions_tab_right {
     display: none;
 }
-#members_tab_right
-{
-    display:none;
-}
-#crowdpac_tv_content
-{
+
+#members_tab_right {
     display: none;
 }
-#petition_content
-{
+
+#crowdpac_tv_content {
     display: none;
 }
-#member_content
-{
+
+#petition_content {
     display: none;
 }
+
+#member_content {
+    display: none;
+}
+
 /*===================Crowdpac TV==================*/
 video.candidate-video-player {
-	width: 100%;
+    width: 100%;
     height: auto;
     max-height: 600px;
 }
+
 /*===========Start Campaign================*/
+
+/*===============campaign story=============*/
+.box {
+    background: #ffffff;
+    background: var(--background);
+    border-radius: 5px;
+    color: #000000;
+    color: var(--color);
+    overflow: hidden;    /* padding: 1px 0; */
+    transition: all 400ms;
+}
+
+.box--light-shaded {
+    background: #F6F6F6;
+}
+
+.box__content {
+    margin: 20px;
+    margin: var(--gutter);
+}
+
+.image-input {
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    width: 620px;
+}
+
+.image-input__label {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    display: block;
+    max-width: 100%;
+}
