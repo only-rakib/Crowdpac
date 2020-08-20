@@ -212,3 +212,27 @@ def donateView(request, amount):
 
 def start_campaign_view(request):
     return render(request, 'startcampaign.html')
+
+
+def pricing_view(request):
+    return render(request, 'Pricing.html')
+
+
+def media_view(request):
+    return render(request, 'media.html')
+
+
+def privacy_policy_view(request):
+    return render(request, 'privacy_policy.html')
+
+
+def terms_view(request):
+    return render(request, 'terms_of_service.html')
+
+
+def jobs_view(request):
+    return render(request, 'jobs.html')
+
+
+def about_us_view(request):
+    return render(request, 'about_us.html')

@@ -40,21 +40,21 @@
                     <div class="row" id="hide-property">
                         <div class="col-sm-12">
                             <button type="button" class="btnr red" style="
-						width: 100%;padding: 6%;" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>Donate $20</button>
+                        width: 100%;padding: 6%;" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>Donate $20</button>
                         </div>
                     </div>
                     <div class="row" id="hide-property">
                         <div class="col-sm-12">
-                            <button type="button" class="btnr btnr-light btnr-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>$27</button>
-                            <button type="button" class="btnr btnr-light btnr-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>$50</button>
-                            <button type="button" class="btnr btnr-light btnr-spaced "  data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>$100</button>
-                            <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate" >Other</button>
+                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>$27</button>
+                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>$50</button>
+                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>$100</button>
+                            <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate">Other</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <a class="btnr black rcls" href="{% url 'view_petitions' %}" style="
-						width: 100%;padding: 6%;">  View Petition </a>
+                        width: 100%;padding: 6%;"> View Petition </a>
                         </div>
                     </div>
                 </div>
@@ -71,11 +71,11 @@
                             <a class="nav-link text-center rcls" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Updates</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-center rcls" id="Endorsements-tab" data-toggle="tab" href="#Endorsements" role="tab" aria-controls="Endorsements" aria-selected="false">    Endorsements
-							<span class="badge tab-badge">
-								{{support.endorsement_count}}
-							</span>
-						</a>
+                            <a class="nav-link text-center rcls" id="Endorsements-tab" data-toggle="tab" href="#Endorsements" role="tab" aria-controls="Endorsements" aria-selected="false"> Endorsements
+                                <span class="badge tab-badge">
+                                    {{support.endorsement_count}}
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -86,7 +86,6 @@
                             <button type="button" class="btnr white" data-toggle="modal" data-target="#modal-share" style="margin-left:1rem">
                                 <i style="color:black" class="fas fa-share"></i>Share
                             </button>
-                            
                         </div>
                         <div class="col">
                             <button type="button text-right" class="btnr white">
@@ -113,8 +112,6 @@
                                             {%include 'endorse.html'%}
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
                                     <h2 class="text-center">
@@ -132,7 +129,7 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col">
-                            <a class="rcls"href="{%url 'donate_page' 20%}" style="text-decoration: none;color: black">
+                            <a class="rcls" href="{%url 'donate_page' 20%}" style="text-decoration: none;color: black">
                                 <div class="card" style="width: 100%;">
                                     <div class="card-body">
                                         <br>
@@ -200,15 +197,15 @@
                             <div class="row">
                                 <div class="col">
                                     <span class="mini-recipient__title">
-										{{donar.donar_name}}
-									</span>
+                                        {{donar.donar_name}}
+                                    </span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <span class="mini-recipient">
-										{{donar.time_ago}}
-									</span>
+                                        {{donar.time_ago}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -227,17 +224,16 @@
                         <div class="col-4">
                             <a class="rcls badge tags" href="{{i.url}}">{{i.name}}</a>
                         </div>
-
                         {%endfor%}
                     </div>
                     <div class="row rmargin-top">
                         <div class="col">
                             <a href='{{post.reporter_url}}' class="mini-recipient__title rcls" style="color: #FF6A40">
-							{{post.reporter_name}}
-						</a>
+                                {{post.reporter_name}}
+                            </a>
                             <span class="mini-recipient">
-							{{post.reporter_position}}
-						</span>
+                                {{post.reporter_position}}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -247,18 +243,18 @@
 </div>
 {% include 'popups.html' %}
 <script>
-    $('#modal-donate').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var amount = button.data('amount')
-        var tips = button.data('tips')
-        var handling = button.data('handling')
-        var total = button.data('total')
-        var modal = $(this)
-        modal.find('#amount').text(amount)
-        modal.find('#tipFee').text(tips)
-        modal.find('#handlingFee').text(handling)
-        modal.find('#buttonTxt').text(total)
-    })
+$('#modal-donate').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var amount = button.data('amount')
+    var tips = button.data('tips')
+    var handling = button.data('handling')
+    var total = button.data('total')
+    var modal = $(this)
+    modal.find('#amount').text(amount)
+    modal.find('#tipFee').text(tips)
+    modal.find('#handlingFee').text(handling)
+    modal.find('#buttonTxt').text(total)
+})
 </script>
 {% endblock container %}
 <!--Body grid system end 1st <section>-->

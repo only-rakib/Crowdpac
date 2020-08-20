@@ -11,5 +11,12 @@ urlpatterns = [
     path('explore/', views.exploreView, name='explore'),
     path('crowdpac_tv/', views.crowdpac_tv_view, name='crowdpac_tv'),
     path('start_campaign/', views.start_campaign_view, name='start_campaign'),
+    path('pricing/', views.pricing_view, name='pricing'),
+    path('media/', views.media_view, name='media'),
+    path('privacy_policy/', views.privacy_policy_view, name='privacy_policy'),
+    path('terms/', views.terms_view, name='terms'),
+    path('jobs/', views.jobs_view, name='jobs'),
+    path('jobs/', views.jobs_view, name='jobs'),
+    path('about_us/', views.about_us_view, name='about_us'),
 
 ]

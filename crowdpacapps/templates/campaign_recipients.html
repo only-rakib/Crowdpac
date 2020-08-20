@@ -15,7 +15,7 @@
 </div>
 <div class="row" id="card_section_recipients">
 	<div class="col-sm-6 text-center" style="margin-top: 3rem">
-		<div class="card" style="width: 100%;cursor: pointer;height: 100%">
+		<div class="card" id="candidate_self" style="width: 100%;cursor: pointer;height: 100%">
 			<div class="card-body">
 				<h3 style="color: #FF4814">Myself
 				or a candidate I work for
@@ -26,7 +26,7 @@
 		</div>
 	</div>
 	<div class="col-sm-6 text-center" style="margin-top: 3rem">
-		<div class="card" style="width: 100%;cursor: pointer;height: 100%">
+		<div class="card" id="candidate_another" style="width: 100%;cursor: pointer;height: 100%">
 			<div class="card-body">
 				<h3 style="color: #FF4814">Another candidate
 				or an organization
@@ -39,7 +39,7 @@
 </div>
 <div class="row" style="margin-top: 3rem">
 	<div class="col text-center">
-		<button type="button" class="btnr red campaigns">
+		<button type="button" id ="recipients_save_button" onclick="campaignRecipentsSaveClcik()" class="btnr red campaigns disable">
 		Save and continue
 		</button>
 	</div>
@@ -62,10 +62,12 @@
 </div>
 <script type="text/javascript">
 		// Get the container element
+	var recipientsButton=true;
 	var divContainer = document.getElementById("card_section_recipients");
 	// Get all buttons with class="btn" inside the container
 	var cards = divContainer.getElementsByClassName("card");
 	// Loop through the buttons and add the active class to the current/clicked button
+	var btns =document.getElementById("recipients_save_button");
 	for (var i = 0; i < cards.length; i++) {
 	cards[i].addEventListener("click", function() {
 	var current = document.getElementsByClassName("card_active");
@@ -75,6 +77,14 @@
 	}
 	// Add the active class to the current/clicked button
 	this.className +=" card_active";
+	btns.classList.remove("disable");
+	recipientsButton=false;
 	});
 	}
+	function campaignRecipentsSaveClcik(){
+		var activeCard = document.getElementsByClassName("card_active");
+		console.log(activeCard);
+		recipientsButton=true;
+	}
+	
 </script>

@@ -1,0 +1,111 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{%block container%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="background: #F6F6F6;padding-bottom: 2rem">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-12">
+                    <div class="row" style="margin-top: 2rem">
+                        <div class="col text-center">
+                            <h2 class="title2">
+                                Pricing
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="mini-recipient text-center">
+                                Crowdpac is a free platform with zero startup or monthly costs. We offer two types of fundraising campaigns: conditional and direct donation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-top: 1rem">
+                            <div class="card">
+                                <img class=" card-img-top" src="{%static 'images/xp4twkzcc38yonhmu4oz.jpg'%}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: #64ACC4">Conditional campaigns</h5>
+                                    <p class="card-text"> <a class="rclst" href="">Conditional campaigns</a> <span class="mini-recipient">Crowdpac Collects a flat 3% commission on contributions.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 1rem">
+                            <div class="card" style="height: 100%">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color: #FF4814">Direct donation campaigns</h5>
+                                    <p class="card-text mini-recipient">Direct donation campaigns incur a 3% commission, which is lowest of a political platform to process a contribution, while donors pay the credit card fees (2.9% + 30 cents), it is free to use ACH. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 2rem">
+        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-10 offset-sm-1">
+            <div class="row">
+                <div class="col text-center">
+                    <h2>
+                        Here's what people are saying:
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="bottom-line">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="mini-recipient">“With Crowdpac I was able to create a fundraising page in just a couple of minutes, no need for expensive lawyers or campaign consultants. Then I could immediately start collecting pledges from my family and friends, before even announcing that I was going to run. Their cards were only charged when I officially declared. It was a massive confidence boost, knowing that I would enter the race with money already in the bank”</p>
+                    <span class="mini-recipient__title">
+                        - Rep. Chris Rabb - Pennsylvania State Rep
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="bottom-line">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="mini-recipient">“I went with Crowdpac because I like the way surcharges are placed on the contributor. If contributors give $100, they want the campaign to get $100. It’s more transparent, and makes more sense financially. Going with Crowdpac is going to save me $10,000 if I hit my fundraising goal. It’s super user friendly - I’d say it’s idiot-proof.”</p>
+                    <span class="mini-recipient__title">
+                        - Kelly De Lucia - Candidate for Virginia House of Delegates
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="bottom-line">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="mini-recipient">“As I explore a potential run for Congress, Crowdpac has been an invaluable tool to test the viability of my potential candidacy. Its built-in network readily connected me with interested supporters who are willing to pledge and allowed my friends and family to easily show their support, too.</p>
+                    <p class="mini-recipient">
+                        Being able to test the waters of my candidacy with Crowdpac was crucial — I was able to use a pivotal news moment to launch my pledge campaign with a goal of raising $20,000. We hit that in less than a week! I know now that I have the financial support I need to run a viable campaign and win.”
+                    </p>
+                    <span class="mini-recipient__title">
+                        - Haley Stevens - Candidate for MI-11
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="bottom-line">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <a href="{% url 'start_campaign' %}" class="btnr red campaigns"> Create a campaign</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {%endblock container%}
