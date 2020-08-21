@@ -18,5 +18,8 @@ urlpatterns = [
     path('jobs/', views.jobs_view, name='jobs'),
     path('jobs/', views.jobs_view, name='jobs'),
     path('about_us/', views.about_us_view, name='about_us'),
+    path('my_campaigns/', views.my_campaigns_view, name='my_campaigns'),
+    path('signin/', views.signin_view, name='signin'),
+    path('remaind/', views.remaind_view, name='remaind'),
 
 ]

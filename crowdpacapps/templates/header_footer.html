@@ -18,8 +18,8 @@
 
 <body>
     <!---header part start here -->
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light">
+    <header class="main-header__part">
+        <nav class="navbar navbar-expand-lg navbar-light main__navbar">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img class="site-header__logo" src="{% static 'images/crowdpac-logo.png' %}" alt="Logo">
             </a>
@@ -29,21 +29,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item site-header">
-                        <a class="nav-link" href="{% url 'explore' %}">Explore</a>
+                        <a class="nav-link" href="{% url 'explore' %}">Campaigns</a>
                     </li>
                     <li class="nav-item site-header">
                         <a class="nav-link" href="{% url 'feed' %}">Social Feed</a>
                     </li>
+                    {% if login == 'True' %}
+                    <li class="nav-item site-header">
+                        <a class="nav-link" href="{% url 'my_campaigns' %}">My Campaigns</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a class="btn btn-orange-bg btn-outline-success my-2 my-sm-0" href="{%url 'start_campaign' %}">Start a Campaign
+                    <a class="btn btn-outline-success my-2 my-sm-0 header__button" href="{%url 'start_campaign' %}">Start a Campaign
                     </a>
                 </form>
-                <div class="site-header">
-                    <span><a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a></span>
+                <div class="header__search">
+                    <a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a>
                 </div>
-                <div class="site-header">
-                    <a class="nav-item nav-link" href="#"><strong>Sign In</strong></a>
+                <div class="header__signin">
+                    <a class="nav-item nav-link" href="{% url 'signin' %}"><strong>Sign In</strong></a>
                 </div>
             </div>
         </nav>
@@ -51,7 +56,8 @@
     <!--nav part end here-->
     {% block container %} {% endblock container %} {% block style %} {% endblock style %}
     <!--footer part start here-->
-    <footer class="footer-section" style="margin-top: 6rem">
+    <footer class="footer-section" style="margin-top: 3rem">
+        <hr class="bottom-line">
         <div class="row footer-area1">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <h3 class="brand">CROWDPAC</h3>
@@ -60,17 +66,16 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4">
                 <p>Information</p>
-                <li><a class="rcls" href="{% url 'pricing' %}">Pricing</a></li>
+                <li><a class="clsm" href="{% url 'pricing' %}">Pricing</a></li>
                 <li>Blog</li>
-                <li><a class="rcls" href="{% url 'media' %}">Media Inquiries</a></li>
-                <li> <a class="rcls" href="{% url 'privacy_policy' %}">Privacy Policy</a> </li>
-                <li> <a class="rcls" href="{% url 'terms' %}">Terms Of Use</a> </li>
+                <li><a class="clsm" href="{% url 'media' %}">Media Inquiries</a></li>
+                <li><a class="clsm" href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4">
                 <p>Our Team</p>
-                <li><a class="rcls" href="{% url 'jobs' %}">Job openings<a></li>
+                <li><a class="clsm" href="{% url 'jobs' %}">Job openings<a class="clsm"></li>
                 <li>Support</li>
-                <li><a class="rcls" href="{% url 'about_us' %}">About Us</a></li>
+                <li><a class="clsm" href="{% url 'about_us' %}">About Us</a></li>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4">
                 <p>Campaigns</p>
@@ -78,16 +83,13 @@
                 <li>Start A Campaign</li>
             </div>
         </div>
-        <hr style="width:96%; border:1px solid #fff; margin: 15px 16px!important;">
+        <hr class="bottom-line">
         <div class="row footer-area2">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <i class="fab fa-facebook-f"></i>
                 <i class="fab fa-twitter"></i>
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-medium-m"></i>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <p>© 2020 Crowdpac</p>
             </div>
         </div>
     </footer>

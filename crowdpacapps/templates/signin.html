@@ -1,0 +1,166 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{%block container%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-12">
+                    <div class="row" style="margin-top: 2rem">
+                        <div class="col text-center">
+                            <h1 class="title2">Sign in</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center mini-recipient">
+                            Connect with one of your social accounts
+                        </div>
+                    </div>
+                    <div class="row text-center" style="margin-top: 1rem">
+                        <div class="col-12">
+                            <a class="btn btn-fb" data-provider="facebook" href="#" data-event="create-account-fb">
+                                <i class="fab fa-facebook icon-facebook-sign force-block-xs"></i> Facebook
+                            </a>
+                            <a class="btn btn-twitter" data-provider="twitter" href="#" data-event="create-account-tw">
+                                <i class="fab fa-twitter icon-twitter force-block-xs"></i> Twitter
+                            </a>
+                            <a class="btn btn-google " data-provider="google" href="#" data-event="create-account-gm">
+                                <i class="fab fa-google">Google</i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--login Start-->
+                    <div id="login">
+                        <div class="row" style="margin-top: 3rem">
+                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
+                                <div class="row">
+                                    <div class="col mini-recipient__title">
+                                        <label style="float: left;">Or, sign in with your email address</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="email" name="loginEmail" id="loginEmail" style="width: 100%" placeholder="Your Email Address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 1rem">
+                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
+                                <div class="row">
+                                    <div class="col mini-recipient__title">
+                                        <label style="float: left;">Password </label>
+                                        <a class="clsm" href="{% url 'remaind' %}" style="float: right;">
+                                            Forgot?</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="password" name="loginPassword" id="loginPassword" style="width: 100%" placeholder="Your Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 2rem">
+                            <div class="col-6 offset-3">
+                                <button class="btnr red" type="submit" name="loginSubmit" id="loginSubmitButton" style="width: 100%">
+                                    Login
+                                </button>
+                                <div class="row" style="margin-top: 1rem">
+                                    <div class="col text-center mini-recipient">
+                                        Don't have a Crowdpac account? <a class="rclst" href="#" onclick="showSignup()">Sign up.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Signup Start-->
+                    <div id="signup" style="display: none">
+                        <div class="row" style="margin-top: 3rem">
+                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
+                                <div class="row">
+                                    <div class="col mini-recipient__title">
+                                        <label style="float: left;">Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" name="loginName" id="signUpName" style="width: 100%" placeholder="Your Name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 1rem">
+                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
+                                <div class="row">
+                                    <div class="col mini-recipient__title">
+                                        <label style="float: left;">Email</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="email" name="signUpEmail" id="signUpEmail" style="width: 100%" placeholder="Your Email Address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 1rem">
+                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
+                                <div class="row">
+                                    <div class="col mini-recipient__title">
+                                        <label style="float: left;">Password </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="password" name="signUpPassword" id="signUpPassword" style="width: 100%" placeholder="Your Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 2rem">
+                            <div class="col-6 offset-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btnr red" type="submit" name="signUpSubmitButton" id="signUpSubmitButton" style="width: 100%">
+                                            Create your account
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 1rem">
+                                    <div class="col text-center mini-recipient">
+                                        <input type="checkbox" class="form-check-input" id="updateSignupCheck">
+                                        <label class="form-check-label" for="exampleCheck1">Get updates from Crowdpac</label>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 1rem">
+                                    <div class="col text-center mini-recipient">
+                                        Already have a Crowdpac account?<a class="rclst" href="#" onclick="showLogin()">Log in.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function showSignup() {
+    var r = document.getElementById("signup");
+    var s = document.getElementById("login");
+    r.style.display = 'block';
+    s.style.display = 'none';
+}
+
+function showLogin() {
+    var r = document.getElementById("signup");
+    var s = document.getElementById("login");
+    s.style.display = 'block';
+    r.style.display = 'none';
+}
+</script>
+{%endblock container%}

@@ -1,0 +1,84 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{%block container%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-12">
+                    <div class="row" style="margin-top: 2rem">
+                        <div class="col alert">
+                            Your campaign was deleted
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2rem">
+                        <div class="col text-center">
+                            <span class="title2">
+                                My Campaigns
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2rem" id="dbID">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <a style="text-decoration: none;color: #212529 " href="{% url 'start_campaign' %}">
+                                        <h4><strong>Untitled Campaign</strong> </h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="mini-recipient labelHide" style="float: left;">No recipients selected
+                                    </label>
+                                    <label class="mini-recipient " style="float: right;padding-left: 1rem;cursor: pointer;" onClick="deleteFunction()">
+                                        Delete campaign
+                                    </label>
+                                    <a class="mini-recipient rclst" style="float: right;" href="{% url 'start_campaign' %}">
+                                        Edit campaign
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table table-bordered" style="background: #F8F8F8;font-size: 16px;font-weight: bold;color:#787878;">
+                                        <tr>
+                                            <td>
+                                                $0<br>
+                                                Raised
+                                            </td>
+                                            <td>
+                                                0<br>
+                                                Contributions
+                                            </td>
+                                            <td>
+                                                0<br>
+                                                Endorsements
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function deleteFunction(e) {
+    var r = document.getElementsByClassName("alert");
+    if (confirm("Are you sure you want to delete permanently?")) {
+        /*e.preventDefault();*/
+
+        r[0].style.display = 'block';
+
+    } else {
+        $('#person-delete').submit();
+    }
+}
+</script>
+{%endblock container%}

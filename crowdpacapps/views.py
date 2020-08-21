@@ -2,9 +2,12 @@ from django.shortcuts import render
 from itertools import chain
 from .models import Donar_list, Endorsement_list
 
+login = "f"
+
 
 def home_view(request):
-    return render(request, 'index.html')
+    global login
+    return render(request, 'index.html', {'login': login})
 
 
 def exploreView(request):
@@ -16,6 +19,7 @@ def crowdpac_tv_view(request):
 
 
 def social_feed_View(request):
+    global login
     #donar_orders = Donar_list.objects.all()
 
     #endorse_orders = Endorsement_list.objects.all()
@@ -86,7 +90,7 @@ def social_feed_View(request):
     lstPetition = []
     lstPetition.append(first_topic_petition)
     lstPetition.append(second_topic_petition)
-    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition})
+    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login})
 
 
 def view_campaignView(request):
@@ -177,13 +181,14 @@ def view_campaignView(request):
         'endorsed_people': lstend,
         'donars': lstdon,
         'tags': taglst,
+        'login': login
     }
 
     return render(request, 'view_campaign.html', context)
 
 
 def view_petitionsView(request):
-    return render(request, 'view_petitions.html')
+    return render(request, 'view_petitions.html', {'login': login})
 
 
 def donateView(request, amount):
@@ -207,32 +212,44 @@ def donateView(request, amount):
         total = {'amount': '100.00', 'tip': '10.00',
                  'handle': '3.39', 'total': ' 113.39'}
 
-    return render(request, 'donate_page.html', {'data': total})
+    return render(request, 'donate_page.html', {'data': total, 'login': login})
 
 
 def start_campaign_view(request):
-    return render(request, 'startcampaign.html')
+    return render(request, 'startcampaign.html', {'login': login})
 
 
 def pricing_view(request):
-    return render(request, 'Pricing.html')
+    return render(request, 'Pricing.html', {'login': login})
 
 
 def media_view(request):
-    return render(request, 'media.html')
+    return render(request, 'media.html', {'login': login})
 
 
 def privacy_policy_view(request):
-    return render(request, 'privacy_policy.html')
+    return render(request, 'privacy_policy.html', {'login': login})
 
 
 def terms_view(request):
-    return render(request, 'terms_of_service.html')
+    return render(request, 'terms_of_service.html', {'login': login})
 
 
 def jobs_view(request):
-    return render(request, 'jobs.html')
+    return render(request, 'jobs.html', {'login': login})
 
 
 def about_us_view(request):
-    return render(request, 'about_us.html')
+    return render(request, 'about_us.html', {'login': login})
+
+
+def my_campaigns_view(request):
+    return render(request, 'my_campaigns.html', {'login': login})
+
+
+def signin_view(request):
+    return render(request, 'signin.html',)
+
+
+def remaind_view(request):
+    return render(request, 'forgotpass.html',)

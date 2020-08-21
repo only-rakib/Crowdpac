@@ -756,3 +756,40 @@ video.candidate-video-player {
 .btnr.red.campaigns {
     padding: 8px 8vw;
 }
+
+/*=======================My Campaigns=========================*/
+.alert {
+    border-radius: 0;
+    background: #FFEFE8;
+    color: #ff4814;
+    border: solid 0 #ff4814;
+    border-left-width: 3px;
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    display: none;
+}
+
+/*==========signin===============*/
+.btn.btn-fb-color,
+.btn.btn-fb {
+    background: #3a5998;
+    border-color: #3a5998;
+    color: #fff;
+}
+
+.btn.btn-twitter-color,
+.btn.btn-twitter {
+    background: #4098fc;
+    border-color: #4098fc;
+    color: #fff;
+}
+
+.btn.btn-google {
+
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-color: gray;
+    color: black;
+}
