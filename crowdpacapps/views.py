@@ -216,7 +216,12 @@ def donateView(request, amount):
 
 
 def start_campaign_view(request):
-    return render(request, 'startcampaign.html', {'login': login})
+    global login
+    if login == 'True':
+        return render(request, 'startcampaign.html', {'login': login})
+    else:
+
+        return render(request, 'startcampaignSignup.html', {'login': login})
 
 
 def pricing_view(request):

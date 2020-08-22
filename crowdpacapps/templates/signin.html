@@ -80,66 +80,7 @@
                     <div id="signup" style="display: none">
                         <div class="row" style="margin-top: 3rem">
                             <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
-                                <div class="row">
-                                    <div class="col mini-recipient__title">
-                                        <label style="float: left;">Name</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" name="loginName" id="signUpName" style="width: 100%" placeholder="Your Name">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 1rem">
-                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
-                                <div class="row">
-                                    <div class="col mini-recipient__title">
-                                        <label style="float: left;">Email</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="email" name="signUpEmail" id="signUpEmail" style="width: 100%" placeholder="Your Email Address">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 1rem">
-                            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12">
-                                <div class="row">
-                                    <div class="col mini-recipient__title">
-                                        <label style="float: left;">Password </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="password" name="signUpPassword" id="signUpPassword" style="width: 100%" placeholder="Your Password">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 2rem">
-                            <div class="col-6 offset-3">
-                                <div class="row">
-                                    <div class="col">
-                                        <button class="btnr red" type="submit" name="signUpSubmitButton" id="signUpSubmitButton" style="width: 100%">
-                                            Create your account
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 1rem">
-                                    <div class="col text-center mini-recipient">
-                                        <input type="checkbox" class="form-check-input" id="updateSignupCheck">
-                                        <label class="form-check-label" for="exampleCheck1">Get updates from Crowdpac</label>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 1rem">
-                                    <div class="col text-center mini-recipient">
-                                        Already have a Crowdpac account?<a class="rclst" href="#" onclick="showLogin()">Log in.</a>
-                                    </div>
-                                </div>
+                                {% include 'signup.html' %}
                             </div>
                         </div>
                     </div>

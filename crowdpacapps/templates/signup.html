@@ -1,0 +1,53 @@
+{%load static%}
+<div class="row">
+    <div class="col">
+        <div class="row" style="margin-top: 1rem">
+            <div class=" col mini-recipient__title">
+                <label style="float: left;">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" name="loginName" id="signUpName" style="width: 100%" placeholder="Your Name">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem">
+            <div class="col mini-recipient__title">
+                <label style="float: left;">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="email" name="signUpEmail" id="signUpEmail" style="width: 100%" placeholder="Your Email Address">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem">
+            <div class=" col mini-recipient__title">
+                <label style="float: left;">Password </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="password" name="signUpPassword" id="signUpPassword" style="width: 100%" placeholder="Your Password">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem">
+            <div class="col">
+                <button class="btnr red" type="submit" name="signUpSubmitButton" id="signUpSubmitButton" style="width: 100%">
+                    Create your account
+                </button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem">
+            <div class="col text-center mini-recipient">
+                <input type="checkbox" class="form-check-input" id="updateSignupCheck" checked>
+                <label class="form-check-label" for="exampleCheck1">Get updates from Crowdpac</label>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem">
+            <div class="col col text-center mini-recipient">
+                Already have a Crowdpac account?<a class="rclst" href="{% url 'signin' %}" onclick="showLogin()">Log in.</a>
+            </div>
+        </div>
+    </div>
+</div>

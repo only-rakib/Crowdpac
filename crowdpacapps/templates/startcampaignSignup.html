@@ -1,0 +1,66 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{%block container%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="row">
+                <!--Left-->
+                <div class="col-md-6 order-lg-1 order-md-1 order-2" style="margin-top: 3rem">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <img src="{%static 'images/signin-confetti.jpg'%}" style="height: 70px;width: 70px">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 1rem">
+                        <div class="col text-center">
+                            <h2>Let's get started creating your campaign!</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2rem">
+                        <div class="col offset-1">
+                            <img src="{%static 'images/signin-check.jpg'%}" style="height: 50px;width: 50px">
+                            <span style="font-size: 20px;padding-left: 10px;">1. Create an account or sign in</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2rem;opacity: .4">
+                        <div class="col offset-1">
+                            <img src="{%static 'images/signin-check.jpg'%}" style="height: 50px;width: 50px">
+                            <span style="font-size: 20px;padding-left: 10px">2. Make your campaign</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 2rem;opacity: .4">
+                        <div class="col offset-1">
+                            <img src="{%static 'images/signin-check.jpg'%}" style="height: 50px;width: 50px">
+                            <span style="font-size: 20px;padding-left: 10px">3. Get donations!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-2 order-lg-2 order-1" style="margin-top: 2rem">
+                    <div class="row">
+                        <div class="col text-center mini-recipient">
+                            Connect with one of your social accounts
+                        </div>
+                    </div>
+                    <div class="row text-center" style="margin-top: 1rem">
+                        <div class="col-12">
+                            <a class="btn btn-fb" data-provider="facebook" href="#" data-event="create-account-fb">
+                                <i class="fab fa-facebook icon-facebook-sign force-block-xs"></i> Facebook
+                            </a>
+                            <a class="btn btn-twitter" data-provider="twitter" href="#" data-event="create-account-tw">
+                                <i class="fab fa-twitter icon-twitter force-block-xs"></i> Twitter
+                            </a>
+                            <a class="btn btn-google " data-provider="google" href="#" data-event="create-account-gm">
+                                <i class="fab fa-google">Google</i>
+                            </a>
+                        </div>
+                    </div>
+                    {% include 'signup.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock container%}

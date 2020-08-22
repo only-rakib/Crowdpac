@@ -1,56 +1,50 @@
 {% extends 'header_footer.html' %} {% load static %} {% block title %}
 <title> Feed | Crowdpac </title>
 {% endblock title %} {% block container %}
-
 <!--Body grid system start-->
 <div class="container-fluid">
     <div class="row rmargin-top">
         <!--Left Sidebar Start-->
-
         <div class='col-2 offset-lg-1' id="left">
             <div class="row sticky-top">
                 <div class="col-12">
-                
-                    <div class="row" id ="news_tab" style="background:#FFE3DA;color:#ff4814 " onClick="tabclick(this.id)">
+                    <div class="row" id="news_tab" style="background:#FFE3DA;color:#ff4814 " onClick="tabclick(this.id)">
                         <div class="col">
                             <div class="row">
                                 <img src="{% static 'svg/news.svg' %}">
-                                <span class="right-sidebar-menu-title" >News</span>
+                                <span class="right-sidebar-menu-title">News</span>
                             </div>
                         </div>
-                    </div> 
-                    <div class="row" id ="crowdpac_tv_tab" onClick="tabclick(this.id)">
+                    </div>
+                    <div class="row" id="crowdpac_tv_tab" onClick="tabclick(this.id)">
                         <div class="col">
                             <div class="row">
                                 <img src="{% static 'svg/crowdpacTV.svg' %}">
                                 <span class="right-sidebar-menu-title">Crowdpac TV</span>
                             </div>
                         </div>
-                    </div>    
-                    <div class="row" id ="petitions_tab" onClick="tabclick(this.id)">
+                    </div>
+                    <div class="row" id="petitions_tab" onClick="tabclick(this.id)">
                         <div class="col">
                             <div class="row">
                                 <img src="{% static 'svg/petition.svg' %}">
                                 <span class="right-sidebar-menu-title">Petitions</span>
                             </div>
                         </div>
-                    </div>    
-                    <div class="row" id ="members_tab" onClick="tabclick(this.id)">
+                    </div>
+                    <div class="row" id="members_tab" onClick="tabclick(this.id)">
                         <div class="col">
                             <div class="row">
                                 <img src="{% static 'svg/member.svg' %}">
                                 <span class="right-sidebar-menu-title">Members</span>
                             </div>
                         </div>
-                    </div>    
-                
+                    </div>
                 </div>
             </div>
         </div>
         <!--left Sidebar End-->
-
         <!--Center Content Start-->
-
         <div class='col-md-7 col-lg-6 col-10'>
             <div id="news_content">
                 {% include 'news_content.html' %}
@@ -61,34 +55,27 @@
             <div id="petition_content">
                 {% include 'petitions.html' %}
             </div>
-            
         </div>
         <!--Center Content End-->
         <!--Right Sidebar start-->
-
-        <div class='col-2' id="right" >
+        <div class='col-2' id="right">
             <div class="sticky-top">
-
                 <!--News Right content start-->
                 <div id="news_tab_right">
                     <div class="row text-center ">
                         <div class="col-sm-6 offset-sm-2">
                             <img src="{% static 'svg/newsRight.svg' %} ">
                         </div>
-
                     </div>
-                    <div class="row title3 text-center" style="font-size:30px">    
-                            Always Current
+                    <div class="row title3 text-center" style="font-size:30px">
+                        Always Current
                     </div>
                     <div class="row">
                         <hr class="line-bottom">
-
                     </div>
                     <div class="row">
                         Trending national & local political news.
                     </div>
-
-                    
                 </div>
                 <!--News Right content end-->
                 <!--crowdpac-tv Right content start-->
@@ -97,37 +84,28 @@
                         <div class="col-sm-6 offset-sm-2">
                             <img src="{% static 'svg/crowdpacTVRight.svg' %} ">
                         </div>
-
                     </div>
                     <div class="row title3 text-center">
                         How It Works<br>
                     </div>
                     <div class="row">
                         <hr class="line-bottom">
-
                     </div>
                     <div class="row">
                         <span class="step-number">1</span>
-
                         <span class="header-label">Register for Rally</span>
                     </div>
-
                     <div class="row step-gap">
                         <span class="step-number">2</span>
-
                         <span class="header-label">Rally Goes Live
-                            </span>
+                        </span>
                     </div>
-
                     <div class="row step-gap">
                         <span class="step-number">3</span>
-
                         <span class="header-label">Collect Donations</span>
                     </div>
-
                     <div class="row step-gap">
                         <span class="step-number">4</span>
-
                         <span class="header-label">Hold Virtual Q/A </span>
                     </div>
                     <div class="row">
@@ -146,48 +124,39 @@
                         <div class="col-sm-6 offset-sm-2">
                             <img src="{% static 'svg/document.svg' %} ">
                         </div>
-
                     </div>
                     <div class="row title3 text-center">
                         How It Works<br>
                     </div>
                     <div class="row">
                         <hr class="line-bottom">
-
                     </div>
                     <div class="row">
                         <span class="step-number">1</span>
-
                         <span class="header-label">Create Petition</span>
                     </div>
-
                     <div class="row step-gap">
                         <span class="step-number">2</span>
-
                         <span class="header-label">Petition Goes Live
-                            </span>
+                        </span>
                     </div>
-
                     <div class="row step-gap">
                         <span class="step-number">3</span>
-
                         <span class="header-label">Collect Signatures</span>
                     </div>
-
                     <div class="row step-gap">
                         <span class="step-number">4</span>
-
                         <span class="header-label">Email Your Petition</span>
                     </div>
                 </div>
                 <!--Petitions Right content end-->
                 <!--member_tab Right content Start-->
                 <div id="members_tab_right">
+                    {% if login == "True" %}
                     <div class="row text-center ">
                         <div class="col-sm-6 offset-sm-2">
                             <img src="{% static 'svg/memberRight.svg' %} ">
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col text-center">
@@ -196,7 +165,6 @@
                     </div>
                     <div class="row">
                         <hr class="line-bottom">
-
                     </div>
                     <div class="row">
                         <div class="col">
@@ -218,14 +186,14 @@
                                 <option value="Opera">
                                 <option value="Safari">
                                 <option value="Microsoft Edge">
-                            </datalist>  
+                            </datalist>
                         </div>
                         <div class="form-group">
                             <label for="labelAddFriend">Don't see your friends ?</label>
                             <button type="button" class="btnr green" data-toggle="modal" data-target="#modal-share"><i class="far fa-user"></i>Invite Members</button>
                         </div>
-                        
                     </form>
+                    {% endif %}
                 </div>
                 <!--member_tab Right content end-->
             </div>
@@ -235,101 +203,98 @@
 </div>
 {% include "popups.html" %}
 <script>
-    $('#modal-share').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var title = button.data('title')
-        var modal = $(this)
-        modal.find('#share_title').text(title)
-    })
+$('#modal-share').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var title = button.data('title')
+    var modal = $(this)
+    modal.find('#share_title').text(title)
+})
 </script>
 <script>
-    function tabclick(clicked_id)
-    {
-        news_id=document.getElementById('news_tab');
-        tv_id=document.getElementById('crowdpac_tv_tab');
-        petition_id = document.getElementById('petitions_tab');
-        member_id = document.getElementById('members_tab');
-        
-        news_content_id = document.getElementById("news_content");
-        crowdpac_tv_content_id = document.getElementById("crowdpac_tv_content");
-        petition_content_id = document.getElementById("petition_content");
-        /*members_content_id = document.getElementById("members_content");*/
+function tabclick(clicked_id) {
+    news_id = document.getElementById('news_tab');
+    tv_id = document.getElementById('crowdpac_tv_tab');
+    petition_id = document.getElementById('petitions_tab');
+    member_id = document.getElementById('members_tab');
 
-        news_id_right=document.getElementById('news_tab_right');
-        tv_id_right=document.getElementById('crowdpac_tv_tab_right');
-        petition_id_right = document.getElementById('petitions_tab_right');
-        member_id_right = document.getElementById('members_tab_right');
-        
-        if(clicked_id==document.getElementById('news_tab').id)
-        {
-                
-            news_id.style.cssText="background:#FFE3DA;color:#ff4814";
-            tv_id.style.cssText="background:none;color:none";
-            petition_id.style.cssText="background:none;color:none";
-            member_id.style.cssText="background:none;color:none";
+    news_content_id = document.getElementById("news_content");
+    crowdpac_tv_content_id = document.getElementById("crowdpac_tv_content");
+    petition_content_id = document.getElementById("petition_content");
+    /*members_content_id = document.getElementById("members_content");*/
 
-            news_content_id.style.display="block";
-            crowdpac_tv_content_id.style.display="none"
-            petition_content_id.style.display="none"
-            /*members_content_id.style.display="none" */
-            
-            news_id_right.style.display="block";
-            tv_id_right.style.display="none";
-            petition_id_right.style.display="none";
-            member_id_right.style.display="none";
-        }
-        else if(clicked_id==document.getElementById('crowdpac_tv_tab').id)
-        {
-            news_id.style.cssText="background:none;color:none";
-            tv_id.style.cssText="background:#FFE3DA;color:#ff4814";
-            petition_id.style.cssText="background:none;color:none";
-            member_id.style.cssText="background:none;color:none";
+    news_id_right = document.getElementById('news_tab_right');
+    tv_id_right = document.getElementById('crowdpac_tv_tab_right');
+    petition_id_right = document.getElementById('petitions_tab_right');
+    member_id_right = document.getElementById('members_tab_right');
 
-            news_content_id.style.display="none";
-            crowdpac_tv_content_id.style.display="block"
-            petition_content_id.style.display="none"
-            /*members_content_id.style.display="none" */
-            
-            news_id_right.style.display="none";
-            tv_id_right.style.display="block";
-            petition_id_right.style.display="none";
-            member_id_right.style.display="none";
-        }
-        else if(clicked_id==document.getElementById('petitions_tab').id)
-        {
-            news_id.style.cssText="background:none;color:none";
-            tv_id.style.cssText="background:none;color:none";
-            petition_id.style.cssText="background:#FFE3DA;color:#ff4814";
-            member_id.style.cssText="background:none;color:none";
-            
-            news_content_id.style.display="none";
-            crowdpac_tv_content_id.style.display="none"
-            petition_content_id.style.display="block"
-            /*members_content_id.style.display="none" */
+    if (clicked_id == document.getElementById('news_tab').id) {
 
-            news_id_right.style.display="none";
-            tv_id_right.style.display="none";
-            petition_id_right.style.display="block";
-            member_id_right.style.display="none";
-        }
-        else if(clicked_id==document.getElementById('members_tab').id)
-        {
-            news_id.style.cssText="background:none;color:none";
-            tv_id.style.cssText="background:none;color:none";
-            petition_id.style.cssText="background:none;color:none";
-            member_id.style.cssText="background:#FFE3DA;color:#ff4814";
-            
-            news_content_id.style.display="none";
-            crowdpac_tv_content_id.style.display="none"
-            petition_content_id.style.display="none"
+        news_id.style.cssText = "background:#FFE3DA;color:#ff4814";
+        tv_id.style.cssText = "background:none;color:none";
+        petition_id.style.cssText = "background:none;color:none";
+        member_id.style.cssText = "background:none;color:none";
+
+        news_content_id.style.display = "block";
+        crowdpac_tv_content_id.style.display = "none"
+        petition_content_id.style.display = "none"
+        /*members_content_id.style.display="none" */
+
+        news_id_right.style.display = "block";
+        tv_id_right.style.display = "none";
+        petition_id_right.style.display = "none";
+        member_id_right.style.display = "none";
+    } else if (clicked_id == document.getElementById('crowdpac_tv_tab').id) {
+        news_id.style.cssText = "background:none;color:none";
+        tv_id.style.cssText = "background:#FFE3DA;color:#ff4814";
+        petition_id.style.cssText = "background:none;color:none";
+        member_id.style.cssText = "background:none;color:none";
+
+        news_content_id.style.display = "none";
+        crowdpac_tv_content_id.style.display = "block"
+        petition_content_id.style.display = "none"
+        /*members_content_id.style.display="none" */
+
+        news_id_right.style.display = "none";
+        tv_id_right.style.display = "block";
+        petition_id_right.style.display = "none";
+        member_id_right.style.display = "none";
+    } else if (clicked_id == document.getElementById('petitions_tab').id) {
+        news_id.style.cssText = "background:none;color:none";
+        tv_id.style.cssText = "background:none;color:none";
+        petition_id.style.cssText = "background:#FFE3DA;color:#ff4814";
+        member_id.style.cssText = "background:none;color:none";
+
+        news_content_id.style.display = "none";
+        crowdpac_tv_content_id.style.display = "none"
+        petition_content_id.style.display = "block"
+        /*members_content_id.style.display="none" */
+
+        news_id_right.style.display = "none";
+        tv_id_right.style.display = "none";
+        petition_id_right.style.display = "block";
+        member_id_right.style.display = "none";
+    } else if (clicked_id == document.getElementById('members_tab').id) {
+        var a = "{{login}}";
+        if (a == "True") {
+            news_id.style.cssText = "background:none;color:none";
+            tv_id.style.cssText = "background:none;color:none";
+            petition_id.style.cssText = "background:none;color:none";
+            member_id.style.cssText = "background:#FFE3DA;color:#ff4814";
+
+            news_content_id.style.display = "none";
+            crowdpac_tv_content_id.style.display = "none"
+            petition_content_id.style.display = "none"
             /*members_content_id.style.display="none" */
 
-            news_id_right.style.display="none";
-            tv_id_right.style.display="none";
-            petition_id_right.style.display="none";
-            member_id_right.style.display="block";
+            news_id_right.style.display = "none";
+            tv_id_right.style.display = "none";
+            petition_id_right.style.display = "none";
+            member_id_right.style.display = "block";
+        } else {
+            location.href = "{% url 'signin'%}";
         }
     }
+}
 </script>
 <!--Body grid system end-->
 {% endblock container %}
