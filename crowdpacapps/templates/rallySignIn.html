@@ -1,0 +1,75 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{%block container%}
+<div class="container-fluid">
+    <div class="row" style="margin-top: 3rem">
+        <div class="col">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="{%static 'svg/noun_broadcast_2136077_2.svg'%}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <h4><strong>Register for A Virtual Campaign Rally</strong> </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center mini-recipient">
+                    <span style="padding-right: .5rem">Partnered with</span><span><img src="{%static 'images/KISWE_Mobile_Logo.jpg'%}" style="width: 100px;height: 30px"></span><span style="padding-left: .5rem">streaming. </span>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 2rem">
+                <div class="col text-center">
+                    <h4><strong style="color: red">Before starting a rally, please sign in or register.</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 2rem">
+        <div class="col-lg-4 offset-lg-4 col-10 offset-1">
+            <div id="login">
+                <div class="row">
+                    <div class="col text-center">
+                        <h2 class="title2">Sign in</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include "login.html" %}
+                    </div>
+                </div>
+            </div>
+            <div id="signup" style="display: none">
+                <div class="row">
+                    <div class="col text-center">
+                        <h2 class="title2">Sign Up</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include 'signup.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function showSignup() {
+    var r = document.getElementById("signup");
+    var s = document.getElementById("login");
+    r.style.display = 'block';
+    s.style.display = 'none';
+}
+
+function showLogin() {
+    var r = document.getElementById("signup");
+    var s = document.getElementById("login");
+    s.style.display = 'block';
+    r.style.display = 'none';
+}
+</script>
+{% endblock container %}

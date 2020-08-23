@@ -96,6 +96,16 @@ a.clsm:hover {
     color: #ff4814;
 }
 
+.dropdown-menu.custom {
+
+    border: none;
+    border-radius: 0px;
+    right: 0;
+    left: auto;
+}
+
+
+
 /******************************* nav part start here***************************************/
 /***************************** banner part start here**************************************/
 

@@ -1,5 +1,4 @@
 {%load static%}
-
 <div class="row">
     <div class="col-sm-8">
         <h3>
@@ -8,19 +7,19 @@
     </div>
     <div class="col-sm-4">
         <button type="button" class="btnr">
-				Endores
-				</button>
+            Endores
+        </button>
     </div>
 </div>
 {% for i in endorsed_people %}
 <div class="row rmargin-top">
     <div class="col-1">
         {%if i.end_pro_pic != "none"%}
-            {% with i.end_pro_pic as pro_pic %}
-                <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic"> 
-            {% endwith %}
+        {% with i.end_pro_pic as pro_pic %}
+        <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+        {% endwith %}
         {% else %}
-                <p data-letters="{{i.end_pro_data_letter}}">
+        <p data-letters="{{i.end_pro_data_letter}}"></p>
         {% endif %}
     </div>
     <div class="col">

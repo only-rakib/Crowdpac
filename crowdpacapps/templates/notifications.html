@@ -1,0 +1,23 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+{%endblock title%}
+{% block container %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="row" style="margin-top: 3rem">
+                <div class="col text-center">
+                    <h1 class="title2">Notifications</h1>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3rem;background: #F8F8F8;border: 1px solid #e6e6e6;padding-top: 2rem;padding-bottom: 2rem">
+                <div class="col text-center mini-recipient">
+                    You don't have any notifications<br>
+                    <a class="rclst" href="#">Find a campaign on Crowdpac</a> to get notified when they post new updates.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock container %}

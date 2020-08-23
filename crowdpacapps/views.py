@@ -2,12 +2,12 @@ from django.shortcuts import render
 from itertools import chain
 from .models import Donar_list, Endorsement_list
 
-login = "f"
+login = "True"
 
 
 def home_view(request):
     global login
-    return render(request, 'index.html', {'login': login})
+    return render(request, 'index.html')
 
 
 def exploreView(request):
@@ -90,7 +90,7 @@ def social_feed_View(request):
     lstPetition = []
     lstPetition.append(first_topic_petition)
     lstPetition.append(second_topic_petition)
-    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login})
+    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, })
 
 
 def view_campaignView(request):
@@ -188,7 +188,7 @@ def view_campaignView(request):
 
 
 def view_petitionsView(request):
-    return render(request, 'view_petitions.html', {'login': login})
+    return render(request, 'view_petitions.html',)
 
 
 def donateView(request, amount):
@@ -212,49 +212,61 @@ def donateView(request, amount):
         total = {'amount': '100.00', 'tip': '10.00',
                  'handle': '3.39', 'total': ' 113.39'}
 
-    return render(request, 'donate_page.html', {'data': total, 'login': login})
+    return render(request, 'donate_page.html', {'data': total, })
 
 
 def start_campaign_view(request):
     global login
     if login == 'True':
-        return render(request, 'startcampaign.html', {'login': login})
+        return render(request, 'startcampaign.html')
     else:
 
-        return render(request, 'startcampaignSignup.html', {'login': login})
+        return render(request, 'startcampaignSignup.html')
 
 
 def pricing_view(request):
-    return render(request, 'Pricing.html', {'login': login})
+    return render(request, 'Pricing.html')
 
 
 def media_view(request):
-    return render(request, 'media.html', {'login': login})
+    return render(request, 'media.html')
 
 
 def privacy_policy_view(request):
-    return render(request, 'privacy_policy.html', {'login': login})
+    return render(request, 'privacy_policy.html')
 
 
 def terms_view(request):
-    return render(request, 'terms_of_service.html', {'login': login})
+    return render(request, 'terms_of_service.html')
 
 
 def jobs_view(request):
-    return render(request, 'jobs.html', {'login': login})
+    return render(request, 'jobs.html')
 
 
 def about_us_view(request):
-    return render(request, 'about_us.html', {'login': login})
+    return render(request, 'about_us.html')
 
 
 def my_campaigns_view(request):
-    return render(request, 'my_campaigns.html', {'login': login})
+    return render(request, 'my_campaigns.html')
 
 
 def signin_view(request):
-    return render(request, 'signin.html',)
+    return render(request, 'signin.html')
 
 
 def remaind_view(request):
-    return render(request, 'forgotpass.html',)
+    return render(request, 'forgotpass.html')
+
+
+def start_rally_view(request):
+    global login
+    if login == "true":
+        pass
+    else:
+        return render(request, 'rallySignIn.html')
+
+
+def notifications_view(request):
+    return render(request, 'notifications.html')

@@ -34,7 +34,7 @@
                     <li class="nav-item site-header">
                         <a class="nav-link" href="{% url 'feed' %}">Social Feed</a>
                     </li>
-                    {% if login == 'True' %}
+                    {% if contain_user_data.login == 'True' %}
                     <li class="nav-item site-header">
                         <a class="nav-link" href="{% url 'my_campaigns' %}">My Campaigns</a>
                     </li>
@@ -47,12 +47,63 @@
                 <div class="header__search">
                     <a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a>
                 </div>
+                {% if contain_user_data.login == 'True' %}
+                <div class="header__search">
+                    <a class="nav-item nav-link" href="{% url 'notifications' %}"><i class="fas fa-bell"></i></a>
+                </div>
+                <div class="header__search">
+                    <a class="nav-item nav-link" href="#"><i class="far fa-envelope"></i></a>
+                </div>
+                <div class="header__signin dropdown">
+                    <a class="nav-item nav-link" href="#" style="margin-top: 0rem" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {%if contain_user_data.pro_pic != "none"%}
+                        {% with contain_user_data.pro_pic as pro_pic %}
+                        <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                        {% endwith %}
+                        {% else %}
+                        <span style="margin-top: 0px" data-letters="{{contain_user_data.data_letters}}">
+                            {% endif %}
+                        </span>
+                    </a>
+                    <div class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+                {% else %}
                 <div class="header__signin">
                     <a class="nav-item nav-link" href="{% url 'signin' %}"><strong>Sign In</strong></a>
                 </div>
+                {% endif %}
             </div>
         </nav>
     </header>
+    <script type="text/javascript">
+    var llogin = "{{ contain_user_data.login }}";
+    if (llogin == "True") {
+        var cls = document.getElementsByClassName("main-header__part");
+        for (var i = 0; i < cls.length; i++) {
+            cls[i].style.paddingBottom = '0px';
+            cls[i].style.paddingTop = '0px';
+        }
+    }
+    $(document).ready(function() {
+
+        $("#navbarDropdownMenuLink").hover(function() {
+
+            var dropdownMenu = $(this).children(".dropdown-menu,.custom");
+
+            if (dropdownMenu.is(":visible")) {
+
+                dropdownMenu.parent().toggleClass("open");
+
+            }
+
+        });
+
+    });
+    </script>
     <!--nav part end here-->
     {% block container %} {% endblock container %} {% block style %} {% endblock style %}
     <!--footer part start here-->

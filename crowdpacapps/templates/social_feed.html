@@ -1,4 +1,5 @@
-{% extends 'header_footer.html' %} {% load static %} {% block title %}
+{% extends 'header_footer.html' %} {% load static %}
+{% block title %}
 <title> Feed | Crowdpac </title>
 {% endblock title %} {% block container %}
 <!--Body grid system start-->
@@ -113,7 +114,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a class="rcls btnr" style="width:100%">Start A Rally</a>
+                            <a class="rcls btnr" href="{% url 'start_rally' %}" style="width:100%">Start A Rally</a>
                         </div>
                     </div>
                 </div>

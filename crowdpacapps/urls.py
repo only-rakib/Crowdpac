@@ -21,5 +21,7 @@ urlpatterns = [
     path('my_campaigns/', views.my_campaigns_view, name='my_campaigns'),
     path('signin/', views.signin_view, name='signin'),
     path('remaind/', views.remaind_view, name='remaind'),
+    path('start_rally/', views.start_rally_view, name='start_rally'),
+    path('notifications/', views.notifications_view, name='notifications'),
 
 ]
