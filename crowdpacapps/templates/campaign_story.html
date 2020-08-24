@@ -232,16 +232,31 @@ $("#upfile1").click(function() {
 });
 
 function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#campaignImage').attr('src', e.target.result);
-            if (e.target.result != null) {
-                $('#upfile1').hide();
-                $('#removefile').show();
+    console.log(input.id);
+    if (input.id == "file1") {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#campaignImage').attr('src', e.target.result);
+                if (e.target.result != null) {
+                    $('#upfile1').hide();
+                    $('#removefile').show();
+                }
             }
+            reader.readAsDataURL(input.files[0]);
         }
-        reader.readAsDataURL(input.files[0]);
+    } else if (input.id == "file3") {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#candidate_head_shot').attr('src', e.target.result);
+                if (e.target.result != null) {
+                    $('#upfile3').hide();
+                    $('#removefile3').show();
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 }
 $("#file1").change(function() {

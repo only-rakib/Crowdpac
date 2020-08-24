@@ -3,10 +3,10 @@
 {%block title%}
 <link rel="stylesheet" type="text/css" href="{%static 'css/tagsinput.css'%}">
 <script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script>
-<script src="{%static 'js/tagsinput.js'%}"></script>
 {%endblock title%}
 {%block container%}
 <div class="container-fluid">
+    {% csrf_token %}
     <div class="row">
         <div class="col-md-3" id="campaign_left" style="padding-top: 1rem;box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.2);">
             <div class="row" style="background: #F6F6F6;padding-top: 1rem">
@@ -20,10 +20,27 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h5 style="font-weight: 400">Untitled Campaign</h5>
+                            <h5 style="font-weight: 400" id="campaign_title">Untitled Campaign</h5>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: .2rem;padding-bottom: 1rem">
+                    <div id="campaign_pro_preview" style="display: none">
+                        <div class="row">
+                            <div class="col">
+                                {%if context.pro_pic != "none" %}
+                                {% with context.pro_pic as pro_pic %}
+                                <img id="pro_image" src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;display: none" alt="propic">
+                                {% endwith %}
+                                {% else %}
+                                <span id="pro_data_letter" style="margin-top: 0px;display:none" data-letters="{{context.data_letters}}">
+                                </span>
+                                <span id="pro_name">
+                                    {{context.name}}
+                                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 1rem;padding-bottom: 1rem">
                         <div class="col">
                             <button type="button" class="btnr red" style="height: 100%">
                                 Preview
@@ -47,6 +64,16 @@
                     <div class="row" style="margin-top: 1rem">
                         <div class="col">
                             <a href="#" class="rclst" id="Campaign_Recipients" onClick="tab_pages(this.id)" style="font-weight: bold">Campaign Recipients </a>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 1rem">
+                        <div class="col">
+                            <a href="#" class="rclst" id="Candidate_Info" onClick="tab_pages(this.id)" style="display: none"> Candidate Info</a>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 1rem">
+                        <div class="col">
+                            <a href="#" class="rclst" id="Race_Info" onClick="tab_pages(this.id)" style="display: none"> Race Info </a>
                         </div>
                     </div>
                 </div>
@@ -140,6 +167,16 @@
                     </div>
                 </div>
                 <div class="col-10 offset-1">
+                    <div class="__class" id="Candidate_Info_content" style="display: none">
+                        {%include 'candidate_info.html'%}
+                    </div>
+                </div>
+                <div class="col-10 offset-1">
+                    <div class="__class" id="Race_Info_content" style="display: none">
+                        {%include 'race_info.html'%}
+                    </div>
+                </div>
+                <div class="col-10 offset-1">
                     <div class="__class" id="Campaign_Story_content" style="display: none">
                         {%include 'campaign_story.html'%}
                     </div>
@@ -179,6 +216,23 @@
     </div>
 </div>
 <script type="text/javascript">
+if ("{{context.candidate}}" != "") {
+
+    document.getElementById("Candidate_Info").style.display = "block";
+    document.getElementById("Race_Info").style.display = "block";
+    document.getElementById("campaign_pro_preview").style.display = "block";
+    if (img == null) {
+        var data_letter = document.getElementById("pro_data_letter").style.display = "";
+    } else {
+        var img = document.getElementById("pro_image").style.display = "";
+
+    }
+
+
+    var pro_name = document.getElementById("pro_name").style.display = "";
+
+}
+
 function tab_pages(clicked_id) {
     var divs = document.getElementsByClassName("rclst");
     var cntntDivs = document.getElementsByClassName("__class");

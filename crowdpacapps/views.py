@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from itertools import chain
 from .models import Donar_list, Endorsement_list
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 login = "True"
 
@@ -215,10 +217,54 @@ def donateView(request, amount):
     return render(request, 'donate_page.html', {'data': total, })
 
 
+@csrf_exempt
 def start_campaign_view(request):
     global login
+    candidate = "candidate_self"
+    name = ""
+    pro_pic = ""
+    data_letter = ""
+    states_city = {
+        'AL': ['Auburn', 'Baldwin County', 'Bay Minette', 'Bessemer']
+    }
+    race_list = {
+        'lst': [
+            ['Auburn', 'kayor', '5/28/2022', 'idl1'],
+            ['Auburn', 'Mayor', '5/28/2022', 'idl2'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl1'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl2'],
+            ['VI', 'Mayor', '5/28/2022', 'ids1'],
+            ['AL', 'Mayor', '5/28/2022', 'ids1']
+        ],
+    }
+    race_local = {
+        'lst': [
+            ['Auburn', 'kayor', '5/28/2022', 'idl1'],
+            ['Auburn', 'Mayor', '5/28/2022', 'idl2'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl1'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl2'],
+        ],
+    }
     if login == 'True':
-        return render(request, 'startcampaign.html')
+        if request.is_ajax():
+            candidate = request.POST.get("candidate", None)
+            # print(candidate)
+
+        if candidate == 'candidate_self':
+            name = "rakib"  # if self then the user data will come from database for current user
+            pro_pic = "none"
+            data_letter = name[0]
+        data = {
+            'candidate': candidate,
+            'name': name,
+            'pro_pic': pro_pic,
+            'data_letters': data_letter,
+            'states_city': states_city,
+            'race_list': race_list,
+            'race_local': race_local,
+
+        }
+        return render(request, 'startcampaign.html', {'context': data})
     else:
 
         return render(request, 'startcampaignSignup.html')

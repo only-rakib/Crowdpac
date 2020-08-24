@@ -62,8 +62,8 @@
                         {% endwith %}
                         {% else %}
                         <span style="margin-top: 0px" data-letters="{{contain_user_data.data_letters}}">
-                            {% endif %}
                         </span>
+                        {% endif %}
                     </a>
                     <div class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Action</a>
@@ -146,6 +146,14 @@
     </footer>
     <!--footer part end here-->
     <!--Body grid system start-->
+<script type="text/javascript">
+window.location.replace("#");
+
+// slice off the remaining '#' in HTML5:    
+if (typeof window.history.replaceState == 'function') {
+    history.replaceState({}, '', window.location.href.slice(0, -1));
+}
+    </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 
 (function($) {
     "use strict";
-
+    console.log("paisi");
     var defaultOptions = {
         tagClass: function(item) {
             return 'badge badge-info';
@@ -34,7 +34,8 @@
         trimValue: false,
         allowDuplicates: false,
         triggerChange: true,
-        editOnBackspace: false
+        editOnBackspace: false,
+
     };
 
     /**
