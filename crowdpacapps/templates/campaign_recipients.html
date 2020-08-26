@@ -1,198 +1,369 @@
 {%load static%}
-{% if context.candidate == "" %}
-<div class="row">
-    <div class="col text-center">
-        <span class="mini-recipient">
-            The Basics
-        </span>
+<!--Show the options-->
+<div id="recipients_main">
+    <div class="row">
+        <div class="col text-center">
+            <span class="mini-recipient">
+                The Basics
+            </span>
+        </div>
     </div>
-</div>
-<div class="row" style="margin-top: .8rem">
-    <div class="col text-center">
-        <span class="title2">
-            Have you already declared your candidacy?
-        </span>
+    <div class="row" style="margin-top: .8rem">
+        <div class="col text-center">
+            <span class="title2">
+                Have you already declared your candidacy?
+            </span>
+        </div>
     </div>
-</div>
-<div class="row" id="card_section_recipients">
-    <div class="col-sm-6 text-center" style="margin-top: 3rem">
-        <div class="card" id="candidate_self" style="width: 100%;cursor: pointer;height: 100%">
-            <div class="card-body">
-                <h3 style="color: #FF4814">Myself
-                    or a candidate I work for
-                </h3>
-                <p class="mini-recipient text-center">I am raising money for myself or a candidate I officially represent.</p>
+    <div class="row" id="card_section_recipients">
+        <div class="col-sm-6 text-center" style="margin-top: 3rem">
+            <div class="card" id="candidate_self" style="width: 100%;cursor: pointer;height: 100%">
+                <div class="card-body">
+                    <h3 style="color: #FF4814">Myself
+                        or a candidate I work for
+                    </h3>
+                    <p class="mini-recipient text-center">I am raising money for myself or a candidate I officially represent.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center" style="margin-top: 3rem">
+            <div class="card" id="candidate_another" style="width: 100%;cursor: pointer;height: 100%">
+                <div class="card-body">
+                    <h3 style="color: #FF4814">Another candidate
+                        or an organization
+                    </h3>
+                    <p class="mini-recipient text-center">I am raising money for another candidate, organization, or multiple recipients.</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6 text-center" style="margin-top: 3rem">
-        <div class="card" id="candidate_another" style="width: 100%;cursor: pointer;height: 100%">
-            <div class="card-body">
-                <h3 style="color: #FF4814">Another candidate
-                    or an organization
-                </h3>
-                <p class="mini-recipient text-center">I am raising money for another candidate, organization, or multiple recipients.</p>
+    <div class="row" style="margin-top: 3rem">
+        <div class="col text-center">
+            <button type="button" id="recipients_save_button_select_candidate" class="btnr red campaigns disable">
+                Save and continue
+            </button>
+        </div>
+    </div>
+    <div class="row" style="background: #F6F6F6;margin-top:3rem;padding-top: 1rem;padding-bottom: 1rem;">
+        <div class="col text-center">
+            <div class="row">
+                <div class="col">
+                    Want to get creative?
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1rem">
+                <div class="col">
+                    <a class="rclst" href="#">
+                        Learn more about innovative fundraising
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div class="row" style="margin-top: 3rem">
-    <div class="col text-center">
-        <button type="button" id="recipients_save_button_select_candidate" onclick="campaignRecipentsSaveClcik(this.id)" class="btnr red campaigns disable">
-            Save and continue
-        </button>
+<!--Show the profile-->
+<div id="show_the_profile" style="display: none">
+    <div class="row">
+        <div class="col text-center">
+            <span class="mini-recipient">
+                The Basics
+            </span>
+        </div>
     </div>
-</div>
-<div class="row" style="background: #F6F6F6;margin-top:3rem;padding-top: 1rem;padding-bottom: 1rem;">
-    <div class="col text-center">
+    <div class="row" style="margin-top: .8rem">
+        <div class="col text-center">
+            <span class="title2">
+                Who is this campaign for?
+            </span>
+        </div>
+    </div>
+    <div class="row" style="margin-top: .8rem">
+        <div class="col text-center">
+            <h5>
+                You can raise money for a candidate, an organization, or multiple recipients.
+            </h5>
+        </div>
+    </div>
+    <div id="multipleProfile">
+        <!--Use a loop if need-->
         <div class="row">
-            <div class="col">
-                Want to get creative?
-            </div>
-        </div>
-        <div class="row" style="margin-top: 1rem">
-            <div class="col">
-                <a class="rclst" href="#">
-                    Learn more about innovative fundraising
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-{% else %}
-<div class="row">
-    <div class="col text-center">
-        <span class="mini-recipient">
-            The Basics
-        </span>
-    </div>
-</div>
-<div class="row" style="margin-top: .8rem">
-    <div class="col text-center">
-        <span class="title2">
-            Who is this campaign for?
-        </span>
-    </div>
-</div>
-<div class="row" style="margin-top: .8rem">
-    <div class="col text-center">
-        <h5>
-            You can raise money for a candidate, an organization, or multiple recipients.
-        </h5>
-    </div>
-</div>
-<div class="row">
-    <div class="col" style="border: 1px solid #DBDBDB;margin-top: 3rem;padding-top: 1rem;padding-bottom: 1rem">
-        <div class="float-left">
-            <div class="row" style="margin-top: 25%">
-                <div class="col">
-                    {%if context.pro_pic != "none" %}
-                    {% with context.pro_pic as pro_pic %}
-                    <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
-                    {% endwith %}
-                    {% else %}
-                    <span style="margin-top: 0px" data-letters="{{context.data_letters}}">
-                    </span>
-                    <span>
-                        {{context.name}}
-                    </span>
-                    {% endif %}
+            <div class="col" style="border: 1px solid #DBDBDB;margin-top: 3rem;padding-top: 1rem;padding-bottom: 1rem">
+                <div class="float-left">
+                    <div class="row" style="margin-top: 25%">
+                        <div class="col">
+                            {%if context.pro_pic != "none" %}
+                            {% with context.pro_pic as pro_pic %}
+                            <img id="pro_pic" src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="">
+                            {% endwith %}
+                            {% endif %}
+                            <span id="data-letters" style="margin-top: 0px" data-letters="{{context.data_letters}}">
+                            </span>
+                            <span id="pro_name">
+                                {{context.name}}
+                            </span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="float-right">
-            <div class="row">
-                <div class="col">
-                    <a class="rclst" id="Candidate_Info" href="#" onclick="tab_pages(this.id)"><i class="fas padding-campaigns fa-pen"><span style="padding-left: .5rem">Candidate Info</span></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a class="rclst" id="Race_Info" href="#" onclick="tab_pages(this.id)"><i class="fas fa-pen"><span style="padding-left: .5rem">Race Info</span></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a class="rclst" href=""><i class="fas fa-times"><span style="padding-left: .5rem"> Remove</span></i></a>
+                <div class="float-right">
+                    <div class="row">
+                        <div class="col">
+                            <a class="rclst" id="Candidate_Info" href="#" onclick="tab_pages(this.id)"><i class="fas padding-campaigns fa-pen"><span style="padding-left: .5rem">Candidate Info</span></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="rclst" id="Race_Info" href="#" onclick="tab_pages(this.id)"><i class="fas fa-pen"><span style="padding-left: .5rem">Race Info</span></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="rclst" id="removeProfile" href=""><i class="fas fa-times"><span style="padding-left: .5rem"> Remove</span></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row" style="margin-top: 3rem">
-    <div class="col text-center">
-        <button type="button" id="recipients_save_button_select_candidate_Who_is_this_campaign_for" onclick="campaignRecipentsSaveClcik(this.id)" class="btnr red campaigns">
-            Save and continue
-        </button>
+    <div class="row" style="margin-top: 3rem">
+        <div class="col text-center">
+            <button type="button" id="recipients_save_button_select_candidate_Who_is_this_campaign_for" class="btnr red campaigns">
+                Save and continue
+            </button>
+        </div>
     </div>
 </div>
-{% endif %}
 <script type="text/javascript">
-var recipientsButton = true;
-if ("{{context.candidate}}" == "") {
-    var divContainer = document.getElementById("card_section_recipients");
+var selectedID = "";
 
-    var cards = divContainer.getElementsByClassName("card");
+$(function() {
 
-    var btns = document.getElementById("recipients_save_button_select_candidate");
-    for (var i = 0; i < cards.length; i++) {
-        cards[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("card_active");
-            // If there's no active class
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" card_active", "");
-            }
-            // Add the active class to the current/clicked button
-            this.className += " card_active";
-            btns.classList.remove("disable");
-            recipientsButton = false;
-        });
-    }
-}
-
-function campaignRecipentsSaveClcik(clickedID) {
-
-    if (clickedID == "recipients_save_button_select_candidate") {
-        /*document.getElementById("selectCandidate").style.display = 'none';*/
-        recipientsButton = true;
-        document.getElementById("Candidate_Info").style.display = "block";
-        document.getElementById("Race_Info").style.display = "block";
-        /*document.getElementById("myself_click").style.display = 'block';*/
-        var activeCard = document.getElementsByClassName("card_active");
-
-        if (activeCard[0].id == "candidate_self") {
-            var r = document.getElementById("campaign_pro_preview");
-            r.style.display = 'block';
-            var img = document.getElementById("pro_image");
-            var data_letter = document.getElementById("pro_data_letter");
-            var pro_name = document.getElementById("pro_name");
-            if ("{{contain_user_data.pro_pic}}" == "none") {
-                img.style.display = 'none';
-                data_letter.style.display = "";
-                var txt = "{{contain_user_data.user_name}}";
-                data_letter.setAttribute('data-letters', txt[0]);
-                pro_name.textContent = txt;
-
-            } else {
-                img.style.display = '';
-                data_letter.style.display = "none";
-                var txt = "{{contain_user_data.user_name}}";
-                data_letter.setAttribute('data-letters', txt[0]);
-                pro_name.textContent = txt;
-
-            }
-            $.ajax({
-
-                type: "POST",
-                url: "{% url 'start_campaign' %}",
-                data: {
-                    'candidate': activeCard[0].id,
-                    'r': 'r',
+    $("#name_of_candidate").autocomplete({
+            source: [{
+                    id: "1",
+                    value: "Alama",
+                    descprition: "Candidate of",
+                    img: "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
                 },
 
-            });
-        }
+                {
+                    id: "2",
+                    value: "Plama",
+                    descprition: "Candidate of",
+                    img: "http://www.ericom.com/imgs/braftonArticles/3-things-every-system-admin-should-know-about-virtualization_16001411_800906167_0_14057272_500.jpg"
+                }
+            ],
+            minLength: 1,
+            select: function(event, ui) {
+                selectedID = ui.item.id;
+                $("#name_of_candidate").hide();
+                $("#card_section_recipients_for_campaign").hide();
+                $("#name_of_candidate").val("");
 
+            },
+            html: true,
+            open: function(event, ui) {
+                $(".ui-autocomplete").css("z-index", 1000);
+
+            }
+        })
+        .autocomplete("instance")._renderItem = function(ul, item) {
+            return $("<li><div class='row'><div class='col-6' style='border: 1px solid #F6F6F6; background : #F6F6F6'><div class='row'><div class='col-2'><img class='search_text_img' src='" + item.img + "'></div><div class='col-4'><span style='padding-left:1rem'>" + item.value + "</span><br>" + "<span class='mini-recipient'>" + item.descprition + "</span></div></div></div></li>").appendTo(ul);
+        };
+
+});
+</script>
+<!--when click another -->
+<div id="another_candidate_or_organization" >
+    <div class="row">
+        <div class="col text-center">
+            <span class="mini-recipient">
+                The Basics
+            </span>
+        </div>
+    </div>
+    <div class="row" style="margin-top: .8rem">
+        <div class="col text-center">
+            <span class="title2">
+                Who is this campaign for?
+            </span>
+        </div>
+    </div>
+    <div class="row" style="margin-top: .8rem">
+        <div class="col text-center">
+            <h5>
+                You can raise money for a candidate, an organization, or multiple recipients.
+            </h5>
+        </div>
+    </div>
+    <div class="row" id="card_section_recipients_for_campaign">
+        <div class="col-sm-6 text-center" style="margin-top: 3rem">
+            <div class="card card_active" id="a_candidate" style="width: 100%;cursor: pointer;height: 100%">
+                <div class="card-body">
+                    <h5 style="color: #FF4814">A Candidate
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center" style="margin-top: 3rem">
+            <div class="card" id="an_organization" style="width: 100%;cursor: pointer;height: 100%">
+                <div class="card-body">
+                    <h5 style="color: #FF4814">An Organization
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:2rem">
+        <div class="col">
+            <div class="buttonIn">
+                <input type="text" class="input_text" style="border:1px solid #aaa" id="name_of_candidate" placeholder="Type the name of the candidate">
+                <button type="button" class="button_textbox" onclick="type_of_candidate_add()">
+                    Add as new
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="add_the_recipient">
+        
+    </div>
+    <div class="row" style="margin-top: 3rem">
+        <div class="col text-center">
+            <button type="button" id="recipients_save_button_select_candidate" class="btnr red campaigns disable">
+                Save and continue
+            </button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+/*var context_candidate="{{context.candidate}}"
+var contain_user_data_pro_pic = "{{contain_user_data.pro_pic}}"
+var contain_user_data_user_name = "{{contain_user_data.user_name}}"
+var contain_user_data_letters = "{{contain_user_data.data_letters}}"*/
+function type_of_candidate_add() {
+    var text = document.getElementById("name_of_candidate");
+    if (text.value.length > 0) {
+        text.style.display = 'none';
+
+        var ultag = $("#add_the_recipient");
+        ultag.append( '   <div class="row">  '  + 
+ '               <div class="col-1 d-flex align-items-center">  '  + 
+ '                   <img src="https://placehold.it/64.png?text=" style = "height:40px;weight:40px;border-radius:50%">  '  + 
+ '               </div>  '  + 
+ '               <div class="col">  '  + 
+ '                   <div class="row">  '  + 
+ '                      <div class="col">  '  + 
+ '                          <span> asd</span>  '  + 
+ '                      </div>   '  + 
+ '                   </div>  '  + 
+ '                   <div class="row">  '  + 
+ '                       <div class="col">  '  + 
+ '                           <span class="mini-recipient">  '  + 
+ '                               adasdasdzx zxcasd   '  + 
+ '                           </span>  '  + 
+ '                       </div>  '  + 
+ '                   </div>  '  + 
+ '               </div>  '  + 
+ '               <div class="col d-flex align-items-center ">  '  + 
+ '                   <div class="row ml-auto">  '  + 
+ '                       <div class="col ">  '  + 
+ '                           <span>remove</span>  '  + 
+ '                       </div>  '  + 
+ '                   </div>  '  + 
+ '               </div>  '  + 
+ '          </div>  ' ).show();
+        text.value = "";
     }
+
 }
+var recipientsButton = true;
+
+/*var divContainer = document.getElementById("card_section_recipients");*/
+
+var cards = document.getElementsByClassName("card");
+var btns = document.getElementById("recipients_save_button_select_candidate");
+for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("card_active");
+        // If there's no active class
+        if (current.length > 0) {
+            current[0].className = current[0].className.replace(" card_active", "");
+        }
+        // Add the active class to the current/clicked button
+        this.className += " card_active";
+
+        btns.classList.remove("disable");
+        recipientsButton = false;
+    });
+}
+
+if ("{{context.name}}" === "") {
+    $("#Candidate_Info").hide();
+    $("#Race_Info").hide();
+    $("#show_the_profile").hide();
+    $("#recipients_main").show();
+
+} else {
+    $("#Candidate_Info").show();
+    $("#Race_Info").show();
+    $("#show_the_profile").show();
+    $("#recipients_main").hide();
+}
+
+$("#recipients_save_button_select_candidate").on('click', function() {
+    var activeCard = $('.card_active').attr('id');
+    if (activeCard == "candidate_self") {
+        $.ajax({
+
+            type: "GET",
+            url: "{% url 'start_campaign' %}",
+            data: {
+                'candidate': activeCard,
+
+            },
+            success: function(response) {
+                recipientsButton = true;
+                $("#Candidate_Info").show();
+                $("#Race_Info").show();
+                $("#show_the_profile").show();
+                $("#recipients_main").hide();
+                tab_pages("Candidate_Info");
+
+                if (response.context.pro_pic == "none") {
+                    $("#pro_pic").hide();
+                    $("#data-letters").attr("data-letters", response.context.data_letters);
+                } else {
+                    $("#data-letters").hide();
+                    $("#pro_pic").attr("src", response.context.pro_pic);
+
+                }
+                $("#pro_name").text(response.context.name)
+
+            }
+
+
+        });
+    } else if (activeCard == "candidate_another") {
+        $("#another_candidate_or_organization").show();
+        /*$("#show_the_profile").hide();*/
+        $("#recipients_main").hide();
+    }
+});
+$("#removeProfile").on('click', function() {
+    if (confirm('Do you really want delete this?')) {
+        $.ajax({
+            type: "DELETE",
+            url: "{% url 'start_campaign' %}",
+            data: {
+                'deleteID': $("#pro_name").text(),
+            },
+            success: function(response) {
+
+                $("#Candidate_Info").hide();
+                $("#Race_Info").hide();
+                $("#show_the_profile").hide();
+                $("#recipients_main").show();
+            }
+        })
+    }
+});
 </script>

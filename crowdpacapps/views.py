@@ -3,6 +3,7 @@ from itertools import chain
 from .models import Donar_list, Endorsement_list
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.http import JsonResponse
 
 login = "True"
 
@@ -92,7 +93,7 @@ def social_feed_View(request):
     lstPetition = []
     lstPetition.append(first_topic_petition)
     lstPetition.append(second_topic_petition)
-    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, })
+    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login})
 
 
 def view_campaignView(request):
@@ -217,13 +218,9 @@ def donateView(request, amount):
     return render(request, 'donate_page.html', {'data': total, })
 
 
-@csrf_exempt
 def start_campaign_view(request):
     global login
-    candidate = "candidate_self"
-    name = ""
-    pro_pic = ""
-    data_letter = ""
+
     states_city = {
         'AL': ['Auburn', 'Baldwin County', 'Bay Minette', 'Bessemer']
     }
@@ -245,25 +242,53 @@ def start_campaign_view(request):
             ['Baldwin County', 'Mayor', '5/28/2022', 'idl2'],
         ],
     }
+    candidate = ""
+    name = ""
+    pro_pic = ""
+    data_letter = ""
+    data = {}
     if login == 'True':
         if request.is_ajax():
-            candidate = request.POST.get("candidate", None)
-            # print(candidate)
+            candidate = request.GET.get("candidate")
+            print(candidate)
+            if candidate == 'candidate_self':
 
-        if candidate == 'candidate_self':
-            name = "rakib"  # if self then the user data will come from database for current user
-            pro_pic = "none"
-            data_letter = name[0]
+                name = "rakib"  # if self then the user data will come from database for current user
+                pro_pic = "none"
+                data_letter = name[0]
+                data = {
+
+                    'name': name,
+                    'pro_pic': pro_pic,
+                    'data_letters': data_letter,
+
+
+                }
+            else:
+                name = ""  # if self then the user data will come from database for current user
+                pro_pic = "none"
+                data_letter = name[0]
+                data = {
+                    'name': name,
+                    'pro_pic': pro_pic,
+                    'data_letters': data_letter,
+
+
+                }
+
+            deleteCampaingBYName = request.GET.get("deleteID")
+            print(deleteCampaingBYName)
+
+            return JsonResponse({'context': data}, status=200)
         data = {
-            'candidate': candidate,
             'name': name,
             'pro_pic': pro_pic,
             'data_letters': data_letter,
             'states_city': states_city,
             'race_list': race_list,
             'race_local': race_local,
-
         }
+        print(data)
         return render(request, 'startcampaign.html', {'context': data})
     else:
 

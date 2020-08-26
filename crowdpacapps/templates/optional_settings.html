@@ -50,6 +50,9 @@
     <div class="col-md-3 col-sm-4 text-center" style=";margin-top: 1rem">
         <button class="btnr btnr-tags-optional" id="Campaign Finance Reform" onclick="tagSelect(this.id)" style="height: 100%;width: 100%">Campaign Finance Reform</button>
     </div>
+    <div class="col-md-3 col-sm-4 text-center" style=";margin-top: 1rem">
+        <button class="btnr btnr-tags-optional" id="1" onclick="tagSelect(this.id)" style="height: 100%;width: 100%">Reform</button>
+    </div>
 </div>
 <div class="row" style="margin-top: 1rem">
     <div class="col">
@@ -160,19 +163,22 @@ function tagSelect(clicked_id) {
         }
         total_tags = store + tagsCount;
     }
-    console.log(total_tags);
+    /*console.log(total_tags);*/
 }
 $('#tags_text').on('change', function() {
 
-    if (total_tags >= 5) {
-        $("#tags_text").attr('readonly');
-        console.log('condition')
+    if (total_tags >=4) {
+        /*$("#tags_text").attr('readonly');
+        console.log('condition')*/
+        var as =$(this).attr("disabled","disabled");
+        /*console.log(as);*/
+
     } else {
         $("#tags_text").removeAttr('readonly');
         var items = $("#tags_text").tagsinput('items').length;
         store = items;
         total_tags = store + tagsCount;
-        console.log(total_tags);
+        /*console.log(total_tags);*/
     }
 
 
@@ -184,7 +190,7 @@ $('#tags_text').on('change', function() {
 
 (function($) {
     "use strict";
-    console.log("paisi", total_tags);
+    /*console.log("paisi", total_tags);*/
     var defaultOptions = {
         tagClass: function(item) {
             return 'badge badge-info';
@@ -201,7 +207,7 @@ $('#tags_text').on('change', function() {
         },
         freeInput: true,
         addOnBlur: true,
-        maxTags: 6,
+        maxTags: 8,
         maxChars: undefined,
         confirmKeys: [13, 44],
         delimiter: ',',
