@@ -100,7 +100,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <textarea name="editor"></textarea>
+                <textarea name="editor" id="editor"></textarea>
             </div>
         </div>
     </div>
@@ -205,7 +205,7 @@
                 <input type="text" name="campaign_title" id="campaign_title_id" style="width: 100%" placeholder="Paste video link here">
             </div>
             <div class="col-2">
-                <button type="button" class="btnr red">
+                <button type="button" id="addVideoStory" class="btnr red">
                     Add video
                 </button>
             </div>
@@ -214,7 +214,7 @@
 </div>
 <div class="row" style="margin-top: 6rem">
     <div class="col text-center">
-        <button type="button" class="btnr red campaigns">
+        <button type="button" onclick="butonStorySave()" class="btnr red campaigns">
             Save and continue
         </button>
     </div>
@@ -281,4 +281,25 @@ $("#campaign_title_id").keyup(function() {
     trig++;
     $("#campaign_title_remainchar").text(a + "/75 characters remaining.");
 });
+var getVideoUrl = "";
+
+function butonStorySave() {
+    var datas = {
+        'title': $("#campaign_title_id").val(),
+        'story': CKEDITOR.instances.editor.getData(),
+        'img':$('#campaignImage').attr('src'),
+    }
+    $.ajax({
+        type: GET,
+        url: "{% url 'start_campaign' %}",
+        dataType: 'json',
+        data: {
+            'deleteID': $("#pro_name").text(),
+        },
+        success: function(response) {
+            tab_pages("Fundraising");
+        }
+    });
+
+}
 </script>

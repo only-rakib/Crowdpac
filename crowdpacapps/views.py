@@ -218,6 +218,7 @@ def donateView(request, amount):
     return render(request, 'donate_page.html', {'data': total, })
 
 
+@csrf_exempt
 def start_campaign_view(request):
     global login
 
@@ -242,22 +243,23 @@ def start_campaign_view(request):
             ['Baldwin County', 'Mayor', '5/28/2022', 'idl2'],
         ],
     }
-    candidate = ""
-    name = ""
-    pro_pic = ""
-    data_letter = ""
+    candidancy = ''  # self candidate or any organization
+    name = ""  # name of the candidate
+    pro_pic = ""  # candidate profile pic
+    data_letter = ""  # if no profile pic then show the first letter
+    pro_id = ""  # id of the profile from db
     data = {}
     if login == 'True':
         if request.is_ajax():
             candidate = request.GET.get("candidate")
-            print(candidate)
+            # print(candidate)
             if candidate == 'candidate_self':
-
+                candidancy = candidate
                 name = "rakib"  # if self then the user data will come from database for current user
                 pro_pic = "none"
                 data_letter = name[0]
                 data = {
-
+                    'candidancy': candidate,
                     'name': name,
                     'pro_pic': pro_pic,
                     'data_letters': data_letter,
@@ -265,22 +267,33 @@ def start_campaign_view(request):
 
                 }
             else:
-                name = ""  # if self then the user data will come from database for current user
+                candidate_another = json.loads(
+                    request.GET.get("candidate_another"))
+
+                # print(candidate_another)
+                name = ""
                 pro_pic = "none"
-                data_letter = name[0]
+                data_letter = ""
+                pro_id = candidate_another  # when the Id name startwith digit then it was from db
+                # when the ID start with letter then it is the new assign name.Stored it in db and
+                # the imgae will be sample image and the position will be New
+                # candidate.
+                candidancy = "candidate_another"
                 data = {
+                    'candidancy': candidancy,
                     'name': name,
                     'pro_pic': pro_pic,
                     'data_letters': data_letter,
+                    'pro_id': pro_id,
 
 
                 }
 
             deleteCampaingBYName = request.GET.get("deleteID")
-            print(deleteCampaingBYName)
 
             return JsonResponse({'context': data}, status=200)
         data = {
+            'candidancy': candidancy,
             'name': name,
             'pro_pic': pro_pic,
             'data_letters': data_letter,
@@ -288,7 +301,7 @@ def start_campaign_view(request):
             'race_list': race_list,
             'race_local': race_local,
         }
-        print(data)
+        # print(data)
         return render(request, 'startcampaign.html', {'context': data})
     else:
 
