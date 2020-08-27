@@ -273,6 +273,7 @@ $(function() {
     </div>
 </div>
 <script type="text/javascript">
+var candidancy = "";
 /*var context_candidate="{{context.candidate}}"
 var contain_user_data_pro_pic = "{{contain_user_data.pro_pic}}"
 var contain_user_data_user_name = "{{contain_user_data.user_name}}"
@@ -317,7 +318,7 @@ function type_of_candidate_add() {
 
 }
 var recipientsButton = true;
-var candidancy="";
+
 /*var divContainer = document.getElementById("card_section_recipients");*/
 
 var cards = document.getElementsByClassName("card");
@@ -335,6 +336,7 @@ for (var i = 0; i < cards.length; i++) {
         if (this.id == "a_candidate" || this.id == "an_organization") {
 
             if (this.id == "a_candidate") {
+
                 $("#name_of_candidate").attr("placeholder", "Type the name of the candidate");
                 $("#an_organization").removeClass("card_active")
             } else {
@@ -343,6 +345,7 @@ for (var i = 0; i < cards.length; i++) {
             }
         }
         if (this.id == "candidate_self" || this.id == "candidate_another") {
+            candidancy=this.id;
             $("#recipients_save_button_select_candidate").removeClass("disable");
         }
         recipientsButton = false;
@@ -356,16 +359,18 @@ if ("{{context.name}}" === "") {
     $("#recipients_main").show();
 
 } else {
-    $("#Candidate_Info").show();
-    $("#Race_Info").show();
+    console.log("profile");
+    /*$("#Candidate_Info").show();
+    $("#Race_Info").show();*/
     $("#show_the_profile").show();
     $("#recipients_main").hide();
 }
 
 $("#recipients_save_button_select_candidate").on('click', function() {
     var activeCard = $('.card_active').attr('id');
+    recipientsButton=true;
     if (activeCard == "candidate_self") {
-        candidancy="candidate_self";
+        candidancy = "candidate_self";
         $.ajax({
 
             type: "GET",
@@ -380,6 +385,7 @@ $("#recipients_save_button_select_candidate").on('click', function() {
                 $("#Race_Info").show();
                 $("#show_the_profile").show();
                 $("#recipients_main").hide();
+
                 tab_pages("Candidate_Info");
 
                 if (response.context.pro_pic == "none") {
@@ -397,16 +403,17 @@ $("#recipients_save_button_select_candidate").on('click', function() {
 
         });
     } else if (activeCard == "candidate_another") {
-        candidancy="candidate_another";
+        candidancy = "candidate_another";
         $("#another_candidate_or_organization").show();
         $("#a_candidate").addClass("card_active");
         /*$("#show_the_profile").hide();*/
         $("#recipients_main").hide();
     }
 });
+var responeDataForAnotherCandidate;
 $("#button_another_candidate_or_organization").on("click", function() {
     var activeCard = $('.card_active').attr('id');
-
+    recipientsButton=true;
     var storeId = document.getElementById("add_the_recipient").getElementsByTagName("a");
     var ar = [];
     for (var i = 0; i < storeId.length; i++) {
@@ -424,11 +431,11 @@ $("#button_another_candidate_or_organization").on("click", function() {
         },
         success: function(response) {
             img = "https://placehold.it/64.png?text=";
-            
+            responeDataForAnotherCandidate=response.context;
             $("#multipleProfile").empty();
             for (var i = 0; i < response.context.pro_id.length; i++) {
                 add_profile_to_page_another_candidate_save_click(response.context.pro_id[i], response.context.pro_name, img, response.context.dataletter);
-                
+
             }
             //console.log($("#multipleProfile"))
             $("#show_the_profile").show();
@@ -441,16 +448,14 @@ $("#button_another_candidate_or_organization").on("click", function() {
 
 });
 
-$("#recipients_save_button_select_candidate_Who_is_this_campaign_for").on('click',function(){
-    if(candidancy==="candidate_self")
-    {
-        $("#show_the_profile").hide();
-        tab_pages("Candidate_Info");
-    }
-    else
-    {
-        
-    }
+$("#recipients_save_button_select_candidate_Who_is_this_campaign_for").on('click', function() {
+    recipientsButton=true;
+    $("#show_the_profile").show();
+    //console.log(responeDataForAnotherCandidate);
+    tab_pages("Candidate_Info");
+    setCandidateValue(responeDataForAnotherCandidate);
+    
+
 });
 
 
@@ -476,7 +481,7 @@ $("#removeProfile").on('click', function() {
 function removeAdded(clicked_id) {
 
     if (confirm('Do you really want delete this?')) {
-        
+
         ids = "#row" + clicked_id;
 
         $(ids).remove();
@@ -492,13 +497,13 @@ function removeAdded(clicked_id) {
             $("#add_another_recipients").hide();
         }
     }
-   
+
 }
 
 function removeSaved(clicked_id) {
 
     if (confirm('Do you really want delete this?')) {
-        
+
         var ids = "#rows" + clicked_id;
 
         $(ids).remove();
@@ -514,7 +519,7 @@ function removeSaved(clicked_id) {
             $("#add_another_recipients").hide();
         }
     }
-   
+
 }
 
 function add_another_recipients_f() {
@@ -543,12 +548,12 @@ function add_profile_to_page_another_candidate_save_click(id, name, img, datalet
             '           <div class="float-right">  ' +
             '               <div class="row">  ' +
             '                   <div class="col">  ' +
-            '                       <a class="rclst" id="Candidate_Info" href="#" data-candidateId="' + id + '" onclick="tab_pages(this.id)"><i class="fas padding-campaigns fa-pen"><span style="padding-left: .5rem">Candidate Info</span></i></a>  ' +
+            '                       <a class="rclst" id="Candidate_Info" href="#" data-candidateId="' + id + '" onclick="goForcandidateInfo(this.getAttribute(\'data-candidateId\'))"><i class="fas padding-campaigns fa-pen"><span style="padding-left: .5rem">Candidate Info</span></i></a>  ' +
             '                   </div>  ' +
             '               </div>  ' +
             '               <div class="row">  ' +
             '                   <div class="col">  ' +
-            '                       <a class="rclst" id="Race_Info" href="#" data-candidateId="' + id + '" onclick="tab_pages(this.id)"><i class="fas fa-pen"><span style="padding-left: .5rem">Race Info</span></i></a>  ' +
+            '                       <a class="rclst" id="Race_Info" href="#" data-candidateId="' + id + '" onclick="goForRaceInfo(this.getAttribute(\'data-candidateId\'))"><i class="fas fa-pen"><span style="padding-left: .5rem">Race Info</span></i></a>  ' +
             '                   </div>  ' +
             '               </div>  ' +
             '               <div class="row">  ' +
@@ -561,6 +566,7 @@ function add_profile_to_page_another_candidate_save_click(id, name, img, datalet
             '  </div>  '
         );
     } else {
+        
         $("#multipleProfile").append(
 
 
@@ -569,7 +575,7 @@ function add_profile_to_page_another_candidate_save_click(id, name, img, datalet
             '           <div class="float-left">  ' +
             '               <div class="row" style="margin-top: 25%">  ' +
             '                   <div class="col">  ' +
-            '                       <img id="pro_pic" src="'+img+'" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="">  ' +
+            '                       <img id="pro_pic" src="' + img + '" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="">  ' +
             '                       <span id="pro_name">  ' + name +
             '                             ' +
             '                       </span>  ' +
@@ -579,17 +585,17 @@ function add_profile_to_page_another_candidate_save_click(id, name, img, datalet
             '           <div class="float-right">  ' +
             '               <div class="row">  ' +
             '                   <div class="col">  ' +
-            '                       <a class="rclst" id="Candidate_Info" href="#" data-candidateId="' + id + '" onclick="tab_pages(this.id)"><i class="fas padding-campaigns fa-pen"><span style="padding-left: .5rem">Candidate Info</span></i></a>  ' +
+            '                       <a class="rclst" id="Candidate_Info" href="#" data-candidateId="' + id + '" onclick="goForcandidateInfo(this.getAttribute(\'data-candidateId\'))"><i class="fas padding-campaigns fa-pen"><span style="padding-left: .5rem">Candidate Info</span></i></a>  ' +
             '                   </div>  ' +
             '               </div>  ' +
             '               <div class="row">  ' +
             '                   <div class="col">  ' +
-            '                       <a class="rclst" id="Race_Info" href="#" data-candidateId="' + id + '" onclick="tab_pages(this.id)"><i class="fas fa-pen"><span style="padding-left: .5rem">Race Info</span></i></a>  ' +
+            '                       <a class="rclst" id="Race_Info" href="#" data-candidateId="' + id + '" onclick="goForRaceInfo(this.getAttribute(\'data-candidateId\'))"><i class="fas fa-pen"><span style="padding-left: .5rem">Race Info</span></i></a>  ' +
             '                   </div>  ' +
             '               </div>  ' +
             '               <div class="row">  ' +
             '                   <div class="col">  ' +
-            '                       <a class="rclst" id="' + id + '" href="#" onclick="removeSaved(this.id)"><i class="fas fa-times"><span style="padding-left: .5rem"> Remove</span></i></a>  ' +
+            '                       <a class="rclst" id="Race_Info" href="#" data-candidateId="' + id + '" onclick="removeSaved(this.data-candidateId)"><i class="fas fa-times"><span style="padding-left: .5rem"> Remove</span></i></a>  ' +
             '                   </div>  ' +
             '               </div>  ' +
             '           </div>  ' +
@@ -598,5 +604,13 @@ function add_profile_to_page_another_candidate_save_click(id, name, img, datalet
         );
 
     }
+}
+
+function goForcandidateInfo(clicked_id)
+{
+    alert(clicked_id);
+    tab_pages("Candidate_Info");
+    showsfromclick(clicked_id);
+
 }
 </script>

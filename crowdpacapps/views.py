@@ -267,30 +267,42 @@ def start_campaign_view(request):
 
                 }
             else:
-                candidate_another = json.loads(
-                    request.GET.get("candidate_another"))
+                try:
+                    candidate_another = json.loads(
+                        request.GET.get("candidate_another"))
 
-                # print(candidate_another)
-                name = ""
-                pro_pic = "none"
-                data_letter = ""
-                pro_id = candidate_another  # when the Id name startwith digit then it was from db
-                # when the ID start with letter then it is the new assign name.Stored it in db and
-                # the imgae will be sample image and the position will be New
-                # candidate.
-                candidancy = "candidate_another"
-                data = {
-                    'candidancy': candidancy,
-                    'name': name,
-                    'pro_pic': pro_pic,
-                    'data_letters': data_letter,
-                    'pro_id': pro_id,
+                    # print(candidate_another)
+                    name = "radf"
+                    pro_pic = "none"
+                    data_letter = ""
+                    pro_id = candidate_another  # when the Id name startwith digit then it was from db
+                    # when the ID start with letter then it is the new assign name.Stored it in db and
+                    # the imgae will be sample image and the position will be New
+                    # candidate.
+                    candidancy = "candidate_another"
+                    data = {
+                        'candidancy': candidancy,
+                        'name': name,
+                        'pro_pic': pro_pic,
+                        'data_letters': data_letter,
+                        'pro_id': pro_id,
 
 
-                }
+                    }
+                except:
+                    pass
+
+            candidate_self_or_not = request.GET.get("yes_no")
 
             deleteCampaingBYName = request.GET.get("deleteID")
-
+            data = {
+                'candidancy': candidancy,
+                'name': name,
+                'pro_pic': pro_pic,
+                'data_letters': data_letter,
+                'pro_id': pro_id,
+                'candidate_self_or_not': candidate_self_or_not,
+            }
             return JsonResponse({'context': data}, status=200)
         data = {
             'candidancy': candidancy,

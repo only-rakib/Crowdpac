@@ -813,3 +813,7 @@ video.candidate-video-player {
     border-color: gray;
     color: black;
 }
+.clsBold
+{
+    font-weight: bold;
+}

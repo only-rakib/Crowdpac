@@ -1,6 +1,5 @@
 {%load static%}
-
-<div id="selcet_Candidate_yes_no" >
+<div id="selcet_Candidate_yes_no">
     <div class="row">
         <div class="col text-center">
             <span class="mini-recipient">
@@ -15,9 +14,9 @@
             </span>
         </div>
     </div>
-    <div class="row" id="card_section_recipients_myself_yes">
+    <div class="row" id="card_section_recipients_myself_yes_no">
         <div class="col-sm-6 text-center" style="margin-top: 3rem">
-            <div class="card" id="candidate_self" style="width: 100%;cursor: pointer;height: 100%">
+            <div class="card" id="candidate_self_yes" style="width: 100%;cursor: pointer;height: 100%">
                 <div class="card-body">
                     <h3 style="color: #FF4814">Yes
                     </h3>
@@ -37,7 +36,7 @@
     </div>
     <div class="row" style="margin-top: 3rem">
         <div class="col text-center">
-            <button type="button" id="recipients_save_button_myself_click" onclick="campaignRecipentsSaveClcik()" class="btnr red campaigns disable">
+            <button type="button" id="recipients_save_button_myself_yes_no_click" data-yes="" class="btnr red campaigns disable">
                 Save and continue
             </button>
         </div>
@@ -48,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <!--Formsssssssssssss-->
 <div id="selcet_Candidate_yes_no_form" style="display: none">
     <div class="row">
@@ -67,11 +65,11 @@
     </div>
     <div class="row" style="margin-top: 2rem;background: #F6F6F6;padding-top: 2rem;padding-bottom: 2rem">
         <div class="col">
-            <div class="float-left">
+            <div id="candidate_status_label" class="float-left">
                 I am an <strong>undeclared</strong> candidate.
             </div>
             <div class="float-right">
-                <a class="rclst" href="#" onclick="back_yes_no()">Change</a>
+                <a class="rclst" id="candidate_status_change_button" href="#" onclick="back_yes_no()">Change</a>
             </div>
         </div>
     </div>
@@ -247,23 +245,114 @@
     </div>
     <div class="row" style="margin-top: 3rem">
         <div class="col text-center">
-            <button type="button" id="recipients_save_button_myself_click" onclick="campaignRecipentsSaveClcik()" class="btnr red campaigns disable">
+            <button type="button" id="recipients_save_button_yes_no_form_click" onclick="campaignRecipentsSaveClcik()" class="btnr red campaigns disable" data-candidate-id="">
                 Save and continue
             </button>
         </div>
     </div>
     <div class="row" style="margin-top: 2rem">
         <div class="col text-center">
-            <a class="rclst" href="#">Continue without saving</a>
+            <a class="rclst" href="#" onclick="(tab_pages('Race_Info'))">Continue without saving</a>
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
+/**
+ *If candidate self the "I have officially filed my declaration for candidacy and can accept donations Yes No" will be show.Other wise shows the form only 
+ */
+var data_candidate;
+
+function setCandidateValue(values) {
+    data_candidate = values;
+    if (values.candidancy == "candidate_another") {
+
+        $("#selcet_Candidate_yes_no").hide();
+        $("#candidate_status_change_button").hide();
+        $("#candidate_status_label").text("Recipient 1 of " + values.pro_id.length);
+        $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", values.pro_id[0]);
+        $("#selcet_Candidate_yes_no_form").show();
+    }
+
+}
+$('#selcet_Candidate_yes_no_form').bind('change keyup', function() {
+
+    $("#recipients_save_button_yes_no_form_click").removeClass("disable");
+});
+
+function showsfromclick(value_id) {
+    $("#selcet_Candidate_yes_no").hide();
+    $("#candidate_status_change_button").hide();
+    $("#candidate_status_label").text("Recipient id is " + value_id);
+    $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", value_id);
+    $("#selcet_Candidate_yes_no_form").show();
+}
+
+var cards = document.getElementsByClassName("card");
+var btns = document.getElementById("recipients_save_button_select_candidate");
+for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("card_active");
+        // If there's no active class
+        if (current.length > 0) {
+            current[0].className = current[0].className.replace(" card_active", "");
+        }
+        // Add the active class to the current/clicked button
+        this.className += " card_active";
+
+        if (this.id == "candidate_self_yes" || this.id == "candidate_another_myself_no") {
+            if (this.id === "candidate_self_yes") {
+                $("#recipients_save_button_myself_yes_no_click").attr("data-yes", "yes");
+            } else {
+                $("#recipients_save_button_myself_yes_no_click").attr("data-yes", "no");
+            }
+            $("#recipients_save_button_myself_yes_no_click").removeClass("disable");
+
+
+        }
+
+        recipientsButton = false;
+    });
+}
+
+
+$("#recipients_save_button_myself_yes_no_click").on("click", function() {
+    var r =$("#recipients_save_button_myself_yes_no_click").attr("data-yes");
+    //console.log(r);
+    $.ajax({
+        type: "GET",
+        url: "{% url 'start_campaign' %}",
+        data: {
+            'yes_no': r,
+
+        },
+        success:function(response)
+        {
+            if(response.context.candidate_self_or_not =="yes")
+            {
+                $("#candidate_status_label").html('I am a <strong>declared</strong> candidate.');
+            }
+            else
+            {
+                $("#candidate_status_label").html('I am an <strong>undeclared</strong> candidate.');
+            }
+            $("#selcet_Candidate_yes_no").hide();
+            $("#selcet_Candidate_yes_no_form").show();
+        }
+    });
+});
+
+
+
+
+
+
+
+
 function back_yes_no() {
     document.getElementById("selcet_Candidate_yes_no_form").style.display = "none";
     document.getElementById("selcet_Candidate_yes_no").style.display = "block";
 }
+
 
 $("#upfile3").click(function() {
     $("#file3").trigger('click');

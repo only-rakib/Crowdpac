@@ -236,6 +236,7 @@
 }*/
 
 function tab_pages(clicked_id) {
+   
     var divs = document.getElementsByClassName("rclst");
     var cntntDivs = document.getElementsByClassName("__class");
     var itemId = document.getElementById(clicked_id);
@@ -258,8 +259,11 @@ function tab_pages(clicked_id) {
             for (var i = 0; i < cntntDivs.length; i++) {
                 cntntDivs[i].style.cssText = "display:none";
             }
+            
             itemId.style.cssText = 'font-weight:bold';
             cntntId.style.cssText = 'display:block';
+            $("#Candidate_Info").hide();
+            $("#Race_Info").hide();
 
         } else {
             // Do nothing!
@@ -272,8 +276,11 @@ function tab_pages(clicked_id) {
         for (var i = 0; i < cntntDivs.length; i++) {
             cntntDivs[i].style.cssText = "display:none";
         }
+        
         itemId.style.cssText = 'font-weight:bold';
         cntntId.style.cssText = 'display:block';
+        $("#Candidate_Info").hide();
+        $("#Race_Info").hide();
 
     }
 }
