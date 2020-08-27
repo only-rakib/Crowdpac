@@ -195,13 +195,13 @@
             <div class="row" style="margin-top: 1rem">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="Radios_first_time" value="first-time" checked>
+                        <input class="form-check-input" type="radio" name="first_time_candidate" id="Radios_first_time" value="first-time" checked>
                         <label class="form-check-label" for="exampleRadios1">
                             Yes, this is my first time running for office
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="Radios_not_first_time" value="not_first-time">
+                        <input class="form-check-input" type="radio" name="first_time_candidate" id="Radios_not_first_time" value="not_first-time">
                         <label class="form-check-label" for="exampleRadios2">
                             No, this is not my first time running for office
                         </label>
@@ -245,7 +245,7 @@
     </div>
     <div class="row" style="margin-top: 3rem">
         <div class="col text-center">
-            <button type="button" id="recipients_save_button_yes_no_form_click" onclick="campaignRecipentsSaveClcik()" class="btnr red campaigns disable" data-candidate-id="">
+            <button type="button" id="recipients_save_button_yes_no_form_click" class="btnr red campaigns disable" data-candidate-id="">
                 Save and continue
             </button>
         </div>
@@ -268,9 +268,10 @@ function setCandidateValue(values) {
 
         $("#selcet_Candidate_yes_no").hide();
         $("#candidate_status_change_button").hide();
-        $("#candidate_status_label").text("Recipient 1 of " + values.pro_id.length);
+        $("#candidate_status_label").text("Recipient id is " + values.pro_id[0]);
         $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", values.pro_id[0]);
         $("#selcet_Candidate_yes_no_form").show();
+        $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", values.pro_id[0]);
     }
 
 }
@@ -316,32 +317,85 @@ for (var i = 0; i < cards.length; i++) {
 
 
 $("#recipients_save_button_myself_yes_no_click").on("click", function() {
-    var r =$("#recipients_save_button_myself_yes_no_click").attr("data-yes");
-    //console.log(r);
+    var selfcandidateselect = $("#recipients_save_button_myself_yes_no_click").attr("data-yes");
+    if (selfcandidateselect === "yes" || selfcandidateselect === "no") {
+        $.ajax({
+            type: "GET",
+            url: "{% url 'start_campaign' %}",
+            data: {
+                'yes_no': selfcandidateselect,
+
+            },
+            success: function(response) {
+                if (response.context.candidate_self_or_not == "yes") {
+                    $("#candidate_status_label").html('I am a <strong>declared</strong> candidate.');
+                } else {
+                    $("#candidate_status_label").html('I am an <strong>undeclared</strong> candidate.');
+                }
+                $("#selcet_Candidate_yes_no").hide();
+                $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", "self");
+                $("#selcet_Candidate_yes_no_form").show();
+            }
+        });
+    }
+
+});
+
+$("#recipients_save_button_yes_no_form_click").on("click", function() {
+
+
+    var attr = $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id");
+    var candidancy_declaration = "";
+    var candidate_first_name = "";
+    var candidate_last_name = "";
+    var candidate_email = "";
+    var Candidate_Political_Affiliation = "";
+    var Candidate_Gender = "";
+    var first_time_candidate = "";
+    var upload_headshot = "";
+    if (attr == "self") {
+
+        var candidancy_declaration = $("#candidate_status_label").val();
+        var candidate_first_name = $("#candidate_first_name").val();
+        var candidate_last_name = $("#candidate_last_name").val();
+        var candidate_email = $("#candidate_email").val();
+        var Candidate_Political_Affiliation = $("#Candidate_Political_Affiliation").val();
+        var Candidate_Gender = $("#Candidate_Gender").val();
+        var first_time_candidate = $('input[name="first_time_candidate"]:checked').val();
+        var upload_headshot = $("candidate_head_shot").attr("scr");
+    } else {
+        var candidancy_declaration = $("#candidate_status_label").val();
+        var candidate_first_name = $("#candidate_first_name").val();
+        var candidate_last_name = $("#candidate_last_name").val();
+        var candidate_email = $("#candidate_email").val();
+        var Candidate_Political_Affiliation = $("#Candidate_Political_Affiliation").val();
+        var Candidate_Gender = $("#Candidate_Gender").val();
+        var first_time_candidate = $('input[name="first_time_candidate"]:checked').val();
+        var upload_headshot = $("candidate_head_shot").attr("scr");
+    }
+    datas = {
+        "candidancy_declaration" : candidancy_declaration,
+        "candidate_first_name" : candidate_first_name,
+        "candidate_last_name" : candidate_last_name,
+        "candidate_email" : candidate_email,
+        "Candidate_Political_Affiliation" : Candidate_Political_Affiliation,
+        "Candidate_Gender" : Candidate_Gender,
+        "first_time_candidate" : first_time_candidate,
+        "upload_headshot" : upload_headshot,
+    }
+    /*var data1;
+    data1['candidate_info']=JSON.stringify(datas),*/
+    console.log(JSON.stringify(datas));
     $.ajax({
         type: "GET",
         url: "{% url 'start_campaign' %}",
-        data: {
-            'yes_no': r,
-
-        },
-        success:function(response)
-        {
-            if(response.context.candidate_self_or_not =="yes")
-            {
-                $("#candidate_status_label").html('I am a <strong>declared</strong> candidate.');
-            }
-            else
-            {
-                $("#candidate_status_label").html('I am an <strong>undeclared</strong> candidate.');
-            }
-            $("#selcet_Candidate_yes_no").hide();
-            $("#selcet_Candidate_yes_no_form").show();
+        //dataType: 'json',
+        data:{
+            'values':JSON.stringify(datas),
         }
     });
+
 });
-
-
 
 
 

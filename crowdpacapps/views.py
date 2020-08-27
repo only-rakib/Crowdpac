@@ -4,6 +4,7 @@ from .models import Donar_list, Endorsement_list
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import JsonResponse
+from json import loads as jsonloads
 
 login = "True"
 
@@ -23,15 +24,15 @@ def crowdpac_tv_view(request):
 
 def social_feed_View(request):
     global login
-    #donar_orders = Donar_list.objects.all()
+    # donar_orders = Donar_list.objects.all()
 
-    #endorse_orders = Endorsement_list.objects.all()
+    # endorse_orders = Endorsement_list.objects.all()
     # orders = list(
     #    sorted(
     #        chain(donar_orders, endorse_orders),
     #        key=lambda objects: objects.created
     #    ))
-    #paginator = Paginator(orders, 5)
+    # paginator = Paginator(orders, 5)
     news1 = {
         'newspaper_name': 'Plastics News',
         'date_time': 'Aug 17th 06:00 pm',
@@ -122,7 +123,7 @@ def view_campaignView(request):
              out the working class. Without a massive stimulus package, freeze
               on rent, utilities, and mortgage collection, millions of people
                will lose their jobs and homes. Unemployment could reach 30%
-                according to some projections. We have to start organizing 
+                according to some projections. We have to start organizing
                 right now, turn our collective desperation to collective power,
                  and force our government to enact a bailout for regular people, not Wall Street.''',
         'number_of_pledge': '',
@@ -293,8 +294,16 @@ def start_campaign_view(request):
                     pass
 
             candidate_self_or_not = request.GET.get("yes_no")
-
+            story = request.GET.get("story")
             deleteCampaingBYName = request.GET.get("deleteID")
+
+            try:
+                candidate_info = jsonloads(request.GET['values'])
+                print("yesssssssssssssss", candidate_info)
+            except Exception as e:
+                print("Exception", e)
+                pass
+
             data = {
                 'candidancy': candidancy,
                 'name': name,
