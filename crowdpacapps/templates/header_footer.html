@@ -22,26 +22,20 @@
 <body>
     <!---header part start here -->
     <header class="main-header__part">
-        <nav class="navbar navbar-expand-lg navbar-light main__navbar">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <img class="site-header__logo" src="{% static 'images/crowdpac-logo.png' %}" alt="Logo">
-            </a>
+        <nav class="navbar navbar-expand-md navbar-light main__navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img class="site-header__logo" src="{% static 'images/crowdpac-logo.png' %}" alt="Logo">
+            </a>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item site-header">
                         <a class="nav-link" href="{% url 'explore' %}">Campaigns</a>
                     </li>
-                    <li class="nav-item site-header">
-                        <a class="nav-link" href="{% url 'feed' %}">Social Feed</a>
-                    </li>
-                    {% if contain_user_data.login == 'True' %}
-                    <li class="nav-item site-header">
-                        <a class="nav-link" href="{% url 'my_campaigns' %}">My Campaigns</a>
-                    </li>
-                    {% endif %}
+                    
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <a class="btn btn-outline-success my-2 my-sm-0 header__button" href="{%url 'start_campaign' %}">Start a Campaign
@@ -58,7 +52,7 @@
                     <a class="nav-item nav-link" href="#"><i class="far fa-envelope"></i></a>
                 </div>
                 <div class="header__signin dropdown">
-                    <a class="nav-item nav-link" href="#" style="margin-top: 0rem" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-item nav-link" href="#" style="margin-top: 0rem" id="navbarDropdownMenuLink" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
                         {%if contain_user_data.pro_pic != "none"%}
                         {% with contain_user_data.pro_pic as pro_pic %}
                         <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
@@ -80,6 +74,9 @@
                 </div>
                 {% endif %}
             </div>
+            <form class="form-inline">
+                
+            </form>
         </nav>
     </header>
     <script type="text/javascript">

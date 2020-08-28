@@ -20,9 +20,9 @@
         </h5>
     </div>
 </div>
-<div class="row" id="card_section_recipients">
+<div class="row">
     <div class="col-sm-6 text-center" style="margin-top: 3rem">
-        <div class="card" style="width: 100%;cursor: pointer;height: 100%">
+        <div class="card" id="privacy_public" style="width: 100%;cursor: pointer;height: 100%">
             <div class="card-body">
                 <img src="{%static 'images/privacy-public' %}">
                 <h3 style="color: #FF4814;margin-top: .8rem">Public
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="col-sm-6 text-center" style="margin-top: 3rem">
-        <div class="card" style="width: 100%;cursor: pointer;height: 100%">
+        <div class="card" id="privacy_private" style="width: 100%;cursor: pointer;height: 100%">
             <div class="card-body">
                 <img src="{%static 'images/privacy-private' %}">
                 <h3 style="color: #FF4814;margin-top: .8rem">Private
@@ -44,24 +44,25 @@
 </div>
 <div class="row" style="margin-top: 6rem">
     <div class="col text-center">
-        <button type="button" class="btnr red campaigns">
+        <button type="button" id="privacy_save_button" class="btnr red campaigns disable" >
             Save and continue
         </button>
     </div>
 </div>
 <div class="row" style="margin-top: 1rem">
     <div class="col text-center">
-        <a href="#" class="rclst">
+        <a href="#" class="rclst" onclick="tab_pages('Custom_Sharing')">
             Continue without saving
         </a>
     </div>
 </div>
 <script type="text/javascript">
 // Get the container element
-var divContainer = document.getElementById("card_section_recipients");
+//var divContainer = document.getElementById("card_section_recipients");
 // Get all buttons with class="btn" inside the container
-var cards = divContainer.getElementsByClassName("card");
+var cards = document.getElementsByClassName("card");
 // Loop through the buttons and add the active class to the current/clicked button
+var privacy_type="";
 for (var i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", function() {
         var current = document.getElementsByClassName("card_active");
@@ -71,6 +72,24 @@ for (var i = 0; i < cards.length; i++) {
         }
         // Add the active class to the current/clicked button
         this.className += " card_active";
+        if(this.id==="privacy_public"||this.id==="privacy_private")
+        {
+            privacy_type=this.id;
+            $("#privacy_save_button").removeClass("disable")
+        }
     });
 }
+$("#privacy_save_button").on('click',function(){
+    $.ajax({
+        type:"GET",
+        url:"{% url 'start_campaign' %}",
+        data:{
+            "privacy_type":privacy_type,
+        },
+        success:function(response)
+        {
+            tab_pages('Custom_Sharing');
+        }
+    });
+});
 </script>

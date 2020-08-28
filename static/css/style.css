@@ -99,7 +99,7 @@ a.clsm:hover {
 .dropdown-menu.custom {
 
     border: none;
-    border-radius: 0px;
+    border-radius: -16px;
     right: 0;
     left: auto;
 }

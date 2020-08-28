@@ -317,7 +317,11 @@ def start_campaign_view(request):
 
             # this request comes from campaign_story.html "function
             # butonStorySave() {"
-            story = request.GET.get("story")
+            try:
+                story = jsonloads(request.GET["story"])
+                # print(story)
+            except Exception as e:
+                pass
 
             # this request comes from campaign_recipients.html
             # "$("#removeProfile").on('click', function() {"
@@ -330,7 +334,7 @@ def start_campaign_view(request):
                 candidate_info = jsonloads(request.GET['values'])
 
             except Exception as e:
-                #print("Exception", e)
+                # print("Exception", e)
                 pass
             try:
                 # this request comes from race_info.html
@@ -338,8 +342,21 @@ def start_campaign_view(request):
                 race_info = jsonloads(request.GET['race_info'])
                 print(race_info)
             except Exception as e:
-                #print("Exception", e)
+                # print("Exception", e)
                 pass
+
+            try:
+                # this request comes from fundraising.html
+                # function saveFundraising(){}
+                fundraising = jsonloads(request.GET['fundraising'])
+                print(fundraising)
+            except Exception as e:
+                # print("Exception", e)
+                pass
+
+            privacy_type = request.GET.get("privacy_type")
+            # print(privacy_type)
+
             # Which race is selected from default table, the id of this race
             # will store in selected race. The ajax call is generated in
             # race_info.html "$("#save_race_selected").on('click',function(){"
@@ -353,6 +370,24 @@ def start_campaign_view(request):
                 'pro_id': pro_id,
                 'candidate_self_or_not': candidate_self_or_not,
             }
+
+            try:
+                # this request comes from custom_sharing.html
+                # function save_custom_sharing () {}
+                custom_sharing = jsonloads(request.GET['custom_sharing'])
+                # print(custom_sharing)
+            except Exception as e:
+                # print("Exception", e)
+                pass
+            try:
+                # this request comes from optional_settings.html
+                # optionalSettingsSave() {}
+                optional_settings = jsonloads(request.GET['optional_settings'])
+                print(optional_settings)
+            except Exception as e:
+                # print("Exception", e)
+                pass
+
             return JsonResponse({'context': data}, status=200)
         data = {
             'candidancy': candidancy,

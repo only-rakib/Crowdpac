@@ -32,18 +32,18 @@
 		<div class="row">
 			<div class="col" style="background: #F2F2F2;align-content: center;padding-top: 2rem;padding-bottom: 2rem">
 				<div class="card" style="width: 60%;margin: 0 auto;">
-					<img class="card-img-top" src="https://placehold.it/1000x500.png?text=Example%20image" alt="Card image cap">
+					<img id="tweeterCard" class="card-img-top" src="https://placehold.it/1000x500.png?text=Example%20image" alt="Card image cap">
 					<div class="card-body">
 						<div class="row">
 							<div class="col">
-								<span class="mini-recipient__title">
+								<span id="tweeterTitle" class="mini-recipient__title">
 									Untitled Campaign
 								</span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col">
-								<span id="Custom_Tweet_title">
+								<span id="Custom_Tweet_post">
 									Check out my campaign on Crowdpac!
 								</span>
 							</div>
@@ -72,8 +72,8 @@
 		</div>
 		<div class="row" style="margin-top: 1rem">
 			<div class="col">
-				<textarea class="form-control"id="Custom_Tweet_Text"
-				rows="4" placeholder="e.g. Check out my campaign on Crowdpac!"></textarea>
+				<textarea id="tweeterpostarea" class="form-control"id="Custom_Tweet_Text"
+				rows="4" maxlength="256" placeholder="e.g. Check out my campaign on Crowdpac!"></textarea>
 			</div>
 		</div>
 		<div class="row">
@@ -95,18 +95,18 @@
 		<div class="row">
 			<div class="col" style="background: #F2F2F2;align-content: center;padding-top: 2rem;padding-bottom: 2rem">
 				<div class="card" style="width: 60%;margin: 0 auto;">
-					<img class="card-img-top" src="https://placehold.it/1000x500.png?text=Example%20image" alt="Card image cap">
+					<img id="FacebookCard" class="card-img-top" src="https://placehold.it/1000x500.png?text=Example%20image" alt="Card image cap">
 					<div class="card-body">
 						<div class="row">
 							<div class="col">
-								<span class="mini-recipient__title">
+								<span id="facebookTitle" class="mini-recipient__title">
 									Untitled Campaign
 								</span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col">
-								<span id="Custom_Facebook_Share_title">
+								<span id="Custom_Facebook_Share_post">
 									Check out my campaign on Crowdpac!
 								</span>
 							</div>
@@ -135,28 +135,61 @@
 		</div>
 		<div class="row" style="margin-top: 1rem">
 			<div class="col">
-				<textarea class="form-control"id="Custom_Facebook_Share_Text"
+				<textarea id="fbpostarea" class="form-control"id="Custom_Facebook_Share_Text" maxlength="150" 
 				rows="4" placeholder="e.g. Check out my campaign on Crowdpac!"></textarea>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				<span class="mini-recipient" id="Custom_Facebook_Share_Text_remainchar">256/256 characters remaining.</span>
+				<span class="mini-recipient" id="Custom_Facebook_Share_Text_remainchar">150/150 characters remaining.</span>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="row" style="margin-top: 6rem">
 	<div class="col text-center">
-		<button type="button" class="btnr red campaigns">
+		<button type="button" class="btnr red campaigns" onclick="save_custom_sharing()">
 		Save and continue
 		</button>
 	</div>
 </div>
 <div class="row" style="margin-top: 1rem">
 	<div class="col text-center">
-		<a href="#" class="rclst">
+		<a href="#" class="rclst" onclick="tab_pages('Campaign_Marketing')">
 			Continue without saving
 		</a>
 	</div>
 </div>
+<script type="text/javascript">
+	$("#tweeterpostarea").on('keyup',function(){
+		var txt = $("#tweeterpostarea").val();
+		$("#Custom_Tweet_post").text(txt);
+		$("#Custom_Tweet_Text_remainchar").text((256-txt.length)+"/256 characters remaining");
+
+	});
+	$("#fbpostarea").on('keyup',function(){
+		var txt = $("#fbpostarea").val();
+		$("#Custom_Facebook_Share_post").text(txt);
+		$("#Custom_Facebook_Share_Text_remainchar").text((150-txt.length)+"/150 characters remaining");
+
+	});
+	function save_custom_sharing () {
+		datas={
+			tweeter_post:$("#tweeterpostarea").val(),
+			fb_post:$("#fbpostarea").val(),
+		}
+		$.ajax({
+			type: "GET",
+            url: "{% url 'start_campaign' %}",
+            dataType: 'json',
+            data: {
+                //'story': $("#pro_name").text(),
+                'custom_sharing': JSON.stringify(datas),
+            },
+            success: function(response) {
+                tab_pages('Campaign_Marketing');
+            }
+		});
+	}
+
+</script>

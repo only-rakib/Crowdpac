@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <span class="mini-recipient" style="background: #F6F6F6;position: absolute;padding: 0.45rem;border: 1px solid #ced4da;">
+                <span class="mini-recipient" style="background: #F6F6F6;position: absolute;padding: 0.42rem;border: 1px solid #ced4da;">
                     crowdpac.com/c/
                 </span>
                 <input type="text" name="Short URL" id="Short_URL_id" style="width: 100%;padding-left: 8.5rem;" placeholder="E.g. Former Marine to Reform VA">
@@ -48,7 +48,7 @@
 </div>
 <div class="row">
     <div class="col-md-3 col-sm-4 text-center" style=";margin-top: 1rem">
-        <button class="btnr btnr-tags-optional" id="Campaign Finance Reform" onclick="tagSelect(this.id)" style="height: 100%;width: 100%">Campaign Finance Reform</button>
+        <button class="btnr btnr-tags-optional" id="CampaignFinanceReform" onclick="tagSelect(this.id)" style="height: 100%;width: 100%">Campaign Finance Reform</button>
     </div>
     <div class="col-md-3 col-sm-4 text-center" style=";margin-top: 1rem">
         <button class="btnr btnr-tags-optional" id="1" onclick="tagSelect(this.id)" style="height: 100%;width: 100%">Reform</button>
@@ -63,7 +63,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <span class="mini-recipient">
+                <span id="optionsleft" class="mini-recipient">
                     0/5 selected
                 </span>
             </div>
@@ -134,55 +134,115 @@
 </div>
 <div class="row" style="margin-top: 6rem">
     <div class="col text-center">
-        <button type="button" class="btnr red campaigns">
+        <button type="button" class="btnr red campaigns" onclick="optionalSettingsSave()">
             Save and continue
         </button>
     </div>
 </div>
 <div class="row" style="margin-top: 1rem">
     <div class="col text-center">
-        <a href="#" class="rclst">
+        <a href="#" class="rclst" onclick="tabpages('Publish_Your_Campaign')">
             Continue without saving
         </a>
     </div>
 </div>
 <script type="text/javascript">
-var tagsCount = 0;
+window.tagsCount = 0;
 var store = 0;
 var total_tags = 0;
 
 function tagSelect(clicked_id) {
+
+    var r = ("#" + clicked_id).toString();
+    //console.log(r);
+    //var tags = document.getElementById(clicked_id);
     if (total_tags < 5) {
-        var tags = document.getElementById(clicked_id);
-        if (tags.style.borderColor == "rgb(255, 72, 20)") {
+
+        /*if (tags.style.borderColor == "rgb(255, 72, 20)") {
             tags.style.borderColor = "";
-            tagsCount--;
+            window.tagsCount--;
         } else if (tags.style.borderColor == "") {
             tags.style.borderColor = 'rgb(255, 72, 20)';
-            tagsCount++;
+            window.tagsCount++;
+        }*/
+        if ($(r).hasClass("classActiveIssue")) {
+
+            $(r).removeClass("classActiveIssue");
+            window.tagsCount--;
+            //alert("--");
+        } else {
+            $(r).addClass("classActiveIssue");
+            window.tagsCount++;
+            //alert("++");
+            //console.log($(r));
         }
-        total_tags = store + tagsCount;
+
+
+    } else {
+        /*if (tags.style.borderColor == "rgb(255, 72, 20)") {
+            tags.style.borderColor = "";
+            window.tagsCount--;
+        } */
+        if ($(r).hasClass("classActiveIssue")) {
+            $(r).removeClass("classActiveIssue");
+            window.tagsCount--;
+        }
     }
-    /*console.log(total_tags);*/
+    total_tags = store + tagsCount;
+    $("#optionsleft").text(total_tags + "/5 selected");
+    //console.log("total",total_tags);
 }
 $('#tags_text').on('change', function() {
 
-    if (total_tags >=4) {
-        /*$("#tags_text").attr('readonly');
-        console.log('condition')*/
-        var as =$(this).attr("disabled","disabled");
-        /*console.log(as);*/
 
-    } else {
-        $("#tags_text").removeAttr('readonly');
-        var items = $("#tags_text").tagsinput('items').length;
-        store = items;
-        total_tags = store + tagsCount;
-        /*console.log(total_tags);*/
-    }
+    var items = $("#tags_text").tagsinput('items').length;
+    store = items;
+    total_tags = store + tagsCount;
+    $("#optionsleft").text(total_tags + "/5 selected");
+    //console.log(total_tags);
 
 
 });
+
+function optionalSettingsSave() {
+    var tagButton = [];
+    $('.classActiveIssue').each(function() {
+        tagButton.push(this.id);
+    });
+    var tagText = $("#tags_text").tagsinput('items');
+    var tagselected = [];
+    for (var i = 0; i < tagText.length; i++) {
+        tagselected.push(tagText[i]);
+    }
+    for (var i = 0; i < tagButton.length; i++) {
+        tagselected.push(tagButton[i]);
+    }
+    var fbid = $("#Facebook_id").val();
+    var Google_Ads_Conversion_ID_id = $("#Google_Ads_Conversion_ID_id").val();
+    var Google_Ads_Conversion_Label_id = $("#Google_Ads_Conversion_Label_id").val();
+    var Google_Analytics_id = $("#Google_Analytics_id").val();
+    var Twitter_id = $("#Twitter_id").val();
+    datas = {
+        'tagselected': tagselected,
+        'fbid': fbid,
+        'Google_Ads_Conversion_ID_id': Google_Ads_Conversion_ID_id,
+        'Google_Ads_Conversion_Label_id': Google_Ads_Conversion_Label_id,
+        'Google_Analytics_id': Google_Analytics_id,
+        'Twitter_id': Twitter_id,
+    }
+    $.ajax({
+        type: "GET",
+        url: "{% url 'start_campaign' %}",
+        dataType: 'json',
+        data: {
+            //'story': $("#pro_name").text(),
+            'optional_settings': JSON.stringify(datas),
+        },
+        success: function(response) {
+            tab_pages('Publish_Your_Campaign');
+        }
+    });
+}
 /*
  * bootstrap-tagsinput v0.8.0
  * 
@@ -190,7 +250,7 @@ $('#tags_text').on('change', function() {
 
 (function($) {
     "use strict";
-    /*console.log("paisi", total_tags);*/
+    //console.log("paisi", window.tagsCount);
     var defaultOptions = {
         tagClass: function(item) {
             return 'badge badge-info';
@@ -207,7 +267,7 @@ $('#tags_text').on('change', function() {
         },
         freeInput: true,
         addOnBlur: true,
-        maxTags: 8,
+        maxTags: 5,
         maxChars: undefined,
         confirmKeys: [13, 44],
         delimiter: ',',
@@ -227,6 +287,7 @@ $('#tags_text').on('change', function() {
      * Constructor function
      */
     function TagsInput(element, options) {
+
         this.isInit = true;
         this.itemsArray = [];
 
@@ -257,7 +318,8 @@ $('#tags_text').on('change', function() {
          */
         add: function(item, dontPushVal, options) {
             var self = this;
-
+            //console.log("yoo",window.tagsCount);
+            self.options.maxTags = 5 - window.tagsCount;
             if (self.options.maxTags && self.itemsArray.length >= self.options.maxTags)
                 return;
 
@@ -877,31 +939,4 @@ $('#tags_text').on('change', function() {
         $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
     });
 })(window.jQuery);
-/*document.getElementById('tags_text').onkeypress = function(e) {
-    if (!e) e = window.event;
-    var keyCode = e.keyCode || e.which;
-    if (keyCode == '13' || keyCode == '44' || keyCode == '188') {
-        var tagsInField = document.getElementsByClassName("bootstrap-tagsinput")[0];
-        var spansFiled = tagsInField.getElementsByTagName("span");
-        if (tagsCount < 5) {
-            tagsCount += spansFiled.length / 2;
-        } else {
-            tagsInField.disabled = true;
-        }
-        console.log(tagsCount);
-    }
-}
-console.log(tagsCount);
-/*
-$("#tags_text").keyup(function() {
-    var tagsInField = document.getElementsByClassName("bootstrap-tagsinput")[0];
-    var spansFiled = tagsInField.getElementsByTagName("span");
-    if (tagsCount < 5) {
-        tagsCount += spansFiled.length / 2;
-    } else {
-        tagsInField.disabled = true;
-    }
-    console.log(tagsCount);
-
-})*/
 </script>
