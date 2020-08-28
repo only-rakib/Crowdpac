@@ -117,7 +117,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a class="rclst" id="removeProfile" href=""><i class="fas fa-times"><span style="padding-left: .5rem"> Remove</span></i></a>
+                            <a class="rclst" id="removeProfile" href="#"><i class="fas fa-times"><span style="padding-left: .5rem"> Remove</span></i></a>
                         </div>
                     </div>
                 </div>
@@ -608,9 +608,23 @@ function add_profile_to_page_another_candidate_save_click(id, name, img, datalet
 
 function goForcandidateInfo(clicked_id)
 {
-    
+    /*
+        if the data is not saved for self;
+        if the data is for other candidate then this function
+        send the id of this to the candidate_info.html 
+    */
     tab_pages("Candidate_Info");
     showsfromclick(clicked_id);
 
+}
+function goForRaceInfo(clicked_id)
+{
+    /*
+        if the data is not saved for self;
+        if the data is for other candidate then this function
+        send the id of this to the race_info.html 
+    */
+    tab_pages("Race_Info");
+    raceInfoPreDataclick(clicked_id);
 }
 </script>

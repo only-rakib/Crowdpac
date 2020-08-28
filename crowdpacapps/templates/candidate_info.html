@@ -73,6 +73,12 @@
             </div>
         </div>
     </div>
+    <div class="row" id="row_show_othercandidate_status" style="background: #F2F2F2;margin-top: 1rem;display: none">
+        <div class="col" style="padding-top: 1rem;padding-bottom: 1rem">
+            <span> This is a declared candidate.
+                If your campaign has multiple candidates, they must all be declared candidates. Declared candidates have announced and filed for their races, and can accept donations. </span>
+        </div>
+    </div>
     <div class="row" style="margin-top: 3rem">
         <div class="col">
             <div class="row">
@@ -263,6 +269,12 @@
 var data_candidate;
 
 function setCandidateValue(values) {
+    /*
+        forms data for the other candidate. this function is called by
+        campaign_recipient.html 
+        This function occurs when first add the others candidate and  clicked saved 
+        
+    */
     data_candidate = values;
     if (values.candidancy == "candidate_another") {
 
@@ -272,6 +284,7 @@ function setCandidateValue(values) {
         $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", values.pro_id[0]);
         $("#selcet_Candidate_yes_no_form").show();
         $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", values.pro_id[0]);
+        $("#row_show_othercandidate_status").show();
     }
 
 }
@@ -281,10 +294,17 @@ $('#selcet_Candidate_yes_no_form').bind('change keyup', function() {
 });
 
 function showsfromclick(value_id) {
+    /*
+        forms data for the other candidate. this function is called by
+        campaign_recipient.html 
+        This function occurs when candidate_info clicked from the 
+        profile.
+    */
     $("#selcet_Candidate_yes_no").hide();
     $("#candidate_status_change_button").hide();
     $("#candidate_status_label").text("Recipient id is " + value_id);
     $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id", value_id);
+    $("#row_show_othercandidate_status").show();
     $("#selcet_Candidate_yes_no_form").show();
 }
 
@@ -355,7 +375,7 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
     var upload_headshot = "";
     if (attr == "self") {
 
-        var candidancy_declaration = $("#candidate_status_label").val();
+        var candidancy_declaration = $("#candidate_status_label").text();
         var candidate_first_name = $("#candidate_first_name").val();
         var candidate_last_name = $("#candidate_last_name").val();
         var candidate_email = $("#candidate_email").val();
@@ -364,7 +384,7 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
         var first_time_candidate = $('input[name="first_time_candidate"]:checked').val();
         var upload_headshot = $("candidate_head_shot").attr("scr");
     } else {
-        var candidancy_declaration = $("#candidate_status_label").val();
+        var candidancy_declaration = $("#candidate_status_label").text();
         var candidate_first_name = $("#candidate_first_name").val();
         var candidate_last_name = $("#candidate_last_name").val();
         var candidate_email = $("#candidate_email").val();
@@ -374,24 +394,24 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
         var upload_headshot = $("candidate_head_shot").attr("scr");
     }
     datas = {
-        "candidancy_declaration" : candidancy_declaration,
-        "candidate_first_name" : candidate_first_name,
-        "candidate_last_name" : candidate_last_name,
-        "candidate_email" : candidate_email,
-        "Candidate_Political_Affiliation" : Candidate_Political_Affiliation,
-        "Candidate_Gender" : Candidate_Gender,
-        "first_time_candidate" : first_time_candidate,
-        "upload_headshot" : upload_headshot,
+        "candidancy_declaration": candidancy_declaration,
+        "candidate_first_name": candidate_first_name,
+        "candidate_last_name": candidate_last_name,
+        "candidate_email": candidate_email,
+        "Candidate_Political_Affiliation": Candidate_Political_Affiliation,
+        "Candidate_Gender": Candidate_Gender,
+        "first_time_candidate": first_time_candidate,
+        "upload_headshot": upload_headshot,
     }
     /*var data1;
     data1['candidate_info']=JSON.stringify(datas),*/
-    console.log(JSON.stringify(datas));
+    //console.log(JSON.stringify(datas));
     $.ajax({
         type: "GET",
         url: "{% url 'start_campaign' %}",
         //dataType: 'json',
-        data:{
-            'values':JSON.stringify(datas),
+        data: {
+            'values': JSON.stringify(datas),
         }
     });
 

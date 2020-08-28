@@ -221,27 +221,40 @@ def donateView(request, amount):
 
 @csrf_exempt
 def start_campaign_view(request):
+    # in this all data for the startcampaing.
+    # see the comments to know where the events occur
     global login
 
     states_city = {
+        # Add  all the city list where AL = ALABAMA
+        # the list contains the states/citys of ALABAMA
         'AL': ['Auburn', 'Baldwin County', 'Bay Minette', 'Bessemer']
     }
     race_list = {
+        # list all the election where the First element is the location
+        # the table populate "location|Office|Next Election date|"
+        # idl1,idl2 is the id for these data
+        # These items poputales in #stateTable in race_info.html
         'lst': [
             ['Auburn', 'kayor', '5/28/2022', 'idl1'],
             ['Auburn', 'Mayor', '5/28/2022', 'idl2'],
-            ['Baldwin County', 'Mayor', '5/28/2022', 'idl1'],
-            ['Baldwin County', 'Mayor', '5/28/2022', 'idl2'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl3'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl4'],
             ['VI', 'Mayor', '5/28/2022', 'ids1'],
             ['AL', 'Mayor', '5/28/2022', 'ids1']
         ],
     }
     race_local = {
+        # list all the election where the First element is the location
+        # the table populate "location|Office|Next Election date|"
+        # idl1,idl2 is the id for these data
+        # These items poputales in #localTable and federalTable in
+        # race_info.html
         'lst': [
             ['Auburn', 'kayor', '5/28/2022', 'idl1'],
             ['Auburn', 'Mayor', '5/28/2022', 'idl2'],
-            ['Baldwin County', 'Mayor', '5/28/2022', 'idl1'],
-            ['Baldwin County', 'Mayor', '5/28/2022', 'idl2'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl3'],
+            ['Baldwin County', 'Mayor', '5/28/2022', 'idl4'],
         ],
     }
     candidancy = ''  # self candidate or any organization
@@ -253,7 +266,9 @@ def start_campaign_view(request):
     if login == 'True':
         if request.is_ajax():
             candidate = request.GET.get("candidate")
-            # print(candidate)
+            # request comes from campaign_recipients.html
+            # "$("#recipients_save_button_select_candidate").on('click',
+            # function() {"
             if candidate == 'candidate_self':
                 candidancy = candidate
                 name = "rakib"  # if self then the user data will come from database for current user
@@ -269,6 +284,9 @@ def start_campaign_view(request):
                 }
             else:
                 try:
+                    # this request comes from campaign_recipients.html
+                    # "$("#button_another_candidate_or_organization").on("click",
+                    # function() {"
                     candidate_another = json.loads(
                         request.GET.get("candidate_another"))
 
@@ -292,18 +310,41 @@ def start_campaign_view(request):
                     }
                 except:
                     pass
-
+            # this request comes from candidate_info.html
+            # "$("#recipients_save_button_myself_yes_no_click").on("click",
+            # function() {"
             candidate_self_or_not = request.GET.get("yes_no")
+
+            # this request comes from campaign_story.html "function
+            # butonStorySave() {"
             story = request.GET.get("story")
+
+            # this request comes from campaign_recipients.html
+            # "$("#removeProfile").on('click', function() {"
             deleteCampaingBYName = request.GET.get("deleteID")
 
             try:
+                # this request comes from candidate_info.html
+                # $("#recipients_save_button_yes_no_form_click").on("click",
+                # function() {
                 candidate_info = jsonloads(request.GET['values'])
-                print("yesssssssssssssss", candidate_info)
-            except Exception as e:
-                print("Exception", e)
-                pass
 
+            except Exception as e:
+                #print("Exception", e)
+                pass
+            try:
+                # this request comes from race_info.html
+                # $("#save_custom_candidate").on('click',function()
+                race_info = jsonloads(request.GET['race_info'])
+                print(race_info)
+            except Exception as e:
+                #print("Exception", e)
+                pass
+            # Which race is selected from default table, the id of this race
+            # will store in selected race. The ajax call is generated in
+            # race_info.html "$("#save_race_selected").on('click',function(){"
+
+            selected_race = request.GET.get("race_selected")
             data = {
                 'candidancy': candidancy,
                 'name': name,

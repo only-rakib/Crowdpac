@@ -21,202 +21,244 @@
             </h5>
         </div>
     </div>
-    <div class="row" style="margin-top: 2rem">
+    <div class="row" id="row_show_othercandidate_name" style="background: #F2F2F2;margin-top: 3rem;display: none">
         <div class="col">
-            <label class="mini-recipient__title">State / Region</label>
-            <select class="form-control" id="Candidate_State" onchange="selectState(this.id)">
-                <option  selected disabled >-Select-</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-                <option value="VI">U.S. Virgin Islands</option>
-            </select>
+            <span id="span_show_othercandidate_name">{{context.name}}</span>
         </div>
     </div>
-    <div class="row" style="margin-top: 2rem">
-        <div class="col">
-            <label class="mini-recipient__title">City or County</label>
-            <select class="form-control" id="Candidate_City_or_County" disabled onchange="selectState(this.id)">
-                <option  selected disabled >-Select-</option>
-            </select>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 2rem">
-        <div class="col">
-            <label class="mini-recipient__title">Search by position title</label>
-            <input class="form-control" type="text"  name="Search_by_position_title" id="Search_by_position_title" placeholder="Enter the name of the office here" disabled onkeyup="selectState(this.id)">
-        </div>
-    </div>
-    <div class="row" id="localRow" style="margin-top: 2rem;display: none">
-        <div class="col" style="font-size: 20px">
-            <a class="clsm" id="localID" data-toggle="collapse" href="#local" role="button" aria-expanded="true" aria-controls="local"><i class="fas fa-caret-down">Local</i></a>
-        </div>
-    </div>
-    <!--DataCollapse-->
-    <div id="local" class="collapse">
-        <div class="row">
+    <!--Show race name when select-->
+    <div id="row_show_race_name" data-raceID="" style="display: none">
+        <div class="row" style="border: 1.5px solid #F2F2F2;margin-top: 3rem;padding-top:1rem;padding-bottom: 1rem;">
             <div class="col">
-                <table class="table table-striped table-borderless" id="localTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">Location</th>
-                            <th scope="col">Office</th>
-                            <th scope="col">Next election date</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for key,value in context.race_local.items %}
-                           {% for i in value %}
-
-                                <tr>
-                                    <td>{{i.0}}</td>
-                                    <td>{{i.1}}</td>
-                                    <td>{{i.2}}</td>
-                                    <td><a class="rclst" id="{{i.3}}" href="#">Select</a></td>
-                                </tr>
-                            {% endfor %}
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <div class="row">
+                    <div class="col">
+                        <h4 id="race_details">{{context.race_details}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span id="race_date" class="mini-recipient">{{context.race_date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col rclst d-flex align-items-center ml-auto">
+                <div class="row ml-auto">
+                    <div class="col">
+                        <a class="rclst" href="#" onclick="changeRace()">Change</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" id="stateRow" style="margin-top: 2rem;display: none">
-        <div class="col" style="font-size: 20px">
-            <a class="clsm" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state"><i class="fas fa-caret-down">State</i></a>
-        </div>
-    </div>
-    <!--DataCollapse-->
-    <div id="state" class="collapse">
-        <div class="row">
-            <div class="col">
-                <table class="table table-striped table-borderless" id="stateTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">Location</th>
-                            <th scope="col">Office</th>
-                            <th scope="col">Next election date</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for key,value in context.race_list.items %}
-                           {% for i in value %}
-                        <tr>
-                            <td>{{i.0}}</td>
-                            <td>{{i.1}}</td>
-                            <td>{{i.2}}</td>
-                            <td><a class="rclst" id="{{i.3}}" href="#">Select</a></td>
-                        </tr>
-                        {%endfor%}
-                        {%endfor%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="row" id="federalRow" style="margin-top: 2rem;display: none">
-        <div class="col" style="font-size: 20px">
-            <a class="clsm" data-toggle="collapse" href="#federal" role="button" aria-expanded="false" aria-controls="federal"><i class="fas fa-caret-down">Federal</i></a>
-        </div>
-    </div>
-    <!--DataCollapse-->
-    <div id="federal" class="collapse">
-        <div class="row">
-            <div class="col">
-                <table class="table table-striped table-borderless" id="federalTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">Location</th>
-                            <th scope="col">Office</th>
-                            <th scope="col">Next election date</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for key,value in context.race_list.items %}
-                           {% for i in value %}
-
-                        <tr>
-                            <td>{{i.0}}</td>
-                            <td>{{i.1}}</td>
-                            <td>{{i.2}}</td>
-                            <td><a class="rclst" id="{{i.3}}" href="#">Select</a></td>
-                        </tr>
-                        {%endfor%}
-                        {%endfor%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="row" style="margin-top: 2rem;background: #F6F6F6;padding-top: 2rem;padding-bottom: 2rem">
+        <div class="row" style="margin-top: 3rem">
         <div class="col text-center">
-            <div class="row">
-                <div class="col">
-                    <h5>Can't find the race?</h5>
-                </div>
+            <button type="button" id="save_race_selected" class="btnr red campaigns">
+                Save and continue
+            </button>
+        </div>
+    </div>
+    </div>
+    <div id="selectRaceDetails">
+        <div class="row" style="margin-top: 2rem">
+            <div class="col">
+                <label class="mini-recipient__title">State / Region</label>
+                <select class="form-control" id="Candidate_State" onchange="selectState(this.id)">
+                    <option selected disabled>-Select-</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="VI">U.S. Virgin Islands</option>
+                </select>
             </div>
+        </div>
+        <div class="row" style="margin-top: 2rem">
+            <div class="col">
+                <label class="mini-recipient__title">City or County</label>
+                <select class="form-control" id="Candidate_City_or_County" disabled onchange="selectState(this.id)">
+                    <option selected disabled>-Select-</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2rem">
+            <div class="col">
+                <label class="mini-recipient__title">Search by position title</label>
+                <input class="form-control" type="text" name="Search_by_position_title" id="Search_by_position_title" placeholder="Enter the name of the office here" disabled onkeyup="selectState(this.id)">
+            </div>
+        </div>
+        <div class="row" id="localRow" style="margin-top: 2rem;display: none">
+            <div class="col" style="font-size: 20px">
+                <a class="clsm" id="localID" data-toggle="collapse" href="#local" role="button" aria-expanded="true" aria-controls="local"><i class="fas fa-caret-down">Local</i></a>
+            </div>
+        </div>
+        <!--DataCollapse-->
+        <div id="local" class="collapse">
             <div class="row">
                 <div class="col">
-                    <a class="rclst" href="#" id="raceBasic" onclick="browseRace(this.id)">Add a new race</a>
+                    <table class="table table-striped table-borderless" id="localTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Location</th>
+                                <th scope="col">Office</th>
+                                <th scope="col">Next election date</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key,value in context.race_local.items %}
+                            {% for i in value %}
+                            <tr id="tr{{i.3}}">
+                                <td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                                <td>{{i.2}}</td>
+                                <td><a class="rclst" id="{{i.3}}" onclick="select_race(this.id)" href="#">Select</a></td>
+                            </tr>
+                            {% endfor %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        
+        <div class="row" id="stateRow" style="margin-top: 2rem;display: none">
+            <div class="col" style="font-size: 20px">
+                <a class="clsm" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state"><i class="fas fa-caret-down">State</i></a>
+            </div>
+        </div>
+        <!--DataCollapse-->
+        <div id="state" class="collapse">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-striped table-borderless" id="stateTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Location</th>
+                                <th scope="col">Office</th>
+                                <th scope="col">Next election date</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key,value in context.race_list.items %}
+                            {% for i in value %}
+                            <tr id="tr{{i.3}}">
+                                <td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                                <td>{{i.2}}</td>
+                                <td><a class="rclst" id="{{i.3}}" onclick="select_race(this.id)" href="#">Select</a></td>
+                            </tr>
+                            {%endfor%}
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="federalRow" style="margin-top: 2rem;display: none">
+            <div class="col" style="font-size: 20px">
+                <a class="clsm" data-toggle="collapse" href="#federal" role="button" aria-expanded="false" aria-controls="federal"><i class="fas fa-caret-down">Federal</i></a>
+            </div>
+        </div>
+        <!--DataCollapse-->
+        <div id="federal" class="collapse">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-striped table-borderless" id="federalTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Location</th>
+                                <th scope="col">Office</th>
+                                <th scope="col">Next election date</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key,value in context.race_list.items %}
+                            {% for i in value %}
+                            <tr id="tr{{i.3}}">
+                                <td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                                <td>{{i.2}}</td>
+                                <td><a class="rclst" id="{{i.3}}" onclick="select_race(this.id)" href="#">Select</a></td>
+                            </tr>
+                            {%endfor%}
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2rem;background: #F6F6F6;padding-top: 2rem;padding-bottom: 2rem">
+            <div class="col text-center">
+                <div class="row">
+                    <div class="col">
+                        <h5>Can't find the race?</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="rclst" href="#" id="raceBasic" onclick="browseRace(this.id)">Add a new race</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 1rem">
+        <div class="col text-center">
+            <a href="#" class="rclst" onclick="(tab_pages('Campaign_Story'))">
+                Skip this step for now
+            </a>
+        </div>
     </div>
 </div>
-<!--Add custom Race-->
-<div id ="add_race" style="display: none">
+<!----------------------Add custom Race------------------------------->
+<div id="add_race" style="display: none">
     <div class="row">
         <div class="col text-center">
             <span class="mini-recipient">
@@ -237,7 +279,7 @@
                 Want to try finding it in our system?
             </div>
             <div class="float-right">
-                <a href="#" class="rclst" id="racebrowse" onclick="browseRace(this.id)" >Browse races</a>
+                <a href="#" class="rclst" id="racebrowse" onclick="browseRace(this.id)">Browse races</a>
             </div>
         </div>
     </div>
@@ -253,8 +295,9 @@
     </div>
     <div class="row">
         <div class="col">
-            <select class="form-control";id=office_level>
-                <option value="" disabled="disabled" selected="true">- Select -</option> <option value="local">Local - e.g. Mayor, City Council, County Clerk, School Board, etc.</option>
+            <select class="form-control" ;id=office_level>
+                <option value="" disabled="disabled" selected="true">- Select -</option>
+                <option value="local">Local - e.g. Mayor, City Council, County Clerk, School Board, etc.</option>
                 <option value="state">State - e.g. State Assembly, Attorney General, Governor, etc.</option>
             </select>
         </div>
@@ -267,13 +310,13 @@
                         Office Title
                     </label>
                     <label class="float-right mini-recipient">
-                         Required
+                        Required
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" name="officeTitle" class="form-control" placeholder="E.g. Mayor or City council">
+                    <input type="text" id="officeTitle" name="officeTitle" class="form-control" placeholder="E.g. Mayor or City council">
                 </div>
             </div>
         </div>
@@ -284,66 +327,66 @@
                         State / Region
                     </label>
                     <label class="float-right mini-recipient">
-                         Required
+                        Required
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <select id = "State_Region" class="form-control">
-                        <option  selected disabled >-Select-</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-                <option value="VI">U.S. Virgin Islands</option>
+                    <select id="State_Region" class="form-control">
+                        <option selected disabled>-Select-</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                        <option value="VI">U.S. Virgin Islands</option>
                     </select>
                 </div>
             </div>
@@ -356,14 +399,13 @@
                     <label class="float-left mini-recipient__title">
                         District
                     </label>
-                    
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <input type="text" name="district_text" class="form-control" placeholder="E.g. Mayor or City council">
+                            <input type="text" id="district_text" name="district_text" class="form-control" placeholder="E.g. Mayor or City council">
                         </div>
                     </div>
                     <div class="row form-check">
@@ -387,14 +429,13 @@
                     <label class="float-left mini-recipient__title">
                         Election date
                     </label>
-                    
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <input type="date" name="electionDate" class="form-control">
+                            <input type="date" id="electionDate" name="electionDate" class="form-control">
                         </div>
                     </div>
                     <div class="row form-check">
@@ -420,53 +461,53 @@
     <div class="row">
         <div class="col">
             <span style="position: absolute;padding: .38rem;background: #F6F6F6;border:1px solid #ced4da;border-radius: .25rem;">$</span>
-            <input class="form-control" type="text"
-                step="0.01" style="padding-left:2rem"  id="
-                Individual_contribution_limit"
-            >
+            <input class="form-control" type="text" step="0.01" style="padding-left:2rem" id="Individual_contribution_limit">
         </div>
         <div class="col">
             <p class="mini-recipient">
                 This sets the maximum amount any individual can contribute to your campaign
             </p>
         </div>
-        
     </div>
     <div class="row">
         <div class="col">
             <div class="row form-check">
                 <div class="col form-check">
-                     <input type="checkbox" class="form-check-input" id="no_contribution_limit">
-                            <label class="form-check-label" for="exampleCheck1"> There is no contribution limit. Individuals can contribute any amount.</label>
+                    <input type="checkbox" class="form-check-input" id="no_contribution_limit">
+                    <label class="form-check-label" for="exampleCheck1"> There is no contribution limit. Individuals can contribute any amount.</label>
                 </div>
             </div>
-            <div class="row form-check" >
+            <div class="row form-check">
                 <div class="col form-check">
-                     <input type="checkbox" class="form-check-input" id="dont_know_the_contribution_limit">
-                            <label class="form-check-label" for="exampleCheck1"> I don't know the contribution limit.</label>
+                    <input type="checkbox" class="form-check-input" id="dont_know_the_contribution_limit">
+                    <label class="form-check-label" id=" I_dont_know_the_contribution_limit" for="exampleCheck1"> I don't know the contribution limit.</label>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row" style="margin-top: 6rem">
-    <div class="col text-center">
-        <button type="button" class="btnr red campaigns">
-        Save and continue
-        </button>
+    <div class="row" style="margin-top: 3rem">
+        <div class="col text-center">
+            <button type="button" id="save_custom_candidate" class="btnr red campaigns">
+                Save and continue
+            </button>
+        </div>
     </div>
-</div>
-<div class="row" style="margin-top: 1rem">
-    <div class="col text-center">
-        <a href="#" class="rclst">
-            Continue without saving
-        </a>
+    <div class="row" style="margin-top: 1rem">
+        <div class="col text-center">
+            <a href="#" class="rclst" onclick="(tab_pages('Campaign_Story'))">
+                Continue without saving
+            </a>
+        </div>
     </div>
-</div>
 </div>
 <script type="text/javascript">
-
-var arr = {}; 
-var cn=0
+var arr = {};
+var cn = 0
+/*
+    stores all the city according to the state/Region form django context.
+    the key is the state/region and the value is the 
+    cities
+*/
 {% for key,values in context.states_city.items %}
     var temp=[];
     {%for i in values%}
@@ -476,29 +517,198 @@ var cn=0
     
 {% endfor %}
 
-function browseRace(clicked_id)
-{
-    if(clicked_id=="racebrowse")
-    {
+/*
+    race profile to race table
+*/
+function changeRace() {
+    $("#row_show_race_name").hide();
+    $("#race_basic").show();
+    $("#selectRaceDetails").show();
+}
+/*
+When any races select from the table then it shows to the div
+*/
+function select_race(clicked_id) {
+    var arr = [];
+    var newid = "#tr" + clicked_id + " td";
+    //console.log($(newid).text());
+    var cnt = 0;
+    $(newid).each(function() {
+        /*arr.push($(newid).text()+"==== ");*/
+        var $this = $(this);
+        var splitText = $this.text().split(' ');
+        arr.push(splitText);
+        cnt++;
+        if (cnt > 2) {
+            return false;
+        }
+    });
+    arr.push(clicked_id);
+
+    $("#race_details").text(arr[0] + "  " + arr[1]);
+    $("#race_date").text(arr[2]);
+    try {
+        $("#row_show_race_name").attr("data-raceID", clicked_id);
+    } catch(e) {
+        // statements
+        console.log(e);
+    }
+    
+    $("#add_race").hide();
+    $("#row_show_race_name").show();
+    $("#selectRaceDetails").hide();
+
+
+
+}
+/*
+    receive data from campaign_recipients.html
+*/
+function raceInfoPreDataclick(clicked_id) {
+    $("#row_show_othercandidate_name").show();
+    $("#span_show_othercandidate_name").text("Recipient id is " + clicked_id);
+}
+/*
+browse click to toggle custom race to race table  
+*/
+function browseRace(clicked_id) {
+    if (clicked_id == "racebrowse") {
         document.getElementById("add_race").style.display = 'none';
         document.getElementById("race_basic").style.display = "block";
     }
-    if(clicked_id=="raceBasic")
-    {
+    if (clicked_id == "raceBasic") {
         document.getElementById("add_race").style.display = 'block';
         document.getElementById("race_basic").style.display = "none";
     }
 }
+
+/*
+There is no contribution limit. Individuals can contribute any amount.
+*/
+$('#no_contribution_limit').click(function() {
+    if ($(this).is(':checked')) {
+        $('#Individual_contribution_limit').attr("readonly", "readonly");
+    } else {
+        $('#Individual_contribution_limit').removeAttr("readonly");
+    }
+});
+/*
+ 
+I don't know the contribution limit.
+*/
+$('#dont_know_the_contribution_limit').click(function() {
+    if ($(this).is(':checked')) {
+        $('#Individual_contribution_limit').attr("readonly", "readonly");
+    } else {
+        $('#Individual_contribution_limit').removeAttr("readonly");
+    }
+});
+/*doesnt_district*/
+$('#doesnt_district').click(function() {
+    if ($(this).is(':checked')) {
+        $('#district_text').attr("readonly", "readonly");
+    } else {
+        $('#district_text').removeAttr("readonly");
+    }
+});
+/*dstrict in a large position*/
+$('#dstrict_large_position').click(function() {
+    if ($(this).is(':checked')) {
+        $('#district_text').val($("#State_Region").val());
+    } else {
+        $('#district_text').val("");
+    }
+});
+/*
+don't no election date checkbox
+*/
+$('#dont_know_date').click(function() {
+    if ($(this).is(':checked')) {
+        $('#electionDate').attr("readonly", "readonly");
+    } else {
+        $('#electionDate').removeAttr("readonly");
+    }
+});
+
+/*
+Save custom race
+*/
+$("#save_custom_candidate").on('click', function() {
+    var dstrict_large_position = '';
+    var doesnt_district = '';
+    var dont_know_date = '';
+    var no_contribution_limit = '';
+    var dont_know_the_contribution_limit = ''
+    if ($('#dstrict_large_position').is(":checked")) {
+        dstrict_large_position = 'true';
+    }
+    if ($('#doesnt_district').is(":checked")) {
+        doesnt_district = 'true';
+    }
+    if ($('#dont_know_date').is(":checked")) {
+        dont_know_date = 'true';
+    }
+    if ($('#no_contribution_limit').is(":checked")) {
+        no_contribution_limit = 'true';
+    }
+    if ($('#dont_know_the_contribution_limit').is(":checked")) {
+        dont_know_the_contribution_limit = 'true'
+    }
+
+    datas = {
+        'candidate_id': $("#span_show_othercandidate_name").text(),
+        'office_level': $("#office_level").val(),
+        'officeTitle': $("#officeTitle").val(),
+        'State_Region': $("#State_Region").val(),
+        'district_text': $("#district_text").val(),
+        'electionDate': $("#electionDate").val(),
+        'Individual_contribution_limit': $("#Individual_contribution_limit").val(),
+        'dstrict_large_position': dstrict_large_position,
+        'doesnt_district': doesnt_district,
+        'dont_know_date': dont_know_date,
+        'no_contribution_limit': no_contribution_limit,
+        'dont_know_the_contribution_limit': dont_know_the_contribution_limit,
+    }
+    $.ajax({
+        type: "GET",
+        url: "{% url 'start_campaign' %}",
+        //dataType: 'json',
+        data: {
+            'race_info': JSON.stringify(datas),
+        },
+        success: function(response) {
+            tab_pages('Campaign_Story');
+        }
+    });
+});
+/*
+    send id of which race is selected from table
+*/
+$("#save_race_selected").on('click',function(){
+    $.ajax({
+        type: "GET",
+        url: "{% url 'start_campaign' %}",
+        //dataType: 'json',
+        data: {
+            'race_selected': $("#save_race_selected").attr("data-raceid"),
+        },
+        success: function(response) {
+            tab_pages('Campaign_Story');
+        }
+    });
+});
+/*
+    filter the tables by the dropdown box
+*/
 function selectState(clicked_id) {
-    
-    if(clicked_id=="Candidate_State"){
+
+    if (clicked_id == "Candidate_State") {
         var states_click = document.getElementById("Candidate_State");
         var state = states_click.options[states_click.selectedIndex].value;
-        var cities=[]
+        var cities = []
         cities = arr[state];
         var select_city = document.getElementById("Candidate_City_or_County");
-        for(var i=0;i<cities.length;i++)
-        {
+        for (var i = 0; i < cities.length; i++) {
             var opt = cities[i];
             var el = document.createElement("option");
             el.textContent = opt;
@@ -515,40 +725,39 @@ function selectState(clicked_id) {
 
         var txtValue;
         var myOpts = document.getElementById('Candidate_City_or_County').options;
-        
+
         for (var i = 0; i < tr.length; i++) {
             var td = tr[i].getElementsByTagName("td")[0];
             if (td) {
                 txtValue = td.textContent || td.innerText;
-          
-                  for(var j=0;j<myOpts.length;j++)
-                  {
-                        var r = "";
-                        r=myOpts[j].value;
-                        if (txtValue.localeCompare(r)==0) {
-                            tr[i].style.display = "";
-                           
-                            break;
 
-                        } else {
-                            tr[i].style.display = "none";
-                            
-                        }
-                  }
-              }
+                for (var j = 0; j < myOpts.length; j++) {
+                    var r = "";
+                    r = myOpts[j].value;
+                    if (txtValue.localeCompare(r) == 0) {
+                        tr[i].style.display = "";
+
+                        break;
+
+                    } else {
+                        tr[i].style.display = "none";
+
+                    }
+                }
+            }
         }
 
         var tableState = document.getElementById("stateTable");
         var tr1 = tableState.getElementsByTagName("tr");
 
-        
+
         var myOpts1 = state;
-        var txtValue1="";
+        var txtValue1 = "";
         for (var i = 0; i < tr1.length; i++) {
             var td = tr1[i].getElementsByTagName("td")[0];
             if (td) {
                 txtValue1 = td.textContent || td.innerText;
-                if (txtValue1.localeCompare(myOpts1)==0) {
+                if (txtValue1.localeCompare(myOpts1) == 0) {
                     tr1[i].style.display = "";
                     break;
 
@@ -562,15 +771,15 @@ function selectState(clicked_id) {
         var tableFederal = document.getElementById("federalTable");
         var tr2 = tableFederal.getElementsByTagName("tr");
 
-        
+
         var myOpts2 = document.getElementById('Candidate_State').options;
-        var txtValue2="";
+        var txtValue2 = "";
         for (var i = 0; i < tr1.length; i++) {
             var td = tr2[i].getElementsByTagName("td")[0];
             if (td) {
                 txtValue2 = td.textContent || td.innerText;
-                for(var j=0;j<myOpts2.length;j++){
-                    if (txtValue2.localeCompare(myOpts2[j].value)==0) {
+                for (var j = 0; j < myOpts2.length; j++) {
+                    if (txtValue2.localeCompare(myOpts2[j].value) == 0) {
                         tr2[i].style.display = "";
                         break;
 
@@ -580,59 +789,55 @@ function selectState(clicked_id) {
                 }
             }
         }
-      }
-  else if(clicked_id=="Candidate_City_or_County")
-  {
+    } else if (clicked_id == "Candidate_City_or_County") {
 
-    var states_click = document.getElementById("Candidate_City_or_County");
+        var states_click = document.getElementById("Candidate_City_or_County");
 
-    var myOpts = states_click.options[states_click.selectedIndex].value;
+        var myOpts = states_click.options[states_click.selectedIndex].value;
 
-    var table = document.getElementById("localTable");
-    var tr = table.getElementsByTagName("tr");
+        var table = document.getElementById("localTable");
+        var tr = table.getElementsByTagName("tr");
 
-    var txtValue;
-    
-    
-    for (var i = 0; i < tr.length; i++) {
-        var td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.localeCompare(myOpts)==0) {
-                tr[i].style.display = "";  
+        var txtValue;
+
+
+        for (var i = 0; i < tr.length; i++) {
+            var td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.localeCompare(myOpts) == 0) {
+                    tr[i].style.display = "";
                     break;
 
-            } else {
-                 tr[i].style.display = "none";
-                        
-            }
-              
-        }
-    }
-  }
-  else if(clicked_id=="Search_by_position_title")
-  {
-    var input,filter,td,txtValue;
-    
+                } else {
+                    tr[i].style.display = "none";
 
-    input = document.getElementById("Search_by_position_title");
-    filter = input.value.toUpperCase();
-    var table = document.getElementById("localTable");
-    var tr = table.getElementsByTagName("tr");
-    
+                }
+
+            }
+        }
+    } else if (clicked_id == "Search_by_position_title") {
+        var input, filter, td, txtValue;
+
+
+        input = document.getElementById("Search_by_position_title");
+        filter = input.value.toUpperCase();
+        var table = document.getElementById("localTable");
+        var tr = table.getElementsByTagName("tr");
+
         for (i = 0; i < tr.length; i++) {
-            
+
             td = tr[i].getElementsByTagName("td")[1];
             if (td) {
-              txtValue = td.textContent || td.innerText;
-                  if (txtValue.toUpperCase().indexOf(filter) > -1 ) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
-                    
-                  } else {
+
+                } else {
                     tr[i].style.display = "none";
-                  }
+                }
             }
         }
-  }
+    }
 }
 </script>
