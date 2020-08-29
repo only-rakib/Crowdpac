@@ -119,6 +119,7 @@
                             <a href="#" class="rclst" id="Optional_Settings" onClick="tab_pages(this.id)" style="text-decoration-color: #ff4814">Optional Settings </a>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="row">
@@ -207,6 +208,11 @@
                     </div>
                 </div>
                 <div class="col-10 offset-1">
+                    <div class="__class" id="Publish_Your_Campaign_content" style="display: none">
+                        {%include 'Publish_Your_Campaign.html'%}
+                    </div>
+                </div>
+                <div class="col-10 offset-1">
                     <div class="__class" id="Contact_Support_content" style="display: none">
                         {%include 'contact_support.html'%}
                     </div>
@@ -264,11 +270,14 @@ function tab_pages(clicked_id) {
             cntntId.style.cssText = 'display:block';
             $("#Candidate_Info").hide();
             $("#Race_Info").hide();
+            
+            if(clicked_id==="Publish_Your_Campaign")
+            {
+                
+                onload_Publish_Your_Campaign_content(complete_campaign_recipients,complete_campaign_story,complete_candidate_info,complete_race_info);
+            }
 
-        } else {
-            // Do nothing!
-            console.log('continue;');
-        }
+        } 
     } else {
         for (var i = 0; i < divs.length; i++) {
             divs[i].style.cssText = "font-weight: normal";
@@ -281,7 +290,11 @@ function tab_pages(clicked_id) {
         cntntId.style.cssText = 'display:block';
         $("#Candidate_Info").hide();
         $("#Race_Info").hide();
-
+        if(clicked_id=="Publish_Your_Campaign")
+        {
+            
+            onload_Publish_Your_Campaign_content(complete_campaign_recipients,complete_campaign_story,complete_candidate_info,complete_race_info);
+        }
     }
 }
 

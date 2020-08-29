@@ -360,10 +360,10 @@ $("#recipients_save_button_myself_yes_no_click").on("click", function() {
     }
 
 });
-
+var complete_candidate_info = false;//check required field fill or not
 $("#recipients_save_button_yes_no_form_click").on("click", function() {
 
-
+    recipientsButton=true;
     var attr = $("#recipients_save_button_yes_no_form_click").attr("data-candidate-id");
     var candidancy_declaration = "";
     var candidate_first_name = "";
@@ -393,7 +393,7 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
         var first_time_candidate = $('input[name="first_time_candidate"]:checked').val();
         var upload_headshot = $("candidate_head_shot").attr("scr");
     }
-    datas = {
+    var datas = {
         "candidancy_declaration": candidancy_declaration,
         "candidate_first_name": candidate_first_name,
         "candidate_last_name": candidate_last_name,
@@ -403,6 +403,21 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
         "first_time_candidate": first_time_candidate,
         "upload_headshot": upload_headshot,
     }
+    for(var i in datas)
+    {
+
+        if(datas[i]==="")
+        {         
+            complete_candidate_info=false;
+
+            break;
+        }
+        else
+        {
+            complete_candidate_info=true;
+        }
+    }
+    //alert(complete_candidate_info)
     /*var data1;
     data1['candidate_info']=JSON.stringify(datas),*/
     //console.log(JSON.stringify(datas));
@@ -412,7 +427,11 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
         //dataType: 'json',
         data: {
             'values': JSON.stringify(datas),
+        },
+        success:function(){
+            (tab_pages('Race_Info'))
         }
+
     });
 
 });

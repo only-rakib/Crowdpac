@@ -501,6 +501,7 @@
     </div>
 </div>
 <script type="text/javascript">
+var complete_race_info = false;
 var arr = {};
 var cn = 0
 /*
@@ -521,6 +522,7 @@ var cn = 0
     race profile to race table
 */
 function changeRace() {
+    complete_race_info=false;
     $("#row_show_race_name").hide();
     $("#race_basic").show();
     $("#selectRaceDetails").show();
@@ -669,6 +671,19 @@ $("#save_custom_candidate").on('click', function() {
         'no_contribution_limit': no_contribution_limit,
         'dont_know_the_contribution_limit': dont_know_the_contribution_limit,
     }
+    for(var i in datas)
+    {
+
+        if(datas[i]==="")
+        {         
+            complete_race_info=false;
+            break;
+        }
+        else
+        {
+            complete_race_info =true;
+        }
+    }
     $.ajax({
         type: "GET",
         url: "{% url 'start_campaign' %}",
@@ -685,6 +700,7 @@ $("#save_custom_candidate").on('click', function() {
     send id of which race is selected from table
 */
 $("#save_race_selected").on('click',function(){
+    complete_race_info=true;
     $.ajax({
         type: "GET",
         url: "{% url 'start_campaign' %}",

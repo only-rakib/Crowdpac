@@ -311,7 +311,7 @@ function validURL(str) {
 /*
     saves all the story data;
 */
-
+var complete_campaign_story=false;
 function butonStorySave() {
     campaign_title_pressed=true;
     if (urlTest) {
@@ -320,6 +320,23 @@ function butonStorySave() {
             'story': CKEDITOR.instances.editor.getData(),
             'img': $('#campaignImage').attr('src'),
             'video_url': $("#campaign_video_link").val()
+        }
+        for(var i in datas)
+        {
+
+            if(datas[i]==="")
+            {   
+                if(i==="video_url"){
+                    continue;
+                }
+                complete_campaign_story=false;
+                break;
+
+            }
+            else
+            {
+                complete_campaign_story=true;
+            }
         }
         $.ajax({
             type: "GET",

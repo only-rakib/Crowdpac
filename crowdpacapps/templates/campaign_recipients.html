@@ -134,7 +134,7 @@
 </div>
 <script type="text/javascript">
 var selectedID = "";
-
+var complete_campaign_recipients=false;
 $(function() {
 
     $("#name_of_candidate").autocomplete({
@@ -359,7 +359,7 @@ if ("{{context.name}}" === "") {
     $("#recipients_main").show();
 
 } else {
-    console.log("profile");
+    //console.log("profile");
     /*$("#Candidate_Info").show();
     $("#Race_Info").show();*/
     $("#show_the_profile").show();
@@ -371,6 +371,7 @@ $("#recipients_save_button_select_candidate").on('click', function() {
     recipientsButton=true;
     if (activeCard == "candidate_self") {
         candidancy = "candidate_self";
+        complete_campaign_recipients =true;
         $.ajax({
 
             type: "GET",
@@ -487,6 +488,7 @@ function removeAdded(clicked_id) {
         $(ids).remove();
         var valueNull = $('#add_the_recipient').text().trim() === '';
         if (valueNull) {
+            complete_campaign_recipients=false;
             $("#Candidate_Info").hide();
             $("#Race_Info").hide();
             $("#show_the_profile").hide();
@@ -517,6 +519,7 @@ function removeSaved(clicked_id) {
             /*$("#search_add_candidate").show();
             $("#name_of_candidate").show();*/
             $("#add_another_recipients").hide();
+            complete_campaign_recipients=false;
         }
     }
 

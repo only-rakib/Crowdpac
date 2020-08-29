@@ -1,0 +1,93 @@
+{%load static%}
+<div class="row">
+    <div class="col text-center">
+        <span class="mini-recipient">
+            Review
+        </span>
+    </div>
+</div>
+<div class="row" style="margin-top: .8rem">
+    <div class="col text-center">
+        <span class="title2">
+            Almost there!
+        </span>
+    </div>
+</div>
+<div class="row" style="margin-top: .8rem">
+    <div class="col text-center">
+        <h5 style="font-weight: normal">
+            Before we can launch your campaign, please complete the required information for the following pages:
+        </h5>
+    </div>
+</div>
+<div class="row" style="margin-top: 3rem">
+    <div class="col text-center" id="addIncompletePages">
+    </div>
+</div>
+<div class="row" style="background: #F6F6F6;margin-top:3rem;padding-top: 1rem;padding-bottom: 1rem;">
+    <div class="col text-center">
+        <div class="row">
+            <div class="col">
+                <h5>Need help finishing your campaign?<h5>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1rem">
+            <div class="col">
+                <a class="rclst" href="#" onclick="tab_pages('Contact_Support')">
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function onload_Publish_Your_Campaign_content(complete_campaign_recipients, complete_campaign_story, complete_candidate_info, complete_race_info) {
+    /*
+    complete_campaign_recipients = true
+    complete_campaign_story = true
+    complete_candidate_info = true
+    complete_race_info = true
+            
+    then all required field is filled
+    */
+    $("#addIncompletePages").empty();
+    if (complete_campaign_recipients == false) {
+        $("#addIncompletePages").append(
+            '   <div class="row">  ' +
+            '               <div class="col">  ' +
+            '                   <a href="#" class="rclst" onclick="tab_pages(\'Campaign_Recipients\')">Campaign Recipients</a>  ' +
+            '               </div>  ' +
+            '              </div>  '
+        );
+    } else {
+        if (complete_candidate_info == false) {
+            $("#addIncompletePages").append(
+                '   <div class="row">  ' +
+                '               <div class="col">  ' +
+                '                   <a href="#" class="rclst" onclick="tab_pages(\'Campaign_Story\')">Candidate Info</a>  ' +
+                '               </div>  ' +
+                '              </div>  '
+            );
+        }
+        if (complete_race_info == false) {
+            $("#addIncompletePages").append(
+                '   <div class="row">  ' +
+                '               <div class="col">  ' +
+                '                   <a href="#" class="rclst" onclick="tab_pages(\'Race_Info\')">Race Info</a>  ' +
+                '               </div>  ' +
+                '              </div>  '
+            );
+        }
+    }
+
+    if (complete_campaign_story == false) {
+        $("#addIncompletePages").append(
+            '   <div class="row">  ' +
+            '               <div class="col">  ' +
+            '                   <a href="#" class="rclst" onclick="tab_pages(\'Campaign_Story\')">Campaign Story</a>  ' +
+            '               </div>  ' +
+            '              </div>  '
+        );
+    }
+}
+</script>
