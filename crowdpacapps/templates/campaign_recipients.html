@@ -374,7 +374,7 @@ $("#recipients_save_button_select_candidate").on('click', function() {
         complete_campaign_recipients =true;
         $.ajax({
 
-            type: "GET",
+            type: "POST",
             url: "{% url 'start_campaign' %}",
             data: {
                 'candidate': activeCard,
@@ -424,7 +424,7 @@ $("#button_another_candidate_or_organization").on("click", function() {
 
     //console.log(JSON.stringify({'candidate_another':datas}));
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "{% url 'start_campaign' %}",
         dataType: 'json',
         data: {

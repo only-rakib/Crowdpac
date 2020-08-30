@@ -179,7 +179,7 @@
 			fb_post:$("#fbpostarea").val(),
 		}
 		$.ajax({
-			type: "GET",
+			type: "POST",
             url: "{% url 'start_campaign' %}",
             dataType: 'json',
             data: {

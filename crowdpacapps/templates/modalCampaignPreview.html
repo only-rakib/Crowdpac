@@ -1,0 +1,411 @@
+{% load static %}
+<div class="modal fade" id="modal-campaign-preview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog rmodal" role="window">
+        <div class="modal-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="text-center">{{context.campaign_title}}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 offset-sm-1">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                {% if context.video_url and context.video_url.strip %}
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="{{context.video_url}}" allowfullscreen></iframe>
+                                </div>
+                                {% elif context.cover_pic and context.cover_pic.strip %}
+                                {% with context.cover_pic as cover_pic %}
+                                <img src="{%static cover_pic%}" class="img-fluid">
+                                {% endwith %}
+                                {% else %}
+                                <img src="https://via.placeholder.com/600x400" class="img-fluid">
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-4" style="margin-top: 6rem">
+                                <div class="row " id="hide-property">
+                                    <div class="col-sm-12">
+                                        <h2>
+                                            Support this campaign!
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="row" id="hide-property">
+                                    <div class="col-sm-12">
+                                        <button type="button" class="btnr red" style="width: 100%;padding: 6%;">Donate ${{contex.Default_Donation}}</button>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="row" id="hide-property">
+                                    <div class="col-sm-12">
+                                        {%for buttons in donateButtons%}
+                                        <button type="button" class="btnr btnr-light btnr-spaced">${{buttons.amount}}</button>
+                                        {%endfor%}
+                                        <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate">Other</button>
+                                    </div>
+                                </div>
+                            -->
+                            </div>
+                        </div>
+                        <!--nav bar start-->
+                        <div class="row" style="margin-top: 1rem">
+                            <!--Nav content-->
+                            <div class="col-sm-8 ">
+                                <ul class="nav nav-tabs r nav-justified" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active text-center rcls" id="story-tab" data-toggle="tab" href="#story" role="tab" aria-controls="story" aria-selected="true" onclick="myFunction()">Story</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-center rcls" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Updates</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-center rcls" id="Endorsements-tab" data-toggle="tab" href="#Endorsements" role="tab" aria-controls="Endorsements" aria-selected="false"> Endorsements
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--side buttons of nav-->
+                            <div class="col-sm-4 ">
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" class="btnr white" data-toggle="modal" data-target="#modal-share" style="margin-left:1rem">
+                                            <i style="color:black" class="fas fa-share"></i>Share
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button text-right" class="btnr white">
+                                            <i style="color: black" class="fas fa-eye"></i>Follow
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Nav bar end-->
+                        <div class="row rmargin-top">
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="story" role="tabpanel" aria-labelledby="story-tab">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        {{context.story}}
+                                                    </div>
+                                                </div>
+                                                <div class="row rmargin-top">
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="col-sm-8">
+                                                                <h3>
+                                                                    Show your support for this campaign by endorsing it and sharing why! 
+                                                                </h3>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <button type="button" class="btnr">
+                                                                    Endores
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="row rmargin-top">
+                                                            <div class="col-1">
+                                                                
+                                                                <img src="{% static 'images/avatar_f.jpg' %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col" style="padding-top:0.5rem">
+                                                                        &nbsp&nbsp<a href="#" style="color:#FF4814 ">Sample Endorser</a> &nbsp&nbsp
+                                                                        <span>endorsed</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        &nbsp&nbsp
+                                                                        <p style="color:#787878">
+                                                                            “Sample endorsement message”
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <hr class="line-bottom">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row rmargin-top">
+                                                            <div class="col-1">
+                                                                
+                                                                <img src="{% static 'images/avatar_f.jpg' %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col" style="padding-top:0.5rem">
+                                                                        &nbsp&nbsp<a href="#" style="color:#FF4814 ">Sample Endorser</a> &nbsp&nbsp
+                                                                        <span>endorsed</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        &nbsp&nbsp
+                                                                        <p style="color:#787878">
+                                                                            “Sample endorsement message”
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <hr class="line-bottom">
+                                                            </div>
+                                                        </div>	
+                                                        <div class="row rmargin-top">
+                                                            <div class="col-1">
+                                                                
+                                                                <img src="{% static 'images/avatar_f.jpg' %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col" style="padding-top:0.5rem">
+                                                                        &nbsp&nbsp<a href="#" style="color:#FF4814 ">Sample Endorser</a> &nbsp&nbsp
+                                                                        <span>endorsed</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        &nbsp&nbsp
+                                                                        <p style="color:#787878">
+                                                                            “Sample endorsement message”
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+                                                <h2 class="text-center">
+                                                    Campaign created!
+                                                </h2>
+                                            </div>
+                                            <div class="tab-pane fade" id="Endorsements" role="tabpanel" aria-labelledby="Endorsements-tab">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <h3>
+                                                            Show your support for this campaign by endorsing it and sharing why!
+                                                        </h3>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <button type="button" class="btnr">
+                                                            Endores
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="row rmargin-top">
+                                                            <div class="col-1">
+                                                                
+                                                                <img src="{% static 'images/avatar_f.jpg' %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col" style="padding-top:0.5rem">
+                                                                        &nbsp&nbsp<a href="#" style="color:#FF4814 ">Sample Endorser</a> &nbsp&nbsp
+                                                                        <span>endorsed</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        &nbsp&nbsp
+                                                                        <p style="color:#787878">
+                                                                            “Sample endorsement message”
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <hr class="line-bottom">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row rmargin-top">
+                                                            <div class="col-1">
+                                                                
+                                                                <img src="{% static 'images/avatar_f.jpg' %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col" style="padding-top:0.5rem">
+                                                                        &nbsp&nbsp<a href="#" style="color:#FF4814 ">Sample Endorser</a> &nbsp&nbsp
+                                                                        <span>endorsed</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        &nbsp&nbsp
+                                                                        <p style="color:#787878">
+                                                                            “Sample endorsement message”
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <hr class="line-bottom">
+                                                            </div>
+                                                        </div>	
+                                                        <div class="row rmargin-top">
+                                                            <div class="col-1">
+                                                                
+                                                                <img src="{% static 'images/avatar_f.jpg' %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col" style="padding-top:0.5rem">
+                                                                        &nbsp&nbsp<a href="#" style="color:#FF4814 ">Sample Endorser</a> &nbsp&nbsp
+                                                                        <span>endorsed</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        &nbsp&nbsp
+                                                                        <p style="color:#787878">
+                                                                            “Sample endorsement message”
+                                                                            
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Donate card side contents start-->
+                            <div class="col-sm-4">
+                                <!--Donarlist Start-->
+                                <div class="row rmargin-top">
+                                    <div class="col-8">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="mini-recipient__title">
+                                                    Anonymous
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="mini-recipient">
+                                                    7 minutes ago
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span style="color: #52B852">$50</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <hr class="line-bottom">
+                                    </div>
+                                </div>
+                                <div class="row rmargin-top">
+                                    <div class="col-8">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="mini-recipient__title">
+                                                    Anonymous
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="mini-recipient">
+                                                    14 minutes ago
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span style="color: #52B852">$50</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <hr class="line-bottom">
+                                    </div>
+                                </div>
+                                <div class="row rmargin-top">
+                                    <div class="col-8">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="mini-recipient__title">
+                                                    Anonymous
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="mini-recipient">
+                                                    21 minutes ago
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span style="color: #52B852">$50</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <hr class="line-bottom">
+                                    </div>
+                                </div>
+                                <!--Donarlist End-->
+                                <!--Badgelist Start-->
+                                <div class="row rmargin-top">
+                                    <div class="col-4">
+                                        <a class="rcls badge tags" href="#">Badges</a>
+                                    </div>
+                                </div>
+                                <!--Badgelist End-->
+                                <div class="row rmargin-top">
+                                    <div class="col">
+                                        <a href='#' class="mini-recipient__title rcls" style="color: #FF6A40">
+                                            {{context.name}}
+                                        </a>
+                                        <span class="mini-recipient">
+                                            Campaign creator
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

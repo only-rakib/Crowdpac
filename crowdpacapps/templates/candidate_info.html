@@ -340,7 +340,7 @@ $("#recipients_save_button_myself_yes_no_click").on("click", function() {
     var selfcandidateselect = $("#recipients_save_button_myself_yes_no_click").attr("data-yes");
     if (selfcandidateselect === "yes" || selfcandidateselect === "no") {
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "{% url 'start_campaign' %}",
             data: {
                 'yes_no': selfcandidateselect,
@@ -422,7 +422,7 @@ $("#recipients_save_button_yes_no_form_click").on("click", function() {
     data1['candidate_info']=JSON.stringify(datas),*/
     //console.log(JSON.stringify(datas));
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "{% url 'start_campaign' %}",
         //dataType: 'json',
         data: {

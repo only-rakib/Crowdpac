@@ -81,7 +81,7 @@ for (var i = 0; i < cards.length; i++) {
 }
 $("#privacy_save_button").on('click',function(){
     $.ajax({
-        type:"GET",
+        type:"POST",
         url:"{% url 'start_campaign' %}",
         data:{
             "privacy_type":privacy_type,

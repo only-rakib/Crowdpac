@@ -685,7 +685,7 @@ $("#save_custom_candidate").on('click', function() {
         }
     }
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "{% url 'start_campaign' %}",
         //dataType: 'json',
         data: {
@@ -702,7 +702,7 @@ $("#save_custom_candidate").on('click', function() {
 $("#save_race_selected").on('click',function(){
     complete_race_info=true;
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "{% url 'start_campaign' %}",
         //dataType: 'json',
         data: {
@@ -775,7 +775,7 @@ function selectState(clicked_id) {
                 txtValue1 = td.textContent || td.innerText;
                 if (txtValue1.localeCompare(myOpts1) == 0) {
                     tr1[i].style.display = "";
-                    break;
+                    //break;
 
                 } else {
                     tr1[i].style.display = "none";
@@ -805,7 +805,8 @@ function selectState(clicked_id) {
                 }
             }
         }
-    } else if (clicked_id == "Candidate_City_or_County") {
+    } 
+    if (clicked_id == "Candidate_City_or_County") {
 
         var states_click = document.getElementById("Candidate_City_or_County");
 
@@ -823,7 +824,7 @@ function selectState(clicked_id) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.localeCompare(myOpts) == 0) {
                     tr[i].style.display = "";
-                    break;
+                    //break;
 
                 } else {
                     tr[i].style.display = "none";

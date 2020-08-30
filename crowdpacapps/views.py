@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import JsonResponse
 from json import loads as jsonloads
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 login = "True"
 
@@ -346,10 +348,13 @@ def start_campaign_view(request):
     pro_pic = ""  # candidate profile pic
     data_letter = ""  # if no profile pic then show the first letter
     pro_id = ""  # id of the profile from db
+    campaign_title = ""
+    video_url = ""
     data = {}
     if login == 'True':
-        if request.is_ajax():
-            candidate = request.GET.get("candidate")
+        if request.is_ajax and request.method == "POST":
+            candidate = request.POST.get("candidate")
+            print(candidate)
             # request comes from campaign_recipients.html
             # "$("#recipients_save_button_select_candidate").on('click',
             # function() {"
@@ -372,7 +377,7 @@ def start_campaign_view(request):
                     # "$("#button_another_candidate_or_organization").on("click",
                     # function() {"
                     candidate_another = json.loads(
-                        request.GET.get("candidate_another"))
+                        request.POST.get("candidate_another"))
 
                     # print(candidate_another)
                     name = "radf"
@@ -397,25 +402,28 @@ def start_campaign_view(request):
             # this request comes from candidate_info.html
             # "$("#recipients_save_button_myself_yes_no_click").on("click",
             # function() {"
-            candidate_self_or_not = request.GET.get("yes_no")
+            candidate_self_or_not = request.POST.get("yes_no")
 
             # this request comes from campaign_story.html "function
             # butonStorySave() {"
             try:
-                story = jsonloads(request.GET["story"])
-                # print(story)
+                story = jsonloads(request.POST["story"])
+                print(story)
+                campaign_title = story['title']
+                print(campaign_title)
             except Exception as e:
                 pass
 
             # this request comes from campaign_recipients.html
             # "$("#removeProfile").on('click', function() {"
-            deleteCampaingBYName = request.GET.get("deleteID")
+            deleteCampaingBYName = request.POST.get("deleteID")
 
             try:
                 # this request comes from candidate_info.html
                 # $("#recipients_save_button_yes_no_form_click").on("click",
                 # function() {
-                candidate_info = jsonloads(request.GET['values'])
+                candidate_info = jsonloads(request.POST['values'])
+                print(candidate_info)
 
             except Exception as e:
                 # print("Exception", e)
@@ -423,7 +431,7 @@ def start_campaign_view(request):
             try:
                 # this request comes from race_info.html
                 # $("#save_custom_candidate").on('click',function()
-                race_info = jsonloads(request.GET['race_info'])
+                race_info = jsonloads(request.POST['race_info'])
                 print(race_info)
             except Exception as e:
                 # print("Exception", e)
@@ -432,20 +440,20 @@ def start_campaign_view(request):
             try:
                 # this request comes from fundraising.html
                 # function saveFundraising(){}
-                fundraising = jsonloads(request.GET['fundraising'])
+                fundraising = jsonloads(request.POST['fundraising'])
                 print(fundraising)
             except Exception as e:
                 # print("Exception", e)
                 pass
 
-            privacy_type = request.GET.get("privacy_type")
-            # print(privacy_type)
+            privacy_type = request.POST.get("privacy_type")
+            print(privacy_type)
 
             # Which race is selected from default table, the id of this race
             # will store in selected race. The ajax call is generated in
             # race_info.html "$("#save_race_selected").on('click',function(){"
 
-            selected_race = request.GET.get("race_selected")
+            selected_race = request.POST.get("race_selected")
             data = {
                 'candidancy': candidancy,
                 'name': name,
@@ -453,24 +461,29 @@ def start_campaign_view(request):
                 'data_letters': data_letter,
                 'pro_id': pro_id,
                 'candidate_self_or_not': candidate_self_or_not,
+                'campaign_title': campaign_title,
+
             }
 
             try:
                 # this request comes from custom_sharing.html
                 # function save_custom_sharing () {}
-                custom_sharing = jsonloads(request.GET['custom_sharing'])
-                # print(custom_sharing)
+                custom_sharing = jsonloads(request.POST['custom_sharing'])
+                print(custom_sharing)
             except Exception as e:
                 # print("Exception", e)
                 pass
             try:
                 # this request comes from optional_settings.html
                 # optionalSettingsSave() {}
-                optional_settings = jsonloads(request.GET['optional_settings'])
+                optional_settings = jsonloads(
+                    request.POST['optional_settings'])
                 print(optional_settings)
             except Exception as e:
                 # print("Exception", e)
                 pass
+
+            publish = request.POST.get("publish_campaign")
 
             return JsonResponse({'context': data}, status=200)
         data = {
@@ -481,6 +494,7 @@ def start_campaign_view(request):
             'states_city': states_city,
             'race_list': race_list,
             'race_local': race_local,
+            'video_url': video_url,
         }
         # print(data)
         return render(request, 'startcampaign.html', {'context': data})

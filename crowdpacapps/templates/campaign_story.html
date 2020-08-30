@@ -339,7 +339,7 @@ function butonStorySave() {
             }
         }
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "{% url 'start_campaign' %}",
             dataType: 'json',
             data: {
@@ -347,6 +347,8 @@ function butonStorySave() {
                 'story': JSON.stringify(datas),
             },
             success: function(response) {
+                //console.log($(response.context.campaign_title);
+                $("#campaign_title").text(response.context.campaign_title);
                 tab_pages("Fundraising");
             }
         });

@@ -25,7 +25,7 @@
 
     <div class="row" style="background: #F6F6F6;margin-top:3rem;padding-top: 1rem;padding-bottom: 1rem;">
         <div class="col text-center">
-            <a href="#" class="btnr red campaign">Publish</a>
+            <a href="#" class="btnr red campaign" onclick="publish_campaign()">Publish</a>
         </div>
     </div>
 </div>
@@ -130,5 +130,18 @@ function onload_Publish_Your_Campaign_content(complete_campaign_recipients, comp
             );
         }
     }
+}
+function publish_campaign()
+{
+    $.ajax({
+        type:"POST",
+        url:"{% url 'start_campaign' %}",
+        data:{
+            "publish_campaign":"true",
+        },
+        success:function(){
+            window.location.href = {% url 'my_campaigns' %}
+        }
+    });
 }
 </script>

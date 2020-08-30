@@ -3,11 +3,12 @@
 {%block title%}
 <link rel="stylesheet" type="text/css" href="{%static 'css/tagsinput.css'%}">
 <script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script>
-
+<title>Create your campaign | Crowdpac</title>
 {%endblock title%}
 {%block container%}
 <div class="container-fluid">
     <div class="row">
+        {% csrf_token %}
         <div class="col-md-3" id="campaign_left" style="padding-top: 1rem;box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.2);">
             <div class="row" style="background: #F6F6F6;padding-top: 1rem">
                 <div class="col">
@@ -20,7 +21,12 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h5 style="font-weight: 400" id="campaign_title">Untitled Campaign</h5>
+                            {% if context.campaign_title and context.campaign_title.strip %}
+                                <h5 style="font-weight: 400" id="campaign_title">{{context.campaign_title}}</h5>
+                            {% else %}
+                                <h5 style="font-weight: 400" id="campaign_title">Untitled Campaign</h5>
+                            {% endif %}
+                            
                         </div>
                     </div>
                     <div id="campaign_pro_preview" style="display: none">
@@ -42,7 +48,7 @@
                     </div>
                     <div class="row" style="margin-top: 1rem;padding-bottom: 1rem">
                         <div class="col">
-                            <button type="button" class="btnr red" style="height: 100%">
+                            <button type="button" class="btnr red" style="height: 100%" data-toggle="modal" data-target="#modal-campaign-preview">
                                 Preview
                             </button>
                         </div>
@@ -198,7 +204,7 @@
                     </div>
                 </div>
                 <div class="col-10 offset-1">
-                    <div class="__class" id="Campaign_Marketing_content" style="display: ">
+                    <div class="__class" id="Campaign_Marketing_content" style="display: none">
                         {%include 'campaign_marketing.html'%}
                     </div>
                 </div>
@@ -221,6 +227,7 @@
         </div>
     </div>
     {% include 'modalForchangePlan.html' %}
+    {% include 'modalCampaignPreview.html' %}
 </div>
 <script type="text/javascript">
     /*var context_candidate="";
