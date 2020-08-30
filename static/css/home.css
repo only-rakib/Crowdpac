@@ -491,6 +491,7 @@ background: #FF4814;
 
 .row.rmargin-top {
     margin-top: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .active {
@@ -776,6 +777,10 @@ video.candidate-video-player {
 .btnr.red.campaigns {
     padding: 8px 8vw;
 }
+.btnr.campaigns {
+    padding: 8px 7vw;
+}
+
 
 /*=======================My Campaigns=========================*/
 .alert {

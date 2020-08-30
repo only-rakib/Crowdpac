@@ -109,7 +109,10 @@ def view_campaignView(request):
         'reporter_url': '#'
     }
     support = {
-        'donate_button_name': 'Donate $20',
+        'Default_Donation': '20.00',
+        'Default_Donation_tips': '2.00',
+        'Default_Donation_handling': '0.83',
+        'Default_Donation_total': '22.83',
         'donate_title': 'Support this campaign!',
         'update_title': 'Campaign created! ',
         'endorsement_title': 'Show your support for this campaign by endorsing it and sharing why! ',
@@ -149,7 +152,6 @@ def view_campaignView(request):
     lstend = []
     lstend.append(endorsed_people1)
     lstend.append(endorsed_people2)
-
     donar_1 = {
         'donar_name': 'Meera Bajwa',
         'donate_amount': '$20',
@@ -179,39 +181,121 @@ def view_campaignView(request):
     taglst.append(tagDic1)
     taglst.append(tagDic2)
     taglst.append(tagDic3)
+
+    donateButtonsDic1 = {
+        'amount': '20.00',
+        'tip': '2.00',
+        'handle': '0.83',
+        'total': ' 22.83'
+
+    }
+    donateButtonsDic2 = {
+
+        'amount': '27.00',
+        'tip': '2.70',
+        'handle': '1.05',
+        'total': ' 30.75'
+
+    }
+    donateButtonsDic3 = {
+        'amount': '50.00',
+        'tip': '5.00',
+        'handle': '1.79',
+        'total': ' 56.79'
+
+    }
+    donateButtonsDic4 = {
+        'amount': '100.00',
+        'tip': '10.00',
+        'handle': '3.39',
+        'total': ' 113.39'
+
+    }
+
+    donateButtonList = []
+    donateButtonList.append(donateButtonsDic1)
+    donateButtonList.append(donateButtonsDic2)
+    donateButtonList.append(donateButtonsDic3)
+    donateButtonList.append(donateButtonsDic4)
+
+    otherDonate1 = {
+        'amount': '20.00',
+        'tip': '2.00',
+        'handle': '0.83',
+        'total': ' 22.83'
+
+    }
+    otherDonate2 = {
+
+        'amount': '27.00',
+        'tip': '2.70',
+        'handle': '1.05',
+        'total': ' 30.75'
+
+    }
+    otherDonate3 = {
+        'amount': '50.00',
+        'tip': '5.00',
+        'handle': '1.79',
+        'total': ' 56.79'
+
+    }
+    otherDonate4 = {
+        'amount': '100.00',
+        'tip': '10.00',
+        'handle': '3.39',
+        'total': ' 113.39'
+
+    }
+    otherDonatelist = []
+    otherDonatelist.append(otherDonate1)
+    otherDonatelist.append(otherDonate2)
+    otherDonatelist.append(otherDonate3)
+    otherDonatelist.append(otherDonate4)
     context = {
         'post': post,
         'support': support,
         'endorsed_people': lstend,
         'donars': lstdon,
         'tags': taglst,
-        'login': login
+        'donateButtons': donateButtonList,
+        'Fundraising_Goal': 1000,
+        'otherDonate': otherDonatelist,
+        'login': login,
     }
 
     return render(request, 'view_campaign.html', context)
 
 
 def view_petitionsView(request):
-    return render(request, 'view_petitions.html',)
+    data = {
+        'title': 'Rent Strike 2020 ',
+        'des': '''Ever man are put down his very. And marry may table him avoid. Hard sell it were into it upon. He forbade affixed parties of assured to me windows. Happiness him nor she disposing provision. Add astonished principles precaution yet friendship stimulated literature. State thing might stand one his plate. Offending or extremity therefore so difficult he on provision. Tended depart turned not are.
+                            Not far stuff she think the jokes. Going as by do known noise he wrote round leave. Warmly put branch people narrow see. Winding its waiting yet parlors married own feeling. Marry fruit do spite jokes an times. Whether at it unknown warrant herself winding if. Him same none name sake had post love. An busy feel form hand am up help. Parties it brother amongst an fortune of. Twenty behind wicket why age now itself ten.
+                            Perhaps far exposed age effects. Now distrusts you her delivered applauded affection out sincerity. As tolerably recommend shameless unfeeling he objection consisted. She although cheerful perceive screened throwing met not eat distance. Viewing hastily or written dearest elderly up weather it as. So direction so sweetness or extremity at daughters. Provided put unpacked now but bringing.''',
+        'cover_pic': "images/rentstrike_ry2ddq.jpg",
+    }
+    return render(request, 'view_petitions.html', {'context': data})
 
 
 def donateView(request, amount):
-    if amount == "20":
+    # view_campaign.html <!-- Donate card side contents start-->
+    if amount == "20.00":
 
         total = {'amount': '20.00', 'tip': '2.00',
                  'handle': '0.83', 'total': ' 22.83'}
 
-    elif amount == "27":
+    elif amount == "27.00":
 
         total = {'amount': '27.00', 'tip': '2.70',
                  'handle': '1.05', 'total': ' 30.75'}
 
-    elif amount == "50":
+    elif amount == "50.00":
 
         total = {'amount': '50.00', 'tip': '5.00',
                  'handle': '1.79', 'total': ' 56.79'}
 
-    elif amount == "100":
+    elif amount == "100.00":
 
         total = {'amount': '100.00', 'tip': '10.00',
                  'handle': '3.39', 'total': ' 113.39'}

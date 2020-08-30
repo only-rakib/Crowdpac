@@ -1,0 +1,88 @@
+{% load static %}
+<div class="modal fade" id="modal-changePlan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog rmodal" role="window">
+        <div class="modal-content">
+            <div class="container-fluid ">
+                <div class="row rmargin-top">
+                    <div class="col col-md-12 text-center">
+                        <div class="d-flex justify-content-center">
+                            <img src="{%static 'svg/rocket.svg'%}" style="height:40px">
+                            <h3>Boost Your Political Outreach</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-12 text-center">
+                        <span style="color: red;">
+                            Select a plan to begin
+                        </span>
+                    </div>
+                </div>
+                <div class="row rmargin-top">
+                    <div class="col-md-3 col-sm-12" style="margin-top: 1rem">
+                        <div class="card mb-3 text-center" style="max-width: 100%;height: 100%">
+                            <div class="card-header title2" style="background-color:transparent;">Free</div>
+                            <div class="card-body">
+                                <h5 class="mini-recipient__title">$0/month</h5>
+                                <a id="plan-free" href="#" class="btnr modal-plan" data-plan="0" onclick="modalPlanClick(this)" style="width: 100%;margin-top: 1rem">Select Plan</a>
+                                <p class="mini-recipient" style="text-align: center;margin-top: 1rem;">Email Provider Contact Sync (up to 2000)
+                                    CSV Contact Upload
+                                    Unlimited Contact Storage
+                                    75 SMS Sends
+                                    200 Email Sends
+                                    1 Campaign User </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12" style="margin-top: 1rem">
+                        <div class="card mb-3 text-center" style="max-width: 100%;height: 100%">
+                            <div class="card-header title2" style="background-color:transparent;">Basic</div>
+                            <div class="card-body">
+                                <h5 class="mini-recipient__title">$5/month</h5>
+                                <a id="plan-basic" href="#" class="btnr modal-plan" style="width: 100%;margin-top: 1rem" data-plan="5" onclick="modalPlanClick(this)">Select Plan</a>
+                                <p class="mini-recipient" style="text-align: center;margin-top: 1rem;">Email Provider Contact Sync (up to 2000)
+                                    CSV Contact Upload
+                                    Unlimited Contact Storage
+                                    500 SMS Sends
+                                    2000 Email Sends
+                                    3 Campaign Users </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12" style="margin-top: 1rem">
+                        <div class="card mb-3 text-center" style="max-width: 100%;height: 100%">
+                            <div class="card-header title2" style="background-color:transparent;">Premium</div>
+                            <div class="card-body">
+                                <h5 class="mini-recipient__title">$12/month</h5>
+                                <a id="plan-premium" href="#" class="btnr modal-plan" style="width: 100%;margin-top: 1rem" data-plan="12" onclick="modalPlanClick(this)">Select Plan</a>
+                                <p class="mini-recipient" style="text-align: center;margin-top: 1rem;">Email Provider Contact Sync (up to 2000)
+                                    CSV Contact Upload
+                                    Unlimited Contact Storage
+                                    1100 SMS Sends
+                                    8000 Email Sends
+                                    5 Campaign Users
+                                    Customized Campaign URLs </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12" style="margin-top: 1rem">
+                        <div class="card mb-3 text-center" style="max-width: 100%;height: 100%">
+                            <div class="card-header title2" style="background-color:transparent;">Custom</div>
+                            <div class="card-body">
+                                <h5 class="mini-recipient__title">Custom Pricing</h5>
+                                <a id="plan-custom" href="#" class="btnr modal-plan" style="width: 100%;margin-top: 1rem" data-plan="-1" onclick="modalPlanClick(this)">Select Plan</a>
+                                <p class="mini-recipient" style="text-align: center;margin-top: 1rem;">Email Provider Contact Sync (up to 2000)
+                                    CSV Contact Upload
+                                    Unlimited Contact Storage
+                                    Custom SMS Sends
+                                    Custom Email Sends
+                                    Custom Campaign Users
+                                    Customized Campaign URLs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

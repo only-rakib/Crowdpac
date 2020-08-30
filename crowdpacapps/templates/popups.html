@@ -152,7 +152,7 @@
                 <div class="row rmargin-top">
                     <div class="col-sm-8 offset-sm-2">
                         <div class="row">
-                            <div class="col-sm-10 col-md-10 col-lg-10 text-center">
+                            <div class="col text-center">
                                 <h3>Donate to Rent Strike 2020</h3>
                             </div>
                             <div>
@@ -480,7 +480,7 @@
                     <div class="col-6 offset-3">
                         <div class="row rmargin-top">
                             <div class="col text-center">
-                                <h3>Donate to Rent Strike 2020</h3>
+                                <h3 id="donate_titile"></h3>
                             </div>
                         </div>
                         <div class="row">
@@ -504,43 +504,18 @@
                             
                             
                             <div class="row rmargin-top">
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%"data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>
-                                    $20
-                                    <br>
-                                    &nbsp
+                                {% for var1 in otherDonate %}
+                                    
+                                
+                                <div class="col-sm-4" style="margin-top: 1rem">
+                                    <button type="button" class="btnr d-flex justify-content-center" style="width: 100%;height: 100%"data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="{{var1.amount}}" data-tips="{{var1.tip}}" data-handling="{{var1.handle}}" data-total='{{var1.total}}'>
+                                    ${{var1.amount}}
+                                    
                                     </button>
                                 </div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>
-                                    $27
-                                    <br>
-                                    &nbsp
-                                    </button>
-                                </div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>
-                                    $50
-                                    <br>
-                                    &nbsp
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 2%">
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>
-                                    $100
-                                    <br>
-                                    &nbsp
-                                    </button>
-                                </div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal">
-                                    $1000<br>
-                                    <span style="font-size: 8px">Maximum</span>
-                                    </button>
-                                </div>
-                                <div class="col-sm-4">
+                               {% endfor %}
+                               
+                                <div class="col-sm-4" style="margin-top: 1rem">
                                     <div class="buttonIn">
                                         <input class="input_text" type="text" id="otherAmount" placeholder="Other">
                                         <button class="button_textbox">
@@ -552,44 +527,16 @@
                         </div>
                         <div id="couple_donate_content" style="display: none">
                             
-                            
-                            <div class="row rmargin-top">
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal">
-                                    $40
-                                    <br>
-                                    &nbsp
+                            {% for var1 in otherDonate %}
+                                    
+                                
+                                <div class="col-sm-4" style="margin-top: 1rem">
+                                    <button type="button" class="btnr d-flex justify-content-center" style="width: 100%;height: 100%"data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="{% widthratio var1.amount 1 2 %}" data-tips="{% widthratio var1.tip 1 2 %}" data-handling="{% widthratio var1.handle 1 2 %}" data-total='{% widthratio var1.total 1 2 %}'>
+                                    ${% widthratio var1.amount 1 2 %}
+                                    
                                     </button>
                                 </div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal">
-                                    $54
-                                    <br>
-                                    &nbsp
-                                    </button>
-                                </div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal" data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>
-                                    $100
-                                    <br>
-                                    &nbsp
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 2%">
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal">
-                                    $200
-                                    <br>
-                                    &nbsp
-                                    </button>
-                                </div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btnr" style="width: 100%;height: 100%" data-dismiss="modal">
-                                    $20000<br>
-                                    <span style="font-size: 8px">Maximum</span>
-                                    </button>
-                                </div>
+                               {% endfor %}
                                 <div class="col-sm-4">
                                     <div class="buttonIn">
                                         <input class="input_text" type="text" id="otherAmount" placeholder="Other">

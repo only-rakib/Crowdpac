@@ -40,15 +40,18 @@
                     <div class="row" id="hide-property">
                         <div class="col-sm-12">
                             <button type="button" class="btnr red" style="
-                        width: 100%;padding: 6%;" data-toggle="modal" data-target="#modal-donate" data-amount="$20.00" data-tips="$2.00" data-handling="$0.83" data-total='Donate $22.83'>Donate $20</button>
+                        width: 100%;padding: 6%;" data-toggle="modal" data-target="#modal-donate" data-amount="{{support.Default_Donation}}" data-tips="{{support.Default_Donation_tips}}" data-handling="{{support.Default_Donation_handling}}" data-total='{{support.Default_Donation_total}}'>Donate ${{support.Default_Donation}}</button>
                         </div>
                     </div>
                     <div class="row" id="hide-property">
+
                         <div class="col-sm-12">
-                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="$27.00" data-tips="$2.70" data-handling="$1.05" data-total='Donate $30.75'>$27</button>
-                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="$50.00" data-tips="$5.00" data-handling="$1.79" data-total='Donate $56.79'>$50</button>
-                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="$100.00" data-tips="$10.00" data-handling="$3.39" data-total='Donate $113.39'>$100</button>
+                            {%for buttons in donateButtons%}
+                            <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="{{buttons.amount}}" data-tips="{{buttons.tip}}" data-handling="{{buttons.handle}}" data-total='{{buttons.total}}'>${{buttons.amount}}</button>
+                            {%endfor%}
+                            
                             <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate">Other</button>
+
                         </div>
                     </div>
                     <div class="row">
@@ -127,29 +130,17 @@
                 </div>
                 <!-- Donate card side contents start-->
                 <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col">
-                            <a class="rcls" href="{%url 'donate_page' 20%}" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">20$</h5>
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    {% for buttons in donateButtons %}
                     <div class="row rcard">
                         <div class="col">
-                            <a class="rcls" href="{%url 'donate_page' 27%}" style="text-decoration: none;color: black">
+                            {% with buttons.amount as amount %}
+                                
+                            <a class="rcls" href="{%url 'donate_page' amount%}" style="text-decoration: none;color: black">
+                                {% endwith %}
                                 <div class="card" style="width: 100%;">
                                     <div class="card-body">
                                         <br>
-                                        <h5 class="card-title text-center">27$</h5>
+                                        <h5 class="card-title text-center">{{buttons.amount}}$</h5>
                                         <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
                                     </div>
                                     <div class="text-center rdonate">
@@ -159,38 +150,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="row rcard">
-                        <div class="col">
-                            <a class="rcls" href="{%url 'donate_page' 50%}" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">50$</h5>
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row rcard">
-                        <div class="col">
-                            <a class="rcls" href="{%url 'donate_page' 100%}" style="text-decoration: none;color: black">
-                                <div class="card" style="width: 100%;">
-                                    <div class="card-body">
-                                        <br>
-                                        <h5 class="card-title text-center">100$</h5>
-                                        <p class="card-text text-center">Consider making a recurring donation! Thank you!</p>
-                                    </div>
-                                    <div class="text-center rdonate">
-                                        Donate
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    
                     {% for donar in donars %}
                     <div class="row rmargin-top">
                         <div class="col-8">
@@ -244,16 +205,25 @@
 {% include 'popups.html' %}
 <script>
 $('#modal-donate').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget)
-    var amount = button.data('amount')
-    var tips = button.data('tips')
-    var handling = button.data('handling')
-    var total = button.data('total')
-    var modal = $(this)
-    modal.find('#amount').text(amount)
-    modal.find('#tipFee').text(tips)
-    modal.find('#handlingFee').text(handling)
-    modal.find('#buttonTxt').text(total)
+    var button = $(event.relatedTarget);
+    var amount = button.data('amount');
+    var tips = button.data('tips');
+    var handling = button.data('handling');
+    var total = button.data('total');
+    var title = "{{post.post_title}}";
+    var modal = $(this);
+    modal.find('#amount').text("$"+amount)
+    modal.find('#tipFee').text("$"+tips)
+    modal.find('#handlingFee').text("$"+handling)
+    modal.find('#buttonTxt').text("Donate $"+total)
+    modal.find('#donate_titile').text(title)
+})
+$('#modal-other-donate').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    
+    var title = "{{post.post_title}}";
+    var modal = $(this);
+    modal.find('#donate_titile').text(title)
 })
 </script>
 {% endblock container %}

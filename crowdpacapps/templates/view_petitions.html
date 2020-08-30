@@ -13,7 +13,7 @@
 			<div class="row">
 				<div class="col-sm-8 offset-sm-2">
 					
-					<h1 class="text-center">Rent Strike 2020</h1>
+					<h1 class="text-center">{{context.title}}</h1>
 					
 				</div>
 			</div>
@@ -21,14 +21,13 @@
 				<div class="col-sm-8 offset-sm-2">
 					<div class="row">
 						<div class="col-sm-7 col-md-7 col-lg-7 order-sm-last order-md-last order-lg-first order-2">
-							Ever man are put down his very. And marry may table him avoid. Hard sell it were into it upon. He forbade affixed parties of assured to me windows. Happiness him nor she disposing provision. Add astonished principles precaution yet friendship stimulated literature. State thing might stand one his plate. Offending or extremity therefore so difficult he on provision. Tended depart turned not are.
-							Not far stuff she think the jokes. Going as by do known noise he wrote round leave. Warmly put branch people narrow see. Winding its waiting yet parlors married own feeling. Marry fruit do spite jokes an times. Whether at it unknown warrant herself winding if. Him same none name sake had post love. An busy feel form hand am up help. Parties it brother amongst an fortune of. Twenty behind wicket why age now itself ten.
-							Perhaps far exposed age effects. Now distrusts you her delivered applauded affection out sincerity. As tolerably recommend shameless unfeeling he objection consisted. She although cheerful perceive screened throwing met not eat distance. Viewing hastily or written dearest elderly up weather it as. So direction so sweetness or extremity at daughters. Provided put unpacked now but bringing.
+							{{context.des}}
 							
 						</div>
 						<div class="col-sm-5 col-md-5 col-lg-5 order-sm-first order-md-first order-lg-last order-1">
-							<img src="https://via.placeholder.com/550
-							C/O https://placeholder.com/ " class="img-fluid">
+							{% with context.cover_pic as cover_pic %}
+							<img src="{%static cover_pic%}" class="img-fluid">
+							{% endwith %}
 						</div>
 					</div>
 					<div class="row" style="padding-left: 2%;padding-top: 2%">
