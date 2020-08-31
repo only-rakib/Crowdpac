@@ -23,5 +23,8 @@ urlpatterns = [
     path('remaind/', views.remaind_view, name='remaind'),
     path('start_rally/', views.start_rally_view, name='start_rally'),
     path('notifications/', views.notifications_view, name='notifications'),
+    path('campaign_create_conditional_view/', views.campaign_create_conditional_view,
+         name='campaign_create_conditional_view'),
+
 
 ]

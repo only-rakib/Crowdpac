@@ -576,3 +576,7 @@ def start_rally_view(request):
 
 def notifications_view(request):
     return render(request, 'notifications.html')
+
+
+def campaign_create_conditional_view(request):
+    return render(request, 'campaigns_create_conditional.html')

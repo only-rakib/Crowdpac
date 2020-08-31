@@ -22,6 +22,10 @@
     #right {
         display: none;
     }
+    /*#navbarSupportedContent
+    {
+        display: block !important;
+    }*/
 
     .right-sidebar-menu-title {
         display: none;
@@ -37,6 +41,10 @@
 
     .header__button{
         display: none;
+    }
+    .navbar-responsive
+    {
+        width: auto;
     }
 
 }

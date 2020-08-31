@@ -104,7 +104,10 @@ a.clsm:hover {
     left: auto;
 }
 
-
+/*#navbarSupportedContent
+{
+    display: none;
+}*/
 
 /******************************* nav part start here***************************************/
 /***************************** banner part start here**************************************/

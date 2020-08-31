@@ -1,0 +1,168 @@
+{% extends 'header_footer.html' %} {% load static %} {% block title %}
+<title>Crowdpac</title>
+{% endblock title %} {% block container %}
+<!--Body grid system start 1st <section>-->
+<div class="container-fluid">
+    <div class="row" style="margin-top: 3rem">
+        <div class="col-sm-12">
+            <h2 class="title2 text-center"><strong>Get Started</strong></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="text-center mini-recipient">
+                With Crowdpac, you can find new opportunities to give others a voice. Creative fundraising allows you to think outside of the box; from convincing a politician to look in their constituents' direction to directly raising funds for their future opponent, you challenge the rules while setting your own. <a class="rclst" href="{% url 'start_campaign' %}">If you’re thinking about running for office, click here.</a>
+            </p>
+        </div>
+    </div>
+    <div class="row" id="js-alert" style="display: none">
+        <div class="col-md-6 offset-md-3 col-sm-12">
+            <div style="border-radius: 0;background: #FFEFE8;color: #ff4814;border: solid 0 #ff4814;border-left-width: 0px;border-left-width: 3px;padding: 8px 35px 8px 14px;">
+                Please let us know what you want to achieve with this campaign
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-12">
+            
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title float-left">
+                            Tell us what you want to achieve with this campaign: Who or what are you raising money in support of? How will this affect the political landscape?
+                        </label>
+                        <label class="mini-recipient float-right">
+                            required
+                        </label>
+                        <textarea class="form-control" rows="6" placeholder="e.g. &quot;We want to fund our city councilor's next opponent&quot;, &quot;My senator voted against his constituents and we want him out&quot;"></textarea>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title float-left">
+                            Is there a deadline for this campaign?
+                        </label>
+                        <label class="mini-recipient float-right">
+                            required
+                        </label>
+                        <textarea class="form-control" rows="6" placeholder='e.g. "Yes, October 5, 2018", "No"'></textarea>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title float-left">
+                            What type of condition would you set for this campaign?
+                        </label>
+                        <label class="mini-recipient float-right">
+                            required
+                        </label>
+                        <textarea class="form-control" rows="6" placeholder='e.g. "If he votes yes on the bill, then the money raised will go to his Democratic primary challenger", "The money will directly support his future primary challenger"'></textarea>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title float-left">
+                            Who or what will be receiving the funds you raise?
+                        </label>
+                        <label class="mini-recipient float-right">
+                            required
+                        </label>
+                        <textarea class="form-control" rows="6" placeholder='e.g. "The eventual Democratic nominee for President", "A slate of progressive candidates for State House"'></textarea>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title float-left">
+                            What is your fundraising goal?
+                        </label>
+                        <label class="mini-recipient float-right">
+                            required
+                        </label>
+                        <div>
+                            <input class="form-control" type="number" step="1">
+                        </div>
+                    </div>
+                    <div class="col" style="font-size: 12px;margin-top: 1.5rem">
+                        Set a goal that you think you can hit. Donors are more likely to give when they see that they can help you hit your goals.
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title float-left">
+                            How are you planning to promote the campaign and attract donors?
+                        </label>
+                        <label class="mini-recipient float-right">
+                            required
+                        </label>
+                        <textarea class="form-control" rows="6" placeholder="e.g. &quot;We're emailing the campaign out to our email list&quot;, &quot;Social media ads&quot;"></textarea>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title">
+                            How did you hear about Crowdpac?
+                        </label>
+                        <input type="text" class="form-control" rows="6" placeholder='e.g. "Another candidate", "Social media"'></input>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title">
+                            Your Facebook handle
+                        </label>
+                        <input type="text" class="form-control" rows="6" placeholder='/crowdpac'></input>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title">
+                            Your Twitter handle
+                        </label>
+                        <input type="text" class="form-control" rows="6" placeholder='@crowdpac'></input>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 1rem">
+                    <div class="col">
+                        <label class="mini-recipient__title">
+                            Your Instagram handle
+                        </label>
+                        <input type="text" class="form-control" rows="6" placeholder='@crowdpac'></input>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 3rem">
+                    <div class="col">
+                        <label class="mini-recipient__title text-center" style="font-size: 18px">
+                            What happens next?
+                        </label>
+                        <p class="mini-recipient text-center">
+                            Our political team will review your application, and will get in touch within 24-48 hours to help you get your campaign up and running.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 3rem">
+                    <div class="col text-center">
+                        <button type="submit" onclick="save()" class="btnr red" >Save and Continue</button>
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function save() {
+    var flg = 0;
+    $("textarea").each(function() {
+
+        if (this.value === "") {
+            flg = 1;
+
+        }
+    });
+    if (flg) {
+        $("#js-alert").show();
+        
+    } else {
+        $("#js-alert").hide();
+    }
+}
+</script>
+{%endblock container%}

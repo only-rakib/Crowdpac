@@ -20,62 +20,127 @@
     <!---header part start here -->
     <header class="main-header__part">
         <nav class="navbar navbar-expand-md navbar-light main__navbar">
-            <div class="mr-auto">
+            <div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img class="site-header__logo" src="{% static 'images/crowdpac-logo.png' %}" alt="Logo">
                 </a>
-                <a href="">asdsd</a>
             </div>
-            <div class="ml-auto">
-                <form class="form-inline my-2 my-lg-0 ">
-                <a class="btn btn-outline-success my-2 my-sm-0 header__button" href="{%url 'start_campaign' %}">Start a Campaign
+            <div style="margin-top: -17px;">
+                <a href="{% url 'feed' %}">
+                    <img src="{% static 'svg/image.svg' %}" style="width: 2rem;height: 2rem;" alt="Logo">
                 </a>
-                <div class="header__search">
-                    <a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a>
-                </div>
-                {% if contain_user_data.login == 'True' %}
-                <div class="header__search">
-                    <a class="nav-item nav-link" href="{% url 'notifications' %}"><i class="fas fa-bell"></i></a>
-                </div>
-                <div class="header__search">
-                    <a class="nav-item nav-link" href="#"><i class="far fa-envelope"></i></a>
-                </div>
-                <div class="header__signin dropdown">
-                    <a class="nav-item nav-link" href="#" style="margin-top: 0rem" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {%if contain_user_data.pro_pic != "none"%}
-                        {% with contain_user_data.pro_pic as pro_pic %}
-                        <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
-                        {% endwith %}
-                        {% else %}
-                        <span style="margin-top: 0px" data-letters="{{contain_user_data.data_letters}}">
-                        </span>
-                        {% endif %}
+            </div>
+            <div class="navbar-responsive">
+                <form class="form-inline my-2 my-lg-0 float-right">
+                    <a class="btn btn-outline-success my-2 my-sm-0 header__button" href="{%url 'start_campaign' %}">Start a Campaign
                     </a>
-                    <div class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="header__search">
+                        <a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a>
                     </div>
-                </div>
-                {% else %}
-                <div class="header__signin">
-                    <a class="nav-item nav-link" href="{% url 'signin' %}"><strong>Sign In</strong></a>
-                </div>
-                {% endif %}
-            </form>
+                    {% if contain_user_data.login == 'True' %}
+                    <div class="header__search">
+                        <a class="nav-item nav-link" href="{% url 'notifications' %}"><i class="fas fa-bell"></i></a>
+                    </div>
+                    <div class="header__search">
+                        <a class="nav-item nav-link" href="#"><i class="far fa-envelope"></i></a>
+                    </div>
+                    <div class="header__signin dropdown">
+                        <a class="nav-item nav-link" href="#" style="margin-top: 0rem" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {%if contain_user_data.pro_pic != "none"%}
+                            {% with contain_user_data.pro_pic as pro_pic %}
+                            <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 40px;height: 40px;" alt="propic">
+                            {% endwith %}
+                            {% else %}
+                            <span style="margin-top: 0px" data-letters="{{contain_user_data.data_letters}}">
+                            </span>
+                            {% endif %}
+                        </a>
+                        <div class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="header__signin">
+                        <a class="nav-item nav-link" href="{% url 'signin' %}"><strong>Sign In</strong></a>
+                    </div>
+                    {% endif %}
+                </form>
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item site-header">
+                        <a class="clsm" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item site-header">
+                        <a class="clsm" href="{% url 'home' %}">How It Works</a>
+                    </li>
+                    <li class="nav-item site-header">
+                        <a class="clsm" href="{% url 'start_campaign' %}">Start a Campaign</a>
+                    </li>
+                </ul>
+                <hr class="bottom-line">
+                Legal
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item site-header">
+                        <a class="clsm" href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                    </li>
+                    <li class="nav-item site-header">
+                        <a class="clsm" href="{% url 'terms' %}">Terms of Use</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
     <script type="text/javascript">
+    var navCollapseItems = '<ul class="navbar-nav mr-auto">' +
+        '                    <li class="nav-item site-header">' +
+        '                        <a class="clsm" href="{% url "home" %}">Home</a>' +
+        '                    </li>' +
+        '                    <li class="nav-item site-header">' +
+        '                        <a class="clsm" href="{% url "home" %}">How It Works</a>' +
+        '                    </li>' +
+        '                    <li class="nav-item site-header">' +
+        '                        <a class="clsm" href="{% url "start_campaign" %}">Start a Campaign</a>' +
+        '                    </li>' +
+        '                </ul>' +
+        '                <hr class="bottom-line">' +
+        '                Legal' +
+        '                <ul class="navbar-nav mr-auto">' +
+        '                    <li class="nav-item site-header">' +
+        '                       <a class="clsm" href="{% url "privacy_policy" %}">Privacy Policy</a> ' +
+        '                    </li>' +
+        '                    <li class="nav-item site-header">' +
+        '                       <a class="clsm" href="{% url "terms" %}">Terms of Use</a> ' +
+        '                    </li>' +
+        '                </ul>';
+
+
+
+    $(window).resize(function() {
+        if ($(window).width() <= 767) {
+            $("#navbarSupportedContent").empty();
+            $("#navbarSupportedContent").append(navCollapseItems);
+        }
+        else
+        {
+             $("#navbarSupportedContent").empty();
+            //alert("message?: DOMString");
+        }
+    });
+    var smallScreen = window.matchMedia("(max-width: 767px)");
+    if (smallScreen.matches) {
+        $("#navbarSupportedContent").empty();
+        $("#navbarSupportedContent").append(navCollapseItems);
+
+    } else {
+        $("#navbarSupportedContent").empty();
+        //alert("message?: DOMString");
+    }
     var llogin = "{{ contain_user_data.login }}";
     if (llogin == "True") {
         var cls = document.getElementsByClassName("main-header__part");
