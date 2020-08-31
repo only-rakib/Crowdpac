@@ -210,6 +210,23 @@
                 </button>
             </div>
         </div>
+        <div class="row" style="display: none" id="show_on_video">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="video_preview" class="embed-responsive-item" src="" allowfullscreen="false">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btnr float-right" onclick="remove_video()">remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row" style="margin-top: 6rem">
@@ -287,10 +304,15 @@ $("#campaign_title_id").keyup(function() {
 var urlTest = true;
 var getVideoUrl = $("#addVideoStory").on('click', function() {
     urlResult = validURL($("#campaign_video_link").val());
+    var link = $("#campaign_video_link").val();
     if (urlResult) {
         urlTest = true;
         $("#campaign_video_link").removeClass("is-invalid");
         $("#campaign_video_link").addClass("is-valid");
+        $("#show_on_video").show();
+        var embed = getEmbedId(link);
+        $("#video_preview").attr('src', "//www.youtube.com/embed/" + embed);
+
     } else {
         urlTest = false
         $("#campaign_video_link").removeClass("is-valid");
@@ -308,34 +330,44 @@ function validURL(str) {
     return !!pattern.test(str);
 }
 
+function getEmbedId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11) ?
+        match[2] :
+        null;
+}
+
+function remove_video() {
+    $("#video_preview").attr('src', "");
+    $("#show_on_video").hide();
+}
 /*
     saves all the story data;
 */
-var complete_campaign_story=false;
+var complete_campaign_story = false;
+
 function butonStorySave() {
-    campaign_title_pressed=true;
+    campaign_title_pressed = true;
     if (urlTest) {
         var datas = {
             'title': $("#campaign_title_id").val(),
             'story': CKEDITOR.instances.editor.getData(),
             'img': $('#campaignImage').attr('src'),
-            'video_url': $("#campaign_video_link").val()
+            'video_url': $("#video_preview").attr('src'),
         }
-        for(var i in datas)
-        {
+        for (var i in datas) {
 
-            if(datas[i]==="")
-            {   
-                if(i==="video_url"){
+            if (datas[i] === "") {
+                if (i === "video_url") {
                     continue;
                 }
-                complete_campaign_story=false;
+                complete_campaign_story = false;
                 break;
 
-            }
-            else
-            {
-                complete_campaign_story=true;
+            } else {
+                complete_campaign_story = true;
             }
         }
         $.ajax({
@@ -348,7 +380,30 @@ function butonStorySave() {
             },
             success: function(response) {
                 //console.log($(response.context.campaign_title);
+
+                if (response.context.video_url === "") {
+
+                    if (response.context.cover_pic === ""||response.context.cover_pic === "#") {
+                       
+                    }
+                    else
+                    {
+                      
+                         $("#cover_media").empty();
+                            
+                        var myvar = '<img src="'+response.context.cover_pic+'" class="img-fluid">';
+                        $("#cover_media").append(myvar);
+
+                    }
+                } else {
+                    $("#cover_media").empty();
+                    var myvar = '<div class="embed-responsive embed-responsive-16by9">' +
+                            ' <iframe class="embed-responsive-item" src="'+response.context.video_url+'" allowfullscreen></iframe>' +
+                            ' </div>';
+                    $("#cover_media").append(myvar);
+                }
                 $("#campaign_title").text(response.context.campaign_title);
+                $("#campaign_story").append(response.context.campaign_story);
                 tab_pages("Fundraising");
             }
         });

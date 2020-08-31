@@ -244,6 +244,15 @@
             'fundraising': JSON.stringify(datas),
         },
         success: function(response) {
+            $("#defaultDonation").text("Donate  $"+response.context.Default_Donation);
+            $("#colOtherDonateButton").prepend(
+                '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts1+'</button>'+
+                '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts2+'</button>'+
+                '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts3+'</button>'
+            );
+            /*$("#optionalDonation1").text();
+            $("#optionalDonation").text();
+            $("#defaultDonation").text();*/
             tab_pages('Privacy_Settings');
         }
     });

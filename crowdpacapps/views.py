@@ -350,6 +350,13 @@ def start_campaign_view(request):
     pro_id = ""  # id of the profile from db
     campaign_title = ""
     video_url = ""
+    cover_pic = ""
+    Default_Donation = ""
+    optional_settings = ""
+    Other_donation_amounts1 = ""
+    Other_donation_amounts2 = ""
+    Other_donation_amounts3 = ""
+    campaign_story = ""
     data = {}
     if login == 'True':
         if request.is_ajax and request.method == "POST":
@@ -408,8 +415,11 @@ def start_campaign_view(request):
             # butonStorySave() {"
             try:
                 story = jsonloads(request.POST["story"])
-                print(story)
+                # print(story)
                 campaign_title = story['title']
+                cover_pic = story['img']
+                video_url = story['video_url']
+                campaign_story = story['story']
                 print(campaign_title)
             except Exception as e:
                 pass
@@ -441,7 +451,14 @@ def start_campaign_view(request):
                 # this request comes from fundraising.html
                 # function saveFundraising(){}
                 fundraising = jsonloads(request.POST['fundraising'])
-                print(fundraising)
+                # print(fundraising)
+                Default_Donation = fundraising["Default_Donation"]
+                Other_donation_amounts1 = fundraising[
+                    "Other_donation_amounts1"]
+                Other_donation_amounts2 = fundraising[
+                    "Other_donation_amounts2"]
+                Other_donation_amounts3 = fundraising[
+                    "Other_donation_amounts3"]
             except Exception as e:
                 # print("Exception", e)
                 pass
@@ -454,16 +471,6 @@ def start_campaign_view(request):
             # race_info.html "$("#save_race_selected").on('click',function(){"
 
             selected_race = request.POST.get("race_selected")
-            data = {
-                'candidancy': candidancy,
-                'name': name,
-                'pro_pic': pro_pic,
-                'data_letters': data_letter,
-                'pro_id': pro_id,
-                'candidate_self_or_not': candidate_self_or_not,
-                'campaign_title': campaign_title,
-
-            }
 
             try:
                 # this request comes from custom_sharing.html
@@ -478,11 +485,30 @@ def start_campaign_view(request):
                 # optionalSettingsSave() {}
                 optional_settings = jsonloads(
                     request.POST['optional_settings'])
-                print(optional_settings)
+                # print(optional_settings)
             except Exception as e:
                 # print("Exception", e)
                 pass
 
+            data = {
+                'candidancy': candidancy,
+                'name': name,
+                'pro_pic': pro_pic,
+                'data_letters': data_letter,
+                'pro_id': pro_id,
+                'candidate_self_or_not': candidate_self_or_not,
+                'campaign_title': campaign_title,
+                'optional_settings': optional_settings,
+                'Default_Donation': Default_Donation,
+                'Other_donation_amounts1': Other_donation_amounts1,
+                'Other_donation_amounts2': Other_donation_amounts2,
+                'Other_donation_amounts3': Other_donation_amounts3,
+                'cover_pic': cover_pic,
+                'video_url': video_url,
+                'campaign_story': campaign_story,
+
+
+            }
             publish = request.POST.get("publish_campaign")
 
             return JsonResponse({'context': data}, status=200)
@@ -495,6 +521,7 @@ def start_campaign_view(request):
             'race_list': race_list,
             'race_local': race_local,
             'video_url': video_url,
+
         }
         # print(data)
         return render(request, 'startcampaign.html', {'context': data})

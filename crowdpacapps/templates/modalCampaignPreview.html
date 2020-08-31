@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-sm-10 offset-sm-1">
                         <div class="row">
-                            <div class="col-sm-8">
+                            <div class="col-sm-8" id="cover_media">
                                 {% if context.video_url and context.video_url.strip %}
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item" src="{{context.video_url}}" allowfullscreen></iframe>
@@ -21,7 +21,7 @@
                                 <img src="{%static cover_pic%}" class="img-fluid">
                                 {% endwith %}
                                 {% else %}
-                                <img src="https://via.placeholder.com/600x400" class="img-fluid">
+                                <img  src="https://via.placeholder.com/600x400" class="img-fluid">
                                 {% endif %}
                             </div>
                             <div class="col-sm-4" style="margin-top: 6rem">
@@ -34,19 +34,19 @@
                                 </div>
                                 <div class="row" id="hide-property">
                                     <div class="col-sm-12">
-                                        <button type="button" class="btnr red" style="width: 100%;padding: 6%;">Donate ${{contex.Default_Donation}}</button>
+                                        <button type="button" class="btnr red" style="width: 100%;padding: 6%;" id="defaultDonation">Donate ${{contex.Default_Donation}}</button>
                                     </div>
                                 </div>
-                                <!--
+                                
                                 <div class="row" id="hide-property">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12" id="colOtherDonateButton">
                                         {%for buttons in donateButtons%}
                                         <button type="button" class="btnr btnr-light btnr-spaced">${{buttons.amount}}</button>
                                         {%endfor%}
                                         <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate">Other</button>
                                     </div>
                                 </div>
-                            -->
+                            
                             </div>
                         </div>
                         <!--nav bar start-->
@@ -55,7 +55,7 @@
                             <div class="col-sm-8 ">
                                 <ul class="nav nav-tabs r nav-justified" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active text-center rcls" id="story-tab" data-toggle="tab" href="#story" role="tab" aria-controls="story" aria-selected="true" onclick="myFunction()">Story</a>
+                                        <a class="nav-link active text-center rcls" id="story-tab" data-toggle="tab" href="#story" role="tab" aria-controls="story" aria-selected="true" >Story</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-center rcls" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="update" aria-selected="false">Updates</a>
@@ -90,8 +90,8 @@
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="story" role="tabpanel" aria-labelledby="story-tab">
                                                 <div class="row">
-                                                    <div class="col">
-                                                        {{context.story}}
+                                                    <div class="col" id="campaign_story">
+                                                        {{context.story|safe}}
                                                     </div>
                                                 </div>
                                                 <div class="row rmargin-top">
@@ -385,15 +385,16 @@
                                 </div>
                                 <!--Donarlist End-->
                                 <!--Badgelist Start-->
-                                <div class="row rmargin-top">
-                                    <div class="col-4">
+                                <div class="row rmargin-top" >
+                                    <div class="col" id="colBadges">
+                                        
                                         <a class="rcls badge tags" href="#">Badges</a>
                                     </div>
                                 </div>
                                 <!--Badgelist End-->
                                 <div class="row rmargin-top">
                                     <div class="col">
-                                        <a href='#' class="mini-recipient__title rcls" style="color: #FF6A40">
+                                        <a href='#' class="mini-recipient__title rcls" style="color: #FF6A40" id="preview_pro_name">
                                             {{context.name}}
                                         </a>
                                         <span class="mini-recipient">

@@ -239,6 +239,16 @@ function optionalSettingsSave() {
             'optional_settings': JSON.stringify(datas),
         },
         success: function(response) {
+            $("#colBadges").empty();
+            for(var var1=0;var1<response.context.optional_settings.tagselected.length;var1++)
+            {
+                $("#colBadges").append(
+
+                   
+                    '   <a class="rcls badge tags" href="#">'+response.context.optional_settings.tagselected[var1]+'</a>'
+                   
+                );
+            }
             tab_pages('Publish_Your_Campaign');
         }
     });

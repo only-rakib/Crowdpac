@@ -181,11 +181,13 @@
                     </div>
                     {% endfor %}
                     <div class="row rmargin-top">
+                        <div class="col">
                         {%for i in tags%}
-                        <div class="col-4">
+                        
                             <a class="rcls badge tags" href="{{i.url}}">{{i.name}}</a>
-                        </div>
+                        
                         {%endfor%}
+                        </div>
                     </div>
                     <div class="row rmargin-top">
                         <div class="col">

@@ -397,7 +397,10 @@ $("#recipients_save_button_select_candidate").on('click', function() {
                     $("#pro_pic").attr("src", response.context.pro_pic);
 
                 }
-                $("#pro_name").text(response.context.name)
+                $("#pro_name").text(response.context.name);
+
+                $("#preview_pro_name").text(response.context.name);
+                //console.log($("#preview_pro_name"));
 
             }
 
@@ -438,7 +441,7 @@ $("#button_another_candidate_or_organization").on("click", function() {
                 add_profile_to_page_another_candidate_save_click(response.context.pro_id[i], response.context.pro_name, img, response.context.dataletter);
 
             }
-            //console.log($("#multipleProfile"))
+            $("#preview_pro_name").text(response.context.pro_name);
             $("#show_the_profile").show();
 
             $("#another_candidate_or_organization").hide();
@@ -474,6 +477,7 @@ $("#removeProfile").on('click', function() {
                 $("#Race_Info").hide();
                 $("#show_the_profile").hide();
                 $("#recipients_main").show();
+                $("#preview_pro_name").text("");
             }
         })
     }
