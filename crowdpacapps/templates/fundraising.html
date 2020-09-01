@@ -227,7 +227,7 @@
 			'Fundraising_Goal':$("#Fundraising_Goal").val(),
 			'Default_Donation':$("#Default_Donation").val(),
 			'Default_Donation_text':$("#Default_Donation_text").val(),
-			'Other_donation_amounts1':$("#Fundraising_Goal").val(),
+			'Other_donation_amounts1':$("#Other_donation_amounts1").val(),
 			'Other_donation_amounts1_text':$("#Other_donation_amounts1_text").val(),
 			'Other_donation_amounts2':$("#Other_donation_amounts2").val(),
 			'Other_donation_amounts2_text':$("#Other_donation_amounts2_text").val(),
@@ -245,10 +245,12 @@
         },
         success: function(response) {
             $("#defaultDonation").text("Donate  $"+response.context.Default_Donation);
+            $("#colOtherDonateButton").empty();
             $("#colOtherDonateButton").prepend(
                 '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts1+'</button>'+
                 '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts2+'</button>'+
-                '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts3+'</button>'
+                '<button type="button" class="btnr btnr-light btnr-spaced">$'+response.context.Other_donation_amounts3+'</button>'+
+                '<button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="">Other</button>'
             );
             /*$("#optionalDonation1").text();
             $("#optionalDonation").text();

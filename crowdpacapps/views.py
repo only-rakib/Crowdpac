@@ -96,7 +96,29 @@ def social_feed_View(request):
     lstPetition = []
     lstPetition.append(first_topic_petition)
     lstPetition.append(second_topic_petition)
-    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login})
+    member1 = {
+        'member_name': 'xyz',
+        "member_pro_pic": "none",
+        'memberDataLetter': 'X',
+        'memberId': 1
+    }
+    member2 = {
+        'member_name': 'abc',
+        "member_pro_pic": "none",
+        'memberDataLetter': 'A',
+        'memberId': 1
+    }
+    member3 = {
+        'member_name': 'xyzz',
+        "member_pro_pic": "none",
+        'memberDataLetter': 'X',
+        'memberId': 1
+    }
+    lstMember = []
+    lstMember.append(member1)
+    lstMember.append(member2)
+    lstMember.append(member3)
+    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login, 'member': lstMember})
 
 
 def view_campaignView(request):
@@ -580,3 +602,45 @@ def notifications_view(request):
 
 def campaign_create_conditional_view(request):
     return render(request, 'campaigns_create_conditional.html')
+
+
+def how_it_works_view(request):
+    return render(request, 'learn.html')
+
+
+def innovative_fundraising_view(request):
+    return render(request, 'promote.html')
+
+
+def members_view(request):
+    data1 = {
+        'member_name': 'xyz',
+        "member_pro_pic": "none",
+        'memberDataLetter': 'X',
+        'memberId': 1
+    }
+    data2 = {
+        'member_name': 'abc',
+        "member_pro_pic": "none",
+        'memberDataLetter': 'A',
+        'memberId': 1
+    }
+    data3 = {
+        'member_name': 'xyzz',
+        "member_pro_pic": "none",
+        'memberDataLetter': 'X',
+        'memberId': 1
+    }
+    lstData = []
+    lstData.append(data1)
+    lstData.append(data2)
+    lstData.append(data3)
+    # return render(request, 'members.html', {'data': lstData})
+
+
+def connection_view(request):
+    return render(request, 'Connections.html')
+
+
+def endorsements_view(request):
+    return render(request, 'Endorsements.html')

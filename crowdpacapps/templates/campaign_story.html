@@ -403,6 +403,7 @@ function butonStorySave() {
                     $("#cover_media").append(myvar);
                 }
                 $("#campaign_title").text(response.context.campaign_title);
+                $("#campaign_story").empty();
                 $("#campaign_story").append(response.context.campaign_story);
                 tab_pages("Fundraising");
             }

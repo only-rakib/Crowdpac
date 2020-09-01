@@ -1,0 +1,726 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block title %}
+<title>Crowdpac is the best way to raise money for a campaign online. | Crowdpac</title>
+{% endblock title %}
+{% block container %}
+<section class="banner__part-learn">
+    <div class="row m-auto">
+        <div class="col-11 m-auto">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 m-auto">
+                    <div class="row">
+                        <div class="col-12 banner__head-text1 head__padding">
+                            <p>Where political</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__head-text1">
+                            <p>change begins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 banner__button-head_learn">
+                    <a href="{% url 'start_campaign' %}">Start a campaign</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---------------------------------- banner first part end --------------------------------->
+<!---------------------------------- Service part start -------------------------------->
+<section class="service__part">
+    <div class="row m-auto">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center service__part-l1">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Create a beautiful crowdfunding page to <sepan>tell your story</sepan> and <span>build community</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center service__part-l1">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Crowdpac is <span>fast, free</span>, and you can start right now. Creating a page takes just 5 minutes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center service__part-l1">
+                    <div class="row">
+                        <div class="col-12">
+                            <p><span>Flexible</span> and <span>compliant</span> reports to work alongside your current tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-----------------------------------service part end here------------------------------->
+<!--------------------------------header part2 start here------------------------------->
+<section>
+    <div class="row m-auto">
+        <div class="col-9 m-auto learn__help-p">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center learn__title2 common__title">
+                    <p>See how Crowdpac can help you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center learn__title2 common__title">
+                    <p>crowdfund your movement</p>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 4rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="row explore-card--text" id="hovertext1">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h5><strong>Explore a run for office</strong></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Test the waters by collecting financial pledges immediately</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>No committee or bank account needed to begin collecting pledges</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Credit cards are only charged after you officially declare your candidacy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row explore-card--text" id="hovertext2">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h5><strong>Slates</strong></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Fundraise in one campaign for any number of recipients</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Raise money for organizations and/or candidates in one easy transaction</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Distribute funds evenly among recipients or set default custom percentages</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row explore-card--text" id="hovertext3">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5><strong>Social media fundraising</strong></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Crowdpac pages are optimized for social media fundraising</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Set goals like a kickstarter, build urgency and momentum</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row explore-card--text" id="hovertext4">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h5><strong>Events</strong></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Create beautiful and custom event pages that funnel into your main campaign</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Download the list of unique attendees</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>We collect all the FEC compliant information you need</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="row" id="hoverimg1">
+                        <div class="col">
+                            <img class="img-fluid" src="{%static 'images/xmgqb4xozyskbhbkdr7s.png'%}">
+                        </div>
+                    </div>
+                    <div class="row" id="hoverimg2" style="display: none">
+                        <div class="col">
+                            <img class="img-fluid" src="{%static 'images/t8ww3mlfyn0dcpxmgpge.png'%}">
+                        </div>
+                    </div>
+                    <div class="row" id="hoverimg3" style="margin-top: 10rem;display: none">
+                        <div class="col">
+                            <img class="img-fluid" src="{%static 'images/lmwjc24tkhw1e9pp63ki.png'%}">
+                        </div>
+                    </div>
+                    <div class="row" id="hoverimg4" style="margin-top: 20rem;display: none">
+                        <div class="col">
+                            <img class="img-fluid" src="{%static 'images/vey3obs3jdxyvul4j0zo.png'%}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------------------------------- first heading part  --------------------------------->
+<section>
+    <div class="row m-auto">
+        <div class="col-11 m-auto Padding__last-section">
+            <div class="row">
+                <div class="col-12 text-center last__header-heading">
+                    <h3>Ready to start? It's fast and free.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center btn__last-section-button">
+                    <a href="{% url 'start_campaign' %}">Start a campaign</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="slider__learn-section">
+    <div class="row m-auto">
+        <div class="col-lg-11 col-md-12 slide__top-bottom-padding-carousel m-auto">
+            <div class="row">
+                <div class="col-12">
+                    <div id="demo" class="carousel slide" data-ride="false">
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="slide__image-area">
+                                    <div class="slide__image">
+                                        <img src="{%static 'images/msclf8lg1vltvcm3ji1r.png'%}" alt="Los Angeles" class="w-100">
+                                    </div>
+                                </div>
+                                <div class="carousel-caption custom__carousel-caption">
+                                    <p class="top__button-slider">MEET</p>
+                                    <h3 class="heading__slider-text mt-4">Regina Bateson</h3>
+                                    <p style="color: #787878;">Bateson made a page for herself. If went viral in her district. She got mor than $4000 in the first 24 hours. In just over a month, she hit her goal of $20000. and emboldened by this strange realization- that prople she doesn't even know are willing to give her campaign money - the former professor decided to leave her job and and become Candidate Bateson. If some one had said to me yu need to make a dicision today- that you're definitively, definitely running- I would have said no; she says(from NPR)</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slide__image-area">
+                                    <div class="slide__image">
+                                        <img src="{%static 'images/pkymht79c2ilw8dwe5tk.png'%}" alt="Chicago" class="w-100">
+                                    </div>
+                                </div>
+                                <div class="carousel-caption custom__carousel-caption">
+                                    <p class="top__button-slider">MEET</p>
+                                    <h3 class="heading__slider-text mt-4">Lauren Underwood</h3>
+                                    <p style="color: #787878;">"There’s a crowdsourcing site called Crowdpac, that lets you announce your thoughts or intentions of running and then see people make pledges. They’re not charged until you file, so I did that while I was deciding whether to run. Over the summer we raised $27,000 in pledges from people across the district and the country who had heard about our story, so I think that helped, just in terms of that grassroots energy that then converted into contributions when we filed."</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slide__image-area">
+                                    <div class="slide__image">
+                                        <img class="slide__image" src="{%static 'images/ljbuz4bjl9jzddkti8ep.png'%}" alt="New York" class="w-100">
+                                    </div>
+                                </div>
+                                <div class="carousel-caption custom__carousel-caption">
+                                    <p class="top__button-slider">MEET</p>
+                                    <h3 class="heading__slider-text mt-4">Joseph Kopser</h3>
+                                    <p style="color: #787878;">"Crowdpac helped me early on by allowing me to answer these questions. It was exactly what we needed, a way to test the idea, put our toe in the water. As a first-time candidate, making the decision to run for office would be a serious commitment given the costs of elections. The key was the ability to solicit pledged donations before deciding to run, something only Crowdpac can do. We raised $50,000 in the first 3 days. That’s how I knew I could run and have a good shot at winning."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!--------------------------------header part2 end here------------------------------->
+<section>
+    <div class="row m-auto">
+        <div class="col-9 m-auto learn__help-p">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center learn__title2 common__title">
+                    <p>Check out the other Crowdpac features built </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center learn__title2 common__title">
+                    <p>to raise you more money with less effort.</p>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 4rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12 m-auto">
+                    <div class="row">
+                        <div class="col-9 m-auto">
+                            <img class="w-100" src="{%static 'images/donations.png'%}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="common__subhedding-all">Compliant donations</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-11">
+                            <p class="common__text-css-all">Every donation includes all of the necessary information for reporting and campaign finance regulations, including occupation and employer information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 m-autu">
+                    <div class="row">
+                        <div class="col-9 m-auto">
+                            <img class="w-100" src="{%static 'images/endorsements.png'%}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="common__subhedding-all">Compliant donations</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="common__text-css-all">We encourage your supporters to showcase why they are supporting your campaign, giving potential donors more reasons to give.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 4rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12 m-auto">
+                    <div class="row">
+                        <div class="col-9 m-auto">
+                            <img class="w-100" src="{%static 'images/updates.png'%}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="common__subhedding-all">Compliant donations</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-11">
+                            <p class="common__text-css-all">Every donation includes all of the necessary information for reporting and campaign finance regulations, including occupation and employer information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 m-autu">
+                    <div class="row">
+                        <div class="col-9 m-auto">
+                            <img class="w-100" src="{%static 'images/tips.png'%}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="common__subhedding-all">Compliant donations</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="common__text-css-all">We encourage your supporters to showcase why they are supporting your campaign, giving potential donors more reasons to give.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 4rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12 m-auto">
+                    <div class="row">
+                        <div class="col-9 m-auto">
+                            <img class="w-100" src="{%static 'images/uytoywx7wjhaxllpgdzf.png'%}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="common__subhedding-all">Compliant donations</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-11">
+                            <p class="common__text-css-all">Every donation includes all of the necessary information for reporting and campaign finance regulations, including occupation and employer information.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 m-autu">
+                    <div class="row">
+                        <div class="col-9 m-auto">
+                            <img class="w-100" src="{%static 'images/custom_pages.png'%}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="common__subhedding-all">Compliant donations</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="common__text-css-all">We encourage your supporters to showcase why they are supporting your campaign, giving potential donors more reasons to give.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------------------------------- Second heading part --------------------------------->
+<section>
+    <div class="row m-auto">
+        <div class="col-11 m-auto Padding__last-section">
+            <div class="row">
+                <div class="col-12 text-center last__header-heading">
+                    <h3>Ready to start? It's fast and free.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center btn__last-section-button">
+                    <a href="{% url 'start_campaign' %}">Start a campaign</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--------------------------------header part2 end here------------------------------->
+<section class="banner__part2-learn">
+    <div class="row m-auto">
+        <div class="col-10 m-auto top__padding-banner2">
+            <div class="row">
+                <div class="col-lg-5 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-8 col-sm-12 banner__part2-learn-left">
+                            <p>Your campaign deserves the best fundraising tools available.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Multiple managers for a campaign</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Monthly donations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Saved payment methods</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Credit-card backed pledges</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Set a fundraising goal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Reward tiers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Custom slate percentages</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Custom URL</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Max-out option for high-dollar givers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 custom__css-learn-sm">
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>See where your donations are coming from with trackable source code links tied to donation records</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Custom email receipts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Custom share content</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>ACH or mailed checks for disbursements</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>ACH payment options for donors</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Share your contribution on Facebook or Twitter so others can match it</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Tag the issues you care about to help potential supporters find your campaign</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 banner__list">
+                            <ul>
+                                <li>Create donate buttons and QR codes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- progressbar start here -->
+<section class="progress__bar-section">
+    <div class="row m-auto">
+        <div class="col-11 m-auto progress__bar-padding">
+            <div class="row">
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card__progress  m-auto">
+                                <div class="card-img-section">
+                                    <img class="card-img-top w-100" src="{%static 'images/taew6vucd47s0w04615g.png'%}" alt="Card image cap">
+                                </div>
+                                <div class="card-body mt-3">
+                                    <p class="common__text-css-all">of our donors are giving for the first time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-12 m-auto">
+                            <div class="card card__progress  m-auto">
+                                <div class="card-img-section">
+                                    <img class="card-img-top w-100" src="{%static 'images/bgfjbelhpkiaxocckqnf.png'%}" alt="Card image cap">
+                                </div>
+                                <div class="card-body mt-3">
+                                    <p class="common__text-css-all">of candidates on Crowdpac are running for the first time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card__progress  m-auto">
+                                <div class="card-img-section">
+                                    <img class="card-img-top w-100" src="{%static 'images/r1gavrumn3goq5ydfvyp.png'%}" alt="Card image cap">
+                                </div>
+                                <div class="card-body mt-3">
+                                    <p class="common__text-css-all">of our candidates are running for state or local office.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card__progress  m-auto">
+                                <div class="card-img-section">
+                                    <img class="card-img-top w-100" src="{%static 'images/fvsgh4y8q7hjxhemevmh.png'%}" alt="Card image cap">
+                                </div>
+                                <div class="card-body mt-3">
+                                    <p class="common__text-css-all"> of the candidates running on Crowdpac are women.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------------------------------ Last card section --------------------------->
+<section class="last__card-section-background">
+    <div class="row m-auto">
+        <div class="col-lg-9 col-md-10 col-sm-11 m-auto Padding__last-section">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 col-sm-12 text-center last__card-heading m-auto">
+                    <h3>On Crowdpac, donors pay the credit card processing fee so you keep more than ever before.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 col-md-10 col-sm-12 text-center card__last-section-card m-auto">
+                    <p class=".common__text-css-all">Crowdpac is a free platform with zero startup or monthly costs. We offer two types of fundraising campaigns: conditional and direct donation.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-3 mb-3">
+                    <div class="row">
+                        <div class="col-12 w-100">
+                            <div class="card">
+                                <img class="card-img-top w-100" src="{%static 'images/xp4twkzcc38yonhmu4oz.png'%}" alt="Card image cap">
+                                <div class="card-body m-3">
+                                    <h3 class="heading__card-item-text">Conditional campaigns</h3>
+                                    <p class="card-text card__content-final mt-2"><a href="#" style="color: #ff4814;">Conditional campaigns</a> collect pledges before hitting a goal, or before a candidate enters a race. They are free to set up. There is a 2.90% + 20 cents for credit card processing fees and ACH is FREE that is charged if, and only if, the pledges are converted to a contribution. Campaigns have a flat 3% fee on contributions, which is the lowest fee in online fundraising.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-3 mb-3">
+                    <div class="row" style="height:100%">
+                        <div class="col-12 w-100">
+                            <div class="card" style="height:100%">
+                                <img class="card-img-top w-100" src="{%static 'images/qq25a7tjhpehlmrwp3fa.png'%}" alt="Card image cap">
+                                <div class="card-body m-3">
+                                    <h3 class="heading__card-item-text color__card">Direct donate campaigns</h3>
+                                    <p class="card-text card__content-final mt-2">Direct donate campaigns on Crowdpac have the lowest fees in online political fundraising. Contributors pay the credit card processing fees (2.9% + 20 cents) or use ACH for free. Campaigns have a flat 3% fee on contributions, which is the lowest fee in online fundraising. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------------------------------- Last heading part --------------------------------->
+<section>
+    <div class="row m-auto">
+        <div class="col-11 m-auto Padding__last-section">
+            <div class="row">
+                <div class="col-12 text-center last__header-heading">
+                    <h3>Ready to start? It's fast and free.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center btn__last-section-button">
+                    <a href="{% url 'start_campaign' %}">Start a campaign</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+$("#hovertext1").hover(function() {
+    console.log("paisi");
+    $("#hoverimg1").show();
+    $("#hoverimg2").hide();
+    $("#hoverimg3").hide();
+    $("#hoverimg4").hide();
+}, function() {});
+$("#hovertext2").hover(function() {
+    $("#hoverimg1").hide();
+    $("#hoverimg2").show();
+    $("#hoverimg3").hide();
+    $("#hoverimg4").hide();
+}, function() {
+    $("#hoverimg1").show();
+    $("#hoverimg2").hide();
+    $("#hoverimg3").hide();
+    $("#hoverimg4").hide();
+});
+$("#hovertext3").hover(function() {
+    $("#hoverimg1").hide();
+    $("#hoverimg2").hide();
+    $("#hoverimg3").show();
+    $("#hoverimg4").hide();
+}, function() {
+    $("#hoverimg1").show();
+    $("#hoverimg2").hide();
+    $("#hoverimg3").hide();
+    $("#hoverimg4").hide();
+});
+$("#hovertext4").hover(function() {
+    $("#hoverimg1").hide();
+    $("#hoverimg2").hide();
+    $("#hoverimg3").hide();
+    $("#hoverimg4").show();
+}, function() {
+    $("#hoverimg1").show();
+    $("#hoverimg2").hide();
+    $("#hoverimg3").hide();
+    $("#hoverimg4").hide();
+});
+</script>
+{%endblock container%}

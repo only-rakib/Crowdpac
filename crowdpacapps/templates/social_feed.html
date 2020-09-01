@@ -9,39 +9,47 @@
         <div class='col-2 offset-lg-1' id="left">
             <div class="row sticky-top">
                 <div class="col-12">
-                    <div class="row" id="news_tab" style="background:#FFE3DA;color:#ff4814 " onClick="tabclick(this.id)">
-                        <div class="col">
-                            <div class="row">
-                                <img src="{% static 'svg/news.svg' %}">
-                                <span class="right-sidebar-menu-title">News</span>
+                    <a href="#news_tab/" class="rcls">
+                        <div class="row" id="news_tab" style="background:#FFE3DA;color:#ff4814 " onClick="tabclick(this.id)">
+                            <div class="col">
+                                <div class="row">
+                                    <img src="{% static 'svg/news.svg' %}">
+                                    <span class="right-sidebar-menu-title">News</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" id="crowdpac_tv_tab" onClick="tabclick(this.id)">
-                        <div class="col">
-                            <div class="row">
-                                <img src="{% static 'svg/crowdpacTV.svg' %}">
-                                <span class="right-sidebar-menu-title">Crowdpac TV</span>
+                    </a>
+                    <a href="#crowdpac_tv_tab/" class="rcls">
+                        <div class="row" id="crowdpac_tv_tab" onClick="tabclick(this.id)">
+                            <div class="col">
+                                <div class="row">
+                                    <img src="{% static 'svg/crowdpacTV.svg' %}">
+                                    <span class="right-sidebar-menu-title">Crowdpac TV</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" id="petitions_tab" onClick="tabclick(this.id)">
-                        <div class="col">
-                            <div class="row">
-                                <img src="{% static 'svg/petition.svg' %}">
-                                <span class="right-sidebar-menu-title">Petitions</span>
+                    </a>
+                    <a href="#petitions_tab/" class="rcls">
+                        <div class="row" id="petitions_tab" onClick="tabclick(this.id)">
+                            <div class="col">
+                                <div class="row">
+                                    <img src="{% static 'svg/petition.svg' %}">
+                                    <span class="right-sidebar-menu-title">Petitions</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" id="members_tab" onClick="tabclick(this.id)">
-                        <div class="col">
-                            <div class="row">
-                                <img src="{% static 'svg/member.svg' %}">
-                                <span class="right-sidebar-menu-title">Members</span>
+                    </a>
+                    <a href="#members_tab/" class="rcls">
+                        <div class="row" id="members_tab" onClick="tabclick(this.id)">
+                            <div class="col">
+                                <div class="row">
+                                    <img src="{% static 'svg/member.svg' %}">
+                                    <span class="right-sidebar-menu-title">Members</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
+                </a>
             </div>
         </div>
         <!--left Sidebar End-->
@@ -55,6 +63,9 @@
             </div>
             <div id="petition_content">
                 {% include 'petitions.html' %}
+            </div>
+            <div id="members_content">
+                {% include 'members.html' %}
             </div>
         </div>
         <!--Center Content End-->
@@ -175,7 +186,7 @@
                     <form class="text-center">
                         <div class="form-group">
                             <label for="labelSearch">Search</label>
-                            <input type="text" class="form-control" id="input-search" placeholder="Name">
+                            <input type="text" class="form-control" id="searchMember" placeholder="Name" onkeyup="fiterMemberFunction()">
                         </div>
                         <div class="form-group">
                             <label for="inputState">Filter</label>
@@ -191,7 +202,7 @@
                         </div>
                         <div class="form-group">
                             <label for="labelAddFriend">Don't see your friends ?</label>
-                            <button type="button" class="btnr green" data-toggle="modal" data-target="#modal-share"><i class="far fa-user"></i>Invite Members</button>
+                            <button type="button" class="btnr green" data-toggle="modal" data-target="#modal-share" data-title="Invite Members Directly or with Your Social Networks! "><i class="far fa-user"></i>Invite Members</button>
                         </div>
                     </form>
                     {% endif %}
@@ -212,7 +223,25 @@ $('#modal-share').on('show.bs.modal', function(event) {
 })
 </script>
 <script>
+if (window.location.hash === '#news_tab') {
+    //alert("message?: DOMString")
+    tabclick("news_tab");
+}
+if (window.location.hash === '#crowdpac_tv_tab') {
+    //alert("message?: DOMString")
+    tabclick("crowdpac_tv_tab");
+}
+if (window.location.hash === '#petitions_tab') {
+    //alert("message?: DOMString")
+    tabclick("petitions_tab");
+}
+if (window.location.hash === '#members_tab') {
+    //alert("message?: DOMString")
+    tabclick("members_tab");
+}
+
 function tabclick(clicked_id) {
+
     news_id = document.getElementById('news_tab');
     tv_id = document.getElementById('crowdpac_tv_tab');
     petition_id = document.getElementById('petitions_tab');
@@ -221,7 +250,7 @@ function tabclick(clicked_id) {
     news_content_id = document.getElementById("news_content");
     crowdpac_tv_content_id = document.getElementById("crowdpac_tv_content");
     petition_content_id = document.getElementById("petition_content");
-    /*members_content_id = document.getElementById("members_content");*/
+    members_content_id = document.getElementById("members_content");
 
     news_id_right = document.getElementById('news_tab_right');
     tv_id_right = document.getElementById('crowdpac_tv_tab_right');
@@ -238,7 +267,7 @@ function tabclick(clicked_id) {
         news_content_id.style.display = "block";
         crowdpac_tv_content_id.style.display = "none"
         petition_content_id.style.display = "none"
-        /*members_content_id.style.display="none" */
+        members_content_id.style.display = "none"
 
         news_id_right.style.display = "block";
         tv_id_right.style.display = "none";
@@ -253,7 +282,7 @@ function tabclick(clicked_id) {
         news_content_id.style.display = "none";
         crowdpac_tv_content_id.style.display = "block"
         petition_content_id.style.display = "none"
-        /*members_content_id.style.display="none" */
+        members_content_id.style.display = "none"
 
         news_id_right.style.display = "none";
         tv_id_right.style.display = "block";
@@ -268,7 +297,7 @@ function tabclick(clicked_id) {
         news_content_id.style.display = "none";
         crowdpac_tv_content_id.style.display = "none"
         petition_content_id.style.display = "block"
-        /*members_content_id.style.display="none" */
+        members_content_id.style.display = "none"
 
         news_id_right.style.display = "none";
         tv_id_right.style.display = "none";
@@ -285,7 +314,7 @@ function tabclick(clicked_id) {
             news_content_id.style.display = "none";
             crowdpac_tv_content_id.style.display = "none"
             petition_content_id.style.display = "none"
-            /*members_content_id.style.display="none" */
+            members_content_id.style.display = "block"
 
             news_id_right.style.display = "none";
             tv_id_right.style.display = "none";

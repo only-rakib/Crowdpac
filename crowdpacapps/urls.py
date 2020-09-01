@@ -2,8 +2,8 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.home_view, name='home'),
-    path('home/', views.home_view, name='home'),
+    path('', views.social_feed_View, name='home'),
+    path('home/', views.social_feed_View, name='home'),
     path('feed/', views.social_feed_View, name='feed'),
     path('view_campaign/', views.view_campaignView, name='view_campaign'),
     path('view_petitions/', views.view_petitionsView, name='view_petitions'),
@@ -23,8 +23,14 @@ urlpatterns = [
     path('remaind/', views.remaind_view, name='remaind'),
     path('start_rally/', views.start_rally_view, name='start_rally'),
     path('notifications/', views.notifications_view, name='notifications'),
+    path('learn/', views.how_it_works_view, name='learn'),
+
+    path('innovative_fundraising/',
+         views.innovative_fundraising_view, name='innovative_fundraising'),
     path('campaign_create_conditional_view/', views.campaign_create_conditional_view,
-         name='campaign_create_conditional_view'),
+         name='campaign_create_conditional'),
+    path('connections/', views.connection_view, name='connections'),
+    path('endorsements/', views.endorsements_view, name='endorsements'),
 
 
 ]

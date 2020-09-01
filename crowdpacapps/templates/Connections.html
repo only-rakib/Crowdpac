@@ -1,0 +1,86 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+<title>
+    My Connections | Crowdpac
+</title>
+{%endblock title%}
+{%block container%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row" style="margin-top: 1rem">
+                <div class="col-12 text-center">
+                    <h2 class="title2">My Connections</h2>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 2rem">
+                <div class="col-12 text-center mini-recipient__title">
+                    <p>You currently have no connections!</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 2rem">
+                <div class="col text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="82" height="83" viewBox="0 0 94 95" aria-labelledby="">
+                        <title id="" lang="en"></title>
+                        <g fill="currentColor" stroke="none">
+                            <g>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color: rgb(248, 54, 0); stop-opacity: 1;"></stop>
+                                        <stop offset="100%" style="stop-color: rgb(254, 140, 0); stop-opacity: 1;"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g>
+                                    <path d="M61.3095 32.8998C60.7095 27.3998 56.0095 23.2998 50.5095 23.2998H42.9095C37.4095 23.2998 32.8095 27.3998 32.1095 32.8998L31.0095 41.7998C30.9095 42.8998 31.6095 43.9998 32.7095 44.2998C37.1095 45.1998 41.8095 45.6998 46.6095 45.6998C51.4095 45.6998 56.2095 45.1998 60.5095 44.2998C61.6095 44.0998 62.4095 42.9998 62.2095 41.7998L61.3095 32.8998Z" fill="url(#grad1)"></path>
+                                    <path d="M46.7097 20.6C52.3982 20.6 57.0097 15.9885 57.0097 10.3C57.0097 4.61147 52.3982 0 46.7097 0C41.0211 0 36.4097 4.61147 36.4097 10.3C36.4097 15.9885 41.0211 20.6 46.7097 20.6Z" fill="url(#grad1)"></path>
+                                    <path d="M19.5095 72.6001H11.9095C6.40948 72.6001 1.80948 76.7001 1.10948 82.2001L0.00947502 91.1001C-0.090525 92.2001 0.609475 93.3001 1.70948 93.6001C6.10948 94.5001 10.8095 95.0001 15.6095 95.0001C20.5095 95.0001 25.2095 94.5001 29.5095 93.6001C30.6095 93.4001 31.4095 92.3001 31.2095 91.1001L30.1095 82.2001C29.6095 76.7001 25.0095 72.6001 19.5095 72.6001Z" fill="url(#grad1)"></path>
+                                    <path d="M15.7097 69.8998C21.3982 69.8998 26.0097 65.2883 26.0097 59.5998C26.0097 53.9113 21.3982 49.2998 15.7097 49.2998C10.0211 49.2998 5.40967 53.9113 5.40967 59.5998C5.40967 65.2883 10.0211 69.8998 15.7097 69.8998Z" fill="url(#grad1)"></path>
+                                    <path d="M92.4096 82.2001C91.8096 76.7001 87.1096 72.6001 81.6096 72.6001H74.0096C68.5096 72.6001 63.9096 76.7001 63.2096 82.2001L62.1096 91.1001C62.0096 92.2001 62.7096 93.3001 63.8096 93.6001C68.2096 94.5001 72.9096 95.0001 77.7096 95.0001C82.6096 95.0001 87.3096 94.5001 91.6096 93.6001C92.7096 93.4001 93.5096 92.3001 93.3096 91.1001L92.4096 82.2001Z" fill="url(#grad1)"></path>
+                                    <path d="M77.7097 69.8998C83.3982 69.8998 88.0097 65.2883 88.0097 59.5998C88.0097 53.9113 83.3982 49.2998 77.7097 49.2998C72.0211 49.2998 67.4097 53.9113 67.4097 59.5998C67.4097 65.2883 72.0211 69.8998 77.7097 69.8998Z" fill="url(#grad1)"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="row" style="margin-top:2rem ">
+                <div class="col-12 text-center">
+                    <a href="{% url 'feed' %}#members_tab" class="btnr red campaign"><span class="button__content"><span>
+                                Browse Crowdpac Members
+                            </span></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 col-connection mini-recipient__title" style="margin-top: 5rem">
+            <div class="row">
+                <div class="col-8">
+                    <p><a style="color: black" href="#">My connection</a></p>
+                </div>
+                <div class="col-4">
+                    <span style="color: #E03200">(0)</span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-8">
+                    <p><a style="color: black" href="#">Pending</a></p>
+                </div>
+                <div class="col-4">
+                    <span style="color: #E03200">(0)</span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-8">
+                    <p><a style="color: black" href="#">Following</a></p>
+                </div>
+                <div class="col-4">
+                    <span style="color: #E03200">(0)</span>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+{%endblock container%}

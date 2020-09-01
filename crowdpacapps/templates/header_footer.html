@@ -58,10 +58,14 @@
                             </span>
                             {% endif %}
                         </a>
-                        <div class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                        <div id="dd-menu" class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="{% url 'my_campaigns' %}">My Campaigns</a>
+                            <a class="dropdown-item" href="{% url 'my_campaigns' %}">My Contributions</a>
+                            <a class="dropdown-item" href="{% url 'endorsements' %}">My Endorsements</a>
+                            <a class="dropdown-item" href="{% url 'connections' %}">My Connections</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">Sign Out</a>
                         </div>
                     </div>
                     {% else %}
@@ -77,7 +81,7 @@
                         <a class="clsm" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item site-header">
-                        <a class="clsm" href="{% url 'home' %}">How It Works</a>
+                        <a class="clsm" href="{% url 'learn' %}">How It Works</a>
                     </li>
                     <li class="nav-item site-header">
                         <a class="clsm" href="{% url 'start_campaign' %}">Start a Campaign</a>
@@ -102,7 +106,7 @@
         '                        <a class="clsm" href="{% url "home" %}">Home</a>' +
         '                    </li>' +
         '                    <li class="nav-item site-header">' +
-        '                        <a class="clsm" href="{% url "home" %}">How It Works</a>' +
+        '                        <a class="clsm" href="{% url "learn" %}">How It Works</a>' +
         '                    </li>' +
         '                    <li class="nav-item site-header">' +
         '                        <a class="clsm" href="{% url "start_campaign" %}">Start a Campaign</a>' +
@@ -125,10 +129,8 @@
         if ($(window).width() <= 767) {
             $("#navbarSupportedContent").empty();
             $("#navbarSupportedContent").append(navCollapseItems);
-        }
-        else
-        {
-             $("#navbarSupportedContent").empty();
+        } else {
+            $("#navbarSupportedContent").empty();
             //alert("message?: DOMString");
         }
     });
@@ -149,21 +151,35 @@
             cls[i].style.paddingTop = '0px';
         }
     }
-    $(document).ready(function() {
 
-        $("#navbarDropdownMenuLink").hover(function() {
 
-            var dropdownMenu = $(this).children(".dropdown-menu,.custom");
+    $("#navbarDropdownMenuLink").hover(function() {
 
-            if (dropdownMenu.is(":visible")) {
+        //var dropdownMenu = $(this).children("#dd-menu");
+        /*console.log(dropdownMenu)
+        if (dropdownMenu.is(":visible")) {
 
-                dropdownMenu.parent().toggleClass("open");
+            dropdownMenu.parent().toggleClass("open");
 
-            }
+        }*/
+        $("#dd-menu").show();
 
-        });
-
+    },
+    function()
+    {
+        $("#dd-menu").hide();
     });
+
+    $("#dd-menu").hover(function() {
+
+        $("#dd-menu").show();
+
+    },
+    function()
+    {
+        $("#dd-menu").hide();
+    });
+    
     </script>
     <!--nav part end here-->
     {% block container %} {% endblock container %} {% block style %} {% endblock style %}
@@ -191,7 +207,7 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4">
                 <p>Campaigns</p>
-                <li>How It Works</li>
+                <li><a class="clsm" href="{% url 'learn' %}">How It Works</a></li>
                 <li>Start A Campaign</li>
             </div>
         </div>

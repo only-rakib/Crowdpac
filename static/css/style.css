@@ -11,12 +11,12 @@ a {
 a:hover {
     text-decoration: none;
 }
-
+*/
 ul,
 ol {
     list-style-type: none;
 }
-
+/*
 img {
     width: 100%;
     vertical-align: middle;
@@ -98,16 +98,13 @@ a.clsm:hover {
 
 .dropdown-menu.custom {
 
-    border: none;
+    
     border-radius: -16px;
     right: 0;
     left: auto;
+    z-index: 99999;
 }
 
-/*#navbarSupportedContent
-{
-    display: none;
-}*/
 
 /******************************* nav part start here***************************************/
 /***************************** banner part start here**************************************/
@@ -119,7 +116,7 @@ a.clsm:hover {
 
 
 .banner__part1 {
-    background-image: url('../images/banner.png');
+    background-image: url('/static/images/banner.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -448,7 +445,7 @@ a.clsm:hover {
 /*******************************banner part3 start here******************************/
 
 .banner__part3 {
-    background-image: url('../images/email-subscribe-bg.png');
+    background-image: url('/static/images/email-subscribe-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -863,7 +860,7 @@ button.like-link2 {
 @media(min-width: 576px) and (max-width: 767.98px) {
 
     .banner__part1 {
-        background-image: url('../images/mobile-png.png');
+        background-image: url('/static/images/mobile-png.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -1046,7 +1043,7 @@ button.like-link2 {
 /***********************/
 /***************************bannerpart start here**********************************/
 .banner__part-learn {
-    background-image: url('../images/aq8dz00kpvwnryd9gjbm.png');
+    background-image: url('/static/images/aq8dz00kpvwnryd9gjbm.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -1077,3 +1074,709 @@ button.like-link2 {
     font-weight: 700;
     line-height: 1.1;
 }
+/*Learn part design*/
+/***********************/
+/***************************bannerpart start here**********************************/
+
+.banner__part-learn{
+    background-image: url('../images/aq8dz00kpvwnryd9gjbm.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+}
+.banner__part-learn:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.4);
+    z-index: -1;
+
+
+}
+.head__padding{
+    padding-top: 8rem;
+}
+.banner__button-head_learn{
+    
+        padding-top: 2rem;
+        padding-bottom: 8rem;
+}
+.banner__button-head_learn a{
+        padding: 0.9em 4em;
+        cursor: pointer;
+        background: #ff4814;
+        line-height: 1.3;
+        color: #fff;
+        display: inline-block;
+        border-radius: .5rem;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+}
+
+.common__title{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.banner__head-text1 p{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 62px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/**************service part start here****************/
+.service__part{
+    background: #F6F6F6;
+}
+.service__part-l1{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.service__part-l1 p{
+    color: #000;
+    font-family: 'Rooney-Web', Georgia, serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.3;
+    width: 58%;
+    margin: auto;
+}
+.service__part-l1 p span{
+    color: #ff4814;
+}
+/**************service part end here****************/
+/*Help page start here*/
+.learn__help-p{
+    padding-top: 5rem;
+}
+.learn__title2 p{
+    margin-bottom: 0;
+    
+}
+.common__subhedding-all{
+    font-family: 'Proxima-Nova', Helvetica, sans-serif;
+    font-size: 24px;
+}
+.common__text-css-all{
+    color: #787878;
+    font-family: 'Proxima-Nova', Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+/*slider part start*/
+/* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+/*slider part end*/
+.slide__top-bottom-padding-carousel{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.slide__image-area{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    
+}
+.slide__image{
+    height: 28rem;
+    width: 35rem;
+}
+.custom__carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 43%;
+    z-index: 10;
+    padding: 1rem 1rem 4rem 4rem;
+    color: #fff;
+    text-align: left;
+    background: #fff;
+
+}
+.custom__carousel-caption p{
+    margin-bottom: 0;
+    
+}
+.top__button-slider{
+    display: inline-block;
+    padding: 15px 25px;
+    font-weight: bold;
+    background: #FF4814;
+    border-radius: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    top: -25px;
+}
+.heading__slider-text{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #FF4814;
+}
+
+@media(max-width: 575.99px){
+.service__part-l1 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.common__title {
+    line-height: 1;
+    font-size: 42px;
+}
+.btn__last-section-button a {
+    padding: 1em 5em !important;
+    
+}
+#slider__learn-section{
+    display: none;
+}
+.custom__css-learn-sm{
+    flex: 0 0 50% !important;
+    max-width: 99.5% !important;
+}
+
+}
+@media(min-width: 576px) and (max-width: 767.98px){
+
+
+}
+
+
+
+/*carousel design what is my customization*/
+.box--light-shaded {
+    background: #F6F6F6;
+}
+.box--squared {
+    border-radius: 0px;
+}
+.box {
+    color: #000;
+    overflow: hidden;
+    transition: all 400ms;
+}
+.testimonials--inner-wrapper {
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 90%;
+    position: relative;
+}
+.unstyled-button:not(:disabled) {
+    cursor: pointer;
+}
+
+/*carousel design what is my customization*/
+
+
+
+.slider__promote{
+    background: rgb(239, 239, 239);
+}
+.slide__top-bottom-padding{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.slider__head-text{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.slider__head-text h2{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.text__box{
+    position: relative;
+}
+.text_area__slide-learn{
+    background: #fff;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.11) -4px 6px 8px;
+    box-sizing: border-box;
+    padding: 2em 3em;
+    width: 62%;
+    bottom: 8%;
+    left: 70%;
+}
+
+
+
+
+
+
+
+/*Help page end here*/
+.explore-card--text{
+    border-radius: 7px;
+    padding-top: 1.5em;
+    padding-left: 2em;
+    padding-bottom: 1.5em;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+.explore-card--text:hover{
+    background-color: #c1c1c1;
+}
+
+
+/**************************banner part2 start**************************/
+.banner__part2-learn{
+    background-image: url('../images/jnmqdign2c4ftqh97hpc.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.banner__part2-learn:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.4);
+    z-index: -1;
+
+
+}
+.top__padding-banner2{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.banner__part2-learn-left p{
+    color: #fff;
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0;
+}
+.banner__list{
+    padding: 1.1rem 0;
+}
+.banner__list ul li{
+    position: relative;
+    color: #fff;
+    font-family: 'Proxima-Nova', Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0;
+    
+}
+.banner__list ul li:after{
+    content: '';
+    background: url('../svg/bullet.svg');
+    background-size: contain;
+    position: absolute;
+    height: 13px;
+    width: 10px;
+    left: -22px;
+    top: 4px;
+
+}
+/*progress bar start here*/
+
+.progress__bar-padding{
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+.card__progress {
+    border-color: transparent;
+    width: 100%;
+}
+.card-img-section{
+    width: 60%;
+    margin: auto;
+}
+
+/***************************last card section**************************/
+
+
+
+
+
+.last__card-heading{
+    padding-bottom: 1rem;
+}
+.card__last-section-card{
+    padding-bottom: 2rem;
+}
+.last__card-heading h3{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.last__card-section-background{
+    background: #F6F6F6;
+}
+
+.heading__card-item-text{
+    font-family: 'Proxima-Nova', Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.3;
+    color: #64acc4;
+}
+.color__card{
+    color: #ff4814;
+}
+.card__content-final{
+    line-height: 1.5;
+}
+
+
+/**************************last header part**************************/
+.Padding__last-section{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+.last__header-heading h3{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+
+}
+.btn__last-section-button{
+    padding-top: 3rem;
+}
+.btn__last-section-button a{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Proxima-Nova', Helvetica, sans-serif;
+    justify-content: center;
+    padding: 1em 8em;
+    line-height: 1.3;
+    text-align: center;
+    background-color: #ff4814;
+    color:#fff;
+    border-radius: .4rem;
+}
+@media(max-width: 575.99px){
+        .banner__part-learn{
+    background-image: url('../images/aq8dz00kpvwnryd9gjbm.png');
+    background-position: right 25% center;
+    background-size: cover;
+    position:relative;
+    overflow hidden;
+}
+}
+@media(min-width: 576px) and (max-width: 767.98px){
+    .banner__part-learn{
+    background-image: url('../images/aq8dz00kpvwnryd9gjbm.png');
+    background-position: right 25% center;
+    background-size: cover;
+    position:relative;
+    overflow hidden;
+}
+
+}
+/*==============learn end========================*/
+/*************************promote page start here**********************/
+.banner__part-promote{
+    background-image: url('../images/kuq5azpx4nynamy4mjky.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+}
+.banner__part-promote:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.4);
+    z-index: -1;
+
+
+}
+.head__padding-promote{
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+
+.banner__head-text-promote p{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 62px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+/*************************promote page start here**********************/
+
+
+
+
+
+
+/**************************************************************/
+.banner__button-head_promote{
+    
+        padding-top: 2rem;
+        padding-bottom: 8rem;
+}
+.banner__button-head_promote a{
+        padding: 0.8em 1.6em;
+        cursor: pointer;
+        background: #ff4814;
+        line-height: 1.3;
+        color: #fff;
+        display: inline-block;
+        border-radius: .5rem;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+}
+.service__part-first-p{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.promote__service-first-header{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.promote__service-first-header p{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.promote__service-body-first-text{
+    padding-bottom: 4rem;
+}
+.promote__service-body-first-text p{
+    color: #343434;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.promote__service-body-head-text2{
+    padding-top: 7rem;
+    padding-bottom: 1rem;
+}
+.promote__service-body-head-text2{
+    color: #343434;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.promote__service-body-head-text2 h4{
+    font-family: 'Acta-Display';
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/*service 2nd part start*/
+.promote__service-2nd-part{
+    background: #F6F6F6;
+}
+.promote__service-part-2nd-p{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+
+.carousel-control-next-icon {
+    background-image: url("/static/images/arrow_next.svg");
+    color: #c6c6c6;
+    font-size: 40px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("/static/images/arrow_back.svg");
+    color: #c6c6c6;
+    font-size: 40px;
+
+}
+
+
+.background-image__image{
+    background-image: url('/static/images/chovfhagbxchhublwpov.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.background-image__image:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.3);
+    z-index: -1;
+
+
+
+}
+.background-image__image1{
+    background-image: url('/static/images/pkymht79c2ilw8dwe5tk.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.background-image__image1:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.3);
+    z-index: -1;
+
+
+
+}
+.background-image__image2{
+    background-image: url('/static/images/zgemflguii4qy9wnhrub.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.background-image__image2:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.3);
+    z-index: -1;
+
+
+
+}
+.slider__promote{
+    background: rgb(239, 239, 239);
+}
+.slide__top-bottom-padding{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.slider__head-text{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.slider__head-text h2{
+    font-family: 'Acta-Display', Didot, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.text__box{
+    position: relative;
+}
+.text_area{
+    background: #fff;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.11) -4px 6px 8px;
+    box-sizing: border-box;
+    padding: 2em 3em;
+    width: 90%;
+    bottom: 8%;
+    left: 45%;
+}
+
+
+/************************promote page responsive here***************************/
+@media(max-width: 575.99px){
+    .service__part-first-p{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+    .promote__service-body-head-text2{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+    .promote__service-part-2nd-p{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+    .promote__service-body-first-text{
+    padding-bottom: 2rem;
+}
+}
+@media(min-width: 576px) and (max-width: 767.98px){
+.service__part-first-p{
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+    .promote__service-body-head-text2{
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+    .promote__service-part-2nd-p{
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+
+    .promote__service-body-first-text{
+    padding-bottom: 2rem;
+}
+    
+}
+@media(min-width: 768px) and (max-width: 1024px){
+    
+
+}
+/*************************promote page responsive here**************************/
+
+

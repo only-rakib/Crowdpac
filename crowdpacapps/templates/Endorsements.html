@@ -1,0 +1,44 @@
+{% extends 'header_footer.html' %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+{% block container %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-5">
+            <h3 class="title2">My Endorsements</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <a class="mini-recipient color" href="#">Crowdpac Campaign</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 candidate-name mt-1">
+                    <a href="#" style="color:#121212" class="color title3"><strong>Rent Strike 2020</strong></a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <img class="media-object" style="border-radius: 50%;border: solid 3px #e6e6e6;width: 40px;height: 40px" src="{%static 'images/cxrs4fuvddbvv7ncvoba.jpg'%}">
+                    <span style="position: absolute;margin-top: 8px;margin-left: 8px">You endorsed on 8/7/2020</span>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-5" style="margin-top: 1rem">
+                    <a href="#" class="btnr" style="width: 100%;height: 100%">Add a message</a>
+                </div>
+                <div class="col-sm-6" style="margin-top: 1rem">
+                        <a href="#" class="btnr btnr-light" style="width: 100%;height: 100%">remove endorsement</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+        </div>
+    </div>
+</div>
+{% endblock container %}

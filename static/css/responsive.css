@@ -46,6 +46,10 @@
     {
         width: auto;
     }
+    .col-connection
+    {
+        display: none;
+    }
 
 }
 
