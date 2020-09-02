@@ -644,3 +644,11 @@ def connection_view(request):
 
 def endorsements_view(request):
     return render(request, 'Endorsements.html')
+
+
+def start_petition_view(request):
+    return render(request, 'startpetitions.html')
+
+
+def my_contributions_view(request):
+    return render(request, 'my_contributions.html')

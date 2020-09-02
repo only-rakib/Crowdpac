@@ -1012,19 +1012,16 @@ button.like-link2 {
 }
 
 
-.sidebar-item {
+/*.sidebar-item {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
-    /* Position the items */
-    // &:nth-child(2) { top: 25%; }
-    // &:nth-child(3) { top: 50%; }
-    // &:nth-child(4) { top: 75%; }
+    
 }
-
+*/
 
 .make-me-sticky {
     position: -webkit-sticky;
@@ -1780,3 +1777,25 @@ button.like-link2 {
 /*************************promote page responsive here**************************/
 
 
+/*=====my contribution start=====*/
+.box--shaded {
+    background: rgba(127, 127, 127, 0.1);
+}
+.box--error {
+    border: 1px solid red;
+}
+.box {
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 400ms;
+
+}
+.box p{
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+margin-bottom: 0;
+padding: .8rem 0;
+}
+/*=====my contribution end=======*/

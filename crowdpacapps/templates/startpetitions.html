@@ -1,0 +1,176 @@
+{% extends 'header_footer.html' %} {% load static %}
+{% block title %}
+<script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script>
+<title>New Petition | Crowdpac | Crowdpac</title>
+{% endblock title %} {% block container %}
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="row" style="margin-top: 3rem">
+                <div class="col text-center">
+                    <img src="{%static 'svg/document.svg'%}">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1rem">
+                <div class="col text-center">
+                    <h2 class="title3">Start A Petition</h2>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3rem">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label style="float: left;">Petition Title</label>
+                            <label class="mini-recipient" style="float: right;">
+                                Required</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="campaign_title" id="campaign_title_id" maxlength="75" style="width: 100%" placeholder="E.g. Former Marine to Reform VA">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span class="mini-recipient" id="campaign_title_remainchar">75/75 characters remaining.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3rem">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label style="float: left;">Your Petition Story</label>
+                            <label class="mini-recipient" style="float: right;">
+                                Required</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <textarea name="editor" id="editor" placeholder="What do petitioners need to know ? All petitioners will see this story so it's important to craft a very good one!"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3rem">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label style="float: left;">
+                                Petition Image</label>
+                            <label class="mini-recipient" style="float: right;">
+                                Required</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mini-recipient">
+                            Select an image from your computer, drag to position it, and use the slider to adjust the zoom. We recommend using a JPEG or PNG that's at least 1240 pixels wide by 740 pixels tall.
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: .8rem">
+                        <div class="col" style="background: #F6F6F6;border-radius: 5px;">
+                            <div style="border:1px solid #F6F6F6;padding: 3rem 3rem;">
+                                <div style="width: 100%;height: 30vw;border:1px solid #cccccc;text-align: center;align-content: center;border-radius: 5px;">
+                                    <img id="campaignImage" src="#" style="width: 100%;height: 100%;color: transparent;" alt=".">
+                                    <button type="button" class="btnr" id="upfile1" style="margin-top: 15vw">
+                                        Select an Image
+                                    </button>
+                                    <input type="file" accept="image/jpeg,image/png" id="file1" name="file1" style="display:none" />
+                                    <button type="button" class="btnr" id="removefile" style="display:none;float:right;margin-top: .8rem">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3rem">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label style="float: left;">
+                                Issues</label>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col">
+                    		<label class="mini-recipient">Let petition signers know what you care about by tagging your petition with up to 5 issues.</label>
+                    	</div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-4" style="margin-top: 1rem">
+                    		<button class="btnr btnr-light" style="border-radius:50px;height: 100%"><img src="{%static 'svg/campaign_finace.svg'%}" >Campaign Finance Reform</button>
+                    	</div>
+                    	<div class="col-4" style="margin-top: 1rem">
+                    		<button class="btnr btnr-light" style="border-radius:50px;height: 100%"><img src="{%static 'svg/campaign_finace.svg'%}" >Campaign Finance Reform</button>
+                    	</div>
+                    	<div class="col-4" style="margin-top: 1rem">
+                    		<button class="btnr btnr-light" style="border-radius:50px;height: 100%"><img src="{%static 'svg/campaign_finace.svg'%}" >Campaign Finance Reform</button>
+                    	</div>
+                    	<div class="col-4" style="margin-top: 1rem">
+                    		<button class="btnr btnr-light" style="border-radius:50px;height: 100%"><img src="{%static 'svg/campaign_finace.svg'%}" >Campaign Finance Reform</button>
+                    	</div>
+                    	<div class="col-4" style="margin-top: 1rem">
+                    		<button class="btnr btnr-light" style="border-radius:50px;height: 100%"><img src="{%static 'svg/campaign_finace.svg'%}" >Campaign Finance Reform</button>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+CKEDITOR.replace('editor');
+$("#upfile1").click(function() {
+    $("#file1").trigger('click');
+});
+
+function readURL(input) {
+    console.log(input.id);
+    if (input.id == "file1") {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#campaignImage').attr('src', e.target.result);
+                if (e.target.result != null) {
+                    $('#upfile1').hide();
+                    $('#removefile').show();
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    } else if (input.id == "file3") {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#candidate_head_shot').attr('src', e.target.result);
+                if (e.target.result != null) {
+                    $('#upfile3').hide();
+                    $('#removefile3').show();
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+}
+$("#file1").change(function() {
+    readURL(this);
+});
+$("#removefile").click(function() {
+    $('#campaignImage').attr('src', "");
+    $('#upfile1').show();
+    $('#removefile').hide();
+});
+$("#campaign_title_id").keyup(function() {
+    campaign_title_pressed = false;
+    var trig = this.value.length;
+    var a = 75 - trig;
+    a = a.toString();
+    trig++;
+    $("#campaign_title_remainchar").text(a + "/75 characters remaining.");
+});
+</script>
+{%endblock container%}

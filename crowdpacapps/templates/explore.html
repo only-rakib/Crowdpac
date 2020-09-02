@@ -1,300 +1,71 @@
-{% extends 'header_footer.html' %}
 {% load static %}
-{% block title %}
-{% endblock title %}
-{% block container %}
-<!------------------------------ ----banner first part start here---------------------------------->
-<section exp__part>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-11 exp__head-text ex__top-padding m-auto text-center">
-                        <p>Browse our campaigns to </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-11 exp__head-text m-auto text-center ex__bottom-padding ">
-                        <p>make an impact today</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-11">
-                <div class="row">
-                    <div class="col-9  mr-auto">
-                        <form class="card card-sm">
-                            <div class="card-body row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <i class="fas scarch__icon fa-search h4 text-body"></i>
-                                </div>
-                                <!--end of col-->
-                                <div class="col">
-                                    <input class="form-control form__input form-control-borderless" type="search">
-                                </div>
-                                <!--end of col-->
-                                <div class="col-auto">
-                                    <a class="clsm" href="#">clear</a>
-                                </div>
-                                <!--end of col-->
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn__search" type="submit">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-sm-10 offset-sm-1">
+        <h2 class="title2 text-center">Explore Campaigns</h2>
     </div>
-</section>
-<!----------------------------------campaign teaily part end here------------------------------->
-<section class="content-area">
-    <div class="container">
-        <div class="row">
-            <div id="left" class="col-lg-3 col-md-3 col-sm-12">
-                <div class="sidebar-item">
-                    <div class="make-me-sticky" style=" overflow-y: scroll;height: 100vh;
-  ">
-                        <div>
-                            <h3 class="content-short">Sort by</h3>
-                        </div>
-                        <div>
-                            <form>
-                                <input type="radio" id="mal" name="people" value="male">
-                                <label for="mal1">Popular this week </label><br>
-                                <input type="radio" id="mal2" name="people" value="female">
-                                <label for="mal2">Closest to goal </label><br>
-                                <input type="radio" id="mal3" name="people" value="other">
-                                <label for="mal3">Most funds raised</label><br>
-                                <input type="radio" id="mal4" name="people" value="other">
-                                <label for="mal4">Recently updated </label>
-                            </form>
-                        </div>
-                        <hr>
-                        <div>
-                            <h3 class="content-short">Filter by</h3>
-                            <h6>
-                                <strong>Tags</strong>
-                            </h6>
-                        </div>
-                        <div>
-                            <form>
-                                <form action="/action_page.php">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Campaign Finance Reform </label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2">Civil Rights </label><br>
-                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                                    <label for="vehicle3">Criminal Justice Reform </label><br>
-                                    <button class="unstyled-button like-link" type="button"><strong>+ More tags</strong> </button>
-                                </form>
-                            </form>
-                        </div>
-                        <div>
-                            <h6>
-                                <strong>State (1)</strong>
-                            </h6>
-                        </div>
-                        <div>
-                            <form>
-                                <form action="/action_page.php">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Alabama </label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2">Alaska </label><br>
-                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                                    <label for="vehicle3">Arizona </label><br>
-                                    <button class="unstyled-button like-link2" type="button"><strong>+ More states</strong> </button>
-                                </form>
-                            </form>
-                        </div>
-                        <div>
-                            <h6><strong>Recipient Type</strong></h6>
-                        </div>
-                        <div>
-                            <form>
-                                <form action="/action_page.php">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Candidate </label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2">Organization </label><br>
-                                </form>
-                            </form>
-                        </div>
-                        <div>
-                            <h6><strong>Election Year </strong></h6>
-                        </div>
-                        <div>
-                            <form>
-                                <form action="/action_page.php">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">2020</label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2">2021</label><br>
-                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                                    <label for="vehicle3">2022</label><br>
-                                </form>
-                            </form>
-                        </div>
-                        <div>
-                            <h6><strong>Candidate Gender </strong></h6>
-                        </div>
-                        <div>
-                            <form>
-                                <form action="/action_page.php">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Male</label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2">Female</label><br>
-                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                                    <label for="vehicle3">Unspecified </label><br>
-                                </form>
-                            </form>
-                        </div>
-                        <div>
-                            <h6>
-                                <strong>Political Affiliation </strong>
-                            </h6>
-                        </div>
-                        <div>
-                            <form>
-                                <form action="/action_page.php">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Democrat </label><br>
-                                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                                    <label for="vehicle2">Independent </label><br>
-                                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                                    <label for="vehicle3">Green </label><br>
-                                    <button class="unstyled-button like-link2" type="button"><strong>+ More affiliations</strong> </button>
-                                </form>
-                            </form>
-                        </div>
+</div>
+<div class="row">
+    <div class="col">
+        <i class="fas scarch__icon fa-search h4 text-body" style="position: absolute;top:10px;margin-left:5px"></i>
+        <input class="form-control" type="search" style="padding-left: 30px">
+        <a class="rclst" style="position: absolute;top:5px;right: 20px" href="#">clear</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <a href="{% url 'view_campaign' %}" class="rcls" style="color:initial">
+            <div class="card class_not_hover_cursor_hand" style="padding: 1rem;margin-top: 2rem">
+                <h5 class="card-title">26-year old truck driver & climate activist fighting for the working class </h5>
+                <img src="{% static 'images/cyst94ggea6r6iag1568.png'%}" alt="Card image cap" class="card-img-top">
+                <div class="card-body" style="padding: 0px">
+                    <h6>Joshua Collins</h6>
+                    <p class="card-text text-justify">2020 U.S. House, 10th District, WA</p>
+                    <hr>
+                    <p class="card-text text-justify">I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...</p>
+                    <div class="btn-card-bg">
+                        <a class="clsm" href="#">
+                            <span class="badge text__badge">Climate Change</span>
+                        </a>
+                        <a class="clsm" href="#">
+                            <span class="badge text__badge">Health care</span>
+                        </a>
+                        <a class="clsm" href="#">
+                            <span class="badge text__badge">Immigration Reform</span>
+                        </a>
+                        <a class="clsm" href="#">
+                            <span class="badge text__badge">LGBTQ Rights Inequality</span>
+                        </a>
+                        <a class="clsm" href="#">
+                            <span class="badge text__badge">Income Inequality</span>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-12">
-                <div class="content-section">
-                    <div class="row justify-content-center standard-row">
-                        <div class="col-md-6 col-12 std-cols">
-                            <div class="card border-1" style="height: 100%">
-                                <div class="img-animation">
-                                    <img src="{% static 'images/cyst94ggea6r6iag1568.png'%}" alt="Card image cap" class="img-fluid">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">26-year old truck driver & climate activist fighting for the working class </h5>
-                                    <h6>Joshua Collins</h6>
-                                    <p class="card-text text-justify">2020 U.S. House, 10th District, WA</p>
-                                    <hr>
-                                    <p class="card-text text-justify">I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...</p>
-                                    <div class="btn-card-bg">
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Climate Change</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Health care</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Immigration Reform</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">LGBTQ Rights Inequality</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Income Inequality</span>
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="row" style="float:left">
-                                                <div class="col">
-                                                    <strong>$868</strong>
-                                                    Raised
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="row" style="float:right">
-                                                <div class="col">
-                                                    <strong>22</strong>
-                                                    Supporters
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="progress baseball-card__progress-bar">
-                                                <div class="progress-bar baseball-card__progress-bar-fill" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row" style="float:left">
+                                <div class="col">
+                                    <strong>$868</strong>
+                                    Raised
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-12 std-cols">
-                            <div class="card border-1" style="height: 100%">
-                                <div class="img-animation">
-                                    <img src="{%static 'images/cyst94ggea6r6iag1568.png'%}" alt="Card image cap" class="img-fluid">
+                        <div class="col">
+                            <div class="row" style="float:right">
+                                <div class="col">
+                                    <strong>22</strong>
+                                    Supporters
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">26-year old truck driver & climate activist fighting for the working class </h5>
-                                    <h6>Joshua Collins</h6>
-                                    <p class="card-text text-justify">2020 U.S. House, 10th District, WA</p>
-                                    <hr>
-                                    <p class="card-text text-justify">I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...</p>
-                                    <div class="btn-card-bg">
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Climate Change</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Health care</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Immigration Reform</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">LGBTQ Rights Inequality</span>
-                                        </a>
-                                        <a class="clsm" href="#">
-                                            <span class="badge text__badge">Income Inequality</span>
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="row" style="float:left">
-                                                <div class="col">
-                                                    <strong>$868</strong>
-                                                    Raised
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="row" style="float:right">
-                                                <div class="col">
-                                                    <strong>22</strong>
-                                                    Supporters
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="progress baseball-card__progress-bar">
-                                                <div class="progress-bar baseball-card__progress-bar-fill" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="progress baseball-card__progress-bar">
+                                <div class="progress-bar baseball-card__progress-bar-fill" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-</section>
-{% endblock container %}
+        </a>
+    </div>
+</div>

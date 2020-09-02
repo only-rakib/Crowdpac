@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %} ">
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %} ">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
+    <link rel="shortcut icon" type="image/x-icon" href="{%static 'images/favicon.ico'%}" />
     {% block title %} {% endblock title %}
 </head>
 
@@ -38,7 +39,7 @@
                     <a class="btn btn-outline-success my-2 my-sm-0 header__button" href="{%url 'start_campaign' %}">Start a Campaign
                     </a>
                     <div class="header__search">
-                        <a class="nav-item nav-link" href="#"><i class="fas fa-search"></i></a>
+                        <a class="nav-item nav-link" href="#" onclick="toggleSearch()"><i class="fas fa-search"></i></a>
                     </div>
                     {% if contain_user_data.login == 'True' %}
                     <div class="header__search">
@@ -61,7 +62,7 @@
                         <div id="dd-menu" class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">Profile</a>
                             <a class="dropdown-item" href="{% url 'my_campaigns' %}">My Campaigns</a>
-                            <a class="dropdown-item" href="{% url 'my_campaigns' %}">My Contributions</a>
+                            <a class="dropdown-item" href="{% url 'my_contributions' %}">My Contributions</a>
                             <a class="dropdown-item" href="{% url 'endorsements' %}">My Endorsements</a>
                             <a class="dropdown-item" href="{% url 'connections' %}">My Connections</a>
                             <a class="dropdown-item" href="#">Settings</a>
@@ -99,7 +100,12 @@
                 </ul>
             </div>
         </nav>
+        
     </header>
+    <div id="navSearchBar" style="width: 100%;display: none">
+            <i style="position: absolute;margin-left: 5px;margin-top: 10px" class="fas scarch__icon fa-search h4 text-body"></i>
+            <input type="text" name="" style="width: 100%;font-size: 20px;padding-left: 20px;padding-top: .25rem;padding-bottom: .25rem" placeholder="Search our campaigns" >
+        </div>
     <script type="text/javascript">
     var navCollapseItems = '<ul class="navbar-nav mr-auto">' +
         '                    <li class="nav-item site-header">' +
@@ -153,15 +159,9 @@
     }
 
 
+
     $("#navbarDropdownMenuLink").hover(function() {
 
-        //var dropdownMenu = $(this).children("#dd-menu");
-        /*console.log(dropdownMenu)
-        if (dropdownMenu.is(":visible")) {
-
-            dropdownMenu.parent().toggleClass("open");
-
-        }*/
         $("#dd-menu").show();
 
     },
@@ -179,7 +179,10 @@
     {
         $("#dd-menu").hide();
     });
-    
+    function toggleSearch()
+    {
+        $("#navSearchBar").toggle();
+    }
     </script>
     <!--nav part end here-->
     {% block container %} {% endblock container %} {% block style %} {% endblock style %}

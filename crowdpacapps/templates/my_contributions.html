@@ -1,0 +1,43 @@
+{%extends "header_footer.html"%}
+{%load static%}
+{%block title%}
+<title>
+	Contribution history | Crowdpac
+</title>
+{%endblock title%}
+{%block container%}
+		<div class="container">
+			<ul class="nav nav-tabs r nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active page-nav-link rcls" data-toggle="tab" href="#home" class="nav-link">Contribution History</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link page-nav-link rcls" data-toggle="tab" href="#Donation" class="nav-link">Recurring Donations</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link page-nav-link rcls" data-toggle="tab" href="#Payment" class="nav-link">Payment Method</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active text-center mt-4 mb-4" id="home" role="tabpanel" aria-labelledby="home-tab">
+					<h2 class="title2">Contribution History</h2>
+					<div class="box box--outlined box--shaded box--error mt-4 mb-4">
+						<p >Please <a class="rclst" href="#">click here verify your email address</a> so that we can show you your past contributions. </p>
+					</div>
+				</div>
+				<div class="tab-pane fade text-center mt-4" id="Donation" role="tabpanel" aria-labelledby="profile-tab">
+					<h2 class="title2">Recurring Donations</h2>
+					<div class="box box--outlined box--shaded box--error mt-4 mb-4">
+						<p>Please <a class="rclst" href="#">click here verify your email address </a>so that we can show you your past contributions. </p>
+					</div>
+				</div>
+				<div class="tab-pane text-center fade mt-4" id="Payment" role="tabpanel" aria-labelledby="contact-tab">
+					<h2 class="title2">Payment Method</h2>
+					<div class="box box--outlined box--shaded box--error mt-4 mb-4">
+						<p>You haven't saved a payment method.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+{%endblock container%}

@@ -31,6 +31,8 @@ urlpatterns = [
          name='campaign_create_conditional'),
     path('connections/', views.connection_view, name='connections'),
     path('endorsements/', views.endorsements_view, name='endorsements'),
+    path('start_petition/', views.start_petition_view, name='start_petition'),
+    path('my_contributions/', views.my_contributions_view, name='my_contributions'),
 
 
 ]

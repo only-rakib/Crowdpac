@@ -483,7 +483,14 @@ border:none;
 .card_active {
     border: 1px solid #FF4814;
 }
-
+/*.card.class_not_hover_cursor_hand
+{
+    cursor: pointer;
+}*/
+.card.class_not_hover_cursor_hand:hover
+{
+    border: 1px solid rgba(0,0,0,.125);
+}
 /*
 .card > .list-group {
 border: none;
@@ -645,6 +652,16 @@ background: #FF4814;
 }
 
 /*==================Social Feed=================*/
+#campaigns_tab{
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: .5rem !important;
+}
+#campaigns_tab:hover{
+    background-color: #FFE3DA !important;
+    color: #ff4814 !important;
+}
 #news_tab {
     cursor: pointer;
     padding: 1rem;
@@ -693,8 +710,11 @@ background: #FF4814;
     color: #ff4814 !important;
 }
 
-#news_tab_right {
+#campaigns_tab_right {
     display: contents;
+}
+#news_tab_right {
+    display: none;
 }
 
 #crowdpac_tv_tab_right {
@@ -709,6 +729,9 @@ background: #FF4814;
     display: none;
 }
 
+#news_content {
+    display: none;
+}
 #crowdpac_tv_content {
     display: none;
 }
