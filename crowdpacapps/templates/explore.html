@@ -11,39 +11,42 @@
         <a class="rclst" style="position: absolute;top:5px;right: 20px" href="#">clear</a>
     </div>
 </div>
-<div class="row">
+<div class="row" style="margin-top: 1rem" id="showProperty">
+    <div class="col">
+       <a href="#" class="rclst"><i class="fas fa-filter" > Short and Filter</i></a> 
+    </div>
+</div>
+<div id="upperSelect" style="display: none;overflow: auto">
+  {% include 'explore_right.html' %}  
+</div>
+{% for var1 in campaign %}
+<div class="row" style="margin-top: 2rem">
     <div class="col">
         <a href="{% url 'view_campaign' %}" class="rcls" style="color:initial">
-            <div class="card class_not_hover_cursor_hand" style="padding: 1rem;margin-top: 2rem">
-                <h5 class="card-title">26-year old truck driver & climate activist fighting for the working class </h5>
-                <img src="{% static 'images/cyst94ggea6r6iag1568.png'%}" alt="Card image cap" class="card-img-top">
-                <div class="card-body" style="padding: 0px">
-                    <h6>Joshua Collins</h6>
-                    <p class="card-text text-justify">2020 U.S. House, 10th District, WA</p>
+            <div class="card class_not_hover_cursor_hand" style="padding: 1rem;">
+                <h5 class="card-title">{{var1.campaign_title}}</h5>
+                {% with var1.campaign_cover_image as image %}
+                <img src="{% static image%}" alt="Card image cap" class="card-img-top">
+                {% endwith %}
+                <div class="card-body" style="padding: 0px;margin-top: 1rem">
+                    <h6>{{var1.campaign_content_writer}}</h6>
+                    <p class="card-text text-justify">{{var1.campaign_content_writer_designation}}</p>
                     <hr>
-                    <p class="card-text text-justify">I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...</p>
+                    <p class="card-text text-justify">{{var1.campaign_story}}</p>
+                    
                     <div class="btn-card-bg">
+                        {% for badges in var1.campaign_content_tags %}
                         <a class="clsm" href="#">
-                            <span class="badge text__badge">Climate Change</span>
+                            <span class="badge text__badge">{{badges}}</span>
                         </a>
-                        <a class="clsm" href="#">
-                            <span class="badge text__badge">Health care</span>
-                        </a>
-                        <a class="clsm" href="#">
-                            <span class="badge text__badge">Immigration Reform</span>
-                        </a>
-                        <a class="clsm" href="#">
-                            <span class="badge text__badge">LGBTQ Rights Inequality</span>
-                        </a>
-                        <a class="clsm" href="#">
-                            <span class="badge text__badge">Income Inequality</span>
-                        </a>
+                        {% endfor %}
+                        
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="row" style="float:left">
                                 <div class="col">
-                                    <strong>$868</strong>
+                                    <strong>${{var1.campaign_raised_amount}}</strong>
                                     Raised
                                 </div>
                             </div>
@@ -51,21 +54,30 @@
                         <div class="col">
                             <div class="row" style="float:right">
                                 <div class="col">
-                                    <strong>22</strong>
+                                    <strong>{{var1.campaign_supporter}}</strong>
                                     Supporters
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    {% if var1.campaign_max_donation != "" %}
+                        <div class="row">
                         <div class="col">
                             <div class="progress baseball-card__progress-bar">
-                                <div class="progress-bar baseball-card__progress-bar-fill" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar baseball-card__progress-bar-fill" role="progressbar" style="width: {{var1.campaign_raised_amount_percentanges}}%" aria-valuenow="{{var1.campaign_raised_amount_percentanges}}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
+                    
+                    {% endif %}
                 </div>
             </div>
         </a>
     </div>
 </div>
+{% endfor %}
+<script type="text/javascript">
+    $("#showProperty").on('click',function(){
+        $("#upperSelect").toggle();
+    })
+</script>

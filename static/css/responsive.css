@@ -50,6 +50,10 @@
     {
         display: none;
     }
+    #showProperty
+    {   
+        display: block;
+    }
 
 }
 
@@ -64,5 +68,12 @@
         padding-left: 12rem;
     }
 
+}
+@media(max-width: 1700)
+{
+    #upperSelect
+    {
+        display: none !important;
+    }
 }
 

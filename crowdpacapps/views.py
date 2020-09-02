@@ -35,6 +35,39 @@ def social_feed_View(request):
     #        key=lambda objects: objects.created
     #    ))
     # paginator = Paginator(orders, 5)
+    # Campaign Start
+
+    campaign_1 = {
+
+        'campaign_title': "26-year old truck driver & climate activist fighting for the working class",
+        'campaign_cover_image': "images/cyst94ggea6r6iag1568.png",
+        'campaign_content_writer': "Joshua Collins",
+        'campaign_content_writer_designation': "2020 U.S. House, 10th District, WA",
+        'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
+        'campaign_content_tags': ['Climate Change', 'Health care', 'Immigration Reform', 'LGBTQ Rights Inequality', 'Income Inequality'],
+        'campaign_raised_amount': '868',
+        'campaign_max_donation': '',
+        'campaign_raised_amount_percentanges': (868 / 2000) * 100,
+        'campaign_supporter': 22,
+    }
+    campaign_2 = {
+
+        'campaign_title': "26-year old truck driver & climate activist fighting for the working class",
+        'campaign_cover_image': "images/cyst94ggea6r6iag1568.png",
+        'campaign_content_writer': "Joshua Collins",
+        'campaign_content_writer_designation': "2020 U.S. House, 10th District, WA",
+        'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
+        'campaign_content_tags': ['Climate Change', 'Health care', 'Immigration Reform', 'LGBTQ Rights Inequality', 'Income Inequality'],
+        'campaign_raised_amount': 868,
+        'campaign_max_donation': 2000,
+        'campaign_raised_amount_percentanges': (868 / 2000) * 100,
+        'campaign_supporter': 22,
+    }
+    lst_campaign = []
+    lst_campaign.append(campaign_1)
+    lst_campaign.append(campaign_2)
+    # Campaign end
+    # News Start
     news1 = {
         'newspaper_name': 'Plastics News',
         'date_time': 'Aug 17th 06:00 pm',
@@ -53,6 +86,9 @@ def social_feed_View(request):
     lstNews.append(news1)
     lstNews.append(news2)
 
+    # News End
+
+    # TV start
     tv1 = {
         'tv_reporter_pro_pic': 'images/lhbebvoswhrprssro4ar.jpg',
         'tv_reporter_name': 'Aimee Rivera Cole',
@@ -65,6 +101,8 @@ def social_feed_View(request):
     }
     lstTv = []
     lstTv.append(tv1)
+    # TV end
+    # petition Start
     first_topic_petition = {
 
         'reporter_pro_pic': 'lhbebvoswhrprssro4ar.jpg',
@@ -96,6 +134,8 @@ def social_feed_View(request):
     lstPetition = []
     lstPetition.append(first_topic_petition)
     lstPetition.append(second_topic_petition)
+    # petition end
+    # member Start
     member1 = {
         'member_name': 'xyz',
         "member_pro_pic": "none",
@@ -118,7 +158,8 @@ def social_feed_View(request):
     lstMember.append(member1)
     lstMember.append(member2)
     lstMember.append(member3)
-    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login, 'member': lstMember})
+    # member end
+    return render(request, 'social_feed.html', {'news': lstNews, 'tv': lstTv, 'data': lstPetition, 'login': login, 'member': lstMember, 'campaign': lst_campaign})
 
 
 def view_campaignView(request):
@@ -169,7 +210,7 @@ def view_campaignView(request):
         'end_pro_pic': 'none',
         'end_name': 'rakib',
         'end_status': 'endorsed',
-        'end_comment': '''e all need to stand together and fight for what is right. And this campaign knows what's right ''',
+        'end_comment': '''We all need to stand together and fight for what is right. And this campaign knows what's right.Praesent luctus at erat at sagittis. Etiam posuere, erat nec laoreet ornare, odio dui mattis nisl, convallis semper ligula lectus eu turpis. Phasellus pharetra risus tortor, eget fringilla tortor laoreet at. Quisque egestas tristique dui. Mauris non iaculis ex. Ut pellentesque, massa ut molestie egestas, tortor leo imperdiet sem, vitae malesuada nibh dolor in magna. Etiam pulvinar pharetra dolor, vel dapibus ipsum commodo eget. Praesent turpis odio, suscipit ut ullamcorper vel, finibus at ligula. Phasellus dolor lectus, molestie a velit sed, iaculis rhoncus risus. Ut id pellentesque erat, quis elementum ligula. Donec dignissim diam sem, a bibendum erat mattis quis. Vivamus id erat dui. Vestibulum sollicitudin ac justo at lacinia.  ''',
         'end_profile': '#',
         'end_pro_data_letter': 'r'
     }

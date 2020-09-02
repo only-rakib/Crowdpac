@@ -881,3 +881,23 @@ video.candidate-video-player {
 .navbar-right > li {
   float: left;
 }
+/*===============campaigns page==================*/
+#showProperty
+{
+    display: none;
+}
+#upperSelect
+{
+    display: none;
+}
+.hide
+{
+    display: none;
+}
+/*==========read moreless==========*/
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
