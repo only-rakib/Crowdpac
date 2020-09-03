@@ -687,7 +687,20 @@ def endorsements_view(request):
     return render(request, 'Endorsements.html')
 
 
+@csrf_exempt
 def start_petition_view(request):
+    if request.is_ajax and request.method == "POST":
+        try:
+            # this request comes from startpetitions.html
+            # optionalSettingsSave() {}
+            petition = jsonloads(
+                request.POST['start_petition'])
+            print(petition)
+            # print(optional_settings)
+        except Exception as e:
+            # print("Exception", e)
+            pass
+        return JsonResponse({'data': 'null'}, status=200)
     return render(request, 'startpetitions.html')
 
 

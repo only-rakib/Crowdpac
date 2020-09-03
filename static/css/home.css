@@ -331,7 +331,7 @@ a.social-feed-post-link {
 
 .btnr.btnr-light {
     border-color: #aaa;
-    color: #787878;;
+    color: #787878;
 }
 
 .btnr.btnr-spaced {
@@ -377,7 +377,11 @@ background-color: #fff;
     background: #aaa;
     color: black;
 }
-
+.btnr.btnr-light-not-hover
+{
+    border-color: #aaa;
+    color: #787878;
+}
 a[class^="share-network-"] {
     flex: none;
     color: #FFFFFF;
@@ -900,4 +904,25 @@ video.candidate-video-player {
 }
 .morelink {
     display: block;
+}
+a.showMore {
+  display:block;
+  font-size:16px;
+  font-weight:700;
+  /*text-transform:uppercase;*/
+  margin-top:.25rem;
+  /*color:#0077C8;*/
+  text-decoration:none;
+  
+}
+a.showMore::after {
+    content:'+ More';
+}
+a.showLess::after
+{
+    content:'- Fewer';
+}
+.item
+{
+    margin-top: .8rem;
 }
