@@ -33,6 +33,8 @@ urlpatterns = [
     path('endorsements/', views.endorsements_view, name='endorsements'),
     path('start_petition/', views.start_petition_view, name='start_petition'),
     path('my_contributions/', views.my_contributions_view, name='my_contributions'),
+    path('profile/', views.my_profile_view, name='profile'),
+    path('settings/', views.my_settings_view, name='settings'),
 
 
 ]

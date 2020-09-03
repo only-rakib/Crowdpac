@@ -629,6 +629,21 @@ background: #FF4814;
     margin-right: 1em;
     color: #ff4814;
 }
+[data-profile_letter]:before {
+    content: attr(data-profile_letter);
+    display: inline-block;
+    font-size: 6em;
+    width: 220px;
+    height: 220px;
+    line-height: 2.5em;
+    text-align: center;
+    border-radius: 50%;
+    background: #F5F5F5;
+    vertical-align: middle;
+    margin-right: 1em;
+    color: #ff4814;
+}
+
 
 /*====================NewsTab=============================*/
 .x1 {
@@ -925,4 +940,8 @@ a.showLess::after
 .item
 {
     margin-top: .8rem;
+}
+.display-this-md
+{
+    display: none;
 }

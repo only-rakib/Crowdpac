@@ -1799,3 +1799,27 @@ margin-bottom: 0;
 padding: .8rem 0;
 }
 /*=====my contribution end=======*/
+/*=======profile===========*/
+.border-top {
+    border-top: 1px solid #DBDBDB;
+}
+.border-bottom {
+    border-bottom: 1px solid #DBDBDB;
+    border-radius: 0;
+}
+
+.mon__pd{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    
+}
+.content__box-finalt1{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0
+}
+.content__box-finalt2{
+    font-family: var(--sans-font);
+    font-size: 16px;
+    color: #787878;
+}

@@ -706,3 +706,11 @@ def start_petition_view(request):
 
 def my_contributions_view(request):
     return render(request, 'my_contributions.html')
+
+
+def my_profile_view(request):
+    return render(request, 'profile.html')
+
+
+def my_settings_view(request):
+    return render(request, 'setting.html')

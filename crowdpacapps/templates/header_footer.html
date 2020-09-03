@@ -60,12 +60,12 @@
                             {% endif %}
                         </a>
                         <div id="dd-menu" class="dropdown-menu custom" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                             <a class="dropdown-item" href="{% url 'my_campaigns' %}">My Campaigns</a>
                             <a class="dropdown-item" href="{% url 'my_contributions' %}">My Contributions</a>
                             <a class="dropdown-item" href="{% url 'endorsements' %}">My Endorsements</a>
                             <a class="dropdown-item" href="{% url 'connections' %}">My Connections</a>
-                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
                             <a class="dropdown-item" href="#">Sign Out</a>
                         </div>
                     </div>

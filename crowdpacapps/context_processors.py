@@ -10,6 +10,9 @@ def contain_user_data(request):
         'pro_pic': 'none',
         'data_letters': 'R',
         'user_name': 'rakib',
+        'member_ago': 'Member since August 2020',
+        'endorsed': 1,
+        'contribution': 0,
 
     }
     return {'contain_user_data': data, }
