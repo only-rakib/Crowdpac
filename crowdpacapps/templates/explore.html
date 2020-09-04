@@ -7,17 +7,17 @@
 <div class="row">
     <div class="col">
         <i class="fas scarch__icon fa-search h4 text-body" style="position: absolute;top:10px;margin-left:5px"></i>
-        <input class="form-control" type="search" style="padding-left: 30px">
-        <a class="rclst" style="position: absolute;top:5px;right: 20px" href="#">clear</a>
+        <input class="form-control" id="explore_top_search" type="search" style="padding-left: 30px">
+        <a class="rclst" style="position: absolute;top:5px;right: 20px" onclick="searchClear()" href="#/">clear</a>
     </div>
 </div>
 <div class="row" style="margin-top: 1rem" id="showProperty">
     <div class="col">
-       <a href="#" class="rclst"><i class="fas fa-filter" > Short and Filter</i></a> 
+       <a href="#/" class="rclst"><i class="fas fa-filter" > Short and Filter</i></a> 
     </div>
 </div>
 <div id="upperSelect" style="display: none;overflow: auto">
-   
+   {% include 'explore_up.html' %}
 </div>
 {% for var1 in campaign %}
 <div class="row" style="margin-top: 2rem">
@@ -76,8 +76,17 @@
     </div>
 </div>
 {% endfor %}
+<div class="row" style="margin-top: 3rem">
+    <div class="col text-center">
+        {% include 'pagination.html' %}
+    </div>
+</div>
 <script type="text/javascript">
     $("#showProperty").on('click',function(){
-        $("#upperSelect").toggle();
+        $("#upperSelect").toggle(500);
     })
+    function searchClear()
+    {
+        $("#explore_top_search").val("");
+    }
 </script>

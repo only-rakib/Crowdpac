@@ -1,0 +1,83 @@
+{% extends 'header_footer.html' %} {% load static %}
+{% block title %}
+<script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script>
+<link rel="stylesheet" type="text/css" href="{%static 'css/tagsinput.css'%}">
+<title>{{data.user_name}}| Crowdpac</title>
+{% endblock title %} {% block container %}
+<section>
+    <div class="row">
+        <div class="col-lg-10 col-md-11 m-auto">
+            <div class="card mb-3" style="border: none;margin-top: 3rem">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        {%if data.pro_pic != "none"%}
+                        {% with data.pro_pic as pro_pic %}
+                        <img src="{% static pro_pic %}" style="border-radius: 75%;border:3px solid #E6E6E6;width: 220px;height: 220px;" alt="propic">
+                        {% endwith %}
+                        {% else %}
+                        <span style="margin-top: 0px" data-profile_letter="{{data.data_letters}}">
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body ">
+                            <h5 class="title2">{{data.user_name}}</h5>
+                            <p class="card-text">{{data.member_ago}}</p>
+                            <div class="row" style="background: #F2F2F2;padding:1rem .10rem;width: 100%">
+                                <div class="col-md-8">
+                                    <p class="card-text">
+                                        Finish your profile by writing a personal story, selecting your top issues, and choosing a personalized user name.
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{% url 'settings' %}" class="btnr float-right"> Finish your profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="border-top border-bottom">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-sm-12">
+            <div class="row">
+                <div class="col-6" style="border-right: 1px solid #DBDBDB;">
+                    <div class="row mon__pd">
+                        <div class="col-12 text-center">
+                            <p class="content__box-finalt1">{{data.contribution}}</p>
+                            <p class="content__box-finalt2">Contributions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row mon__pd">
+                        <div class="col-12">
+                            <p class="content__box-finalt1">{{data.endorsed}}</p>
+                            <p class="content__box-finalt2">Endorsement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 labelHide">
+            <a class="btnr" href="#">Tweet</a>
+            <a class="btnr" href="#">Share</a>
+        </div>
+    </div>
+</section>
+<div class="row display-this-md" style="margin-top: 1rem">
+    <div class="col text-center">
+        <a class="btnr " href="#">Tweet</a>
+        <a class="btnr " href="#">Share</a>
+    </div>
+</div>
+<div class="row" style="padding-top: 3rem; padding-bottom: 3rem;">
+    <div class="col-10 m-auto text-center">
+        <h2 class="title3">There are no items on Rent Strike's public profile.</h2>
+        Check back soon to see who Rent Strike is supporting!
+    </div>
+</div>
+{%endblock container%}

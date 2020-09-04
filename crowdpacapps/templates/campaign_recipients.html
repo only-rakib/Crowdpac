@@ -138,7 +138,7 @@ var complete_campaign_recipients=false;
 $(function() {
 
     $("#name_of_candidate").autocomplete({
-            source: [{
+            source:{{userList|safe}} /*[{
                     id: "1",
                     value: "Alama",
                     descprition: "Candidate of",
@@ -151,7 +151,7 @@ $(function() {
                     descprition: "Candidate of",
                     img: "http://www.ericom.com/imgs/braftonArticles/3-things-every-system-admin-should-know-about-virtualization_16001411_800906167_0_14057272_500.jpg"
                 }
-            ],
+            ]*/,
             minLength: 1,
             select: function(event, ui) {
                 selectedID = ui.item.id;

@@ -13,13 +13,21 @@
         <div class="col-sm-10 offset-sm-1">
             <div class="row">
                 <div class="col-sm-8">
+                    {% if post.video_link and post.video_link.strip %}
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="{{post.video_link}}" allowfullscreen></iframe>
                     </div>
+                    {% elif post.cover_pic and post.cover_pic.strip %}
+                    {% with post.cover_pic as cover_pic %}
+                    <img src="{%static cover_pic%}" class="img-fluid">
+                    {% endwith %}
+                    {% else %}
+                    <img src="https://via.placeholder.com/600x400" class="img-fluid">
+                    {% endif %}
                 </div>
                 <div class="col-sm-4">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col">
                             {% with 'images/'|add:post.reporter_pro_pic as pro_pic %}
                             <img src="{% static pro_pic %}" style="border-radius: 50%; float: left"> {% endwith %}
                             <h2 class="mini-recipient__title" style="margin-top: 1rem">{{post.reporter_name}} </h2>
@@ -45,14 +53,11 @@
                         </div>
                     </div>
                     <div class="row" id="hide-property">
-
                         <div class="col-sm-12">
                             {%for buttons in donateButtons%}
                             <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="{{buttons.amount}}" data-tips="{{buttons.tip}}" data-handling="{{buttons.handle}}" data-total='{{buttons.total}}'>${{buttons.amount}}</button>
                             {%endfor%}
-                            
                             <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate">Other</button>
-
                         </div>
                     </div>
                     <div class="row">
@@ -108,7 +113,7 @@
                                 <div class="tab-pane fade show active" id="story" role="tabpanel" aria-labelledby="story-tab">
                                     <div class="row">
                                         <div class="col">
-                                            {{support.story_details}}
+                                            {{support.story_details|safe}}
                                         </div>
                                     </div>
                                     <div class="row rmargin-top">
@@ -135,7 +140,6 @@
                     <div class="row rcard">
                         <div class="col">
                             {% with buttons.amount as amount %}
-                                
                             <a class="rcls" href="{%url 'donate_page' amount%}" style="text-decoration: none;color: black">
                                 {% endwith %}
                                 <div class="card" style="width: 100%;">
@@ -152,7 +156,6 @@
                         </div>
                     </div>
                     {% endfor %}
-                    
                     {% for donar in donars %}
                     <div class="row rmargin-top">
                         <div class="col-8">
@@ -183,16 +186,14 @@
                     {% endfor %}
                     <div class="row rmargin-top">
                         <div class="col">
-                        {%for i in tags%}
-                        
+                            {%for i in tags%}
                             <a class="rcls badge tags" href="{{i.url}}">{{i.name}}</a>
-                        
-                        {%endfor%}
+                            {%endfor%}
                         </div>
                     </div>
                     <div class="row rmargin-top">
                         <div class="col">
-                            <a href='{{post.reporter_url}}' class="mini-recipient__title rcls" style="color: #FF6A40">
+                            <a href="{% url 'others_profile' %}" class="mini-recipient__title rcls" style="color: #FF6A40">
                                 {{post.reporter_name}}
                             </a>
                             <span class="mini-recipient">
@@ -215,15 +216,15 @@ $('#modal-donate').on('show.bs.modal', function(event) {
     var total = button.data('total');
     var title = "{{post.post_title}}";
     var modal = $(this);
-    modal.find('#amount').text("$"+amount)
-    modal.find('#tipFee').text("$"+tips)
-    modal.find('#handlingFee').text("$"+handling)
-    modal.find('#buttonTxt').text("Donate $"+total)
+    modal.find('#amount').text("$" + amount)
+    modal.find('#tipFee').text("$" + tips)
+    modal.find('#handlingFee').text("$" + handling)
+    modal.find('#buttonTxt').text("Donate $" + total)
     modal.find('#donate_titile').text(title)
 })
 $('#modal-other-donate').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget);
-    
+
     var title = "{{post.post_title}}";
     var modal = $(this);
     modal.find('#donate_titile').text(title)

@@ -1,0 +1,193 @@
+<div class="row" style="padding-top: 40px;">
+    <div class="col">
+        <div style=" overflow:auto">
+            <div>
+                <h3 class="content-short">Sort by</h3>
+            </div>
+            <div>
+                <form>
+                    <input type="radio" id="mal" name="people" value="male">
+                    <label for="mal1">Popular this week </label><br>
+                    <input type="radio" id="mal2" name="people" value="female">
+                    <label for="mal2">Closest to goal </label><br>
+                    <input type="radio" id="mal3" name="people" value="other">
+                    <label for="mal3">Most funds raised</label><br>
+                    <input type="radio" id="mal4" name="people" value="other">
+                    <label for="mal4">Recently updated </label>
+                </form>
+            </div>
+            <hr>
+            <div>
+                <h3 class="content-short">Filter by</h3>
+                <h6>
+                    <strong>Tags</strong>
+                </h6>
+            </div>
+            <div class="upperItems">
+                <div class="item">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <span>Campaign Finance Reform </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <span>Civil Rights </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <span>Criminal Justice Reform </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <span>Campaign Finance Reform </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <span>Campaign Finance Reform </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <span>Civil Rights </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <span>Criminal Justice Reform </span>
+                </div>
+            </div>
+            <div style="margin-top: 1rem">
+                <h6>
+                    <strong>State</strong>
+                </h6>
+            </div>
+            <div class="upperItems2">
+                <div class="item">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <span>Alabama </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <span>Alaska </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <span>Arizona </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <span>Arizona </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <span>Arizona </span>
+                </div>
+            </div>
+            <div style="margin-top: 1rem">
+                <h6><strong>Recipient Type</strong></h6>
+            </div>
+            <div>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1">Candidate </label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2">Organization </label><br>
+            </div>
+            <div>
+                <h6><strong>Election Year </strong></h6>
+            </div>
+            <div>
+                <form>
+                    <form action="/action_page.php">
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1">2020</label><br>
+                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                        <label for="vehicle2">2021</label><br>
+                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                        <label for="vehicle3">2022</label><br>
+                    </form>
+                </form>
+            </div>
+            <div>
+                <h6><strong>Candidate Gender </strong></h6>
+            </div>
+            <div>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1">Male</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2">Female</label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3">Unspecified </label><br>
+            </div>
+            <div>
+                <h6>
+                    <strong>Political Affiliation </strong>
+                </h6>
+            </div>
+            <div class="upperItems3">
+                <div class="item">
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <span>Democrat </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <span>Independent </span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <span>Green </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/*more and fewer tags start*/
+var $this = $('.upperItems');
+if ($this.find('div').length > 2) {
+    $('.upperItems').append('<div "><a id="appendShowmore" href="#/" class="showMore rcls"></a></div>');
+
+}
+
+// If more than 2 Education upperItems, hide the remaining
+$('.upperItems .item').slice(0, 3).addClass('shown');
+$('.upperItems .item').not('.shown').hide();
+//$("#appendShowmore").text('Show More');
+$('.upperItems .showMore').on('click', function() {
+    $('.upperItems .item').not('.shown').toggle(300);
+    //("#appendShowmore").text('Show Less');
+    $(this).toggleClass('showLess');
+});
+/*more and fewer tags end*/
+/*more and fewer state start*/
+var $this2 = $('.upperItems2');
+if ($this.find('div').length > 2) {
+    $('.upperItems2').append('<div "><a href="#/" class="showMore rcls"></a></div>');
+
+}
+
+// If more than 2 Education upperItems, hide the remaining
+$('.upperItems2 .item').slice(0, 3).addClass('shown');
+$('.upperItems2 .item').not('.shown').hide();
+//$("#appendShowmore").text('Show More');
+$('.upperItems2 .showMore').on('click', function() {
+    $('.upperItems2 .item').not('.shown').toggle(300);
+    //("#appendShowmore").text('Show Less');
+    $(this).toggleClass('showLess');
+});
+/*more and fewer state end*/
+
+/*more and fewer political  start*/
+var $this2 = $('.upperItems3');
+if ($this.find('div').length > 2) {
+    $('.upperItems3').append('<div "><a href="#/" class="showMore rcls"></a></div>');
+
+}
+
+// If more than 2 Education upperItems, hide the remaining
+$('.upperItems3 .item').slice(0, 3).addClass('shown');
+$('.upperItems3 .item').not('.shown').hide();
+//$("#appendShowmore").text('Show More');
+$('.upperItems3 .showMore').on('click', function() {
+    $('.upperItems3 .item').not('.shown').toggle(300);
+    //("#appendShowmore").text('Show Less');
+    $(this).toggleClass('showLess');
+});
+/*more and fewer polictical end*/
+</script>

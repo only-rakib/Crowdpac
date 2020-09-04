@@ -6,9 +6,6 @@
 <title>Crowdpac</title>
 {% endblock title %}
 {% block container %}
-
-
-
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-8 offset-sm-2">
@@ -81,114 +78,15 @@
 							</tr>
 						</thead>
 						<tbody>
+							{% for var1 in signetures %}
 							<tr>
 								
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
+								<td>{{var1.id}}</td>
+								<td>{{var1.name}}</td>
+								<td>{{var1.email}}</td>
 							</tr>
-							<tr>
-								
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
-							<tr>
-								
-								<td>Larry </td>
-								<td>Thornton</td>
-								<td>@twitter</td>
-							</tr>
+							{% endfor %}
+							
 						</tbody>
 					</table>
 					<div class="row" style="padding-bottom:4%">
@@ -204,7 +102,7 @@
 					</div>
 					<div class="row ">
 						<div class="col-sm-4 offset-sm-4 text-center title3">
-							<a href="#" class="button" style="width: 100%;">
+							<a href="{% url 'start_petition' %}" class="button" style="width: 100%;">
 								<span class="button__content">
 									<span>
 										Start A Petition

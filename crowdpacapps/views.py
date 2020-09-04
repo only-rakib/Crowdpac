@@ -46,7 +46,7 @@ def social_feed_View(request):
         'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
         'campaign_content_tags': ['Climate Change', 'Health care', 'Immigration Reform', 'LGBTQ Rights Inequality', 'Income Inequality'],
         'campaign_raised_amount': '868',
-        'campaign_max_donation': '',
+        'Fundraising_Goal': '',
         'campaign_raised_amount_percentanges': (868 / 2000) * 100,
         'campaign_supporter': 22,
     }
@@ -59,7 +59,7 @@ def social_feed_View(request):
         'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
         'campaign_content_tags': ['Climate Change', 'Health care', 'Immigration Reform', 'LGBTQ Rights Inequality', 'Income Inequality'],
         'campaign_raised_amount': 868,
-        'campaign_max_donation': 2000,
+        'Fundraising_Goal': 2000,
         'campaign_raised_amount_percentanges': (868 / 2000) * 100,
         'campaign_supporter': 22,
     }
@@ -163,10 +163,11 @@ def social_feed_View(request):
 
 
 def view_campaignView(request):
-
+    candidate_self_or_not = "No"
     post = {
         'post_title': 'Rent Strike 2020',
         'video_link': 'https://www.youtube.com/embed/ozRlOJyuJfU',
+        'cover_pic': "",
         'reporter_pro_pic': 'lhbebvoswhrprssro4ar.jpg',  # see the location in html
         'reporter_name': 'Rent Strike 2020',
         'reporter_position': 'Campaign creator',
@@ -174,6 +175,11 @@ def view_campaignView(request):
         'reporter_url': '#'
     }
     support = {
+
+        'Fundraising_Goal': "",
+        'campaign_raised_amount': 868,
+        'campaign_raised_amount_percentanges': (868 / 2000) * 100,
+        'campaign_supporter': 22,
         'Default_Donation': '20.00',
         'Default_Donation_tips': '2.00',
         'Default_Donation_handling': '0.83',
@@ -232,7 +238,7 @@ def view_campaignView(request):
     lstdon.append(donar_2)
     tagDic1 = {
         'name': 'Union Rights',
-        'url': '#',
+        'id': 'tag18',
     }
     tagDic2 = {
         'name': 'Civil Rights',
@@ -340,7 +346,205 @@ def view_petitionsView(request):
                             Perhaps far exposed age effects. Now distrusts you her delivered applauded affection out sincerity. As tolerably recommend shameless unfeeling he objection consisted. She although cheerful perceive screened throwing met not eat distance. Viewing hastily or written dearest elderly up weather it as. So direction so sweetness or extremity at daughters. Provided put unpacked now but bringing.''',
         'cover_pic': "images/rentstrike_ry2ddq.jpg",
     }
-    return render(request, 'view_petitions.html', {'context': data})
+    # signeture is sample data.
+
+    signeture = [
+        {
+            "id": 4051,
+            "name": "manoj",
+            "email": "manoj@gmail.com",
+
+        },
+        {
+            "id": 4050,
+            "name": "pankaj",
+            "email": "p1@gmail.com",
+
+        },
+        {
+            "id": 3050,
+            "name": "Neeraj1993",
+            "email": "neeraj.singh@adequateinfosoft.com",
+
+        },
+        {
+            "id": 3049,
+            "name": "Sophia",
+            "email": "sophia@gmail.com",
+
+        },
+        {
+            "id": 3048,
+            "name": "Raju Prasad",
+            "email": "raju.nsit@gmail.com",
+
+        },
+        {
+            "id": 3047,
+            "name": "Ankiish Thapliyal",
+            "email": "thapliyalankiish958@gmail.com",
+
+        },
+        {
+            "id": 3046,
+            "name": "Aryan Thapliyal",
+            "email": "ashithewarrior@gmail.com",
+
+        },
+        {
+            "id": 3045,
+            "name": "shivam",
+            "email": "shivam@gmail.com",
+
+        },
+        {
+            "id": 3044,
+            "name": "Navya Upadhyay",
+            "email": "navya.adequate@gmail.com",
+
+        },
+        {
+            "id": 3043,
+            "name": "Ritu singh",
+            "email": "ritusinghadequate@gmail.com",
+
+        },
+        {
+            "id": 3042,
+            "name": "faiz",
+            "email": "faizadequate@gmail.com",
+
+        },
+        {
+            "id": 3041,
+            "name": "Martin Wilson",
+            "email": "ravencomputer667@gmail.com",
+
+        },
+        {
+            "id": 3040,
+            "name": "Shweta Singh",
+            "email": "amelia.claire.hi@gmail.com",
+
+        },
+        {
+            "id": 3039,
+            "name": "jagjit",
+            "email": "jagjit.singh.adequate.36@gmail.com",
+
+        },
+        {
+            "id": 3038,
+            "name": "Ashi 123",
+            "email": "ashi123@gmail.com",
+
+        },
+        {
+            "id": 3037,
+            "name": "shivamvermaa4",
+            "email": "shivam.vemaa4@gmail.com",
+
+        },
+        {
+            "id": 3036,
+            "name": "Sophia",
+            "email": "n2@gmail.com",
+
+        },
+        {
+            "id": 3035,
+            "name": "n1",
+            "email": "n1@gmail.com",
+
+        },
+        {
+            "id": 3034,
+            "name": "neha",
+            "email": "neha@gmail.com",
+
+        },
+        {
+            "id": 3033,
+            "name": "sanjay",
+            "email": "sanjay@gmail.com",
+
+        },
+        {
+            "id": 3032,
+            "name": "Akku2",
+            "email": "akku2@gmail.com",
+
+        },
+        {
+            "id": 3031,
+            "name": "Ashish Thapliyal",
+            "email": "ashi1@gmail.com",
+
+        },
+        {
+            "id": 3030,
+            "name": "singh",
+            "email": "singh@gmail.com",
+
+        },
+        {
+            "id": 3029,
+            "name": "Akku Testing",
+            "email": "akku1@gmail.com",
+
+        },
+        {
+            "id": 3028,
+            "name": "Aakankshi Gupta",
+            "email": "aakankshi.cuminte@gmail.com",
+
+        },
+
+        {
+            "id": 3022,
+            "name": "Raju Prasad",
+            "email": "raju.prasad@adequateinfosoft.com",
+
+        },
+        {
+            "id": 3021,
+            "name": "Ashok Patel",
+            "email": "ashoktest@gmail.com",
+
+        },
+        {
+            "id": 2021,
+            "name": "manresh1",
+            "email": "manresh1@gmail.com",
+
+        },
+        {
+            "id": 2020,
+            "name": "Manresh Chandra",
+            "email": "manresh@gmail.com",
+
+        },
+        {
+            "id": 2019,
+            "name": "Test",
+            "email": "aakankshi7@gmail.com",
+
+        },
+        {
+            "id": 2018,
+            "name": "aakankshi6",
+            "email": "aakankshi6@gmail.com",
+
+        },
+        {
+            "id": 2017,
+            "name": "aakankshi5",
+            "email": "aakankshi5@gmail.com",
+
+        },
+
+    ]
+    return render(request, 'view_petitions.html', {'context': data, 'signetures': signeture})
 
 
 def donateView(request, amount):
@@ -373,7 +577,203 @@ def start_campaign_view(request):
     # in this all data for the startcampaing.
     # see the comments to know where the events occur
     global login
+    userList = [
+        {
+            "id": 4051,
+            "value": "manoj",
+            "descprition": "manoj@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
 
+        },
+        {
+            "id": 4050,
+            "value": "pankaj",
+            "descprition": "p1@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3050,
+            "value": "Neeraj1993",
+            "descprition": "neeraj.singh@adequateinfosoft.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3049,
+            "value": "Sophia",
+            "descprition": "sophia@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3048,
+            "value": "Raju Prasad",
+            "descprition": "raju.nsit@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3047,
+            "value": "Ankiish Thapliyal",
+            "descprition": "thapliyalankiish958@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3046,
+            "value": "Aryan Thapliyal",
+            "descprition": "ashithewarrior@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3045,
+            "value": "shivam",
+            "descprition": "shivam@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3044,
+            "value": "Navya Upadhyay",
+            "descprition": "navya.adequate@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3043,
+            "value": "Ritu singh",
+            "descprition": "ritusinghadequate@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3042,
+            "value": "faiz",
+            "descprition": "faizadequate@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3041,
+            "value": "Martin Wilson",
+            "descprition": "ravencomputer667@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3040,
+            "value": "Shweta Singh",
+            "descprition": "amelia.claire.hi@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3039,
+            "value": "jagjit",
+            "descprition": "jagjit.singh.adequate.36@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3038,
+            "value": "Ashi 123",
+            "descprition": "ashi123@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3037,
+            "value": "shivamvermaa4",
+            "descprition": "shivam.vemaa4@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3036,
+            "value": "Sophia",
+            "descprition": "n2@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3035,
+            "value": "n1",
+            "descprition": "n1@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3034,
+            "value": "neha",
+            "descprition": "neha@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3033,
+            "value": "sanjay",
+            "descprition": "sanjay@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3032,
+            "value": "Akku2",
+            "descprition": "akku2@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3031,
+            "value": "Ashish Thapliyal",
+            "descprition": "ashi1@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3030,
+            "value": "singh",
+            "descprition": "singh@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3029,
+            "value": "Akku Testing",
+            "descprition": "akku1@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3028,
+            "value": "Aakankshi Gupta",
+            "descprition": "aakankshi.cuminte@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+
+        {
+            "id": 3022,
+            "value": "Raju Prasad",
+            "descprition": "raju.prasad@adequateinfosoft.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 3021,
+            "value": "Ashok Patel",
+            "descprition": "ashoktest@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 2021,
+            "value": "manresh1",
+            "descprition": "manresh1@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 2020,
+            "value": "Manresh Chandra",
+            "descprition": "manresh@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 2019,
+            "value": "Test",
+            "descprition": "aakankshi7@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 2018,
+            "value": "aakankshi6",
+            "descprition": "aakankshi6@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+        {
+            "id": 2017,
+            "value": "aakankshi5",
+            "descprition": "aakankshi5@gmail.com",
+            "img": "http://images.maskworld.com/is/image/maskworld/bigview/john-doe-foam-latex-mask--mw-117345-1.jpg"
+        },
+
+    ]
     states_city = {
         # Add  all the city list where AL = ALABAMA
         # the list contains the states/citys of ALABAMA
@@ -587,7 +987,7 @@ def start_campaign_view(request):
 
         }
         # print(data)
-        return render(request, 'startcampaign.html', {'context': data})
+        return render(request, 'startcampaign.html', {'context': data, 'userList': userList})
     else:
 
         return render(request, 'startcampaignSignup.html')
@@ -709,8 +1109,20 @@ def my_contributions_view(request):
 
 
 def my_profile_view(request):
-    return render(request, 'profile.html')
+    return render(request, 'my_profile.html')
 
 
 def my_settings_view(request):
     return render(request, 'setting.html')
+
+
+def others_profile_view(request):
+    data = {
+        'pro_pic': 'none',
+        'data_letters': 'N',
+        'user_name': 'Name',
+        'member_ago': 'Member since August 2020',
+        'endorsed': 1,
+        'contribution': 0,
+    }
+    return render(request, 'others_profile.html', {'data': data})

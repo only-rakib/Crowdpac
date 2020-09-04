@@ -35,6 +35,5 @@ urlpatterns = [
     path('my_contributions/', views.my_contributions_view, name='my_contributions'),
     path('profile/', views.my_profile_view, name='profile'),
     path('settings/', views.my_settings_view, name='settings'),
-
-
+    path('profile_view/', views.others_profile_view, name='others_profile'),
 ]
