@@ -6,131 +6,117 @@
 <title>Crowdpac</title>
 {% endblock title %}
 {% block container %}
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-8 offset-sm-2">
-					
-					<h1 class="text-center">{{context.title}}</h1>
-					
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-8 offset-sm-2">
-					<div class="row">
-						<div class="col-sm-7 col-md-7 col-lg-7 order-sm-last order-md-last order-lg-first order-2">
-							{{context.des}}
-							
-						</div>
-						<div class="col-sm-5 col-md-5 col-lg-5 order-sm-first order-md-first order-lg-last order-1">
-							{% with context.cover_pic as cover_pic %}
-							<img src="{%static cover_pic%}" class="img-fluid">
-							{% endwith %}
-						</div>
-					</div>
-					<div class="row" style="padding-left: 2%;padding-top: 2%">
-						<a class="btnr btnr-light btnr-spaced tag-read-only" href="">Civil Rights</a>
-						<a class="btnr btnr-light btnr-spaced tag-read-only" href="">Income Inequality</a>
-					</div>
-					<div class="row">
-						<div class="col">
-							<hr class="line-bottom">
-							<br>
-						</div>
-						
-					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<h1 style="text-align: left; margin: 0px;color: #787878;font-size: 2.8vmax">Signatures</h1>
-						</div>
-						<div class="col-sm-8 offset-sm-2" style="padding-top: 1%">
-							<div class=row>
-									<div class="col">
-								<a href="{% url 'view_campaign' %}" class="btnr black" style="width:100%">
-									View Campaign
-								</a>
-							</div>
-							
-							<div class="col">
-								<button type="button" class="btnr red" data-toggle="modal" data-target="#modal-sign" style="width:100%">
-									Sign Petition
-								</button>
-							</div>
-							<div class="col">
-								<button type="button" class="btnr white" data-toggle="modal" data-target="#modal-share" style="width:100%">
-									<i class="fas fa-share"></i>Share
-								</button>
-							</div>
-							
-							</div>	
-							
-						</div>
-					</div>
-					<div class="row" style="padding-bottom:4%">
-					</div>
-					
-					<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th scope="col">Name</th>
-								<th scope="col">ZIP Code</th>
-								<th scope="col">Signed</th>
-								
-							</tr>
-						</thead>
-						<tbody>
-							{% for var1 in signetures %}
-							<tr>
-								
-								<td>{{var1.id}}</td>
-								<td>{{var1.name}}</td>
-								<td>{{var1.email}}</td>
-							</tr>
-							{% endfor %}
-							
-						</tbody>
-					</table>
-					<div class="row" style="padding-bottom:4%">
-					</div>
-					<div class="row ">
-						<div class="col-sm-4 offset-sm-4 text-center title3">
-							Ready for change?
-						</div>
-						
-					</div>
-					<div class="row" style="padding-top: 4%">
-						
-					</div>
-					<div class="row ">
-						<div class="col-sm-4 offset-sm-4 text-center title3">
-							<a href="{% url 'start_petition' %}" class="button" style="width: 100%;">
-								<span class="button__content">
-									<span>
-										Start A Petition
-									</span>
-								</span>
-							</a>
-						</div>
-						
-					</div>
-					<div class="row" style="padding-top: 4%">
-						
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<!--Body grid system end-->
-		
-				{% include 'popups.html' %}
-		
-		<script type="text/javascript">
-				$(document).ready(function () {
-					$('#dtBasicExample').DataTable({
-					"ordering": false // false to disable sorting (or any other option)
-					});
-					$('.dataTables_length').addClass('bs-select');
-				});
-		</script>
-		
-			{% endblock container %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <h1 class="text-center">{{context.title}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="row">
+                <!--
+                <div class="col-md-7 order-md-last order-lg-first">
+                    <h6 class="pull-right">{{context.des|safe}}</h6>
+                </div>
+                <div class="col-md-5 order-md-first order-lg-last">
+                    {% with context.cover_pic as cover_pic %}
+                    <img src="{%static cover_pic%}" class="img-fluid">
+                    {% endwith %}
+                </div>
+            -->
+                <div class="col-12 mb-3">
+                    {% with context.cover_pic as cover_pic %}
+                    <img src="{%static cover_pic%}" class="mr-3 about-img">
+                    {% endwith %}
+                    <p>{{context.des|safe}}</p>
+                </div>
+            </div>
+            <div class="row" style="padding-left: 2%;padding-top: 2%">
+                <div class="col">
+                    <a class="btnr btnr-light btnr-spaced tag-read-only" href="">Civil Rights</a>
+                    <a class="btnr btnr-light btnr-spaced tag-read-only" href="">Income Inequality</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr class="line-bottom">
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <h1 style="text-align: left; margin: 0px;color: #787878;font-size: 2.8vmax">Signatures</h1>
+                </div>
+                <div class="col-sm-8 offset-sm-2" style="padding-top: 1%">
+                    <div class=row>
+                        <div class="col">
+                            <a href="{% url 'view_campaign' %}" class="btnr black" style="width:100%">
+                                View Campaign
+                            </a>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btnr red" data-toggle="modal" data-target="#modal-sign" style="width:100%">
+                                Sign Petition
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btnr white" data-toggle="modal" data-target="#modal-share" style="width:100%">
+                                <i class="fas fa-share"></i>Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom:4%">
+            </div>
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">ZIP Code</th>
+                        <th scope="col">Signed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for var1 in signetures %}
+                    <tr>
+                        <td>{{var1.id}}</td>
+                        <td>{{var1.name}}</td>
+                        <td>{{var1.email}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="row" style="padding-bottom:4%">
+            </div>
+            <div class="row ">
+                <div class="col-sm-4 offset-sm-4 text-center title3">
+                    Ready for change?
+                </div>
+            </div>
+            <div class="row" style="padding-top: 4%">
+            </div>
+            <div class="row ">
+                <div class="col text-center title3">
+                    <a href="{% url 'start_petition' %}" class="btnr rcls">
+                        Start A Petition    
+                    </a>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 4%">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Body grid system end-->
+{% include 'popups.html' %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#dtBasicExample').DataTable({
+        "ordering": false // false to disable sorting (or any other option)
+    });
+    $('.dataTables_length').addClass('bs-select');
+});
+</script>
+{% endblock container %}

@@ -39,6 +39,43 @@
                             <hr class="line-bottom">
                         </div>
                     </div>
+                    {% if support.campaign_raised_amount != "" %}
+                    <div class="row " id="hide-property">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col">
+                                    <h2>
+                                        ${{support.campaign_raised_amount}}
+                                    </h2>
+                                </div>
+                            </div>
+                            {% if support.candidate_self_or_not == "No" %}
+                            <div class="row">
+                                <div class="col">
+                                    <span class="mini-recipient">From {{support.campaign_supporter}} pledges on Crowdpac </span>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="row">
+                                <div class="col">
+                                    <span class="mini-recipient">From {{support.campaign_supporter}} donations on Crowdpac </span>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if support.Fundraising_Goal != "" %}
+                            <div class="row">
+                                <div class="col">
+                                    <div class="progress baseball-card__progress-bar">
+                                        <div class="progress-bar baseball-card__progress-bar-fill" role="progressbar" style="width: {{support.campaign_raised_amount_percentanges}}%" aria-valuenow="{{var1.campaign_raised_amount_percentanges}}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    <span class="mini-recipient">{{support.campaign_raised_amount_percentanges}}% of ${{support.Fundraising_Goal}} goal</span>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% else %}
                     <div class="row " id="hide-property">
                         <div class="col-sm-12">
                             <h2>
@@ -46,13 +83,23 @@
                             </h2>
                         </div>
                     </div>
-                    <div class="row" id="hide-property">
+                    {% endif %}
+                    {% if support.candidate_self_or_not == "No" %}
+                    <div class="row" id="hide-property" style="margin-top: 1rem">
+                        <div class="col-sm-12">
+                            <button type="button" class="btnr red" style="
+                        width: 100%;padding: 4%;" data-toggle="modal" data-target="#modal-donate" data-amount="{{support.Default_Donation}}" data-tips="{{support.Default_Donation_tips}}" data-handling="{{support.Default_Donation_handling}}" data-total='{{support.Default_Donation_total}}'>Pledges ${{support.Default_Donation}}</button>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="row" id="hide-property" style="margin-top: 1rem">
                         <div class="col-sm-12">
                             <button type="button" class="btnr red" style="
                         width: 100%;padding: 4%;" data-toggle="modal" data-target="#modal-donate" data-amount="{{support.Default_Donation}}" data-tips="{{support.Default_Donation_tips}}" data-handling="{{support.Default_Donation_handling}}" data-total='{{support.Default_Donation_total}}'>Donate ${{support.Default_Donation}}</button>
                         </div>
                     </div>
-                    <div class="row" id="hide-property">
+                    {%endif%}
+                    <div class="row" id="hide-property" style="margin-top: 1rem">
                         <div class="col-sm-12">
                             {%for buttons in donateButtons%}
                             <button type="button" class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-donate" data-amount="{{buttons.amount}}" data-tips="{{buttons.tip}}" data-handling="{{buttons.handle}}" data-total='{{buttons.total}}'>${{buttons.amount}}</button>
@@ -60,7 +107,7 @@
                             <button class="btnr btnr-light btnr-spaced " data-toggle="modal" data-target="#modal-other-donate">Other</button>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top: 1rem">
                         <div class="col-sm-12">
                             <a class="btnr black rcls" href="{% url 'view_petitions' %}" style="
                         width: 100%;padding: 4%;"> View Petition </a>

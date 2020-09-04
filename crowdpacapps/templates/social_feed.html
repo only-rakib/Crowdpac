@@ -1,6 +1,7 @@
 {% extends 'header_footer.html' %} {% load static %}
 {% block title %}
-
+<script src="{%static 'js/chosen.jquery.min.js'%}"></script>
+<link href="{%static 'css/chosen.min.css'%}" rel="stylesheet" />
 <title> Feed | Crowdpac </title>
 {% endblock title %} {% block container %}
 <!--Body grid system start-->
@@ -21,7 +22,7 @@
                         </div>
                     </a>
                     <a href="#news_tab/" class="rcls">
-                        <div class="row" id="news_tab"  onClick="tabclick(this.id)">
+                        <div class="row" id="news_tab" onClick="tabclick(this.id)">
                             <div class="col">
                                 <div class="row">
                                     <img src="{% static 'svg/news.svg' %}">
@@ -59,8 +60,8 @@
                                 </div>
                             </div>
                         </div>
+                    </a>
                 </div>
-                </a>
             </div>
         </div>
         <!--left Sidebar End-->
@@ -214,16 +215,28 @@
                             <input type="text" class="form-control" id="searchMember" placeholder="Name" onkeyup="fiterMemberFunction()">
                         </div>
                         <div class="form-group">
-                            <label for="inputState">Filter</label>
-                            <input list="tags" name="filterTags" />
-                            <datalist id="tags">
-                                <option value="Chrome"><img src="https://via.placeholder.com/15">asd</option>
-                                <option value="Firefox">
-                                <option value="Internet Explorer">
-                                <option value="Opera">
-                                <option value="Safari">
-                                <option value="Microsoft Edge">
-                            </datalist>
+                            <label>Filter</label>
+                            <select data-placeholder="Political Issues" multiple class="chosen-select" name="test">
+                                <option value=""></option>
+                                <option value="tag-1">Campaign Finance Reform</option>
+                                <option value="tag-2">Civil Rights</option>
+                                <option value="tag-3">Climate Change</option>
+                                <option value="tag-4">Criminal Justice Reform</option>
+                                <option value="tag-5">Environment</option>
+                                <option value="tag-6">Gender Equality</option>
+                                <option value="tag-7">Gun Safety</option>
+                                <option value="tag-8">Health Care</option>
+                                <option value="tag-9">Immigration Reform</option>
+                                <option value="tag-10">Income Inequality</option>
+                                <option value="tag-11">International Diplomacy</option>
+                                <option value="tag-12">Internet Policy</option>
+                                <option value="tag-13">LGBTQ Rights</option>
+                                <option value="tag-14">Marijuana Legalization</option>
+                                <option value="tag-15">Pro Choice</option>
+                                <option value="tag-16">Public Education</option>
+                                <option value="tag-17">Transport Infrastructure</option>
+                                <option value="tag-18">Union Rights</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="labelAddFriend">Don't see your friends ?</label>
@@ -248,121 +261,120 @@ $('#modal-share').on('show.bs.modal', function(event) {
 })
 </script>
 <script>
-if (window.location.hash === '#news_tab') {
+if (window.location.hash === '#news_tab/') {
     //alert("message?: DOMString")
     tabclick("news_tab");
 }
-if (window.location.hash === '#crowdpac_tv_tab') {
+if (window.location.hash === '#crowdpac_tv_tab/') {
     //alert("message?: DOMString")
     tabclick("crowdpac_tv_tab");
 }
-if (window.location.hash === '#petitions_tab') {
+if (window.location.hash === '#petitions_tab/') {
     //alert("message?: DOMString")
     tabclick("petitions_tab");
 }
-if (window.location.hash === '#members_tab') {
+if (window.location.hash === '#members_tab/') {
     //alert("message?: DOMString")
     tabclick("members_tab");
 }
-if (window.location.hash === '#campaigns_tab') {
+if (window.location.hash === '#campaigns_tab/') {
     //alert("message?: DOMString")
     tabclick("campaigns_tab");
 }
+$(".chosen-select").chosen({ width: "100%" })
 
 function tabclick(clicked_id) {
 
-    campaigns_id=document.getElementById('campaigns_tab')
+    campaigns_id = document.getElementById('campaigns_tab')
     news_id = document.getElementById('news_tab');
     tv_id = document.getElementById('crowdpac_tv_tab');
     petition_id = document.getElementById('petitions_tab');
     member_id = document.getElementById('members_tab');
 
-    campaigns_content_id=document.getElementById('campaigns_content')
+    campaigns_content_id = document.getElementById('campaigns_content')
     news_content_id = document.getElementById("news_content");
     crowdpac_tv_content_id = document.getElementById("crowdpac_tv_content");
     petition_content_id = document.getElementById("petition_content");
     members_content_id = document.getElementById("members_content");
 
-    campaigns_id_right=document.getElementById('campaigns_tab_right')
+    campaigns_id_right = document.getElementById('campaigns_tab_right')
     news_id_right = document.getElementById('news_tab_right');
     tv_id_right = document.getElementById('crowdpac_tv_tab_right');
     petition_id_right = document.getElementById('petitions_tab_right');
     member_id_right = document.getElementById('members_tab_right');
 
 
-    if(clicked_id == document.getElementById('campaigns_tab').id)
-    {
-        campaigns_id.style.cssText="background:#FFE3DA;color:#ff4814";
+    if (clicked_id == document.getElementById('campaigns_tab').id) {
+        campaigns_id.style.cssText = "background:#FFE3DA;color:#ff4814";
         news_id.style.cssText = "background:none;color:none";
         tv_id.style.cssText = "background:none;color:none";
         petition_id.style.cssText = "background:none;color:none";
         member_id.style.cssText = "background:none;color:none";
 
-        campaigns_content_id.style.display="block";
+        campaigns_content_id.style.display = "block";
         news_content_id.style.display = "none";
         crowdpac_tv_content_id.style.display = "none"
         petition_content_id.style.display = "none"
         members_content_id.style.display = "none"
 
-        campaigns_id_right.style.display="block";
+        campaigns_id_right.style.display = "block";
         news_id_right.style.display = "none";
         tv_id_right.style.display = "none";
         petition_id_right.style.display = "none";
         member_id_right.style.display = "none";
-    }
-    else if (clicked_id == document.getElementById('news_tab').id) {
-        
-        campaigns_id.style.cssText="background:none;color:none";
+    } else if (clicked_id == document.getElementById('news_tab').id) {
+
+        campaigns_id.style.cssText = "background:none;color:none";
         news_id.style.cssText = "background:#FFE3DA;color:#ff4814";
         tv_id.style.cssText = "background:none;color:none";
         petition_id.style.cssText = "background:none;color:none";
         member_id.style.cssText = "background:none;color:none";
 
-        campaigns_content_id.style.display="none";
+        campaigns_content_id.style.display = "none";
         news_content_id.style.display = "block";
         crowdpac_tv_content_id.style.display = "none"
         petition_content_id.style.display = "none"
         members_content_id.style.display = "none"
 
-        campaigns_id_right.style.display="none";
+        campaigns_id_right.style.display = "none";
         news_id_right.style.display = "block";
         tv_id_right.style.display = "none";
         petition_id_right.style.display = "none";
         member_id_right.style.display = "none";
     } else if (clicked_id == document.getElementById('crowdpac_tv_tab').id) {
 
-        campaigns_id.style.cssText="background:none;color:none"
+        campaigns_id.style.cssText = "background:none;color:none"
         news_id.style.cssText = "background:none;color:none";
         tv_id.style.cssText = "background:#FFE3DA;color:#ff4814";
         petition_id.style.cssText = "background:none;color:none";
         member_id.style.cssText = "background:none;color:none";
 
-        campaigns_content_id.style.display="none";
+        campaigns_content_id.style.display = "none";
         news_content_id.style.display = "none";
         crowdpac_tv_content_id.style.display = "block"
         petition_content_id.style.display = "none"
         members_content_id.style.display = "none"
 
-        campaigns_id_right.style.display="none";
+        campaigns_id_right.style.display = "none";
         news_id_right.style.display = "none";
         tv_id_right.style.display = "block";
         petition_id_right.style.display = "none";
         member_id_right.style.display = "none";
     } else if (clicked_id == document.getElementById('petitions_tab').id) {
-        
-        campaigns_id.style.cssText="background:none;color:none"
+
+        campaigns_id.style.cssText = "background:none;color:none"
         news_id.style.cssText = "background:none;color:none";
         tv_id.style.cssText = "background:none;color:none";
         petition_id.style.cssText = "background:#FFE3DA;color:#ff4814";
         member_id.style.cssText = "background:none;color:none";
 
-        campaigns_content_id.style.display="none";
+        campaigns_content_id.style.display = "none";
         news_content_id.style.display = "none";
         crowdpac_tv_content_id.style.display = "none"
         petition_content_id.style.display = "block"
         members_content_id.style.display = "none"
 
-        campaigns_id_right.style.display="none";
+        campaigns_id_right.style.display = "none";
         news_id_right.style.display = "none";
         tv_id_right.style.display = "none";
         petition_id_right.style.display = "block";
@@ -370,20 +382,20 @@ function tabclick(clicked_id) {
     } else if (clicked_id == document.getElementById('members_tab').id) {
         var a = "{{login}}";
         if (a == "True") {
-            
-            campaigns_id.style.cssText="background:none;color:none"
+
+            campaigns_id.style.cssText = "background:none;color:none"
             news_id.style.cssText = "background:none;color:none";
             tv_id.style.cssText = "background:none;color:none";
             petition_id.style.cssText = "background:none;color:none";
             member_id.style.cssText = "background:#FFE3DA;color:#ff4814";
 
-            campaigns_content_id.style.display="none";
+            campaigns_content_id.style.display = "none";
             news_content_id.style.display = "none";
             crowdpac_tv_content_id.style.display = "none"
             petition_content_id.style.display = "none"
             members_content_id.style.display = "block"
 
-            campaigns_id_right.style.display="none";
+            campaigns_id_right.style.display = "none";
             news_id_right.style.display = "none";
             tv_id_right.style.display = "none";
             petition_id_right.style.display = "none";

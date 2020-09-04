@@ -175,8 +175,9 @@ def view_campaignView(request):
         'reporter_url': '#'
     }
     support = {
-
-        'Fundraising_Goal': "",
+        # if candidate_self_or_not is No then Pledge Otherwise Donate
+        'candidate_self_or_not': candidate_self_or_not,
+        'Fundraising_Goal': 2000,
         'campaign_raised_amount': 868,
         'campaign_raised_amount_percentanges': (868 / 2000) * 100,
         'campaign_supporter': 22,
