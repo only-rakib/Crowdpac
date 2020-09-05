@@ -2,8 +2,8 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.social_feed_View, name='home'),
-    path('home/', views.social_feed_View, name='home'),
+    path('', views.home_view, name='home'),
+    path('home/', views.home_view, name='home'),
     path('feed/', views.social_feed_View, name='feed'),
     path('view_campaign/', views.view_campaignView, name='view_campaign'),
     path('view_petitions/', views.view_petitionsView, name='view_petitions'),
@@ -36,4 +36,6 @@ urlpatterns = [
     path('profile/', views.my_profile_view, name='profile'),
     path('settings/', views.my_settings_view, name='settings'),
     path('profile_view/', views.others_profile_view, name='others_profile'),
+    path('support/', views.support_view, name='support'),
+    path('support_slugify/', views.support_slug_view, name='support_slugify'),
 ]

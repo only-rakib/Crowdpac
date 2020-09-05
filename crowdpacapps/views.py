@@ -1127,3 +1127,11 @@ def others_profile_view(request):
         'contribution': 0,
     }
     return render(request, 'others_profile.html', {'data': data})
+
+
+def support_view(request):
+    return render(request, 'support.html')
+
+
+def support_slug_view(request):
+    return render(request, 'support_inner.html')

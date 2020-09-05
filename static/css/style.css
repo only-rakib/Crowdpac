@@ -1823,3 +1823,160 @@ padding: .8rem 0;
     font-size: 16px;
     color: #787878;
 }
+/*support part start here*/
+.banner__part-support{
+    background-image: url('/static/images/KB_hero.png');
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    height: 53vh;
+}
+.banner__part-support:after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width:100%;
+    height:100%;
+    background: rgba(255,72,20, 0.8);
+    z-index: -1;
+
+
+}
+
+
+.final__header-support{
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.13);
+    color: #fff;
+    font: 32px/1 "Lato";
+    margin: 0;
+    padding: 0;
+}
+.main__navbar-custom{
+    padding:2rem 0rem;
+}
+.navbar-brand__custom{
+    padding:0;
+}
+.head__padding{
+    padding-top: 8rem;
+}
+.banner__button-head_learn{
+    
+        padding-top: 2rem;
+        padding-bottom: 8rem;
+}
+.banner__button-head_learn a{
+        padding: 0.9em 4em;
+        cursor: pointer;
+        background: #ff4814;
+        line-height: 1.3;
+        color: #fff;
+        display: inline-block;
+        border-radius: .5rem;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+}
+.card__support{
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 2px;
+    height: calc(100% - 2px);
+}
+
+.card__inner-support{
+    box-shadow: 0 1px 4px 0 #dfe5ee;
+    background-color: #fff;
+    margin: 0 0 16px 0;
+    padding: 24px 32px;
+    border-radius: 4px;
+}
+
+.glyphicon-search{
+    font-size:20px;
+}
+.btn-default{
+    width:100px;
+    padding:12.5px;
+
+}
+.form-control{
+    padding: 25px;
+    font-size: 20px;
+    padding:25px;   
+}
+
+.footer__support{
+
+}
+
+@media (min-width: 576px)
+.footer-body {
+    width: auto;
+    max-width: 540px;
+    float: none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.footer-body {
+    padding: 8px 8px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 0;
+    text-align: center;
+}
+
+.footer__support{
+    border-top: 1px solid #dfe5ee;
+}
+.hands {
+  width: 45px;
+  height: 42px;
+  background-size: 100% auto !important;
+  background-position: center !important;
+  margin: 20px;
+  display: inline-block;
+  filter: grayscale(100%) brightness(0.8);
+  transition: filter 0.8s ease-out;
+  cursor: pointer;
+}
+.hands:hover {
+  filter: grayscale(0) brightness(1);
+}
+.like {
+   background: url(https://upload.wikimedia.org/wikipedia/commons/1/13/Facebook_like_thumb.png) no-repeat;
+  animation: like 2.4s infinite forwards;
+  transform-origin: bottom left;
+}
+.dislike {
+  background: url(http://pngimg.com/uploads/dislike/dislike_PNG2.png) no-repeat;
+  animation: dislike 2.4s infinite forwards 1.2s;
+  transform-origin: top right;
+}
+@keyframes like {
+  0 { transform: rotate(0) scale(1)}
+  50% { transform: rotate(-4deg) scale(1.12)}
+  100% { transform: rotate(0) scale(1)}
+}
+@keyframes dislike {
+  0 { transform: rotate(0) scale(1)}
+  50% { transform: rotate(-4deg) scale(1.12)}
+  100% { transform: rotate(0) scale(1)}
+}
