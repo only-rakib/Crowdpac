@@ -24,14 +24,17 @@
     <div class="row" style="margin-top: 2rem">
         <div class="col">
             <a href="{% url 'view_campaign' %}" class="rcls" style="color:initial">
-                <div class="card class_not_hover_cursor_hand" style="padding: 1rem;">
+                <div class="card class_not_hover_cursor_hand" data-gender="{{var1.gender}}" data-recipient="{{var1.recipient}}" data-polical_affiliation="{{var1.political_affiliation}}"  style="padding: 1rem;">
                     <h5 class="card-title">{{var1.campaign_title}}</h5>
                     {% with var1.campaign_cover_image as image %}
                     <img src="{% static image%}" alt="Card image cap" class="card-img-top">
                     {% endwith %}
                     <div class="card-body" style="padding: 0px;margin-top: 1rem">
                         <h6>{{var1.campaign_content_writer}}</h6>
-                        <p class="card-text text-justify">{{var1.campaign_content_writer_designation}}</p>
+                        <span class="card-text text-justify year">
+                            {{var1.campaign_content_year}} </span>
+                        <span class="card-text text-justify address">{{var1.campaign_content_writer_address}} </span>
+                        <span class="card-text text-justify state">{{var1.campaign_content_writer_state}}</span>
                         <hr>
                         <p class="card-text text-justify">{{var1.campaign_story}}</p>
                         <div class="btn-card-bg">
@@ -74,8 +77,7 @@
             </a>
         </div>
     </div>
-
-{% endfor %}
+    {% endfor %}
 </div>
 <div class="row" style="margin-top: 3rem">
     <div class="col text-center">

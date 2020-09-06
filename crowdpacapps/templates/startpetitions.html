@@ -271,15 +271,13 @@ function tagSelect(clicked_id) {
     total_tags = store + tagsCounts;
     $("#optionsleft").text(total_tags + "/5 selected");
 }
-$('#tags_text').on('change', function() {
-
-
+$('#tags_text').on('change', function(event) {
     var items = $("#tags_text").tagsinput('items').length;
     store = items;
     total_tags = store + tagsCounts;
     $("#optionsleft").text(total_tags + "/5 selected");
     //console.log(total_tags);
-
+    return false;
 
 });
 
