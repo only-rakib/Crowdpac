@@ -331,7 +331,7 @@
             <div>
                 <input type="checkbox" name="Election_Year" value="2020">
                 <label for="2020">2020</label><br>
-                <input type="checkbox" name="Election_Year" value="021">
+                <input type="checkbox" name="Election_Year" value="2021">
                 <label for="021">2021</label><br>
                 <input type="checkbox" name="Election_Year" value="2022">
                 <label for="2022">2022</label><br>
@@ -354,28 +354,28 @@
             </div>
             <div class="items3">
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox"  name="political_affiliation" value="Democrat">
                     <span>Democrat </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox"  name="political_affiliation" value="Independent">
                     <span>Independent </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox"  name="political_affiliation" value="Green">
                     <span>Green </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox"  name="political_affiliation" value="Libertarian">
                     <span>
                         Libertarian </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox"  name="political_affiliation" value="Unaffiliated">
                     <span>Unaffiliated</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox"  name="political_affiliation" value="Write-In">
                     <span>Write-In </span>
                 </div>
             </div>
@@ -499,7 +499,7 @@ $filterCheckboxes.on('change', function() {
 
 /*Filter By States*/
 var $filterCheckboxesState = $('input:checkbox[name="states"]');
-console.log($filterCheckboxesState);
+//console.log($filterCheckboxesState);
 $filterCheckboxesState.on('change', function() {
 
     var selectedFilters = {};
@@ -515,7 +515,7 @@ $filterCheckboxesState.on('change', function() {
     });
 
     // create a collection containing all of the filterable elements
-    var $filteredResults = $('.card .state');
+    var $filteredResults = $('.card');
     //console.log("filteredResults",$filteredResults);
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
@@ -552,6 +552,242 @@ $filterCheckboxesState.on('change', function() {
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
     $('.card').hide().filter($filteredResults.closest('.card')).show();
+
+});
+
+
+
+/*Filter By Election Year*/
+var $filterCheckboxesElection_Year = $('input:checkbox[name="Election_Year"]');
+//console.log($filterCheckboxesState);
+$filterCheckboxesElection_Year.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesElection_Year.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card .year');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('election_year').toString().split();
+                //currentFilterValues = $(this).data('election_year').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.card').hide().filter($filteredResults.closest('.card')).show();
+
+});
+
+
+/*Filter by Candidate Gender*/
+
+var $filterCheckboxesGender = $('input:checkbox[name="Gender"]');
+//console.log($filterCheckboxesRecipientType);
+$filterCheckboxesGender.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesGender.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        //console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('gender').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.card').hide().filter($filteredResults).show();
+
+});
+
+/* Filter By RecipientType*/
+var $filterCheckboxesRecipientType = $('input:checkbox[name="RecipientType"]');
+//console.log($filterCheckboxesRecipientType);
+$filterCheckboxesRecipientType.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesRecipientType.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        //console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('recipient').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.card').hide().filter($filteredResults).show();
+
+});
+/* Filter By Political_Affiliation */
+var $filterCheckboxesPolitical_Affiliation = $('input:checkbox[name="political_affiliation"]');
+//console.log($filterCheckboxesRecipientType);
+$filterCheckboxesPolitical_Affiliation.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesPolitical_Affiliation.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        //console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('polical_affiliation').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.card').hide().filter($filteredResults).show();
 
 });
 </script>

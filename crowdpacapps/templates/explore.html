@@ -31,7 +31,7 @@
                     {% endwith %}
                     <div class="card-body" style="padding: 0px;margin-top: 1rem">
                         <h6>{{var1.campaign_content_writer}}</h6>
-                        <span class="card-text text-justify year">
+                        <span class="card-text text-justify year" data-election_year="{{var1.campaign_content_year}}">
                             {{var1.campaign_content_year}} </span>
                         <span class="card-text text-justify address">{{var1.campaign_content_writer_address}} </span>
                         <span class="card-text text-justify state">{{var1.campaign_content_writer_state}}</span>
