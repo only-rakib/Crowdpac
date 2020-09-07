@@ -14,7 +14,7 @@
                     <div class="row no-margin" id="member__div">
                         <div class="col">
                         	{% for data in member %}
-                            <div class="row member__class" style="border:1px solid #ced4da;border-radius: .25rem;padding-bottom: 1rem;padding-top: 1rem;margin-top: 2rem;">
+                            <div class="row member__class" style="border:1px solid #ced4da;border-radius: .25rem;padding-bottom: 1rem;padding-top: 1rem;margin-top: 2rem;" data-tagvalue="{{data.tagValue}}">
                                 <div class="col-2 d-flex align-items-center">
                                     {%if data.member_pro_pic != "none"%}
                                     {% with data.member_pro_pic as pro_pic %}
@@ -28,7 +28,7 @@
                                 <div class="col-6 member__name d-flex align-items-center">
                                     <a style="color: inherit;" href="{% url 'others_profile' %}">{{data.member_name}}</a>
                                 </div>
-                                <div class="col-4 ">
+                                <div class="col-md-4 col-sm-12">
                                     <div class="row">
                                     	<div class="col">
                                     		<a href="#" class="btnr red rcls float-right" data-id="{{data.memberId}}" style="width: 100%">Follow</a>

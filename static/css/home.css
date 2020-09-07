@@ -943,3 +943,10 @@ a.showLess::after {
     margin: 5px 5px 10px 20px;
     float: right;
 }
+input:focus, textarea:focus {
+    outline: none !important;
+}
+.form-control:focus
+{
+    box-shadow:none;
+}

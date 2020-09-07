@@ -47,13 +47,14 @@ def social_feed_View(request):
         'campaign_content_writer_state': "WA",
         'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
         'campaign_content_tags': ['Climate Change', 'Health care', 'Immigration Reform', 'LGBTQ Rights Inequality', 'Income Inequality'],
-        'campaign_raised_amount': '868',
-        'Fundraising_Goal': '',
-        'campaign_raised_amount_percentanges': (868 / 2000) * 100,
+        'campaign_raised_amount': 868,
+        'Fundraising_Goal': 3000,
+        'campaign_raised_amount_percentanges': (868 / 3000) * 100,
         'campaign_supporter': 22,
         'gender': 'Female',
         'political_affiliation': 'Independent',
         'recipient': 'Organization',
+        'upload_time': '20200907010001',  # yyyyMMddHHmmss
     }
     campaign_2 = {
 
@@ -65,17 +66,38 @@ def social_feed_View(request):
         'campaign_content_writer_state': "WA",
         'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
         'campaign_content_tags': ['Environment', 'Gender Equality', ' Gun Safety'],
-        'campaign_raised_amount': 868,
-        'Fundraising_Goal': 2000,
-        'campaign_raised_amount_percentanges': (868 / 2000) * 100,
+        'campaign_raised_amount': 880,
+        'Fundraising_Goal': 1000,
+        'campaign_raised_amount_percentanges': (880 / 1000) * 100,
         'campaign_supporter': 22,
         'gender': 'Male',
         'political_affiliation': 'Democrat',
         'recipient': 'Candidate',
+        'upload_time': '20200906010001',
+    }
+    campaign_3 = {
+
+        'campaign_title': "26-year old truck driver & climate activist fighting for the working class",
+        'campaign_cover_image': "images/cyst94ggea6r6iag1568.png",
+        'campaign_content_writer': "Joshua Collins",
+        'campaign_content_year': "2020",
+        'campaign_content_writer_address': "U.S. House, 10th District,",
+        'campaign_content_writer_state': "WA",
+        'campaign_story': '''I've been a trucker for 5 years, and part of the workforce for over 11 years. I grew up poor in the Midwest; my college plans...''',
+        'campaign_content_tags': ['Environment', 'Gender Equality', ' Gun Safety'],
+        'campaign_raised_amount': 3000,
+        'Fundraising_Goal': 10000,
+        'campaign_raised_amount_percentanges': (3000 / 10000) * 100,
+        'campaign_supporter': 22,
+        'gender': 'Male',
+        'political_affiliation': 'Democrat',
+        'recipient': 'Candidate',
+        'upload_time': '20190907230005',
     }
     lst_campaign = []
     lst_campaign.append(campaign_1)
     lst_campaign.append(campaign_2)
+    lst_campaign.append(campaign_3)
     # Campaign end
     # News Start
     news1 = {
@@ -150,19 +172,22 @@ def social_feed_View(request):
         'member_name': 'xyz',
         "member_pro_pic": "none",
         'memberDataLetter': 'X',
-        'memberId': 1
+        'memberId': 1,
+        'tagValue': 'tag-1' + ' ' + 'tag-2' + ' ' + 'tag-3'
     }
     member2 = {
         'member_name': 'abc',
         "member_pro_pic": "none",
         'memberDataLetter': 'A',
-        'memberId': 1
+        'memberId': 1,
+        'tagValue': 'tag-4' + ' ' + 'tag-5' + ' ' + 'tag-6'
     }
     member3 = {
         'member_name': 'xyzz',
         "member_pro_pic": "none",
         'memberDataLetter': 'X',
-        'memberId': 1
+        'memberId': 1,
+        'tagValue': 'tag-7' + ' ' + 'tag-8' + ' ' + 'tag-9',
     }
     lstMember = []
     lstMember.append(member1)

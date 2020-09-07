@@ -1,18 +1,19 @@
+{%load static%}
 <div class="row" style="padding-top: 40px;">
     <div class="col">
-        <div style=" overflow:auto">
+        <div style=" overflow-y: scroll;max-height:100vh ">
             <div>
                 <h3 class="content-short">Sort by</h3>
             </div>
             <div>
                 <form>
-                    <input type="radio" id="mal" name="people" value="male">
+                    <input type="radio" name="sortby_upper" value="popular" checked>
                     <label for="mal1">Popular this week </label><br>
-                    <input type="radio" id="mal2" name="people" value="female">
+                    <input type="radio" name="sortby_upper" value="Closest">
                     <label for="mal2">Closest to goal </label><br>
-                    <input type="radio" id="mal3" name="people" value="other">
+                    <input type="radio" name="sortby_upper" value="raised">
                     <label for="mal3">Most funds raised</label><br>
-                    <input type="radio" id="mal4" name="people" value="other">
+                    <input type="radio" name="sortby_upper" value="updated">
                     <label for="mal4">Recently updated </label>
                 </form>
             </div>
@@ -20,84 +21,84 @@
             <div>
                 <h3 class="content-short">Filter by</h3>
                 <h6>
-                    <strong>Tags</strong>
+                    <strong>tag_uppers</strong>
                 </h6>
             </div>
             <div class="upperItems">
                 <div class="item">
-                    <input type="checkbox" id="check_tag1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper1" name="tag_upper" value="Campaign Finance Reform">
                     <span>Campaign Finance Reform </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" id="check_tag_upper2" name="tag_upper" value="Civil Rights">
                     <span>Civil Rights </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" id="check_tag_upper3" name="tag_upper" value="Climate Change">
                     <span>Climate Change</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper4" name="tag_upper" value="Criminal Justice Reform">
                     <span>Criminal Justice Reform</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper5" name="tag_upper" value="Environment">
                     <span>Environment</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                    <span>Gender Equality</span>
+                    <input type="checkbox" id="check_tag_upper6" name="tag_upper" value="Gender_upper Equality">
+                    <span>Gender_upper Equality</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" id="check_tag_upper7" name="tag_upper" value="Gun Safety">
                     <span>Gun Safety</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper8" name="tag_upper" value="Health Care">
                     <span>Health Care</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper9" name="tag_upper" value="Immigration Reform">
                     <span>Immigration Reform</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" id="check_tag_upper10" name="tag_upper" value="Income Inequality">
                     <span>Income Inequality</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" id="check_tag_upper11" name="tag_upper" value="International Diplomacy">
                     <span>International Diplomacy</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper12" name="tag_upper" value="Internet Policy">
                     <span>Internet Policy</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper13" name="tag_upper" value="LGBTQ Rights">
                     <span>LGBTQ Rights</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" id="check_tag_upper14" name="tag_upper" value="Marijuana Legalization">
                     <span>Marijuana Legalization</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" id="check_tag_upper15" name="tag_upper" value="Pro Choice">
                     <span>Pro Choice</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper16" name="tag_upper" value="Public Education">
                     <span>Public Education</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" id="check_tag_upper17" name="tag_upper" value="Transport Infrastructure">
                     <span>Transport Infrastructure</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" id="check_tag_upper18" name="tag_upper" value="Union Rights">
                     <span>Union Rights</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" id="vehicle2" name="tag_upper" value="womeninpolitics">
                     <span>womeninpolitics</span>
                 </div>
             </div>
@@ -108,211 +109,211 @@
             </div>
             <div class="upperItems2">
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" name="states_upper" value="AL">
                     <span>Alabama </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" name="states_upper" value="AK">
                     <span>Alaska </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="AZ">
                     <span>Arizona </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="AR">
                     <span>Arkansas</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="CA">
                     <span>California</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="CO">
                     <span>Colorado</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="CT">
                     <span>Connecticut</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="DE">
                     <span>Delaware</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="DC">
                     <span>District Of Columbia</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="FL">
                     <span>Florida</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="GA">
                     <span>Georgia</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="HI">
                     <span>Hawaii</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="ID">
                     <span>Idaho</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="IL">
                     <span>Illinois</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="IN">
                     <span>Indiana</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="IA">
                     <span>Iowa</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="KS">
                     <span>Kansas</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="KY">
                     <span>Kentucky</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="LA">
                     <span>Louisiana</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="ME">
                     <span>Maine</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MD">
                     <span>Maryland</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MA">
                     <span>Massachusetts</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MI">
                     <span>Michigan</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MN">
                     <span>Minnesota</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MS">
                     <span>Mississippi</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MO">
                     <span>Missouri</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="MT">
                     <span>Montana</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NE">
                     <span>Nebraska</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NV">
                     <span>Nevada</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NH">
                     <span>New Hampshire</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NJ">
                     <span>New Jersey</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NM">
                     <span>New Mexico</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NY">
                     <span>New York</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="NC">
                     <span>North Carolina</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="ND">
                     <span>North Dakota</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="OH">
                     <span>Ohio</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="OK">
                     <span>Oklahoma</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="OR">
                     <span>Oregon</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="PA">
                     <span>Pennsylvania</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="RI">
                     <span>Rhode Island</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="SC">
                     <span>South Carolina</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="SD">
                     <span>South Dakota</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="TN">
                     <span>Tennessee</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="TX">
                     <span>Texas</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="UT">
                     <span>Utah</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="VT">
                     <span>Vermont</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="VA">
                     <span>Virginia</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="WA">
                     <span>Washington</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="WV">
                     <span>West Virginia</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="WI">
                     <span>Wisconsin</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="WY">
                     <span>Wyoming</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="states_upper" value="VI">
                     <span>U.S. Virgin Islands</span>
                 </div>
             </div>
@@ -320,36 +321,32 @@
                 <h6><strong>Recipient Type</strong></h6>
             </div>
             <div>
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1">Candidate </label><br>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                <label for="vehicle2">Organization </label><br>
+                <input type="checkbox" name="RecipientType_upper" value="Candidate">
+                <label for="Candidate">Candidate </label><br>
+                <input type="checkbox" name="RecipientType_upper" value="Organization">
+                <label for="Organization">Organization </label><br>
             </div>
             <div>
                 <h6><strong>Election Year </strong></h6>
             </div>
             <div>
-                <form>
-                    <form action="/action_page.php">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                        <label for="vehicle1">2020</label><br>
-                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                        <label for="vehicle2">2021</label><br>
-                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                        <label for="vehicle3">2022</label><br>
-                    </form>
-                </form>
+                <input type="checkbox" name="Election_Year_upper" value="2020">
+                <label for="2020">2020</label><br>
+                <input type="checkbox" name="Election_Year_upper" value="2021">
+                <label for="021">2021</label><br>
+                <input type="checkbox" name="Election_Year_upper" value="2022">
+                <label for="2022">2022</label><br>
             </div>
             <div>
-                <h6><strong>Candidate Gender </strong></h6>
+                <h6><strong>Candidate Gender_upper </strong></h6>
             </div>
             <div>
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1">Male</label><br>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                <label for="vehicle2">Female</label><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3">Unspecified </label><br>
+                <input type="checkbox" name="Gender_upper" value="Male">
+                <label for="Male">Male</label><br>
+                <input type="checkbox" name="Gender_upper" value="Female">
+                <label for="Female">Female</label><br>
+                <input type="checkbox" name="Gender_upper" value="Unspecified">
+                <label for="vUnspecified">Unspecified </label><br>
             </div>
             <div>
                 <h6>
@@ -358,28 +355,28 @@
             </div>
             <div class="upperItems3">
                 <div class="item">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox" name="political_affiliation_upper" value="Democrat">
                     <span>Democrat </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" name="political_affiliation_upper" value="Independent">
                     <span>Independent </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="political_affiliation_upper" value="Green">
                     <span>Green </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="political_affiliation_upper" value="Libertarian">
                     <span>
                         Libertarian </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="political_affiliation_upper" value="Unaffiliated">
                     <span>Unaffiliated</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" name="political_affiliation_upper" value="Write-In">
                     <span>Write-In </span>
                 </div>
             </div>
@@ -387,7 +384,7 @@
     </div>
 </div>
 <script>
-/*more and fewer tags start*/
+/*more and fewer tag_uppers start*/
 var $this = $('.upperItems');
 if ($this.find('div').length > 2) {
     $('.upperItems').append('<div "><a id="appendShowmore" href="#/" class="showMore rcls"></a></div>');
@@ -403,7 +400,7 @@ $('.upperItems .showMore').on('click', function() {
     //("#appendShowmore").text('Show Less');
     $(this).toggleClass('showLess');
 });
-/*more and fewer tags end*/
+/*more and fewer tag_uppers end*/
 /*more and fewer state start*/
 var $this2 = $('.upperItems2');
 if ($this.find('div').length > 2) {
@@ -439,4 +436,401 @@ $('.upperItems3 .showMore').on('click', function() {
     $(this).toggleClass('showLess');
 });
 /*more and fewer polictical end*/
+/* Filter by tag_upper*/
+//var $filterCheckboxes = $('input[type="checkbox"]');
+var $filterCheckboxes_upper = $('input:checkbox[name="tag_upper"]');
+$filterCheckboxes_upper.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxes_upper.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        //console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card .badge');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).text().split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.cardDiv').hide().filter($filteredResults.closest('.cardDiv')).show();
+
+});
+
+
+/*Filter By states_upper*/
+var $filterCheckboxesState_upper = $('input:checkbox[name="states_upper"]');
+//console.log($filterCheckboxesState);
+$filterCheckboxesState_upper.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesState_upper.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).text().split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.cardDiv').hide().filter($filteredResults.closest('.cardDiv')).show();
+
+});
+
+
+
+/*Filter By Election Year*/
+var $filterCheckboxesElection_Year_upper = $('input:checkbox[name="Election_Year_upper"]');
+//console.log($filterCheckboxesState);
+$filterCheckboxesElection_Year_upper.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesElection_Year_upper.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.card .year');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('Election_Year_upper').toString().split();
+            //currentFilterValues = $(this).data('Election_Year_upper').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.cardDiv').hide().filter($filteredResults.closest('.cardDiv')).show();
+
+});
+
+
+/*Filter by Candidate Gender_upper*/
+
+var $filterCheckboxesGender_upper = $('input:checkbox[name="Gender_upper"]');
+//console.log($filterCheckboxesRecipientType_upper);
+$filterCheckboxesGender_upper.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesGender_upper.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        //console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.cardDiv');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('Gender_upper').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.cardDiv').hide().filter($filteredResults).show();
+
+});
+
+/* Filter By RecipientType_upper*/
+var $filterCheckboxesRecipientType_upper = $('input:checkbox[name="RecipientType_upper"]');
+//console.log($filterCheckboxesRecipientType_upper);
+$filterCheckboxesRecipientType_upper.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxesRecipientType_upper.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+
+        selectedFilters[this.name].push(this.value);
+        //console.log(selectedFilters);
+    });
+
+    // create a collection containing all of the filterable elements
+    var $filteredResults = $('.cardDiv');
+    //console.log("filteredResults",$filteredResults);
+    // loop over the selected filter name -> (array) values pairs
+    $.each(selectedFilters, function(name, filterValues) {
+
+        // filter each .flower element
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                //currentFilterValues = $(this).data('category').split(' ');
+                //currentFilterValues = $(this).find(".badge").text().split();
+                currentFilterValues = $(this).data('recipient').split();
+            //console.log(currentFilterValues)
+
+
+            // loop over each category value in the current .flower's data-category
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                // if the current category exists in the selected filters array
+                // set matched to true, and stop looping. as we're ORing in each
+                // set of filters, we only need to match once
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+            //console.log('maaa',matched);
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.cardDiv').hide().filter($filteredResults).show();
+
+});
+/* Filter By political_affiliation_upper */
+var $filterCheckboxespolitical_affiliation_upper = $('input:checkbox[name="political_affiliation_upper"]');
+$filterCheckboxespolitical_affiliation_upper.on('change', function() {
+
+    var selectedFilters = {};
+
+    $filterCheckboxespolitical_affiliation_upper.filter(':checked').each(function() {
+
+        if (!selectedFilters.hasOwnProperty(this.name)) {
+            selectedFilters[this.name] = [];
+        }
+        selectedFilters[this.name].push(this.value);
+    });
+
+    var $filteredResults = $('.cardDiv');
+    $.each(selectedFilters, function(name, filterValues) {
+        $filteredResults = $filteredResults.filter(function() {
+
+            var matched = false,
+                currentFilterValues = $(this).data('polical_affiliation').split();
+
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+
+                if ($.inArray(currentFilterValue, filterValues) != -1) {
+                    matched = true;
+                    return false;
+                }
+            });
+
+            // if matched is true the current .flower element is returned
+           
+            return matched;
+
+        });
+    });
+    //console.log($('.badge').closest(".card").filter($filteredResults).show());
+    //console.log($filteredResults.closest('.card'));  
+    $('.cardDiv').hide().filter($filteredResults).show();
+
+});
+/**************Sort by radio value****************/
+
+radioValues_upper = $('input[name="sortby_upper"]');
+
+radioValues_upper.on('change', function() {
+    sortValue = radioValues_upper.filter(':checked').val();
+    //allCard = $(".card .progress-bar");
+    if (sortValue == "Closest") {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            var sss = $(a).find('.card .progress-bar').css('width') < $(b).find('.card .progress-bar').css('width');
+            
+            return sss;
+            
+        });
+        $("#exploreId").html(rrr);
+       
+    }
+    else if(sortValue=="raised")
+    {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            /*console.log($(a).find('.card .amount_raised').text().toString().replace('$',''));
+            console.log($(b).find('.card .amount_raised').text().toString().replace('$',''));*/
+            var sss = parseFloat($(a).find('.card .amount_raised').text().toString().replace('$','')) < parseFloat($(b).find('.card .amount_raised').text().toString().replace('$',''));
+            
+            return sss;
+            
+        });
+        //console.log(rrr);
+        $("#exploreId").html(rrr);
+    }
+    else if(sortValue=="updated")
+    {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            /*console.log($(a).find('.card .amount_raised').text().toString().replace('$',''));
+            console.log($(b).find('.card .amount_raised').text().toString().replace('$',''));*/
+            var sss = parseFloat($(a).data('time_date').toString()) < parseFloat($(b).data('time_date').toString());
+            
+            return sss;
+            
+        });
+        //console.log(rrr);
+        $("#exploreId").html(rrr);
+    }
+    else
+    {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            /*console.log($(a).find('.card .amount_raised').text().toString().replace('$',''));
+            console.log($(b).find('.card .amount_raised').text().toString().replace('$',''));*/
+            var sss = parseFloat($(a).data('time_date').toString()) > parseFloat($(b).data('time_date').toString());
+            
+            return sss;
+            
+        });
+        //console.log(rrr);
+        $("#exploreId").html(rrr);
+
+    }
+});
 </script>

@@ -1,3 +1,4 @@
+{%load static%}
 <div class="row" style="padding-top: 40px;">
     <div class="col">
         <div style=" overflow-y: scroll;max-height:100vh ">
@@ -6,13 +7,13 @@
             </div>
             <div>
                 <form>
-                    <input type="radio" id="mal" name="people" value="male">
+                    <input type="radio" name="sortby" value="popular" checked>
                     <label for="mal1">Popular this week </label><br>
-                    <input type="radio" id="mal2" name="people" value="female">
+                    <input type="radio" name="sortby" value="Closest">
                     <label for="mal2">Closest to goal </label><br>
-                    <input type="radio" id="mal3" name="people" value="other">
+                    <input type="radio" name="sortby" value="raised">
                     <label for="mal3">Most funds raised</label><br>
-                    <input type="radio" id="mal4" name="people" value="other">
+                    <input type="radio" name="sortby" value="updated">
                     <label for="mal4">Recently updated </label>
                 </form>
             </div>
@@ -340,11 +341,11 @@
                 <h6><strong>Candidate Gender </strong></h6>
             </div>
             <div>
-                <input type="checkbox"  name="Gender" value="Male">
+                <input type="checkbox" name="Gender" value="Male">
                 <label for="Male">Male</label><br>
-                <input type="checkbox"  name="Gender" value="Female">
+                <input type="checkbox" name="Gender" value="Female">
                 <label for="Female">Female</label><br>
-                <input type="checkbox"  name="Gender" value="Unspecified">
+                <input type="checkbox" name="Gender" value="Unspecified">
                 <label for="vUnspecified">Unspecified </label><br>
             </div>
             <div>
@@ -354,28 +355,28 @@
             </div>
             <div class="items3">
                 <div class="item">
-                    <input type="checkbox"  name="political_affiliation" value="Democrat">
+                    <input type="checkbox" name="political_affiliation" value="Democrat">
                     <span>Democrat </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox"  name="political_affiliation" value="Independent">
+                    <input type="checkbox" name="political_affiliation" value="Independent">
                     <span>Independent </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox"  name="political_affiliation" value="Green">
+                    <input type="checkbox" name="political_affiliation" value="Green">
                     <span>Green </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox"  name="political_affiliation" value="Libertarian">
+                    <input type="checkbox" name="political_affiliation" value="Libertarian">
                     <span>
                         Libertarian </span>
                 </div>
                 <div class="item">
-                    <input type="checkbox"  name="political_affiliation" value="Unaffiliated">
+                    <input type="checkbox" name="political_affiliation" value="Unaffiliated">
                     <span>Unaffiliated</span>
                 </div>
                 <div class="item">
-                    <input type="checkbox"  name="political_affiliation" value="Write-In">
+                    <input type="checkbox" name="political_affiliation" value="Write-In">
                     <span>Write-In </span>
                 </div>
             </div>
@@ -492,7 +493,7 @@ $filterCheckboxes.on('change', function() {
     });
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
-    $('.card').hide().filter($filteredResults.closest('.card')).show();
+    $('.cardDiv').hide().filter($filteredResults.closest('.cardDiv')).show();
 
 });
 
@@ -551,7 +552,7 @@ $filterCheckboxesState.on('change', function() {
     });
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
-    $('.card').hide().filter($filteredResults.closest('.card')).show();
+    $('.cardDiv').hide().filter($filteredResults.closest('.cardDiv')).show();
 
 });
 
@@ -587,7 +588,7 @@ $filterCheckboxesElection_Year.on('change', function() {
                 //currentFilterValues = $(this).data('category').split(' ');
                 //currentFilterValues = $(this).find(".badge").text().split();
                 currentFilterValues = $(this).data('election_year').toString().split();
-                //currentFilterValues = $(this).data('election_year').split();
+            //currentFilterValues = $(this).data('election_year').split();
             //console.log(currentFilterValues)
 
 
@@ -612,7 +613,7 @@ $filterCheckboxesElection_Year.on('change', function() {
     });
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
-    $('.card').hide().filter($filteredResults.closest('.card')).show();
+    $('.cardDiv').hide().filter($filteredResults.closest('.cardDiv')).show();
 
 });
 
@@ -636,7 +637,7 @@ $filterCheckboxesGender.on('change', function() {
     });
 
     // create a collection containing all of the filterable elements
-    var $filteredResults = $('.card');
+    var $filteredResults = $('.cardDiv');
     //console.log("filteredResults",$filteredResults);
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
@@ -672,7 +673,7 @@ $filterCheckboxesGender.on('change', function() {
     });
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
-    $('.card').hide().filter($filteredResults).show();
+    $('.cardDiv').hide().filter($filteredResults).show();
 
 });
 
@@ -694,7 +695,7 @@ $filterCheckboxesRecipientType.on('change', function() {
     });
 
     // create a collection containing all of the filterable elements
-    var $filteredResults = $('.card');
+    var $filteredResults = $('.cardDiv');
     //console.log("filteredResults",$filteredResults);
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
@@ -730,7 +731,7 @@ $filterCheckboxesRecipientType.on('change', function() {
     });
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
-    $('.card').hide().filter($filteredResults).show();
+    $('.cardDiv').hide().filter($filteredResults).show();
 
 });
 /* Filter By Political_Affiliation */
@@ -751,7 +752,7 @@ $filterCheckboxesPolitical_Affiliation.on('change', function() {
     });
 
     // create a collection containing all of the filterable elements
-    var $filteredResults = $('.card');
+    var $filteredResults = $('.cardDiv');
     //console.log("filteredResults",$filteredResults);
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
@@ -787,7 +788,69 @@ $filterCheckboxesPolitical_Affiliation.on('change', function() {
     });
     //console.log($('.badge').closest(".card").filter($filteredResults).show());
     //console.log($filteredResults.closest('.card'));  
-    $('.card').hide().filter($filteredResults).show();
+    $('.cardDiv').hide().filter($filteredResults).show();
 
+});
+/**************Sort by radio value****************/
+
+radioValues = $('input[name="sortby"]');
+//radioValues.onchange
+radioValues.on('change', function() {
+    sortValue = radioValues.filter(':checked').val();
+    //allCard = $(".card .progress-bar");
+    if (sortValue == "Closest") {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            var sss = $(a).find('.card .progress-bar').css('width') < $(b).find('.card .progress-bar').css('width');
+            
+            return sss;
+            
+        });
+        $("#exploreId").html(rrr);
+       
+    }
+    else if(sortValue=="raised")
+    {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            /*console.log($(a).find('.card .amount_raised').text().toString().replace('$',''));
+            console.log($(b).find('.card .amount_raised').text().toString().replace('$',''));*/
+            var sss = parseFloat($(a).find('.card .amount_raised').text().toString().replace('$','')) < parseFloat($(b).find('.card .amount_raised').text().toString().replace('$',''));
+            
+            return sss;
+            
+        });
+        //console.log(rrr);
+        $("#exploreId").html(rrr);
+    }
+    else if(sortValue=="updated")
+    {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            /*console.log($(a).find('.card .amount_raised').text().toString().replace('$',''));
+            console.log($(b).find('.card .amount_raised').text().toString().replace('$',''));*/
+            var sss = parseFloat($(a).data('time_date').toString()) < parseFloat($(b).data('time_date').toString());
+            
+            return sss;
+            
+        });
+        //console.log(rrr);
+        $("#exploreId").html(rrr);
+    }
+    else
+    {
+        var rrr=$('.cardDiv').sort(function(a, b) {
+            
+            /*console.log($(a).find('.card .amount_raised').text().toString().replace('$',''));
+            console.log($(b).find('.card .amount_raised').text().toString().replace('$',''));*/
+            var sss = parseFloat($(a).data('time_date').toString()) > parseFloat($(b).data('time_date').toString());
+            
+            return sss;
+            
+        });
+        //console.log(rrr);
+        $("#exploreId").html(rrr);
+
+    }
 });
 </script>
