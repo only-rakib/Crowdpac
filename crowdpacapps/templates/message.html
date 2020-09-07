@@ -1,0 +1,44 @@
+{% extends 'header_footer.html' %} {% load static %} {% block title %}
+<title>Chats | Crowdpac</title>
+{% endblock title %} {% block container %}
+<!-------------------------------nav part end here----------------------------------->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-11">
+            <div class="row">
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col" style="height: 100vh;overflow-y: scroll;width: 100%">
+                            <div class="row">
+                                <div class="col-12 text-center" style="margin-top: 3rem">
+                                    <a href="{% url 'feed' %}#members_tab/" class="btnr red campaign"><span class="button__content"><span>
+                                                Browse Crowdpac Members
+                                            </span></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 d-flex align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col-11">
+                            <div class="row ">
+                                <div class="col-12 text-center">
+                                    <i class="fas fa-paper-plane" style="font-size: 75px;"></i>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <p class="content-5" style="text-align: center; font-size: 30px;">Direct message</p>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <p class="content-1" style="font-size: 20px; text-align: center;">Choose member from list and type message!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------------------- container part start here -------------------------->
+{%endblock container%}

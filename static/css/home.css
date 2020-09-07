@@ -824,11 +824,16 @@ video.candidate-video-player {
     padding-bottom: 0.44rem;
     padding-left: .5rem;
     border: 1px solid #ced4da;
+    height: 36px;
+    transform: translateX(2px);
+    left: 13px;
 }
 
 .custom-tracking-text {
     width: 100%;
     padding-left: 15rem;
+    height: 36px;
+    border: 1px solid #ced4da;
 }
 
 .btnr.red.campaigns {
@@ -964,4 +969,30 @@ textarea:focus {
 
 .highlight {
     background-color: #FFFF88;
+}
+/***************************Fundraising*******************************/
+.text_number_input
+{
+    padding-left: 2rem;
+    width: 100%;
+    height: 36px;
+    border: 1px solid #ced4da;
+}
+.text_number_input:focus
+{
+   box-shadow: none;
+   outline: none !important;
+}
+.dollarSign_number_input
+{
+    left: 13px;
+    position: absolute;
+    padding: .38rem;
+    background: #F6F6F6;
+    border: 1px solid #ced4da;
+    /*border-radius: .25rem;*/
+    height: 36px;
+    transform: translateX(2px);
+
+}
 }

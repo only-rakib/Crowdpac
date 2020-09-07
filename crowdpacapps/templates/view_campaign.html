@@ -261,12 +261,25 @@ $('#modal-donate').on('show.bs.modal', function(event) {
     var tips = button.data('tips');
     var handling = button.data('handling');
     var total = button.data('total');
-    var title = "{{post.post_title}}";
+    var title;
     var modal = $(this);
+    var donateorpledge="{{support.candidate_self_or_not}}";
+    if(donateorpledge=="No")
+    {
+        var title = "Pledge for "+"{{post.post_title}}";
+        modal.find('#buttonTxt').text("Pledge $" + total)
+    }
+    else
+    {
+        var title = "Donate for "+"{{post.post_title}}";
+        modal.find('#buttonTxt').text("Donate $" + total)
+    }
+    
+    
     modal.find('#amount').text("$" + amount)
     modal.find('#tipFee').text("$" + tips)
     modal.find('#handlingFee').text("$" + handling)
-    modal.find('#buttonTxt').text("Donate $" + total)
+    
     modal.find('#donate_titile').text(title)
 })
 $('#modal-other-donate').on('show.bs.modal', function(event) {
@@ -274,7 +287,7 @@ $('#modal-other-donate').on('show.bs.modal', function(event) {
 
     var title = "{{post.post_title}}";
     var modal = $(this);
-    modal.find('#donate_titile').text(title)
+    modal.find('#other_donate_titile').text(title)
 })
 </script>
 {% endblock container %}

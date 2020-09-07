@@ -38,4 +38,5 @@ urlpatterns = [
     path('profile_view/', views.others_profile_view, name='others_profile'),
     path('support/', views.support_view, name='support'),
     path('support_slugify/', views.support_slug_view, name='support_slugify'),
+    path('chat/', views.chat_view, name='chat'),
 ]

@@ -1170,3 +1170,7 @@ def support_view(request):
 
 def support_slug_view(request):
     return render(request, 'support_inner.html')
+
+
+def chat_view(request):
+    return render(request, 'message.html')
