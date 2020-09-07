@@ -217,25 +217,25 @@
                         <div class="form-group">
                             <label>Filter</label>
                             <select data-placeholder="Political Issues" multiple class="chosen-select" name="test">
-                                <option value=""></option>
-                                <option value="tag-1">Campaign Finance Reform</option>
-                                <option value="tag-2">Civil Rights</option>
-                                <option value="tag-3">Climate Change</option>
-                                <option value="tag-4">Criminal Justice Reform</option>
-                                <option value="tag-5">Environment</option>
-                                <option value="tag-6">Gender Equality</option>
-                                <option value="tag-7">Gun Safety</option>
-                                <option value="tag-8">Health Care</option>
-                                <option value="tag-9">Immigration Reform</option>
-                                <option value="tag-10">Income Inequality</option>
-                                <option value="tag-11">International Diplomacy</option>
-                                <option value="tag-12">Internet Policy</option>
-                                <option value="tag-13">LGBTQ Rights</option>
-                                <option value="tag-14">Marijuana Legalization</option>
-                                <option value="tag-15">Pro Choice</option>
-                                <option value="tag-16">Public Education</option>
-                                <option value="tag-17">Transport Infrastructure</option>
-                                <option value="tag-18">Union Rights</option>
+                                
+                                <option name="memTag" value="tag-1">Campaign Finance Reform</option>
+                                <option name="memTag" value="tag-2">Civil Rights</option>
+                                <option name="memTag" value="tag-3">Climate Change</option>
+                                <option name="memTag" value="tag-4">Criminal Justice Reform</option>
+                                <option name="memTag" value="tag-5">Environment</option>
+                                <option name="memTag" value="tag-6">Gender Equality</option>
+                                <option name="memTag" value="tag-7">Gun Safety</option>
+                                <option name="memTag" value="tag-8">Health Care</option>
+                                <option name="memTag" value="tag-9">Immigration Reform</option>
+                                <option name="memTag" value="tag-10">Income Inequality</option>
+                                <option name="memTag" value="tag-11">International Diplomacy</option>
+                                <option name="memTag" value="tag-12">Internet Policy</option>
+                                <option name="memTag" value="tag-13">LGBTQ Rights</option>
+                                <option name="memTag"value="tag-14">Marijuana Legalization</option>
+                                <option name="memTag" value="tag-15">Pro Choice</option>
+                                <option name="memTag" value="tag-16">Public Education</option>
+                                <option name="memTag" value="tag-17">Transport Infrastructure</option>
+                                <option name="memTag" value="tag-18">Union Rights</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -261,6 +261,13 @@ $('#modal-share').on('show.bs.modal', function(event) {
 })
 </script>
 <script>
+$(document).ready(function() {
+    $('input:text').val('');
+    $('input:checkbox').prop('checked', false);
+    $('input:radio').prop('checked', false);
+     
+       
+});
 if (window.location.hash === '#news_tab/') {
     //alert("message?: DOMString")
     tabclick("news_tab");
@@ -288,51 +295,26 @@ $(".chosen-select").on('change',function(){
     selectedFilters=$(".chosen-select").val();
     //console.log('selected  ',selectedFilters);
     var $filteredResults = $('.member__class');
-    var matched=false;
-    for(var i=0;i<selectedFilters.length;i++)
-    {
-
-        //console.log("selected ",selectedFilters[i]);
-        currentFilterValues = $filteredResults.data('tagvalue').split(' ');
-        //console.log("current ",currentFilterValues)
-        for(var j=0;j<currentFilterValues.length;j++)
-        {
-            //console.log("current ",currentFilterValues[j])
-           if(currentFilterValues[j]===selectedFilters[i])
-           {
-                console.log($filteredResults);
-                $('.member__class').hide();
-                $('.member__class[data-tagvalue=""]').find()
-                //$filteredResults.show();
-                break;
-           }
-        }
-        
-        
-    }
-    /*$.each(selectedFilters, function(name,filterValues) {
+    
+    $.each(selectedFilters, function(name,filterValues) {
+            
         $filteredResults = $filteredResults.filter(function() {
+            
             var matched = false,
                 currentFilterValues = $(this).data('tagvalue').split(' ');
-                //console.log(currentFilterValues);
-            /*$.each(currentFilterValues, function(_, currentFilterValue) {
-                console.log($.inArray(currentFilterValue, filterValues));
-                if ($.inArray(currentFilterValue, filterValues) != -1) {
+            
+            $.each(currentFilterValues, function(_, currentFilterValue) {
+              
+                if (currentFilterValue===filterValues) {
                     matched = true;
                     return false;
                 }
-            });*/
-            //console.log('filterssssss=',filterValues);
-            /*for(var i=0;i<filterValues.length;i++)
-            {
-                console.log(filterValues[i]);
-                console.log($.inArray(currentFilterValues,filterValues));
-                
-            }
+            });
+            
             return matched;
         });
-    }); */
-    //$('.member__class').hide().filter($filteredResults).show();
+    });
+    $('.member__class').hide().filter($filteredResults).show();
 });
 
 function tabclick(clicked_id) {

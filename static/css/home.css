@@ -443,7 +443,8 @@ a[class^="share-network-"] {
 {
 border:none;
 }*/
-.nav-tabs.r .nav-item.show .nav-link, .nav-tabs.r .nav-link.active {
+.nav-tabs.r .nav-item.show .nav-link,
+.nav-tabs.r .nav-link.active {
     color: #FF4814;
     font-weight: 500;
     background-color: transparent;
@@ -451,11 +452,13 @@ border:none;
     border-bottom: 3px solid #FF4814;
 }
 
-.nav-tabs.r .nav-item.show .nav-link, .nav-tabs.r .nav-link.active:hover {
+.nav-tabs.r .nav-item.show .nav-link,
+.nav-tabs.r .nav-link.active:hover {
     background: transparent;
 }
 
-.nav-tabs.r .nav-item.show .nav-link, .nav-tabs.r .nav-link:hover {
+.nav-tabs.r .nav-item.show .nav-link,
+.nav-tabs.r .nav-link:hover {
     background: #EEEEEE;
 }
 
@@ -469,7 +472,8 @@ border:none;
     font-size: 80%;
 }
 
-.nav-tabs.r .nav-item.show .nav-link, .nav-tabs.r .nav-link.active .tab-badge {
+.nav-tabs.r .nav-item.show .nav-link,
+.nav-tabs.r .nav-link.active .tab-badge {
     background: #FF4814;
 }
 
@@ -533,7 +537,10 @@ background: #FF4814;
     border-color: #007bff;
 }
 
-.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
     color: #f87c59;
     background-color: #eee;
     border-color: #ddd;
@@ -846,13 +853,15 @@ video.candidate-video-player {
 }
 
 /*==========signin===============*/
-.btn.btn-fb-color, .btn.btn-fb {
+.btn.btn-fb-color,
+.btn.btn-fb {
     background: #3a5998;
     border-color: #3a5998;
     color: #fff;
 }
 
-.btn.btn-twitter-color, .btn.btn-twitter {
+.btn.btn-twitter-color,
+.btn.btn-twitter {
     background: #4098fc;
     border-color: #4098fc;
     color: #fff;
@@ -943,10 +952,16 @@ a.showLess::after {
     margin: 5px 5px 10px 20px;
     float: right;
 }
-input:focus, textarea:focus {
+
+input:focus,
+textarea:focus {
     outline: none !important;
 }
-.form-control:focus
-{
-    box-shadow:none;
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.highlight {
+    background-color: #FFFF88;
 }

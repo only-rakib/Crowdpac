@@ -40,7 +40,7 @@ def social_feed_View(request):
     campaign_1 = {
 
         'campaign_title': "26-year old truck driver & climate activist fighting for the working class",
-        'campaign_cover_image': "images/cyst94ggea6r6iag1568.png",
+        'campaign_cover_image': "images/gvmy4rgh6fkxr9jk0mnv.png",
         'campaign_content_writer': "Joshua Collins",
         'campaign_content_year': "2021",
         'campaign_content_writer_address': "U.S. House, 10th District,",
@@ -78,7 +78,7 @@ def social_feed_View(request):
     campaign_3 = {
 
         'campaign_title': "26-year old truck driver & climate activist fighting for the working class",
-        'campaign_cover_image': "images/cyst94ggea6r6iag1568.png",
+        'campaign_cover_image': "images/iizefpiztgn8bo2vindb.png",
         'campaign_content_writer': "Joshua Collins",
         'campaign_content_year': "2020",
         'campaign_content_writer_address': "U.S. House, 10th District,",
@@ -180,14 +180,14 @@ def social_feed_View(request):
         "member_pro_pic": "none",
         'memberDataLetter': 'A',
         'memberId': 1,
-        'tagValue': 'tag-4' + ' ' + 'tag-5' + ' ' + 'tag-6'
+        'tagValue': 'tag-2' + ' ' + 'tag-3' + ' ' + 'tag-4'
     }
     member3 = {
         'member_name': 'xyzz',
         "member_pro_pic": "none",
         'memberDataLetter': 'X',
         'memberId': 1,
-        'tagValue': 'tag-7' + ' ' + 'tag-8' + ' ' + 'tag-9',
+        'tagValue': 'tag-4' + ' ' + 'tag-5' + ' ' + 'tag-6',
     }
     lstMember = []
     lstMember.append(member1)

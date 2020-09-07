@@ -442,6 +442,7 @@ $('.items3 .showMore').on('click', function() {
 /* Filter by tag*/
 //var $filterCheckboxes = $('input[type="checkbox"]');
 var $filterCheckboxes = $('input:checkbox[name="tag"]');
+
 $filterCheckboxes.on('change', function() {
 
     var selectedFilters = {};
@@ -462,7 +463,7 @@ $filterCheckboxes.on('change', function() {
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
 
-        // filter each .flower element
+        // filter each .tag elements
         $filteredResults = $filteredResults.filter(function() {
 
             var matched = false,
