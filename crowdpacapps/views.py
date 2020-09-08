@@ -14,7 +14,91 @@ login = "True"
 
 def home_view(request):
     global login
-    return render(request, 'index.html')
+    data = [
+        {
+            'card_image': 'images/acota2cajfxsjeihojup.png',
+            'card_title': "Fund Susan Collins' Future Opponent",
+            'card_creator': 'Created by Be A Hero',
+            'rasied_amount': 4124792,
+            'donation_goal': 5124792,
+            'percentence': (4124792 / 5124792) * 100,
+        },
+        {
+            'card_image': 'images/acota2cajfxsjeihojup.png',
+            'card_title': "Fund Susan Collins' Future Opponent",
+            'card_creator': 'Created by Be A Hero',
+            'rasied_amount': 4124792,
+            'donation_goal': 5124792,
+            'percentence': (4124792 / 5124792) * 100,
+        },
+        {
+            'card_image': 'images/acota2cajfxsjeihojup.png',
+            'card_title': "Fund Susan Collins' Future Opponent",
+            'card_creator': 'Created by Be A Hero',
+            'rasied_amount': 4124792,
+            'donation_goal': 5124792,
+            'percentence': (4124792 / 5124792) * 100,
+        },
+        {
+            'card_image': 'images/acota2cajfxsjeihojup.png',
+            'card_title': "Fund Susan Collins' Future Opponent",
+            'card_creator': 'Created by Be A Hero',
+            'rasied_amount': 4124792,
+            'donation_goal': 5124792,
+            'percentence': (4124792 / 5124792) * 100,
+        },
+    ]
+    run_for_office = [
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+        {
+            'pro_pic': 'images/cand5f067b604f733d2de02ffa44.png',
+            'name': 'Martha Lugo',
+            'position': "Aurora,CO, Aurora City Council Ward III,Ward III,2021 spiente , earum",
+            'started_date': 'July 24,2020',
+        },
+    ]
+    return render(request, 'index.html', {'data': data, 'run_for_office': run_for_office})
 
 
 def exploreView(request):
