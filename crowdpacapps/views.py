@@ -9,6 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 login = "True"
+# context_processor.py is stroed the loged in user data
 
 
 def home_view(request):
