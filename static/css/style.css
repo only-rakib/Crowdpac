@@ -27,7 +27,10 @@ a.clsm {
     text-decoration: none;
     color: inherit;
 }
-
+a
+{
+	outline:none;
+}
 a.clsm:hover {
     text-decoration: none;
 }
