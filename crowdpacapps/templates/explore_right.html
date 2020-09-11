@@ -201,11 +201,11 @@
                     <label for="stateMI">Michigan</label>
                 </div>
                 <div class="item">
-                    <input type="checkbox" name="states" value="MN" id="stateMS">
-                    <label for="">Minnesota</label>
+                    <input type="checkbox" name="states" value="MN" id="stateMN">
+                    <label for="stateMN">Minnesota</label>
                 </div>
                 <div class="item">
-                    <input type="checkbox" name="states" value="MS" id="">
+                    <input type="checkbox" name="states" value="MS" id="stateMS">
                     <label for="stateMS">Mississippi</label>
                 </div>
                 <div class="item">
@@ -517,7 +517,7 @@ $filterCheckboxesState.on('change', function() {
     });
 
     // create a collection containing all of the filterable elements
-    var $filteredResults = $('.card');
+    var $filteredResults = $('.cardDiv .state');
     //console.log("filteredResults",$filteredResults);
     // loop over the selected filter name -> (array) values pairs
     $.each(selectedFilters, function(name, filterValues) {
@@ -529,7 +529,7 @@ $filterCheckboxesState.on('change', function() {
                 //currentFilterValues = $(this).data('category').split(' ');
                 //currentFilterValues = $(this).find(".badge").text().split();
                 currentFilterValues = $(this).text().split();
-            //console.log(currentFilterValues)
+            console.log(currentFilterValues)
 
 
             // loop over each category value in the current .flower's data-category
